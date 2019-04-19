@@ -1,0 +1,298 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Njenga JS -->
+    <script defer src='src/index.js'></script>
+    <!-- Bootstrap core JavaScript -->
+    <script defer src="src/jquery/jquery.min.js"></script>
+    <script defer src="src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script defer src="src/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script defer src="src/js/new-age.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="src/css/new-age.css" rel="stylesheet">
+    <!-- <link href="src/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="src/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/simple-line-icons/css/simple-line-icons.css">
+      <link rel="stylesheet" href="src/style.css">
+
+
+
+
+
+    <title>CareConnect</title>
+  </head>
+<body id>
+  <div class=>
+    <header class='container masthead header-content'>
+    <h1 class='mb-5 text-center'>CareConnect</h1>
+    <h4 class='mb-5 text-center hide-opacity'>Easily find and monitor home care for a loved one.</h4><br>
+    <h6 class='mb-5 text-center'>
+    <a href="#" class="btn btn-outline btn-xl js-scroll-trigger display-none" id='form-start'>Get Started</a>
+    </h6>
+    <h3 class="problem text-center">How do I find a provider that meets my needs?</h3>
+    </header>
+
+  </div>
+  <!-- VALUE PROP DESCRIPTION -->
+
+<!--ATTEMPT TO CREATE INTRO ICONS EXPLAINING VALUE PROPOSITION -->
+<section class="features-icons bg-light text-center value-prop-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 vp">
+            <h3>Find Care You Trust</h3>
+            <p class="lead mb-0 vp-subheading">We guide you to the right care provider to meet your needs.</p>
+        </div>
+        <div class="col-lg-3">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3 vp" data-id="2">
+            <h3>Stay Informed</h3>
+            <p class="lead mb-0 vp-subheading">Real-time updates during each care visit to keep you worry-free. </p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3 vp" data-id="3">
+            <h3>Involve Others</h3>
+            <p class="lead mb-0 vp-subheading">Invite stakeholders to receive care updates.</p>
+          </div>
+        </div>
+        <div class="col-lg-3" >
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3 vp" data-id='4'>
+            <h3>Control Each Visit</h3>
+              <p class="lead mb-0 vp-subheading">Adjust the care plan as needed through simple task list updates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM FOR USER INPUT -->
+    <section class='features' id='features'>
+    <div class='container' id='questions'>
+      <form class='regForm' id='question-container container'>
+        <div class='question form-group' id='form-question' data-id='1'>
+          <p data-id='zip'>Zip code where you need care?
+            <input class='form-control input-limit' type="text" pattern="[0-9]{5}" title="Five digit zip code" required/>
+            <br>
+          </p>
+        </div>
+
+        <div class=" question container" id=
+        "form-question" data-id='3'>
+          <p>Who needs care?</p>
+          <div class="row">
+            <div class="col-md-5 col-lg-8 col-sm-6 col-md-offset-2">
+              <div class="card" style="margin:50px 0">
+                        <!-- Default panel contents -->
+                <ul class="">
+                    <li class="list-group-item">
+                      Parent
+                    <input type="radio">
+                  </li>
+                    <li class="list-group-item">
+                      Grandparent
+                      <input type="radio">
+                    </li>
+                    <li class="list-group-item">
+                      Spouse
+                      <input type="radio">
+                    </li>
+                    <li class="list-group-item">
+                      Friend
+                      <input type="radio">
+                    </li>
+                    <li class="list-group-item">
+                      Me
+                      <input type="radio">
+                    </li>
+                    <li class="list-group-item">
+                      Other
+                      <input type="radio">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class=" question container" id=
+        "form-question" data-id='3'>
+          <p>What skills do you need in a caregiver?</p>
+        	<div class="row">
+            <div class="col-md-6 col-lg-8 col-sm-6 col-md-offset-2">
+        	    <div class="card" style="margin:50px 0">
+                        <!-- Default panel contents -->
+                <ul class="">
+                    <li class="list-group-item">
+                      Dressing, bathing, and/or grooming
+                    <input type="checkbox">
+                  </li>
+                    <li class="list-group-item">
+                      Meal preparation
+                      <input type="checkbox">
+                    </li>
+                    <li class="list-group-item">
+                      Transportation
+                      <input type="checkbox" class="primary">
+                    </li>
+                    <li class="list-group-item">
+                      Medicine reminders/consumption
+                      <input type="checkbox">
+                    </li>
+                    <li class="list-group-item">
+                      Administrative support(e.g., paying bills, making calls)
+                      <input type="checkbox">
+                    </li>
+                    <li class="list-group-item">
+                      Companionship
+                      <input type="checkbox">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class=" question container" id=
+        "form-question" data-id='3'>
+          <p>How soon do you need care?</p>
+          <div class="row">
+            <div class="col-md-5 col-lg-8 col-sm-6 col-md-offset-2">
+              <div class="card" style="margin:50px 0">
+                        <!-- Default panel contents -->
+                <ul class="">
+                    <li class="list-group-item">
+                      Right now
+                    <input type="radio">
+                  </li>
+                    <li class="list-group-item">
+                      Week
+                      <input type="radio">
+                    </li>
+                    <li class="list-group-item">
+                      Month
+                      <input type="radio">
+                    </li>
+                    <li class="list-group-item">
+                      Over a month/Unsure
+                      <input type="radio">
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class=" question container" id=
+        "form-question" data-id='3'>
+          <p>Preferred years of experience for a care provider?</p>
+          <div class="row">
+            <div class="col-md-5 col-lg-6 col-sm-6 col-md-offset-3">
+              <div class="card" style="margin:50px 0">
+                        <!-- Default panel contents -->
+                <ul class="">
+                    <li class="list-group-item">
+                      1-3
+                    <input type="radio">
+                  </li>
+                    <li class="list-group-item">
+                      3-5
+                      <input type="radio">
+                    </li>
+                    <li class="list-group-item">
+                      5+
+                      <input type="radio">
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class='form-actions'>
+          <div class='form-buttons'>
+            <button class='text-center btn-sm' type="button" id="prevBtn">Previous</button>
+            <button class='btn-sm' type="button" id="nextBtn">Next</button>
+          </div>
+
+        <!-- Circles which indicates the steps of the form: -->
+            <div class='form-steps'>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+            </div>
+        </div>
+
+      </form>
+    </div>
+
+    <br>
+    <br>
+
+  <section>
+  <div class="container steps-div hide-opacity">
+  <div class="row">
+    <h3 class='common-questions-header text-center step-h3'>How It Works</h3>
+    <ul style="list-style-type:none" class="col-lg-offset-3 how-it-works">
+        <li class="step-list">
+        <h6 class="number-styling">&#9312;</h6>&nbsp;&nbsp;
+        <span class="step-header">Create profile</span></li>
+        <li class="step-list"><h6 class="number-styling">&#9313;</h6>&nbsp;&nbsp;<span class="step-header">Invite stakeholders to your Carespace</span></li>
+        <li class="step-list"><h6 class="number-styling">&#9314;</h6>&nbsp;&nbsp;<span class="step-header">Pick your provider</span></li>
+        <li class="step-list"><h6 class="number-styling">&#9315;</h6>&nbsp;&nbsp;<span class="step-header">Manage, control, and stay connected through your Carespace</span></li>
+    </ul>
+    </div>
+    </div>
+    </section>
+    <br>
+
+
+
+  <div class='section-heading text-center common-questions hide-opacity'>
+    <h3 class='common-questions-header'>Frequently Asked Questions</h3>
+
+    <div class="common-question">
+      <h4 class="question-header">What is home care?</h4>
+      <span>Care provided in the home by non-clinical caregivers trained to assist with daily living activities and provide companionship. Home health is not to be confused with home health care, which is prescribed by a doctor and requires professional supervision.
+      </span>
+    </div>
+
+    <div class='common-question'>
+      <h4 class="question-header">How do I know I can trust the care providers you recommend?</h4>
+      <span>We only provide care providers that have the required government certifications to offer care. When we show you results, we prioritize providers that use the Rappora platform.  We only provide results for Caregivers who use the Rappora platform, which enables them to give you best-in-class visibility to care actions day-in and day-out using <a href="#">CareConnect.</a>.
+      </span>
+    </div>
+
+    <div class='common-question'>
+      <h4 class="question-header">How do you match my profile to potential caregivers?</h4>
+      <span>Care providers receive your profile information including the questions you answer so they can determine if they have caregivers on staff that meet your needs. If they do, they will contact you to setup an interview so you can assess whether they are the right fit?
+      </span>
+    </div>
+
+    <div class='common-question'>
+      <h4 class="question-header">Is home care tax deductible?</h4>
+      <span>Yes, click <a target="_blank" href="https://blog.credit.com/2016/02/3-tax-breaks-you-can-get-for-taking-care-of-aging-parents-136398">here</a> for more details.
+      </span>
+    </div>
+
+  </div>
+  <br>
+
+  </section>
+
+
+
+</body>
+</html>
