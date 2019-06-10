@@ -6,8 +6,6 @@
 
 ![project GIF]()
 
-## Project FAQ
-#### 1. What is this?
 A basic landing page template intented for new products. The site was developed for the use case of a not-yet-launched product, specifically to (1) describe the value proposition ,(2) present basic product details, (3) collect contact information for interested users.
 
 ## Access Instructions
