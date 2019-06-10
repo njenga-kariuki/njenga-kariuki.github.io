@@ -1,5 +1,3 @@
-# njenga-kariuki.github.io
-
 # Landing Page Template
 
 ###### Project completed as part of [Flatiron School](https://flatironschool.com/campuses/seattle/) curriculum.
