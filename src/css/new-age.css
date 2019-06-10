@@ -496,28 +496,28 @@ div.item.active#car-override {
   opacity: 1;
   transition: opacity 1s;
 }
-
+/*
 /* strikethrough text */
-.strike {
-    position: relative;
-    display: block;
-    align-content: center;
+/* .strike { */
+    /* position: relative; */
+    /* display: block; */
+    /* align-content: center; */
     /* transition: width 10.0s; */
 }
 .strike::before {
-    content: '';
-    border-bottom: 2px solid red;
-    width: 0%;
-    position: absolute;
+    /* content: ''; */
+    /* border-bottom: 2px solid red; */
+    /* width: 0%; */
+    /* position: absolute; */
     /* right: 1px; */
-    top: 50%;
-    text-align: center;
+    /* top: 50%; */
+    /* text-align: center; */
 }
 
 .strike::before{
   width: 32%;
   transition: width 5.0s;
-}
+} */
 
 .slow-hide-opacity{
   opacity: 0;
