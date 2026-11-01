@@ -1,28 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Njenga (Jay) Kariuki</title>
-<meta name="description" content="The AI products I&#x27;ve led, and how each was built: from Alexa shopping in 2017 to enterprise AI across M-PESA Africa today.">
+<meta name="description" content="The AI products I’ve led, and how each was built: from Alexa shopping in 2017 to enterprise AI today.">
 <meta name="theme-color" content="#ffffff">
 <meta name="color-scheme" content="light">
+<link rel="canonical" href="https://njenga-kariuki.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Njenga (Jay) Kariuki">
-<meta property="og:description" content="The AI products I&#x27;ve led, and how each was built: from Alexa shopping in 2017 to enterprise AI across M-PESA Africa today.">
 <meta property="og:url" content="https://njenga-kariuki.github.io/">
+<meta property="og:title" content="Njenga (Jay) Kariuki">
+<meta property="og:description" content="The AI products I’ve led, and how each was built: from Alexa shopping in 2017 to enterprise AI today.">
 <meta property="og:image" content="https://njenga-kariuki.github.io/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Njenga (Jay) Kariuki: The AI products I’ve led, and how each was built: from Alexa shopping in 2017 to enterprise AI today.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://njenga-kariuki.github.io/">
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAABeElEQVR42mPk4uJioCVgYqAxGLVg1IJRCwbGAn5+/q9fv379+rWmpgYuOGvWrK9fv2ppaUFkX716BZeysLB49erVixcvjI2NSfNBXl6ehIQEfgcaGhquX7+egYEhMDDw7NmzJFjw9OlTbm7u2tpaPKZraWlt2rSJlZU1ODj4+PHjpMXBlStXDhw4EBsbq6mpiVWBqqrq1q1bubm5w8PDDx8+THIks7GxVVdXMzExtbS0YMqysrJu3bpVTEzswoUL+/fvJycVMTIyXrhwYfXq1R4eHnZ2dv///0ez/sePH2fPnjU3N6+uriY/mTY2Nv769autre379+/I4j9//rS1tY2MjHz37l15ebmbmxuZFjx48GD27NmGhoZOTk7I4n/+/Pn48ePTp0+Tk5MZGBjmzZsnJydHZkbr7Oz8/PmzsrIyVtldu3b19vYKCgouXbqUnZ2dHAvevn3b29uLR0FTU9ORI0eMjIx6enqwxOVopT9qwagFoxYQBgBsGYvXD/Ad9AAAAABJRU5ErkJggg==">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Ctext x='32' y='42.5' fill='%23fff' font-family='Arial,Helvetica,sans-serif' font-size='28' font-weight='700' text-anchor='middle'%3ENK%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAIBklEQVR42u3da0gUXQPA8bOrmWyaopYkYVHYhUCCIrLIikTMyiJRU9MM00wjU8JLSplZ2g1CshQtM9ay/aCIiIEkSBKIFIUlhQndC8tLZprXng++T/j01syWm7uj/9+nsBOO2391zpkzo0qj0QjgZ9S8BCAOEAeIA8QB4gBxgDhAHCAOEAdAHCAOEAeIA8QB4gBxgDhAHCAOgDhAHCAOEAeIA8QB4gBxgDhAHABxgDhAHCAOEAeIA8QB4gBxgDhAHABxgDhAHCAOEAeIA8QB4gBxgDgA4gBxgDhAHCAOEAeIA8QB4gBxAMaIo7y8/IseTp8+PfbPtXPnTolPUVlZOcZDLS4uNshrEhAQ0NXVJfuaNDQ0zJgxg+8cYu/evQsWLJgMb9CAgID8/HwzMzPpYY8ePfLy8vrw4QNxCHNz81OnTlHGiIcPH3p5ebW1tXHO8T+enp6enp6Ucf/+fW9v746ODk5I/yMrK8vc3Hwyl9HQ0LBp06bOzk5mKz9auHBhZGTkpC2jvr5+y5YtXV1dTGV/LiUlxc7ObhKWcffuXR8fn8+fP7PO8Uu2trapqamTrYw7d+5s27atu7ubRTAZ4eHhixYtmjxl1NbWbt++/cuXL4IVUn2mtQZZE1NEGTU1Nb6+vj09PYLlcz1t2LBh48aNE76M6upqPz+/3t5ewbWV35KZmTllypQJXMatW7cCAgK+fv0quPD2/9rb2yX+1sXFJSoqaqKWUVlZGRgY2NfXJ7gq+1Nv3rypqKiQGJCcnGxvbz/xyigvLw8ODu7v7xdcsv8VJyenw4cPS7xGNjY2R44cmWBllJaWhoaGDgwMCC7ZS7Czs3v16lVubq7EmN27dy9ZsmTClKHT6cLCwgYHBwX7OaSpVCoHB4fMzMyPHz/+aoyZmZnpT2v1LKOkpGTPnj1DQ0OCzT76cHBw6OrqOn78uMSYdevWbd68WellaLXaiIgIky3DFOOwtbUVQhQWFjY1NUkMO3nypIWFhXLLKCoq2rdv3/DwsGCboP5sbGyEEENDQ4mJiRLD5s+fHx0drdAyLl++HBMTY+JlmGIcGo1G/LuKXFVVJTEyKSlpPDdUGqqMvLy82NjYb9++CTYY/67RPyySk5MlJnjW1tZHjx5VVhk5OTnx8fGKKMMU4xj9+jY3N+fl5UkM3rVrl6urq1LKuHTpUkJCghDcmjCG2az47/UUiTV1tVpt9GmtnmUIIVxcXNRqNXEYTGdn54kTJyQGrFmzZuvWrcY6vBUrVuhZhhDCw8MjPT2dOAypoKDgyZMn0tPaqVOnCiOt9+tZxoi4uDg/Pz/iMJjBwcGkpCSJAXPnzt2/f79SXvGLFy+awnnSxNnPUV1dXV1dLTEgISHB0dFREV+LRqMpKSlRxLVlxZwfJSYmSlydsrKySktLU8rXMmfOHK1Wa/r34ygmjqdPnxYUFAjJe6aXLl1q9ONsamrKzMyUHebu7q7PMOLQV0ZGhsSNX2q1+syZM8Y9wuLi4rVr12ZkZFy9elV2cHR0dHBwMHEYRkdHh/S7bdWqVb6+vqM/Mm5rkb29vTExMZGRkSO7xuPj4+/duyf7r7Kzs5ctW0YchpGXl9fc3Cz93cXS0nL0TGccjurZs2fr168f/d2ir68vKChIYlfKCEtLy5KSkpkzZxKHAQwMDCQnJ0sMcHZ2PnDgwHjGUVpaunr16sbGxh8+/vr169DQUNntGk5OTtevXzfNXfXKe+xTVVVVTU2NxIBDhw7NmjVr5M9/+9agmpqakJCQX920WFtbq8+OVzc3t3PnzhGHwaa1Eu/IadOmfV+l/tv3msre/37+/PmysjKhx/2e4eHhxGGY6WJhYaHEgMDAwJETPWM9vGC0qKgo6eX/EWfPnnVzcyMOA0hPT5f4j1epVCNXa6Xvkhof3d3dO3bskH2SgoWFRXFxsZOTE3GMVVtbm/S0duXKlf7+/rLzhfHR3NwcEREhO692dHS8ceOGsS4iTqjnkObm5ra0tEgMGNnCbtxHXHxXUVGhz1nn8uXLs7OziWOs+vv7U1JSJAbMnj374MGDb9++NZEDPnbs2O3bt4Uez041kb3Tyn6CcUVFRW1trcSA+Ph40zna4eHhsLCwFy9eCD2eJ+Du7k4cBpjWSuzx12g0JvWk2/b29qCgINmHLJibm2u1WmdnZ+IYk8bGxmvXrinogB88eBAbGys7zN7e/ubNm99v1CCOP/9ZbiJnnXrSarX5+fmyw1xdXXNycohjTFpbWxX3IOyEhIT6+nrZYf7+/nFxccQxJjk5Oc+fP1fWVCs4OLi1tVXosdzn4eFBHH+ur69Pcc8qfffuXUhIiOx1Y7VaXVRUNG/ePOL4c2VlZXV1dco65rq6OumlGvHvkwd0Op2VlRVx/K1prWm6cOGCTqeTHbZ48eL8/Pwfbgckjt+bJRrqVyeNp5iYmMePH8sO8/HxkX4sBXHISEtLU9a0VgjR09MTGBj46dMn2ZGpqane3t7E8Yfev39vmruqpLW0tISHh8tetlWpVFeuXBm3Nd8J+Nshs7OzX758KRS4/TErK0t2mLW1tU6nmz59+jgcksq4C7QQ3LcC4gBxgDhAHABxgDhAHCAOEAeIA8QB4gBxgDgA4gBxgDhAHCAOEAeIA8QB4gBxAMQB4gBxgDhAHCAOEAeIA8QB4gBxAMQB4gBxgDhAHCAOEAeIA8QB4gCIA8QB4gBxgDhAHCAOEAeIA8QBEAeIA8QB4gBxgDhg0v4BSf1LRGKz60EAAAAASUVORK5CYII=">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;600&amp;display=swap">
+<script>(function(d){d.classList.add('js');var h=location.hash;d.classList.add(h==='#credits'?'at-credits':'at-overview');if(h==='#credits')document.title='Credits · '+document.title;})(document.documentElement);</script>
+<link rel="preload" href="fonts/chivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face { font-family: "Chivo"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("fonts/chivo-latin-var.woff2") format("woff2"); }
+
+
+
+
 @font-face {
   font-family: "Chivo Fallback"; font-weight: 100 349;
   src: local("Arial"), local("ArialMT"), local("Helvetica"), local("Liberation Sans");
@@ -38,80 +43,1026 @@
   src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Bold"), local("Liberation Sans Bold");
   size-adjust: 102.6%; ascent-override: 91.6%; descent-override: 24.4%; line-gap-override: 0%;
 }
+
 :root {
   color-scheme: light;
-  --paper: #ffffff; --ink: #0a0a0a; --ink-2: #4a4a47; --rule: #dad9d4;
+  --paper: #ffffff;
+  --ink: #0a0a0a;        
+  --ink-2: #4a4a47;      
+  --track: #8a8985;      
+  --rule: #dad9d4;       
+  --plate: #edebe6;      
   --font: "Chivo", "Chivo Fallback", Arial, sans-serif;
-  --m: 16px; --t-meta: 0.875rem; --t-body: 1.0625rem; --t-lede: 1.3125rem;
-  --ml: max(var(--m), env(safe-area-inset-left)); --mr: max(var(--m), env(safe-area-inset-right));
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+
+  
+  --m: 16px;
+  --g: 16px;
+  --cols: 1;
+  --rg: 48px;
+  --t-meta: 0.875rem;    
+  --t-cap: 0.875rem;     
+  --t-body: 1.0625rem;   
+  --t-lede: 1.1875rem;   
+  --t-no: 2.25rem;       
+  --t-disp: 2rem;        
+  --head-h: 52px;
+  --no-w: 3.25rem;
+  
+  --ml: max(var(--m), env(safe-area-inset-left));
+  --mr: max(var(--m), env(safe-area-inset-right));
+  --top: env(safe-area-inset-top);
 }
-@media (min-width: 700px) { :root { --m: 32px; --t-lede: 1.5rem; } }
-@media (min-width: 1100px) { :root { --m: clamp(40px, 3.75vw, 72px); --t-meta: 0.9375rem; --t-body: 1.125rem; --t-lede: 1.75rem; } }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (min-width: 700px) {
+  :root {
+    --m: 32px; --g: 20px; --cols: 2; --rg: 64px;
+    --t-cap: 0.8125rem; --t-lede: 1.3125rem; --t-no: 2.5rem; --t-disp: 2.75rem; --no-w: 3.75rem;
+  }
+}
+@media (min-width: 1100px) {
+  :root {
+    --m: clamp(40px, 3.75vw, 72px); --g: 24px; --cols: 3; --rg: 72px;
+    --t-meta: 0.9375rem;  
+    --t-cap: 0.8125rem;   
+    --t-body: 1.125rem;   
+    --t-lede: 1.5rem;     
+    --t-no: 2.75rem;      
+    --t-disp: 3rem;       
+    --no-w: 4.25rem;
+  }
+}
+@media (min-width: 1500px) {
+  :root { --t-disp: 3.5rem; }  
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--head-h) + var(--top) + 16px);
+}
 body {
-  margin: 0; background: var(--paper); color: var(--ink);
-  font-family: var(--font); font-size: var(--t-body); font-weight: 400; line-height: 1.5;
-  font-synthesis: none; font-kerning: normal; font-variant-numeric: tabular-nums lining-nums;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--t-body);
+  font-weight: 400;
+  line-height: 1.5;
+  font-synthesis: none;
+  font-kerning: normal;
+  font-variant-numeric: tabular-nums lining-nums;
   -webkit-font-smoothing: antialiased;
+  caret-color: var(--ink);
+  accent-color: var(--ink);
 }
 ::selection { background: var(--ink); color: var(--paper); }
+img { display: block; }
 a { color: inherit; text-decoration: none; }
-p, h1, h2, ol { margin: 0; padding: 0; }
-h1, h2 { font-size: inherit; font-weight: inherit; }
-ol { list-style: none; }
+p, h1, h2, h3, ol, ul, dl, dd, figure { margin: 0; padding: 0; }
+h1, h2, h3 { font-size: inherit; font-weight: inherit; }
+ol, ul { list-style: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent; }
+summary { -webkit-tap-highlight-color: transparent; }
+
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
-.nw { white-space: nowrap; }
+[tabindex="-1"]:focus { outline: none; }
 .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+time { font-variant-numeric: tabular-nums lining-nums; }
 @media (hover: hover) and (pointer: fine) {
-  .link:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .hov:hover, .title a:hover, .foot__a:hover, .tomb__contact:hover {
+    text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em;
+  }
 }
-.wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--mr) 0 var(--ml); }
-.tomb { padding-top: max(28px, env(safe-area-inset-top)); display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; }
-.tomb__name { font-size: 1.375rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
-.tomb__contact { align-self: center; font-size: var(--t-meta); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
-.tomb__role { grid-column: 1 / -1; margin-top: 4px; font-size: var(--t-meta); line-height: 1.4; color: var(--ink-2); }
-.tomb__line { grid-column: 1 / -1; margin-top: 36px; max-width: 30em; font-size: var(--t-lede); line-height: 1.32; letter-spacing: -0.005em; text-wrap: balance; }
-.tomb__ctx { grid-column: 1 / -1; margin-top: 14px; font-size: var(--t-meta); line-height: 1.45; color: var(--ink-2); }
-.list { margin: 40px 0 max(48px, env(safe-area-inset-bottom)); border-top: 1px solid var(--ink); }
-.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; padding: 14px 0 15px; border-bottom: 1px solid var(--rule); }
-.row__label { font-weight: 600; line-height: 1.35; }
-.row__cap { grid-column: 1; margin-top: 2px; color: var(--ink-2); line-height: 1.4; }
-.row__yrs { grid-column: 2; grid-row: 1; font-size: var(--t-meta); line-height: calc(var(--t-body) * 1.35); color: var(--ink-2); white-space: nowrap; }
+
+
+.js .place { display: none; }
+.js.at-overview #overview, .js.at-m14 #m14, .js.at-credits #credits { display: block; }
+
+.js #m14.is-layer {
+  display: block; position: fixed; inset: 0; z-index: 30; overflow: hidden; background: transparent;
+  pointer-events: none;
+}
+.js #m14.is-layer.is-leaving { background: var(--paper); }
+.morph { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
+.morph-ground { position: absolute; background: var(--plate); transform-origin: 0 0; }
+.morph-img { position: absolute; transform-origin: 0 0; max-width: none; max-height: none; }
+
+:root:not(.js) #m14:not(:target), :root:not(.js) #credits:not(:target) { display: none; }
+:root:not(.js):has(#m14:target) #overview, :root:not(.js):has(#credits:target) #overview { display: none; }
+
+
+.tomb {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "name contact" "role role" "thesis thesis" "proofs proofs";
+  padding: 8px var(--mr) 0 var(--ml);
+}
+.tomb__name { grid-area: name; align-self: center; font-size: 1.375rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+.tomb__contact {
+  grid-area: contact; align-self: center;
+  display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding-left: 16px;
+  font-size: var(--t-meta); font-weight: 600;
+}
+.tomb__role { grid-area: role; margin-top: 2px; font-size: var(--t-meta); line-height: 1.4; color: var(--ink-2); }
+.tomb__thesis {
+  grid-area: thesis; margin-top: 14px;
+  font-size: var(--t-lede); line-height: 1.34; font-weight: 400; letter-spacing: -0.005em;
+  text-wrap: balance; max-width: 34em;
+}
+.nw { white-space: nowrap; }
+.tomb__proofs { grid-area: proofs; margin-top: 10px; font-size: var(--t-meta); line-height: 1.45; color: var(--ink-2); text-wrap: balance; }
+@media (min-width: 1100px) {
+  .tomb {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: var(--g);
+    grid-template-areas:
+      "name name thesis thesis thesis contact"
+      "role role thesis thesis thesis ."
+      ".    .    proofs proofs proofs proofs";
+    padding-top: 40px;
+  }
+  .tomb__name { font-size: 2rem; align-self: start; line-height: 1.1; }
+  .tomb__role { margin-top: 10px; }
+  .tomb__thesis { margin-top: 0; font-weight: 300; line-height: 1.3; max-width: none; }
+  .tomb__proofs { margin-top: 12px; }
+  .tomb__contact { justify-self: end; align-self: start; padding-left: 0; margin-top: 2px; min-height: 32px; }
+}
+
+
+.index { margin-top: 22px; padding: 18px var(--mr) 0 var(--ml); }
+.index::before { content: ""; display: block; height: 1px; background: var(--ink); margin-top: -18px; margin-bottom: 18px; }
+@media (min-width: 1100px) { .index { margin-top: 40px; padding-top: 40px; } .index::before { margin-top: -40px; margin-bottom: 40px; } }
+.works {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  column-gap: var(--g);
+  row-gap: var(--rg);
+}
+.work { min-width: 0; display: flex; flex-direction: column; }
+
+
+.viewer { position: relative; min-width: 0; }
+.plate {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--plate);
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+  -webkit-user-select: none; user-select: none;
+  -webkit-touch-callout: none;
+}
+@media (max-width: 699px) { .plate { aspect-ratio: 1 / 1; } }
+.strip { display: flex; height: 100%; }
+.pane { position: relative; flex: 0 0 100%; height: 100%; background: var(--plate); }
+.box {
+  position: absolute; left: 12%; right: 12%; top: 15%; bottom: 15%;
+  display: grid; place-items: center;
+  container-type: size;
+}
+.box img {
+  width: min(100cqw, calc(100cqh * var(--ar)), var(--mw));
+  height: auto;
+  -webkit-user-drag: none;
+}
+.box img.mul, .morph-img.mul { mix-blend-mode: multiply; }                    
+.box img.scr, .morph-img.scr { box-shadow: 0 0 0 1px rgb(10 10 10 / 0.12); }  
+.box img.phone, .morph-img.phone { border-radius: 10% / 4.92%; }                 
+.box img.paper, .morph-img.paper { box-shadow: 0 0 0 1px rgb(10 10 10 / 0.10); }
+.box .broken { display: none; padding: 12px; font-size: var(--t-meta); color: var(--ink-2); text-align: center; }
+.pane.is-broken img { display: none; }
+.pane.is-broken .broken { display: block; }
+
+.tnum {
+  font-size: min(160px, 62cqw, 72cqh); font-weight: 300; line-height: 1; letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums lining-nums; color: var(--ink);
+}
+.viewer[data-opens] .plate { cursor: pointer; }
+
+
+.rail { position: relative; display: flex; gap: 6px; height: 22px; margin-top: 8px; }
+.seg { position: relative; flex: 1 1 0; min-width: 0; height: 100%; }
+.seg::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--track); }
+.seg[aria-selected="true"]::before { height: 2px; background: var(--ink); }
+.seg:focus-visible { outline: none; }
+.seg:focus-visible::after {
+  content: ""; position: absolute; left: -4px; right: -4px; top: calc(var(--lt, 0px) - 6px); height: 14px;
+  border: 2px solid var(--ink);
+}
+.playhead {
+  position: absolute; left: 0; top: -5px; width: 1px; height: 11px; background: var(--ink);
+  visibility: hidden; pointer-events: none;
+}
+.viewer.is-engaged .playhead { visibility: visible; }
+@media (max-width: 699px) {
+  .rail { height: 44px; gap: 8px; margin-top: 0; }
+  .seg { --lt: 21px; }
+  .seg::before { top: 21px; }
+  .seg[aria-selected="true"]::before { top: 20px; }
+}
+
+.cap {
+  display: flex; gap: 8px; max-width: 28em;
+  min-height: calc(2em * 1.4);
+  font-size: var(--t-cap); line-height: 1.4; color: var(--ink-2);
+}
+.cap .fig { flex: none; font-weight: 600; }
+.cap .txt { text-wrap: pretty; }
+@media (max-width: 699px) { .cap { min-height: calc(3em * 1.4); } }
+.rail--none { visibility: hidden; }
+@media (max-width: 699px) { .viewer--type .rail--none, .viewer--type .cap { display: none; } }
+
+
+.label {
+  display: grid;
+  grid-template-columns: var(--no-w) minmax(0, 1fr) auto;
+  column-gap: 12px;
+  align-items: start;
+  margin-top: 12px;
+}
+.no {
+  display: inline-block;
+  font-size: var(--t-no); font-weight: 300; line-height: 1; letter-spacing: -0.02em;
+  padding: 3px 6px 5px; margin: -3px 0 0 -6px;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.label > .no { grid-column: 1; grid-row: 1 / span 2; justify-self: start; }
+
+.work.is-pressed .label > .no, .work.is-here .label > .no, .work.is-back .label > .no, .no--inv { background: var(--ink); color: var(--paper); }
+.title { grid-column: 2; grid-row: 1; font-size: var(--t-body); font-weight: 600; line-height: 1.35; text-wrap: balance; }
+.title a { display: inline-block; }
+.title a:focus-visible { outline-offset: 2px; }
+.yrs { grid-column: 3; grid-row: 1; font-size: var(--t-meta); line-height: calc(var(--t-body) * 1.35); color: var(--ink-2); white-space: nowrap; }
+.lines { grid-column: 2 / span 2; grid-row: 2; }
+.l-role { margin-top: 4px; font-size: var(--t-meta); line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }
+.l-out { margin-top: 3px; font-size: var(--t-body); line-height: 1.4; text-wrap: pretty; }
+
+
+.phase { margin-top: 6px; font-size: var(--t-meta); }
+.phase > summary {
+  list-style: none; display: inline-flex; align-items: center;
+  min-height: 32px; cursor: pointer; color: var(--ink-2);
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em;
+  text-decoration-color: rgb(74 74 71 / 0.45);
+}
+.phase > summary::-webkit-details-marker { display: none; }
+.phase[open] > summary { color: var(--ink); text-decoration-color: var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  .phase > summary:hover { color: var(--ink); text-decoration-color: var(--ink); }
+}
+.changes {
+  display: grid; grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 14px; row-gap: 7px;
+  margin: 4px 0 4px; line-height: 1.4;
+}
+.changes li { display: contents; }
+.changes .d { color: var(--ink); font-weight: 600; white-space: nowrap; }
+.changes .t { color: var(--ink); text-wrap: pretty; }
+
+@media (max-width: 699px) {
+  .work { display: grid; grid-template-columns: var(--no-w) minmax(0, 1fr) auto; column-gap: 10px; }
+  .work > .label { display: contents; }
+  .work .label > .no { grid-row: 1; grid-column: 1; align-self: center; }
+  .work .title { grid-row: 1; grid-column: 2; align-self: center; }
+  .work .yrs { grid-row: 1; grid-column: 3; align-self: center; line-height: 1.3; }
+  .work > .viewer { grid-row: 2; grid-column: 1 / -1; margin-top: 10px; }
+  .work .lines { grid-row: 3; grid-column: 1 / -1; margin-top: 2px; }
+  .work--type .lines { margin-top: 10px; }
+  .phase > summary { min-height: 44px; }
+  .title a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+
+.foot {
+  display: flex; gap: 28px; align-items: center;
+  margin: 96px var(--mr) 0 var(--ml); padding: 14px 0 28px;
+  border-top: 1px solid var(--ink);
+  font-size: var(--t-meta);
+}
+.foot__a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; font-weight: 600; }
+
+
+.rhead {
+  position: sticky; top: 0; z-index: 20;
+  height: calc(var(--head-h) + var(--top));
+  display: flex; align-items: center; gap: 18px;
+  padding: var(--top) var(--mr) 0 var(--ml);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--t-meta);
+}
+.back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; min-width: 44px; font-weight: 600; }
+.back svg { width: 14px; height: 10px; flex: none; }
+.rhead__here { display: flex; align-items: center; gap: 10px; min-width: 0; visibility: hidden; }
+.rhead__here .no { font-size: var(--t-meta); font-weight: 600; padding: 3px 6px; margin: 0; letter-spacing: 0; }
+.rhead__title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rhead__yrs { margin-left: auto; color: var(--ink-2); visibility: hidden; white-space: nowrap; }
+.place.is-scrolled .rhead__here, .place.is-scrolled .rhead__yrs { visibility: visible; }
+
+
+.wp {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding: 0 var(--mr) 0 var(--ml);
+}
+.wp-top { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; align-items: start; padding-top: 18px; }
+.wp-top .no { font-size: var(--t-disp); padding: 4px 8px 7px; margin: -2px 0 0; }
+.wp-h1 { font-size: var(--t-disp); font-weight: 400; line-height: 1.02; letter-spacing: -0.02em; text-wrap: balance; }
+.wp-ctx { grid-column: 2; margin-top: 10px; font-size: var(--t-meta); line-height: 1.45; color: var(--ink-2); }
+.wp-dek1 { margin-top: 14px; font-size: var(--t-body); line-height: 1.45; text-wrap: pretty; max-width: 34em; }
+
+.hero { margin-top: 16px; }
+.hero .plate { aspect-ratio: 16 / 10; cursor: grab; }
+.hero.is-grabbing .plate { cursor: grabbing; }
+@media (max-width: 699px) {
+  .hero { margin-left: calc(-1 * var(--ml)); margin-right: calc(-1 * var(--mr)); }
+  .hero .plate { aspect-ratio: auto; height: calc((100vw - 32px) * 9 / 16 + 32px); }
+  .hero .box { inset: 16px; }
+  .hero .steps-h, .hero .steps, .hero .step-now { margin-left: var(--ml); margin-right: var(--mr); }
+}
+.steps-h { margin-top: 16px; font-size: var(--t-meta); font-weight: 600; }
+.steps {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 8px;
+  margin-top: 8px;
+}
+.stepcol { position: relative; padding-top: 4px; cursor: pointer; }
+.stepcol::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--track); }
+.stepcol.is-cur::before { height: 2px; background: var(--ink); }
+.step {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  width: 100%; min-height: 48px; padding: 4px 0;
+  font-size: var(--t-meta); font-weight: 600; line-height: 1.2;
+}
+.step .no { font-size: var(--t-meta); font-weight: 600; letter-spacing: 0; padding: 2px 6px; margin: 0 0 0 -6px; }
+.stepcol.is-cur .step .no { background: var(--ink); color: var(--paper); }
+.st { display: none; }
+.step-now { margin-top: 10px; min-height: calc(3em * 1.45); font-size: var(--t-body); line-height: 1.45; text-wrap: pretty; }
+
+.wp-text { margin-top: 28px; container-type: inline-size; }
+.wp-dek { font-size: var(--t-body); line-height: 1.5; text-wrap: pretty; max-width: 34em; }
+.wp-dek .d1 { display: none; }
+.facts {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  margin-top: 24px; border-top: 1px solid var(--ink);
+}
+.facts dt { padding-top: 10px; font-size: var(--t-meta); color: var(--ink-2); }
+.facts dd { padding: 2px 0 10px; border-bottom: 1px solid var(--rule); }
+@container (min-width: 500px) {
+  .facts { grid-template-columns: minmax(0, 10.5rem) minmax(0, 1fr); column-gap: 16px; }
+  .facts dt { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .facts dd { padding: 10px 0; }
+}
+
+
+.spine { margin-top: 44px; }
+.spine h2, .camp h2 { font-size: var(--t-meta); font-weight: 600; line-height: 1.4; }
+.spine li { position: relative; font-size: var(--t-meta); line-height: 1.45; }
+.spine li + li { margin-top: 14px; }
+.spine .d { display: block; font-weight: 600; }
+.spine .t { display: block; color: var(--ink-2); text-wrap: pretty; }
+.spine__rail { margin-top: 12px; border-left: 1px solid var(--ink); padding-left: 14px; }
+.spine__rail li::before { content: ""; position: absolute; left: -14px; top: 0.72em; width: 8px; height: 1px; background: var(--ink); }
+.spine__rail .launch .d { display: inline-block; background: var(--ink); color: var(--paper); padding: 1px 6px; margin-left: -6px; }
+.spine #sb-h { margin-top: 30px; padding-left: 15px; }
+.spine__after { margin-top: 12px; padding-left: 15px; }
+
+@media (max-width: 699px) {
+  .wp-top { grid-template-columns: minmax(0, 1fr); padding-top: 14px; }
+  .wp-top > .no { display: none; }
+  .wp-ctx { grid-column: 1; margin-top: 6px; }
+  .place--work .rhead__here { visibility: visible; }
+  .place--work .rhead__title { visibility: hidden; }
+  .place--work.is-scrolled .rhead__title { visibility: visible; }
+  .place--work .rhead__yrs { display: none; }
+  .wp-dek1 { margin-top: 12px; }
+  .hero { margin-top: 14px; }
+  .hero .steps-h { display: none; }
+  .hero .steps { margin-top: 6px; }
+  .step-now { margin-top: 6px; }
+}
 @media (min-width: 700px) {
-  .tomb { padding-top: 48px; }
-  .tomb__line { margin-top: 56px; }
-  .list { margin: 56px 0 72px; }
-  .row { grid-template-columns: minmax(0, 16rem) minmax(0, 1fr) auto; column-gap: 24px; padding: 16px 0 17px; }
-  .row__cap { grid-column: 2; grid-row: 1; margin-top: 0; line-height: 1.35; }
-  .row__yrs { grid-column: 3; }
+  .wp-top .no { margin-left: -8px; }
+  .step-now { display: none; }
+  .st { display: block; margin-top: 6px; font-size: var(--t-meta); line-height: 1.45; color: var(--ink-2); text-wrap: pretty; }
+  .stepcol.is-cur .st { color: var(--ink); }
+  .steps { column-gap: var(--g); }
+  .step { flex-direction: row; align-items: center; gap: 10px; min-height: 32px; }
 }
+
+
+.camp { margin-top: 56px; }
+.camp-lead { margin-top: 12px; font-size: var(--t-body); line-height: 1.5; max-width: 34em; text-wrap: pretty; }
+
+.ctable { margin-top: 24px; font-size: var(--t-meta); line-height: 1.4; }
+.ctable-head, .stage > summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 12px;
+  grid-template-areas: "w c pm" "tag tag tag";
+  column-gap: 12px; row-gap: 2px; align-items: baseline;
+}
+.ctable-head { padding-bottom: 8px; border-bottom: 1px solid var(--ink); color: var(--ink-2); }
+.ctable-head .w { grid-area: w; } .ctable-head .c { grid-area: c; text-align: right; } .ctable-head .tag { grid-area: tag; }
+.stage { border-bottom: 1px solid var(--rule); }
+.stage > summary { list-style: none; cursor: pointer; padding: 12px 0; min-height: 48px; }
+.stage > summary::-webkit-details-marker { display: none; }
+.stage .w { grid-area: w; text-wrap: pretty; }
+.stage .c { grid-area: c; font-weight: 600; text-align: right; }
+.stage .tag { grid-area: tag; color: var(--ink-2); }
+.stage .pm { grid-area: pm; align-self: center; }
+.pm { position: relative; width: 11px; height: 11px; flex: none; }
+.pm::before, .pm::after { content: ""; position: absolute; background: currentColor; }
+.pm::before { left: 0; right: 0; top: 5px; height: 1px; }
+.pm::after { top: 0; bottom: 0; left: 5px; width: 1px; }
+[open] > summary .pm::after { display: none; }
+@media (hover: hover) and (pointer: fine) { .stage > summary:hover .w { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; } }
+.stage-body { padding: 0 24px 16px 0; line-height: 1.5; }
+@media (min-width: 700px) {
+  .ctable-head, .stage > summary { grid-template-columns: minmax(0, 1fr) auto minmax(0, 0.8fr) 12px; grid-template-areas: "w c tag pm"; }
+  .ctable-head .c, .stage .c { white-space: nowrap; }      
+}
+
+.switch { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2px; border: 1px solid var(--ink); }
+.switch button { min-height: 44px; padding: 8px 12px; font-size: var(--t-meta); font-weight: 600; text-align: center; }
+.switch button + button { border-left: 1px solid var(--ink); }
+.switch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.switch button:focus-visible { position: relative; z-index: 1; }
+.aff { margin-top: 14px; border-top: 1px solid var(--rule); }
+.aff > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.aff dt { color: var(--ink-2); }
+.aff dd { text-align: right; }
+.aff .aff-every { display: none; }
+.camp.is-every .aff .aff-every { display: grid; }
+.aff-note { margin-top: 8px; color: var(--ink-2); }
+.camp-close { margin-top: 26px; font-size: var(--t-body); line-height: 1.5; max-width: 34em; text-wrap: pretty; }
+.camp-src { margin-top: 10px; font-size: var(--t-meta); color: var(--ink-2); max-width: 34em; }
+
+
+.cr { padding: 0 var(--mr) 96px var(--ml); }
+.cr h1 { padding-top: 28px; font-size: var(--t-disp); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
+.cr-group { margin-top: 44px; }
+.cr-group h2 { display: flex; align-items: baseline; gap: 12px; font-size: var(--t-body); font-weight: 600; }
+.cr-group h2 .no { font-size: var(--t-body); font-weight: 600; padding: 0; margin: 0; letter-spacing: 0; }
+.cr-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: var(--t-meta); line-height: 1.45; }
+.cr-table th { text-align: left; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 16px 6px 0; border-bottom: 1px solid var(--ink); }
+.cr-table td { vertical-align: top; padding: 9px 16px 9px 0; border-bottom: 1px solid var(--rule); text-wrap: pretty; }
+.cr-table td:first-child { width: 55%; }
+.cr-table .fig { font-weight: 600; margin-right: 8px; }
+.cr-table .lic { color: var(--ink-2); }
+.cr-table a { position: relative; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+.cr-table a::after { content: ""; position: absolute; inset: -14px -12px; }   
+.cr-table a:focus-visible { outline-offset: 1px; }
+@media (hover: hover) and (pointer: fine) { .cr-table a:hover { text-decoration-thickness: 2px; } }
+@media (max-width: 699px) {
+  .cr-table thead { display: none; }
+  .cr-table, .cr-table tbody, .cr-table tr, .cr-table td { display: block; width: auto !important; }
+  .cr-table tr { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .cr-table td { border: 0; padding: 0; }
+  .cr-table td + td { margin-top: 2px; }
+}
+
+
+@media (min-width: 1100px) {
+  .wp {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: var(--g);
+    align-items: start;
+  }
+  .wp-top { display: contents; }
+  .wp-top .no { grid-column: 1; grid-row: 1; justify-self: start; margin: 20px 0 0 -8px; }
+  .wp-top > div { grid-column: 2 / -1; grid-row: 1; padding-top: 22px; }
+  .wp-ctx { margin-top: 10px; }
+  .wp-dek1 { display: none; }
+  .wp-dek .d1 { display: inline; }
+  .hero { grid-column: 1 / span 4; grid-row: 2; margin-top: 22px; }
+  .wp-text { grid-column: 5 / -1; grid-row: 2; margin-top: 22px; }
+  
+  .spine { grid-column: 1 / span 2; grid-row: 3; margin-top: 0; padding-top: 72px; }
+  .camp {
+    grid-column: 3 / -1; grid-row: 3; margin-top: 0; padding-top: 72px;
+    display: grid; grid-template-columns: subgrid; grid-template-rows: auto auto auto auto 1fr; align-items: start;
+  }
+  .camp > h2 { grid-row: 1; }
+  .camp > .camp-lead { grid-row: 2; }
+  .camp > .camp-close { grid-row: 3; }
+  .camp > .camp-src { grid-row: 4; }
+  .camp > :not(.ctable) { grid-column: 1 / span 2; }
+  .camp > .ctable { grid-column: 3 / span 2; grid-row: 1 / 6; margin-top: 0; }
+}
+@media (min-width: 1500px) {
+  .wp-top .no { margin-top: 26px; }
+  .wp-top > div { padding-top: 28px; }
+  .hero { grid-column: 2 / span 3; margin-top: 28px; }
+  .wp-text { margin-top: 28px; }
+  .spine { grid-column: 1; grid-row: 2 / span 2; padding-top: 28px; }
+  .camp { grid-column: 2 / -1; grid-row: 3; }
+  .camp > :not(.ctable) { grid-column: 1 / span 3; }
+  .camp > .ctable { grid-column: 4 / span 2; }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}
+
+@media print {
+  @page { margin: 16mm; }
+  .js .place { display: none !important; }
+  .js.at-overview #overview, .js.at-m14 #m14, .js.at-credits #credits { display: block !important; }
+  .rhead, .foot, .rail, .playhead, .pm, .switch, .tomb__contact { display: none !important; }
+  .plate, .stage, .work, .cr-table tr, .facts > * { break-inside: avoid; }
+  .morph { display: none !important; }
+}
+
+
+
+.nw { white-space: nowrap; }
+.earlier { margin-top: var(--rg); padding-top: 14px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: var(--no-w) minmax(0, 1fr) auto; column-gap: 12px; }
+.earlier__title { grid-column: 2; font-weight: 600; line-height: 1.35; }
+.earlier__line { grid-column: 2; margin-top: 3px; line-height: 1.4; }
+.earlier__yrs { grid-column: 3; grid-row: 1; font-size: var(--t-meta); line-height: calc(var(--t-body) * 1.35); color: var(--ink-2); white-space: nowrap; }
+.about { margin: 96px var(--mr) 0 var(--ml); padding-top: 14px; border-top: 1px solid var(--ink); display: grid; row-gap: 14px; }
+.about h2 { font-size: var(--t-meta); font-weight: 600; }
+.about__scale { font-size: var(--t-lede); line-height: 1.34; letter-spacing: -0.005em; max-width: 34em; text-wrap: balance; }
+.about details { max-width: 38em; }
+.about summary { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--t-meta); font-weight: 600; cursor: pointer; list-style: none; }
+.about summary::-webkit-details-marker { display: none; }
+.about summary::after { content: "+"; margin-left: 8px; font-weight: 400; }
+.about details[open] summary::after { content: "–"; }
+.about__bio { color: var(--ink-2); text-wrap: pretty; }
+.about__copy { min-height: 44px; padding: 0; border: 0; background: none; font: inherit; font-size: var(--t-meta); font-weight: 600; color: var(--ink); cursor: pointer; }
+.about__copy[hidden] { display: none; }
+.about + .foot { margin-top: 56px; }
+@media (hover: hover) and (pointer: fine) { .about__copy:hover, .about summary:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; } }
+@media (min-width: 1100px) {
+  .about { grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: var(--g); }
+  .about h2 { grid-column: 1 / span 2; }
+  .about__scale, .about details { grid-column: 3 / span 4; }
+}
+@media (max-width: 699px) {
+  .work .plate { aspect-ratio: var(--par, 4 / 3); }
+  .work .box { inset: 10px; }
+  .work .lines { grid-row: 2; margin-top: 0; }
+  .work > .viewer { grid-row: 3; }
+  .cap { min-height: calc(2em * 1.4); }
+}
+@media print { .about__copy { display: none !important; } }
+
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<div class="place place--overview" id="overview">
+
 <header class="tomb">
-  <h1 class="tomb__name">Njenga (Jay) Kariuki</h1>
-  <a class="tomb__contact link" href="https://www.linkedin.com/in/njengakariuki/" rel="me noopener" target="_blank">LinkedIn</a>
+  <h1 class="tomb__name" tabindex="-1">Njenga (Jay) Kariuki</h1>
+  <a class="tomb__contact" href="https://www.linkedin.com/in/njengakariuki/" rel="me noopener" target="_blank">LinkedIn</a>
   <p class="tomb__role">Managing Executive: Artificial Intelligence, <span class="nw">M-PESA Africa</span></p>
-  <p class="tomb__line">The AI products I&#x27;ve led, and how each was built: from Alexa shopping in 2017 to enterprise AI across <span class="nw">M-PESA Africa</span> today.</p>
-  <p class="tomb__ctx">Twelve years at Amazon and AWS <span class="nw">(2014–2026)</span>, building AI products since 2017.</p>
+  <p class="tomb__thesis">The AI products I’ve led, and how each was built: from Alexa shopping in 2017 to enterprise AI today.</p>
+  <p class="tomb__proofs">Twelve years at Amazon and AWS <span class="nw">(2014–2026)</span>, building AI products since 2017.</p>
 </header>
-<main>
-  <h2 class="vh">Products, newest first</h2>
-  <ol class="list">
-    <li class="row"><h2 class="row__label">M-PESA Africa</h2><p class="row__cap">Enterprise AI for mobile money</p><p class="row__yrs"><time datetime="2026">2026</time>–today</p></li>
-    <li class="row"><h2 class="row__label">Bio Discovery</h2><p class="row__cap">Antibody design with AI agents</p><p class="row__yrs"><time datetime="2025">2025</time>–<time datetime="2026">2026</time></p></li>
-    <li class="row"><h2 class="row__label">AI Index chapter</h2><p class="row__cap">Stanford AI Index: the Economy chapter</p><p class="row__yrs"><time datetime="2024">2024</time>–<time datetime="2025">2025</time></p></li>
-    <li class="row"><h2 class="row__label">Map View</h2><p class="row__cap">Your home&#x27;s devices on a map</p><p class="row__yrs"><time datetime="2023">2023</time>–<time datetime="2024">2024</time></p></li>
-    <li class="row"><h2 class="row__label">Health AI portfolio</h2><p class="row__cap">Health AI, from research to product</p><p class="row__yrs"><time datetime="2021">2021</time>–<time datetime="2023">2023</time></p></li>
-    <li class="row"><h2 class="row__label">Amazon Halo</h2><p class="row__cap">A health band with no screen</p><p class="row__yrs"><time datetime="2018">2018</time>–<time datetime="2023">2023</time></p></li>
-    <li class="row"><h2 class="row__label">Halo Body</h2><p class="row__cap">Body fat from phone photos</p><p class="row__yrs"><time datetime="2018">2018</time>–<time datetime="2023">2023</time></p></li>
-    <li class="row"><h2 class="row__label">Halo Tone</h2><p class="row__cap">How your voice sounds to others</p><p class="row__yrs"><time datetime="2018">2018</time>–<time datetime="2023">2023</time></p></li>
-    <li class="row"><h2 class="row__label">Halo Movement</h2><p class="row__cap">A movement assessment from phone video</p><p class="row__yrs"><time datetime="2019">2019</time>–<time datetime="2023">2023</time></p></li>
-    <li class="row"><h2 class="row__label">Alexa Shopping</h2><p class="row__cap">How Alexa understood shopping requests</p><p class="row__yrs"><time datetime="2017">2017</time>–<time datetime="2018">2018</time></p></li>
-    <li class="row"><h2 class="row__label">Before 2017</h2><p class="row__cap">Target, Amazon Retail and <span class="nw">Prime Now</span></p><p class="row__yrs"><time datetime="2012">2012</time>–<time datetime="2017">2017</time></p></li>
-  </ol>
+<main class="index" aria-labelledby="works-h">
+  <h2 class="vh" id="works-h">Works, newest first</h2>
+  <ol class="works" reversed><li class="work" id="w-m14" data-id="m14"><figure class="viewer" data-viewer="tile" data-id="m14"><div class="plate" id="vp-m14" role="tabpanel" aria-labelledby="vt-m14-0" style="--par:1.6000"><div class="strip"><div class="pane" data-fig="9.1" data-cap="Choosing the target protein, then asking for recommended binding sites."><div class="box"><img src="assets/m14-i003.jpg" width="1600" height="900" alt="A dark screen with chain checkboxes, file pickers and a colored ribbon protein model." style="--mw:1600px;--ar:1.7778" class="scr" loading="eager" fetchpriority="high" draggable="false"><span class="broken">Choosing the target protein, then asking for recommended binding sites.</span></div></div><div class="pane" data-fig="9.2" data-cap="Building a workflow from models in the catalog."><div class="box"><img data-src="assets/m14-i002.jpg" width="1600" height="900" alt="A dark canvas of model cards wired together, with a palette of modules at left." style="--mw:1600px;--ar:1.7778" class="scr" loading="lazy" decoding="async" draggable="false"><span class="broken">Building a workflow from models in the catalog.</span></div></div><div class="pane" data-fig="9.3" data-cap="Filtering 5,700 candidate designs to 25, ready to send for lab testing."><div class="box"><img data-src="assets/m14-i004.jpg" width="1600" height="900" alt="A dark screen with filter sliders and a table of candidates under a 25/5,700 count." style="--mw:1600px;--ar:1.7778" class="scr" loading="lazy" decoding="async" draggable="false"><span class="broken">Filtering 5,700 candidate designs to 25, ready to send for lab testing.</span></div></div><div class="pane" data-fig="9.4" data-cap="How a predicted property is spread across the candidates, with outliers marked."><div class="box"><img data-src="assets/m14-i005.jpg" width="1600" height="900" alt="A dark screen with a histogram, one bar highlighted, and a small tooltip." style="--mw:1600px;--ar:1.7778" class="scr" loading="lazy" decoding="async" draggable="false"><span class="broken">How a predicted property is spread across the candidates, with outliers marked.</span></div></div></div></div><div class="rail" role="tablist" aria-label="Amazon Bio Discovery: views"><button type="button" role="tab" class="seg" id="vt-m14-0" aria-controls="vp-m14" aria-selected="true" tabindex="0"><span class="vh">View 1 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m14-1" aria-controls="vp-m14" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m14-2" aria-controls="vp-m14" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m14-3" aria-controls="vp-m14" aria-selected="false" tabindex="-1"><span class="vh">View 4 of 4</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">9.1</span><span class="txt">Choosing the target protein, then asking for recommended binding sites.</span><span class="vh"> 4 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">09</span><h2 class="title"><span class="vh">9 </span>Amazon <span class="nw">Bio Discovery</span></h2><span class="yrs"><time datetime="2025">2025</time>–<time datetime="2026">2026</time></span><div class="lines"><p class="l-role">Head of Product, AWS Applied AI, Life Sciences</p><p class="l-out">Antibody design with AI agents</p></div></div></li><li class="work" id="w-m13" data-id="m13"><figure class="viewer" data-viewer="tile" data-id="m13"><div class="plate" id="vp-m13" role="tabpanel" aria-labelledby="vt-m13-0" style="--par:0.8000"><div class="strip"><div class="pane" data-fig="8.1" data-cap="The chapter’s opening page: “Text and analysis by Njenga Kariuki.”"><div class="box"><img data-src="assets/m12-i022-720.jpg" width="720" height="932" alt="A report page with a band of flowing colored lines and the chapter title." style="--mw:720px;--ar:0.7725" class="paper" loading="lazy" decoding="async" draggable="false"><span class="broken">The chapter’s opening page: “Text and analysis by Njenga Kariuki.”</span></div></div><div class="pane" data-fig="8.2" data-cap="The chapter’s six highlights."><div class="box"><img data-src="assets/m13-i050.png" width="1275" height="1650" alt="A report page of six highlight paragraphs under the heading Chapter Highlights." style="--mw:1275px;--ar:0.7727" class="paper" loading="lazy" decoding="async" draggable="false"><span class="broken">The chapter’s six highlights.</span></div></div><div class="pane" data-fig="8.3" data-cap="Figure 4.3.1: global corporate investment in AI, 2013 to 2024."><div class="box"><img data-src="assets/m13-i003.png" width="2400" height="1312" alt="A stacked bar chart in blue, teal and pink, one bar for each year." style="--mw:2400px;--ar:1.8293" class="paper" loading="lazy" decoding="async" draggable="false"><span class="broken">Figure 4.3.1: global corporate investment in AI, 2013 to 2024.</span></div></div><div class="pane" data-fig="8.4" data-cap="The AI Index Report 2025, published April 7, 2025."><div class="box"><img data-src="assets/m13-i001.jpg" width="1000" height="1294" alt="A report cover with flowing colored lines on dark blue." style="--mw:1000px;--ar:0.7728" class="paper" loading="lazy" decoding="async" draggable="false"><span class="broken">The AI Index Report 2025, published April 7, 2025.</span></div></div></div></div><div class="rail" role="tablist" aria-label="Stanford AI Index 2025: the Economy chapter: views"><button type="button" role="tab" class="seg" id="vt-m13-0" aria-controls="vp-m13" aria-selected="true" tabindex="0"><span class="vh">View 1 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m13-1" aria-controls="vp-m13" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m13-2" aria-controls="vp-m13" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m13-3" aria-controls="vp-m13" aria-selected="false" tabindex="-1"><span class="vh">View 4 of 4</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">8.1</span><span class="txt">The chapter’s opening page: “Text and analysis by Njenga Kariuki.”</span><span class="vh"> 4 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">08</span><h2 class="title"><span class="vh">8 </span>Stanford <span class="nw">AI Index</span> 2025: the Economy chapter</h2><span class="yrs"><time datetime="2024">2024</time>–<time datetime="2025">2025</time></span><div class="lines"><p class="l-role">Wrote the chapter’s text and analysis</p></div></div></li><li class="work" id="w-m11" data-id="m11"><figure class="viewer" data-viewer="tile" data-id="m11"><div class="plate" id="vp-m11" role="tabpanel" aria-labelledby="vt-m11-0" style="--par:1.3333"><div class="strip"><div class="pane" data-fig="7.1" data-cap="Map View: the home’s floor plan, with device pins and a control card."><div class="box"><img data-src="assets/m11-i001-hand-4x3.jpg" width="1000" height="750" alt="A hand holding a phone with a home floor plan, over a table with a bowl of oranges." style="--mw:1000px;--ar:1.3333" loading="lazy" decoding="async" draggable="false"><span class="broken">Map View: the home’s floor plan, with device pins and a control card.</span></div></div><div class="pane" data-fig="7.2" data-cap="Patent drawing: a phone scans a room into measured points."><div class="box"><img data-src="assets/m11-i034.png" width="1431" height="1800" alt="A drawing of a room as a wire box of points, with a phone at its center." style="--mw:1431px;--ar:0.7950" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: a phone scans a room into measured points.</span></div></div><div class="pane" data-fig="7.3" data-cap="Patent drawing: dragging a light from a palette onto a floor plan."><div class="box"><img data-src="assets/m11-i032.png" width="1288" height="1696" alt="A drawing of a floor plan on a screen beside a palette of devices." style="--mw:1288px;--ar:0.7594" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: dragging a light from a palette onto a floor plan.</span></div></div><div class="pane" data-fig="7.4" data-cap="December 2023: the Map View pin in the Alexa app’s Devices tab."><div class="box"><img data-src="assets/m11-i005.jpg" width="2000" height="1125" alt="Two phone screens on blue: a Home screen of shortcuts and a Devices list." style="--mw:2000px;--ar:1.7778" loading="lazy" decoding="async" draggable="false"><span class="broken">December 2023: the Map View pin in the Alexa app’s Devices tab.</span></div></div></div></div><div class="rail" role="tablist" aria-label="Alexa Smart Home app and Map View: views"><button type="button" role="tab" class="seg" id="vt-m11-0" aria-controls="vp-m11" aria-selected="true" tabindex="0"><span class="vh">View 1 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m11-1" aria-controls="vp-m11" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m11-2" aria-controls="vp-m11" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m11-3" aria-controls="vp-m11" aria-selected="false" tabindex="-1"><span class="vh">View 4 of 4</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">7.1</span><span class="txt">Map View: the home’s floor plan, with device pins and a control card.</span><span class="vh"> 4 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">07</span><h2 class="title"><span class="vh">7 </span>Alexa Smart Home app and Map View</h2><span class="yrs"><time datetime="2023">2023</time>–<time datetime="2024">2024</time></span><div class="lines"><p class="l-role">Led the smart home features of the Alexa app, including Map View</p><p class="l-out">Your home’s devices on a map</p></div></div></li><li class="work" id="w-m10" data-id="m10"><figure class="viewer" data-viewer="tile" data-id="m10"><div class="plate" id="vp-m10" role="tabpanel" aria-labelledby="vt-m10-0" style="--par:1.6000"><div class="strip"><div class="pane" data-fig="6.1" data-cap="Error against a clinical DXA scan: Halo Body (VBC, left) beside six other methods. 2022 study."><div class="box"><img data-src="assets/m07-i002-panel-a.png" width="632" height="340" alt="A bar chart of average error for seven body fat methods, the first bar the lowest." style="--mw:632px;--ar:1.8588" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Error against a clinical DXA scan: Halo Body (VBC, left) beside six other methods. 2022 study.</span></div></div><div class="pane" data-fig="6.2" data-cap="Movement scores for athletes, healthy adults and adults with impaired mobility. 2022 study."><div class="box"><img data-src="assets/m09-i003.png" width="948" height="568" alt="Box plots of four scores for three groups, athletes highest and impaired mobility lowest." style="--mw:948px;--ar:1.6690" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Movement scores for athletes, healthy adults and adults with impaired mobility. 2022 study.</span></div></div><div class="pane" data-fig="6.3" data-cap="Waist-to-hip ratio from the app, compared with tape measurements by trained staff. 2023 study."><div class="box"><img data-src="assets/m10-i012.png" width="1600" height="1261" alt="Scatter plots and agreement plots for men and women, the points close to the line." style="--mw:1600px;--ar:1.2688" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Waist-to-hip ratio from the app, compared with tape measurements by trained staff. 2023 study.</span></div></div></div></div><div class="rail" role="tablist" aria-label="Health AI portfolio: views"><button type="button" role="tab" class="seg" id="vt-m10-0" aria-controls="vp-m10" aria-selected="true" tabindex="0"><span class="vh">View 1 of 3</span></button><button type="button" role="tab" class="seg" id="vt-m10-1" aria-controls="vp-m10" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 3</span></button><button type="button" role="tab" class="seg" id="vt-m10-2" aria-controls="vp-m10" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 3</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">6.1</span><span class="txt">Error against a clinical DXA scan: Halo Body (VBC, left) beside six other methods. 2022 study.</span><span class="vh"> 3 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">06</span><h2 class="title"><span class="vh">6 </span>Health AI portfolio</h2><span class="yrs"><time datetime="2021">2021</time>–<time datetime="2023">2023</time></span><div class="lines"><p class="l-role">First product lead, Health Computer Vision and AI organization</p><p class="l-out">Health AI, from research to product</p></div></div></li><li class="work" id="w-m09" data-id="m09"><figure class="viewer" data-viewer="tile" data-id="m09"><div class="plate" id="vp-m09" role="tabpanel" aria-labelledby="vt-m09-0" style="--par:0.8000"><div class="strip"><div class="pane" data-fig="5.1" data-cap="Setup: the phone stands 6 to 10 feet away, ready to record."><div class="box"><img data-src="assets/m09-i002-panel-a.png" width="302" height="476" alt="An app screen asking the user to get ready, with a drawing of a person and a phone." style="--mw:302px;--ar:0.6345" loading="lazy" decoding="async" draggable="false"><span class="broken">Setup: the phone stands 6 to 10 feet away, ready to record.</span></div></div><div class="pane" data-fig="5.2" data-cap="Detailed results, 2021: mobility and stability by body region, then next steps."><div class="box"><img data-src="assets/m09-i007-screen.png" width="726" height="1516" alt="An app screen listing percentages for shoulders, trunk, hips and lower body." style="--mw:726px;--ar:0.4789" class="scr phone" loading="lazy" decoding="async" draggable="false"><span class="broken">Detailed results, 2021: mobility and stability by body region, then next steps.</span></div></div><div class="pane" data-fig="5.3" data-cap="Patent drawing of the results: a Movement Score of 69, by body region."><div class="box"><img data-src="assets/m09-i016.png" width="2000" height="2123" alt="A drawing of a results screen: a score of 69 beside a body figure with percentages." style="--mw:2000px;--ar:0.9421" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing of the results: a Movement Score of 69, by body region.</span></div></div><div class="pane" data-fig="5.4" data-cap="Patent drawing: the phone films each exercise; servers score how far it is from good form."><div class="box"><img data-src="assets/m09-i017.png" width="1606" height="2400" alt="A flow drawing from a person filmed by a phone, through servers, to scores." style="--mw:1606px;--ar:0.6692" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: the phone films each exercise; servers score how far it is from good form.</span></div></div></div></div><div class="rail" role="tablist" aria-label="Halo Movement: views"><button type="button" role="tab" class="seg" id="vt-m09-0" aria-controls="vp-m09" aria-selected="true" tabindex="0"><span class="vh">View 1 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m09-1" aria-controls="vp-m09" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m09-2" aria-controls="vp-m09" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m09-3" aria-controls="vp-m09" aria-selected="false" tabindex="-1"><span class="vh">View 4 of 4</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">5.1</span><span class="txt">Setup: the phone stands 6 to 10 feet away, ready to record.</span><span class="vh"> 4 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">05</span><h2 class="title"><span class="vh">5 </span>Halo Movement</h2><span class="yrs"><time datetime="2019">2019</time>–<time datetime="2023">2023</time></span><div class="lines"><p class="l-role">Product lead</p><p class="l-out">A movement assessment from phone video</p></div></div></li><li class="work" id="w-m08" data-id="m08"><figure class="viewer" data-viewer="tile" data-id="m08"><div class="plate" id="vp-m08" role="tabpanel" aria-labelledby="vt-m08-0" style="--par:1.2891"><div class="strip"><div class="pane" data-fig="4.1" data-cap="Launch illustration of Tone, 2020: the day’s tones and two notable moments."><div class="box"><img data-src="assets/m08-i001.jpg" width="1400" height="1086" alt="An illustration of a person on a sofa at night beside a large phone showing colored bars." style="--mw:1400px;--ar:1.2891" loading="lazy" decoding="async" draggable="false"><span class="broken">Launch illustration of Tone, 2020: the day’s tones and two notable moments.</span></div></div><div class="pane" data-fig="4.2" data-cap="Patent drawing of Live View: a dot on axes of energy and positivity."><div class="box"><img data-src="assets/m08-i008.png" width="1364" height="2400" alt="A drawing of two phone screens, each with a dot on two crossed axes." style="--mw:1364px;--ar:0.5683" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing of Live View: a dot on axes of energy and positivity.</span></div></div><div class="pane" data-fig="4.3" data-cap="Patent drawing: the words beside the dot change as the voice changes."><div class="box"><img data-src="assets/m08-i009.png" width="1525" height="2400" alt="A drawing of two phone screens with a dot and words beside it." style="--mw:1525px;--ar:0.6354" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: the words beside the dot change as the voice changes.</span></div></div><div class="pane" data-fig="4.4" data-cap="Patent drawing: the energy and positivity grid in thirteen named regions, each with its own color."><div class="box"><img data-src="assets/m08-i007.png" width="1801" height="2333" alt="A drawing of a square grid divided into labeled regions." style="--mw:1801px;--ar:0.7720" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: the energy and positivity grid in thirteen named regions, each with its own color.</span></div></div></div></div><div class="rail" role="tablist" aria-label="Halo Tone: views"><button type="button" role="tab" class="seg" id="vt-m08-0" aria-controls="vp-m08" aria-selected="true" tabindex="0"><span class="vh">View 1 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m08-1" aria-controls="vp-m08" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m08-2" aria-controls="vp-m08" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 4</span></button><button type="button" role="tab" class="seg" id="vt-m08-3" aria-controls="vp-m08" aria-selected="false" tabindex="-1"><span class="vh">View 4 of 4</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">4.1</span><span class="txt">Launch illustration of Tone, 2020: the day’s tones and two notable moments.</span><span class="vh"> 4 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">04</span><h2 class="title"><span class="vh">4 </span>Halo Tone</h2><span class="yrs"><time datetime="2018">2018</time>–<time datetime="2023">2023</time></span><div class="lines"><p class="l-role">Product lead</p><p class="l-out">How your voice sounds to others</p></div></div></li><li class="work" id="w-m07" data-id="m07"><figure class="viewer" data-viewer="tile" data-id="m07"><div class="plate" id="vp-m07" role="tabpanel" aria-labelledby="vt-m07-0" style="--par:0.8000"><div class="strip"><div class="pane" data-fig="3.1" data-cap="The Halo app home screen, with Body beside Activity, Sleep and Tone."><div class="box"><img data-src="assets/m06-i004-screen.jpg" width="572" height="1162" alt="An app screen with circular Activity and Sleep scores above Tone and Body tiles." style="--mw:572px;--ar:0.4923" class="scr phone" loading="lazy" decoding="async" draggable="false"><span class="broken">The Halo app home screen, with Body beside Activity, Sleep and Tone.</span></div></div><div class="pane" data-fig="3.2" data-cap="Patent drawing: the level shows a check once the phone stands upright."><div class="box"><img data-src="assets/m07-i037.png" width="904" height="1328" alt="A line drawing of a phone screen with a prompt, a level line and a check mark." style="--mw:904px;--ar:0.6807" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: the level shows a check once the phone stands upright.</span></div></div><div class="pane" data-fig="3.3" data-cap="Patent drawing: an outline shows where the legs should go."><div class="box"><img data-src="assets/m07-i039.png" width="850" height="1329" alt="A line drawing of a phone screen with a standing figure inside a body outline." style="--mw:850px;--ar:0.6396" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: an outline shows where the legs should go.</span></div></div><div class="pane" data-fig="3.4" data-cap="Patent drawing: the body matches the outline, and the scan begins."><div class="box"><img data-src="assets/m07-i041.png" width="951" height="1328" alt="A line drawing of a phone screen with a standing figure and the word Scanning." style="--mw:951px;--ar:0.7161" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: the body matches the outline, and the scan begins.</span></div></div><div class="pane" data-fig="3.5" data-cap="The result: body fat percentage and a 3D model of the user’s body."><div class="box"><img data-src="assets/m06-i005-screen.jpg" width="572" height="1162" alt="An app screen with a gray three-dimensional body model, a body fat percentage and a weight." style="--mw:572px;--ar:0.4923" class="scr phone" loading="lazy" decoding="async" draggable="false"><span class="broken">The result: body fat percentage and a 3D model of the user’s body.</span></div></div><div class="pane" data-fig="3.6" data-cap="Patent drawing: a slider shows the predicted shape at a lower body fat."><div class="box"><img data-src="assets/m07-i027.png" width="1200" height="1005" alt="A line drawing of a body model on a phone screen beside a body fat slider." style="--mw:1200px;--ar:1.1940" class="mul" loading="lazy" decoding="async" draggable="false"><span class="broken">Patent drawing: a slider shows the predicted shape at a lower body fat.</span></div></div><div class="pane" data-fig="3.7" data-cap="August 2021: scans from 3 feet away instead of 4.5, for smaller rooms."><div class="box"><img data-src="assets/m07-i009-still.png" width="800" height="450" alt="A diagram of a phone on a counter and a standing person inside its field of view." style="--mw:800px;--ar:1.7778" loading="lazy" decoding="async" draggable="false"><span class="broken">August 2021: scans from 3 feet away instead of 4.5, for smaller rooms.</span></div></div></div></div><div class="rail" role="tablist" aria-label="Halo Body: views"><button type="button" role="tab" class="seg" id="vt-m07-0" aria-controls="vp-m07" aria-selected="true" tabindex="0"><span class="vh">View 1 of 7</span></button><button type="button" role="tab" class="seg" id="vt-m07-1" aria-controls="vp-m07" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 7</span></button><button type="button" role="tab" class="seg" id="vt-m07-2" aria-controls="vp-m07" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 7</span></button><button type="button" role="tab" class="seg" id="vt-m07-3" aria-controls="vp-m07" aria-selected="false" tabindex="-1"><span class="vh">View 4 of 7</span></button><button type="button" role="tab" class="seg" id="vt-m07-4" aria-controls="vp-m07" aria-selected="false" tabindex="-1"><span class="vh">View 5 of 7</span></button><button type="button" role="tab" class="seg" id="vt-m07-5" aria-controls="vp-m07" aria-selected="false" tabindex="-1"><span class="vh">View 6 of 7</span></button><button type="button" role="tab" class="seg" id="vt-m07-6" aria-controls="vp-m07" aria-selected="false" tabindex="-1"><span class="vh">View 7 of 7</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">3.1</span><span class="txt">The Halo app home screen, with Body beside Activity, Sleep and Tone.</span><span class="vh"> 7 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">03</span><h2 class="title"><span class="vh">3 </span>Halo Body</h2><span class="yrs"><time datetime="2018">2018</time>–<time datetime="2023">2023</time></span><div class="lines"><p class="l-role">Product lead</p><p class="l-out">Body fat from phone photos</p></div></div></li><li class="work" id="w-m06" data-id="m06"><figure class="viewer" data-viewer="tile" data-id="m06"><div class="plate" id="vp-m06" role="tabpanel" aria-labelledby="vt-m06-0" style="--par:0.8000"><div class="strip"><div class="pane" data-fig="2.1" data-cap="The Halo Band in its three launch colors, 2020."><div class="box"><img data-src="assets/m06-i003-object-4x5.jpg" width="1139" height="1424" alt="Three fabric bands in gray, pink and black, each holding a small sensor capsule." style="--mw:1139px;--ar:0.7999" loading="lazy" decoding="async" draggable="false"><span class="broken">The Halo Band in its three launch colors, 2020.</span></div></div><div class="pane" data-fig="2.2" data-cap="The band and the Halo app, December 2020."><div class="box"><img data-src="assets/m06-i009.jpg" width="1024" height="488" alt="A gray fabric band beside a phone showing the Halo app home screen, on a wooden table." style="--mw:1024px;--ar:2.0984" loading="lazy" decoding="async" draggable="false"><span class="broken">The band and the Halo app, December 2020.</span></div></div><div class="pane" data-fig="2.3" data-cap="Activity: the week’s points toward a target of 150."><div class="box"><img data-src="assets/m06-i006-screen.jpg" width="572" height="1162" alt="An app screen with a large red ring around the number 131 and intensity bars." style="--mw:572px;--ar:0.4923" class="scr phone" loading="lazy" decoding="async" draggable="false"><span class="broken">Activity: the week’s points toward a target of 150.</span></div></div></div></div><div class="rail" role="tablist" aria-label="Amazon Halo: views"><button type="button" role="tab" class="seg" id="vt-m06-0" aria-controls="vp-m06" aria-selected="true" tabindex="0"><span class="vh">View 1 of 3</span></button><button type="button" role="tab" class="seg" id="vt-m06-1" aria-controls="vp-m06" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 3</span></button><button type="button" role="tab" class="seg" id="vt-m06-2" aria-controls="vp-m06" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 3</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">2.1</span><span class="txt">The Halo Band in its three launch colors, 2020.</span><span class="vh"> 3 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">02</span><h2 class="title"><span class="vh">2 </span>Amazon Halo</h2><span class="yrs"><time datetime="2018">2018</time>–<time datetime="2023">2023</time></span><div class="lines"><p class="l-role">Founding team member; product lead for Body, Tone and Movement</p><p class="l-out">A health band with no screen</p></div></div></li><li class="work" id="w-m05" data-id="m05"><figure class="viewer" data-viewer="tile" data-id="m05"><div class="plate" id="vp-m05" role="tabpanel" aria-labelledby="vt-m05-0" style="--par:0.9969"><div class="strip"><div class="pane" data-fig="1.1" data-cap="Echo Spot, 2017."><div class="box"><img data-src="assets/m05-i022.jpg" width="1920" height="1926" alt="A round Echo Spot showing the time 6:57 on a blue screen." style="--mw:1920px;--ar:0.9969" loading="lazy" decoding="async" draggable="false"><span class="broken">Echo Spot, 2017.</span></div></div><div class="pane" data-fig="1.2" data-cap="Echo Plus: the light ring glows when Alexa hears its wake word."><div class="box"><img data-src="assets/m05-i023.jpg" width="1920" height="1280" alt="The top of a dark Echo speaker on a desk: a ring of light and two buttons." style="--mw:1920px;--ar:1.5000" loading="lazy" decoding="async" draggable="false"><span class="broken">Echo Plus: the light ring glows when Alexa hears its wake word.</span></div></div><div class="pane" data-fig="1.3" data-cap="Labels on each word let Alexa split one spoken request into separate list items (2018)."><div class="box"><img data-src="assets/m05-i003.png" width="1748" height="505" alt="Three rows of words, each word tagged with a short label above it." style="--mw:1748px;--ar:3.4614" class="paper" loading="lazy" decoding="async" draggable="false"><span class="broken">Labels on each word let Alexa split one spoken request into separate list items (2018).</span></div></div></div></div><div class="rail" role="tablist" aria-label="Alexa Shopping: views"><button type="button" role="tab" class="seg" id="vt-m05-0" aria-controls="vp-m05" aria-selected="true" tabindex="0"><span class="vh">View 1 of 3</span></button><button type="button" role="tab" class="seg" id="vt-m05-1" aria-controls="vp-m05" aria-selected="false" tabindex="-1"><span class="vh">View 2 of 3</span></button><button type="button" role="tab" class="seg" id="vt-m05-2" aria-controls="vp-m05" aria-selected="false" tabindex="-1"><span class="vh">View 3 of 3</span></button><span class="playhead" aria-hidden="true"></span></div><figcaption class="cap"><span class="fig">1.1</span><span class="txt">Echo Spot, 2017.</span><span class="vh"> 3 views. Arrow keys change the view.</span></figcaption></figure><div class="label"><span class="no" aria-hidden="true">01</span><h2 class="title"><span class="vh">1 </span>Alexa Shopping</h2><span class="yrs"><time datetime="2017">2017</time>–<time datetime="2018">2018</time></span><div class="lines"><p class="l-role">First product lead, language understanding for shopping</p><p class="l-out">How Alexa understood shopping requests</p></div></div></li></ol>
+  <div class="earlier"><h2 class="earlier__title">Before 2017</h2><p class="earlier__line">Target, Amazon Retail and <span class="nw">Prime Now</span></p><p class="earlier__yrs"><time datetime="2012">2012</time>–<time datetime="2017">2017</time></p></div>
+</main>
+<section class="about" id="about" aria-labelledby="about-h">
+  <h2 id="about-h">About</h2>
+  <p class="about__scale">Product leader for organizations of more than 100 at Amazon and AWS. Enterprise AI across eight markets at <span class="nw">M-PESA Africa</span>.</p>
+  <details>
+    <summary>Short bio</summary>
+    <p class="about__bio" id="bio">Njenga (Jay) Kariuki is Managing Executive: Artificial Intelligence at <span class="nw">M-PESA Africa</span>, reporting to the CEO. At Amazon and AWS <span class="nw">(2014–2026)</span>, he led AI products from Alexa shopping and three Amazon Halo products to Map View, then the product organization behind Amazon <span class="nw">Bio Discovery</span>. He wrote the text and analysis of the Economy chapter of Stanford’s <span class="nw">AI Index</span> 2025.</p>
+    <button type="button" class="about__copy" data-copy="#bio" hidden>Copy bio</button>
+  </details>
+</section>
+<footer class="foot" id="contact" tabindex="-1"><a class="foot__a" href="https://www.linkedin.com/in/njengakariuki/" rel="me noopener" target="_blank">LinkedIn</a><a class="foot__a" href="#credits">Credits</a></footer>
+</div>
+
+<div class="place place--credits" id="credits">
+<header class="rhead">
+  <a class="back" href="#overview" data-index><svg viewBox="0 0 14 10" aria-hidden="true"><path d="M5 1 1 5l4 4M1 5h13" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Index</a>
+  <span class="rhead__here" aria-hidden="true"><span class="rhead__title">Credits</span></span>
+</header>
+<main class="cr" aria-labelledby="credits-h1">
+  <h1 id="credits-h1" tabindex="-1">Credits</h1>
+  <section class="cr-group" aria-labelledby="cr-m14"><h2 id="cr-m14"><span class="no">09</span>Amazon Bio Discovery</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">9.1</span>Choosing the target protein, then asking for recommended binding sites.</td><td class="lic">Amazon. All rights reserved. <a href="https://www.aboutamazon.com/news/aws/aws-amazon-bio-discovery-ai-drug-research" target="_blank" rel="noopener" aria-label="Source of view 9.1">Source</a></td></tr><tr><td><span class="fig">9.2</span>Building a workflow from models in the catalog.</td><td class="lic">Amazon. All rights reserved. <a href="https://www.aboutamazon.com/news/aws/aws-amazon-bio-discovery-ai-drug-research" target="_blank" rel="noopener" aria-label="Source of view 9.2">Source</a></td></tr><tr><td><span class="fig">9.3</span>Filtering 5,700 candidate designs to 25, ready to send for lab testing.</td><td class="lic">Amazon. All rights reserved. <a href="https://www.aboutamazon.com/news/aws/aws-amazon-bio-discovery-ai-drug-research" target="_blank" rel="noopener" aria-label="Source of view 9.3">Source</a></td></tr><tr><td><span class="fig">9.4</span>How a predicted property is spread across the candidates, with outliers marked.</td><td class="lic">Amazon. All rights reserved. <a href="https://www.aboutamazon.com/news/aws/aws-amazon-bio-discovery-ai-drug-research" target="_blank" rel="noopener" aria-label="Source of view 9.4">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-m13"><h2 id="cr-m13"><span class="no">08</span>Stanford AI Index 2025: the Economy chapter</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">8.1</span>The chapter’s opening page: “Text and analysis by Njenga Kariuki.”</td><td class="lic">AI Index Report 2025, Stanford HAI. <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noopener license">CC BY-ND 4.0</a>. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report" target="_blank" rel="noopener" aria-label="Source of view 8.1">Source</a></td></tr><tr><td><span class="fig">8.2</span>The chapter’s six highlights.</td><td class="lic">AI Index Report 2025, Stanford HAI. <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noopener license">CC BY-ND 4.0</a>. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/economy" target="_blank" rel="noopener" aria-label="Source of view 8.2">Source</a></td></tr><tr><td><span class="fig">8.3</span>Figure 4.3.1: global corporate investment in AI, 2013 to 2024.</td><td class="lic">AI Index Report 2025, Stanford HAI. <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noopener license">CC BY-ND 4.0</a>. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/economy" target="_blank" rel="noopener" aria-label="Source of view 8.3">Source</a></td></tr><tr><td><span class="fig">8.4</span>The AI Index Report 2025, published April 7, 2025.</td><td class="lic">AI Index Report 2025, Stanford HAI. <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noopener license">CC BY-ND 4.0</a>. <a href="https://hai.stanford.edu/ai-index" target="_blank" rel="noopener" aria-label="Source of view 8.4">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-m11"><h2 id="cr-m11"><span class="no">07</span>Alexa Smart Home app and Map View</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">7.1</span>Map View: the home’s floor plan, with device pins and a control card.</td><td class="lic">Amazon. All rights reserved. Cropped. <a href="https://www.aboutamazon.com/news/devices/amazon-smart-home-announcements-2023" target="_blank" rel="noopener" aria-label="Source of view 7.1">Source</a></td></tr><tr><td><span class="fig">7.2</span>Patent drawing: a phone scans a room into measured points.</td><td class="lic">US Patent 12,387,374, Amazon Technologies, Inc. Public domain. <a href="https://ppubs.uspto.gov/pubwebapp/" target="_blank" rel="noopener" aria-label="Source of view 7.2">Source</a></td></tr><tr><td><span class="fig">7.3</span>Patent drawing: dragging a light from a palette onto a floor plan.</td><td class="lic">US Patent 11,531,789, Amazon Technologies, Inc. Public domain. <a href="https://ppubs.uspto.gov/pubwebapp/" target="_blank" rel="noopener" aria-label="Source of view 7.3">Source</a></td></tr><tr><td><span class="fig">7.4</span>December 2023: the Map View pin in the Alexa app’s Devices tab.</td><td class="lic">Amazon. All rights reserved. <a href="https://www.aboutamazon.com/news/devices/alexa-app-redesign" target="_blank" rel="noopener" aria-label="Source of view 7.4">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-m10"><h2 id="cr-m10"><span class="no">06</span>Health AI portfolio</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">6.1</span>Error against a clinical DXA scan: Halo Body (VBC, left) beside six other methods. 2022 study.</td><td class="lic">Majmudar et al., npj Digital Medicine, 2022. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>. Cropped. <a href="https://www.nature.com/articles/s41746-022-00628-3" target="_blank" rel="noopener" aria-label="Source of view 6.1">Source</a></td></tr><tr><td><span class="fig">6.2</span>Movement scores for athletes, healthy adults and adults with impaired mobility. 2022 study.</td><td class="lic">Fanton et al., npj Digital Medicine, 2022. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>. <a href="https://www.nature.com/articles/s41746-022-00684-9" target="_blank" rel="noopener" aria-label="Source of view 6.2">Source</a></td></tr><tr><td><span class="fig">6.3</span>Waist-to-hip ratio from the app, compared with tape measurements by trained staff. 2023 study.</td><td class="lic">Choudhary et al., npj Digital Medicine, 2023. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>. <a href="https://www.nature.com/articles/s41746-023-00909-5" target="_blank" rel="noopener" aria-label="Source of view 6.3">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-m09"><h2 id="cr-m09"><span class="no">05</span>Halo Movement</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">5.1</span>Setup: the phone stands 6 to 10 feet away, ready to record.</td><td class="lic">Fanton et al., npj Digital Medicine, 2022. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>. Cropped. <a href="https://www.nature.com/articles/s41746-022-00684-9" target="_blank" rel="noopener" aria-label="Source of view 5.1">Source</a></td></tr><tr><td><span class="fig">5.2</span>Detailed results, 2021: mobility and stability by body region, then next steps.</td><td class="lic">Amazon. All rights reserved. Cropped. <a href="https://mashable.com/article/amazon-halo-health-tracker-movement-health" target="_blank" rel="noopener" aria-label="Source of view 5.2">Source</a></td></tr><tr><td><span class="fig">5.3</span>Patent drawing of the results: a Movement Score of 69, by body region.</td><td class="lic">US Patent 12,067,806, Amazon Technologies, Inc. Public domain. <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12067806" target="_blank" rel="noopener" aria-label="Source of view 5.3">Source</a></td></tr><tr><td><span class="fig">5.4</span>Patent drawing: the phone films each exercise; servers score how far it is from good form.</td><td class="lic">US Patent 12,067,806, Amazon Technologies, Inc. Public domain. <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12067806" target="_blank" rel="noopener" aria-label="Source of view 5.4">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-m08"><h2 id="cr-m08"><span class="no">04</span>Halo Tone</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">4.1</span>Launch illustration of Tone, 2020: the day’s tones and two notable moments.</td><td class="lic">Amazon. All rights reserved. <a href="https://www.aboutamazon.com/news/devices/a-new-tool-to-help-you-understand-and-improve-your-social-wellbeing" target="_blank" rel="noopener" aria-label="Source of view 4.1">Source</a></td></tr><tr><td><span class="fig">4.2</span>Patent drawing of Live View: a dot on axes of energy and positivity.</td><td class="lic">US Patent 11,854,575, Amazon Technologies, Inc. Public domain. <a href="https://ppubs.uspto.gov/pubwebapp/" target="_blank" rel="noopener" aria-label="Source of view 4.2">Source</a></td></tr><tr><td><span class="fig">4.3</span>Patent drawing: the words beside the dot change as the voice changes.</td><td class="lic">US Patent 11,854,575, Amazon Technologies, Inc. Public domain. <a href="https://ppubs.uspto.gov/pubwebapp/" target="_blank" rel="noopener" aria-label="Source of view 4.3">Source</a></td></tr><tr><td><span class="fig">4.4</span>Patent drawing: the energy and positivity grid in thirteen named regions, each with its own color.</td><td class="lic">US Patent 11,854,575, Amazon Technologies, Inc. Public domain. <a href="https://ppubs.uspto.gov/pubwebapp/" target="_blank" rel="noopener" aria-label="Source of view 4.4">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-m07"><h2 id="cr-m07"><span class="no">03</span>Halo Body</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">3.1</span>The Halo app home screen, with Body beside Activity, Sleep and Tone.</td><td class="lic">Amazon. All rights reserved. Cropped. <a href="https://www.theverge.com/2020/8/27/21402493/amazon-halo-band-health-fitness-body-scan-tone-emotion-activity-sleep" target="_blank" rel="noopener" aria-label="Source of view 3.1">Source</a></td></tr><tr><td><span class="fig">3.2</span>Patent drawing: the level shows a check once the phone stands upright.</td><td class="lic">US Patent 11,232,629, Amazon Technologies, Inc. Public domain. <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11232629" target="_blank" rel="noopener" aria-label="Source of view 3.2">Source</a></td></tr><tr><td><span class="fig">3.3</span>Patent drawing: an outline shows where the legs should go.</td><td class="lic">US Patent 11,232,629, Amazon Technologies, Inc. Public domain. <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11232629" target="_blank" rel="noopener" aria-label="Source of view 3.3">Source</a></td></tr><tr><td><span class="fig">3.4</span>Patent drawing: the body matches the outline, and the scan begins.</td><td class="lic">US Patent 11,232,629, Amazon Technologies, Inc. Public domain. <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11232629" target="_blank" rel="noopener" aria-label="Source of view 3.4">Source</a></td></tr><tr><td><span class="fig">3.5</span>The result: body fat percentage and a 3D model of the user’s body.</td><td class="lic">Amazon. All rights reserved. Cropped. <a href="https://www.theverge.com/2020/8/27/21402493/amazon-halo-band-health-fitness-body-scan-tone-emotion-activity-sleep" target="_blank" rel="noopener" aria-label="Source of view 3.5">Source</a></td></tr><tr><td><span class="fig">3.6</span>Patent drawing: a slider shows the predicted shape at a lower body fat.</td><td class="lic">US Patent 11,069,131, Amazon Technologies, Inc. Public domain. <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11069131" target="_blank" rel="noopener" aria-label="Source of view 3.6">Source</a></td></tr><tr><td><span class="fig">3.7</span>August 2021: scans from 3 feet away instead of 4.5, for smaller rooms.</td><td class="lic">Amazon. All rights reserved. A still frame from the animation. <a href="https://www.amazon.science/latest-news/improved-halo-body-technology-allows-customers-to-take-scans-in-tighter-spaces" target="_blank" rel="noopener" aria-label="Source of view 3.7">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-m06"><h2 id="cr-m06"><span class="no">02</span>Amazon Halo</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">2.1</span>The Halo Band in its three launch colors, 2020.</td><td class="lic">Amazon. All rights reserved. Cropped. <a href="https://www.theverge.com/2020/8/27/21402493/amazon-halo-band-health-fitness-body-scan-tone-emotion-activity-sleep" target="_blank" rel="noopener" aria-label="Source of view 2.1">Source</a></td></tr><tr><td><span class="fig">2.2</span>The band and the Halo app, December 2020.</td><td class="lic">Amazon. All rights reserved. <a href="https://medium.com/amazonhaloblog/amazon-halo-new-and-already-improved-ed6bb37c8a0a" target="_blank" rel="noopener" aria-label="Source of view 2.2">Source</a></td></tr><tr><td><span class="fig">2.3</span>Activity: the week’s points toward a target of 150.</td><td class="lic">Amazon. All rights reserved. Cropped. <a href="https://www.theverge.com/2020/8/27/21402493/amazon-halo-band-health-fitness-body-scan-tone-emotion-activity-sleep" target="_blank" rel="noopener" aria-label="Source of view 2.3">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-m05"><h2 id="cr-m05"><span class="no">01</span>Alexa Shopping</h2><table class="cr-table"><thead><tr><th scope="col">View</th><th scope="col">Credit</th></tr></thead><tbody><tr><td><span class="fig">1.1</span>Echo Spot, 2017.</td><td class="lic">R4vi from London, UK, via Wikimedia Commons. <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener license">CC BY-SA 2.0</a>. <a href="https://commons.wikimedia.org/wiki/File:Amazon_Echo_Spot_(39990028841).jpg" target="_blank" rel="noopener" aria-label="Source of view 1.1">Source</a></td></tr><tr><td><span class="fig">1.2</span>Echo Plus: the light ring glows when Alexa hears its wake word.</td><td class="lic">Asivechowdhury, via Wikimedia Commons. <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener license">CC BY-SA 4.0</a>. <a href="https://commons.wikimedia.org/wiki/File:Amazon_Echo_Plus.jpg" target="_blank" rel="noopener" aria-label="Source of view 1.2">Source</a></td></tr><tr><td><span class="fig">1.3</span>Labels on each word let Alexa split one spoken request into separate list items (2018).</td><td class="lic">Amazon. All rights reserved. <a href="https://www.amazon.science/blog/how-alexa-knows-peanut-butter-is-one-shopping-list-item-not-two" target="_blank" rel="noopener" aria-label="Source of view 1.3">Source</a></td></tr></tbody></table></section><section class="cr-group" aria-labelledby="cr-type"><h2 id="cr-type">Type</h2><table class="cr-table"><tbody><tr><td>Chivo, by Omnibus-Type</td><td class="lic">SIL Open Font License 1.1. <a href="fonts/OFL.txt">License</a></td></tr></tbody></table></section>
 </main>
 </div>
+<p id="live" class="vh" aria-live="polite"></p>
+<script>
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const mqReduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const mqWide = matchMedia('(min-width: 700px)');
+  const reduced = () => mqReduce.matches;
+  const EASE = 'cubic-bezier(0.32, 0.72, 0, 1)';
+  const openMs = () => (mqWide.matches ? 450 : 350);
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const SPRING_W = (2 * Math.PI) / 0.3;
+  const BUMP_V = 16 * SPRING_W * Math.E;
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (_) {}
+  let realMove = false, lastX = NaN, lastY = NaN;
+  window.addEventListener('pointermove', (e) => {
+    realMove = e.clientX !== lastX || e.clientY !== lastY;
+    lastX = e.clientX; lastY = e.clientY;
+  }, true);
+
+  const hist = (kind, state, url) => { try { history[kind](state, '', url); return true; } catch (_) { return false; } };
+  const BASE = document.title.replace(/^Credits · /, '');
+  const TITLES = { overview: BASE, credits: 'Credits · ' + BASE };
+  function openWork() {}
+  const live = $('#live');
+  let liveT = 0;
+  const announce = (msg) => { clearTimeout(liveT); liveT = setTimeout(() => { live.textContent = msg; }, 500); };
+
+  /* =========================== The plate viewer =========================== */
+  class Viewer {
+    constructor(fig) {
+      this.fig = fig;
+      this.kind = fig.dataset.viewer;            // "tile" on the index, "hero" on a work's page
+      this.plate = $('.plate', fig);
+      this.strip = $('.strip', fig);
+      this.panes = $$('.pane', fig);
+      this.boxes = this.panes.map((p) => $('.box', p));
+      this.imgs = this.panes.map((p) => $('img', p));   // null on a typographic plate
+      this.caps = this.panes.map((p) => p.dataset.cap || '');
+      this.figs = this.panes.map((p) => p.dataset.fig || '');
+      this.n = this.panes.length;
+      this.i = 0;
+      this.x = 0;
+      this.tabs = $$('[role="tab"]', fig);
+      this.cols = $$('.stepcol', fig);
+      this.list = $('[role="tablist"]', fig);
+      this.capFig = $('.cap .fig', fig);
+      this.capTxt = $('.cap .txt', fig);
+      this.stepNow = $('.step-now', fig);
+      this.playhead = $('.playhead', fig);
+      this.opens = fig.dataset.opens || '';
+      this.work = fig.closest('.work');
+      this.drag = null;
+      this.raf = 0;
+      this.pending = -1;
+      this.onchange = null;
+      this.panes.forEach((p, k) => {
+        const img = this.imgs[k];
+        if (!img) return;
+        img.addEventListener('error', () => p.classList.add('is-broken'));
+        if (img.getAttribute('src') && img.complete && !img.naturalWidth) p.classList.add('is-broken');   // it failed before this script ran
+      });
+      this.bind();
+    }
+
+    width() { return this.plate.clientWidth || 1; }
+
+    setX(px) {
+      if (px == null) {
+        this.x = -this.i * this.width();
+        this.strip.style.transform = `translate3d(${-this.i * 100}%,0,0)`;
+      } else {
+        this.x = px;
+        this.strip.style.transform = `translate3d(${px}px,0,0)`;
+      }
+    }
+    ensure(k) {
+      const img = this.imgs[k];
+      if (img && !img.getAttribute('src') && img.dataset.src) img.src = img.dataset.src;
+      if (img && img.loading === 'lazy') img.loading = 'eager';
+    }
+    jump(k) {
+      k = clamp(k, 0, this.n - 1);
+      this.ensure(k);
+      this.stop();
+      this.pending = -1;
+      this.i = k;
+      this.setX(null);
+      this.mark(k);
+      this.caption(k);
+    }
+
+    go(k, src) {
+      k = clamp(k, 0, this.n - 1);
+      if (k === this.i && this.pending < 0) return;
+      const img = this.imgs[k];
+      this.ensure(k);
+      const ready = !img || (img.complete && img.naturalWidth > 0);
+      if (!ready && !this.panes[k].classList.contains('is-broken')) {
+        this.pending = k;
+        this.mark(k);
+        const done = () => { if (this.pending === k) { this.pending = -1; this.show(k, src); } };
+        (img.decode ? img.decode() : Promise.resolve()).then(done, done);
+        return;
+      }
+      this.pending = -1;
+      this.show(k, src);
+    }
+
+    show(k, src) {
+      this.i = k;
+      if (!this.drag && !this.raf) this.setX(null);
+      this.mark(k);
+      this.caption(k);
+      announce(`View ${k + 1} of ${this.n}. ${this.caps[k]}`);
+      if (this.onchange) this.onchange(k, src);
+    }
+
+    mark(k) {
+      this.tabs.forEach((t, j) => {
+        t.setAttribute('aria-selected', j === k ? 'true' : 'false');
+        t.tabIndex = j === k ? 0 : -1;
+      });
+      this.cols.forEach((c, j) => c.classList.toggle('is-cur', j === k));
+      if (this.tabs[k]) this.plate.setAttribute('aria-labelledby', this.tabs[k].id);
+    }
+
+    caption(k) {
+      if (this.capFig) this.capFig.textContent = this.figs[k];
+      if (this.capTxt) this.capTxt.textContent = this.caps[k];
+      if (this.stepNow) this.stepNow.textContent = this.caps[k];
+    }
+
+    stop() { if (this.raf) { cancelAnimationFrame(this.raf); this.raf = 0; } }
+    spring(to, v0) {
+      this.stop();
+      const d = 0.3, k = Math.pow((2 * Math.PI) / d, 2), c = (4 * Math.PI) / d;
+      let x = this.x, v = v0, last = performance.now();
+      const step = (now) => {
+        const dt = Math.min(0.034, (now - last) / 1000);
+        last = now;
+        for (let s = 0; s < 4; s++) { const h = dt / 4; const a = -k * (x - to) - c * v; v += a * h; x += v * h; }
+        if (Math.abs(x - to) < 0.4 && Math.abs(v) < 12) { this.raf = 0; this.setX(null); return; }
+        this.setX(x);
+        this.raf = requestAnimationFrame(step);
+      };
+      this.raf = requestAnimationFrame(step);
+    }
+    bump(dir) {
+      if (reduced()) return;
+      this.spring(-this.i * this.width(), -dir * BUMP_V);
+    }
+
+    bind() {
+      const plate = this.plate;
+      const band = (e) => {
+        if (e.pointerType !== 'mouse' || this.kind !== 'tile' || !realMove) return;
+        const r = plate.getBoundingClientRect();
+        const x = clamp(e.clientX - r.left, 0, r.width - 0.01);
+        if (this.playhead) this.playhead.style.transform = `translateX(${x}px)`;
+        this.fig.classList.add('is-engaged');
+        this.go(Math.floor((x / r.width) * this.n), 'pointer');
+        if (this.downX != null && (e.buttons & 1) && Math.abs(e.clientX - this.downX) > 6) this.moved = true;
+      };
+      plate.addEventListener('pointermove', band);
+      if (this.list && this.kind === 'tile') this.list.addEventListener('pointermove', band);
+      const leave = (e) => { if (e.pointerType === 'mouse') this.fig.classList.remove('is-engaged'); };
+      plate.addEventListener('pointerleave', leave);
+      if (this.list && this.kind === 'tile') this.list.addEventListener('pointerleave', leave);
+
+      plate.addEventListener('pointerdown', (e) => this.down(e));
+      plate.addEventListener('pointermove', (e) => this.move(e));
+      plate.addEventListener('pointerup', (e) => this.up(e));
+      plate.addEventListener('pointercancel', (e) => this.up(e));
+      plate.addEventListener('lostpointercapture', (e) => { if (e.target === plate && this.drag && this.drag.id === e.pointerId && this.drag.captured) this.up(e); });
+      plate.addEventListener('gotpointercapture', (e) => { if (e.target === plate && this.drag && this.drag.id === e.pointerId) this.drag.captured = true; });
+      plate.addEventListener('dragstart', (e) => e.preventDefault());
+      plate.addEventListener('click', (e) => {
+        if (this.kind !== 'tile' || !this.opens) return;
+        const moved = this.moved;
+        this.moved = false; this.downX = null;
+        if (moved) return;
+        if (e.pointerType && e.pointerType !== 'mouse') return;   // touch is handled as a tap
+        openWork(this, 'pointer');
+      });
+
+      this.tabs.forEach((t, j) => t.addEventListener('click', () => this.go(j, 'tab')));
+
+      if (this.list) {
+        this.list.addEventListener('keydown', (e) => {
+          const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+          let k = null;
+          if (step) {
+            k = (this.pending >= 0 ? this.pending : this.i) + step;
+            if (k < 0 || k > this.n - 1) { e.preventDefault(); return; }
+          }
+          else if (e.key === 'Home') k = 0;
+          else if (e.key === 'End') k = this.n - 1;
+          else if (e.key === 'Enter' && this.opens && this.kind === 'tile') { e.preventDefault(); openWork(this, 'key'); return; }
+          if (k == null) return;
+          e.preventDefault();
+          k = clamp(k, 0, this.n - 1);
+          this.go(k, 'key');
+          if (this.tabs[k]) this.tabs[k].focus();
+        });
+      }
+      this.cols.forEach((c, j) => {
+        let t = 0;
+        c.addEventListener('pointermove', (e) => {
+          if (e.pointerType !== 'mouse' || !realMove) return;
+          clearTimeout(t); t = setTimeout(() => this.go(j, 'pointer'), 60);
+        });
+        c.addEventListener('pointerleave', () => clearTimeout(t));
+        c.addEventListener('click', () => { clearTimeout(t); this.go(j, 'tab'); });
+      });
+    }
+
+    down(e) {
+      if (e.button !== 0) return;
+      const mouse = e.pointerType === 'mouse';
+      if (this.kind === 'tile' && mouse) { this.downX = e.clientX; this.moved = false; e.preventDefault(); return; }
+      if (!mouse && (e.clientX < 16 || e.clientX > window.innerWidth - 16)) return;  // the edges belong to the system's back swipe
+      this.stop();
+      this.drag = {
+        id: e.pointerId, x0: e.clientX, y0: e.clientY, base: this.x, w: this.width(),
+        lock: null, mouse, dx: 0, samples: [[e.timeStamp, e.clientX]]
+      };
+      if (mouse) { e.preventDefault(); plate_capture(this.plate, e.pointerId); this.fig.classList.add('is-grabbing'); }
+    }
+
+    move(e) {
+      const d = this.drag;
+      if (!d || e.pointerId !== d.id) return;
+      const dx = e.clientX - d.x0, dy = e.clientY - d.y0;
+      if (!d.lock) {
+        if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) { d.lock = 'x'; if (!d.mouse) plate_capture(this.plate, d.id); }
+        else if (Math.abs(dy) > 10) { d.lock = 'y'; return; }
+        else return;
+      }
+      if (d.lock !== 'x') return;
+      e.preventDefault();
+      d.dx = dx;
+      d.samples.push([e.timeStamp, e.clientX]);
+      while (d.samples.length > 2 && e.timeStamp - d.samples[0][0] > 100) d.samples.shift();   // velocity over the last 100 ms
+      let x = d.base + dx;
+      const min = -(this.n - 1) * d.w;
+      if (reduced()) x = clamp(x, min, 0);        // reduced motion: the strip follows the finger one to one, with no give
+      else {
+        if (x > 0) x = x * 0.3;
+        if (x < min) x = min + (x - min) * 0.3;
+      }
+      this.setX(x);
+    }
+
+    up(e) {
+      const d = this.drag;
+      if (!d || e.pointerId !== d.id) return;
+      this.drag = null;
+      this.fig.classList.remove('is-grabbing');
+      if (d.lock !== 'x') {
+        if (e.type === 'pointerup' && Math.hypot(e.clientX - d.x0, e.clientY - d.y0) < 10) this.tap(e, d);
+        return;
+      }
+      const s = d.samples, a = s[0], b = s[s.length - 1];
+      const v = s.length > 1 && e.timeStamp - b[0] < 80 ? (b[1] - a[1]) / Math.max(16, b[0] - a[0]) : 0;   // px per ms; a pause before release ends the fling
+      let want = this.i;
+      if (d.dx < -d.w * 0.25 || v < -0.35) want = this.i + 1;
+      else if (d.dx > d.w * 0.25 || v > 0.35) want = this.i - 1;
+      const k = clamp(want, 0, this.n - 1);
+      if (this.kind === 'tile' && this.opens) this.moved = true;
+      if (reduced()) { this.stop(); if (k !== this.i) this.go(k, 'drag'); this.setX(null); return; }   // a cut on release
+      if (want !== k) {
+        const edge = -k * d.w;
+        if (!d.mouse && Math.abs(this.x - edge) < 16) this.bump(want > k ? 1 : -1); else this.spring(edge, v * 1000);
+        return;
+      }
+      this.spring(-k * d.w, v * 1000);           // start the spring first, so the swap below does not snap the strip
+      if (k !== this.i) this.go(k, 'drag');
+    }
+
+    tap(e, d) {
+      if (this.kind !== 'tile') return;
+      if (d.mouse) return;
+      if (this.opens) { this.moved = true; openWork(this, 'tap'); return; }
+      if (this.i >= this.n - 1) { this.bump(1); return; }
+      this.go(this.i + 1, 'tap');
+    }
+  }
+
+  function plate_capture(el, id) { try { el.setPointerCapture(id); } catch (_) {} }
+
+  const viewers = $$('[data-viewer]').map((f) => new Viewer(f));
+  const tileOf = (id) => viewers.find((v) => v.kind === 'tile' && v.fig.dataset.id === id);
+  const promote = (img) => {
+    if (!img.getAttribute('src') && img.dataset.src) img.src = img.dataset.src;
+    if (img.loading === 'lazy') img.loading = 'eager';
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        $$('img', en.target).forEach(promote);
+        io.unobserve(en.target);
+      });
+    });
+    $$('.work .plate, .hero .plate').forEach((pl) => io.observe(pl));
+  } else {
+    $$('img').forEach(promote);
+  }
+  const readAhead = () => {
+    const limit = window.innerHeight * 6;
+    $$('#overview .work .pane:first-child img').forEach((img) => {
+      const r = img.getBoundingClientRect();
+      if (!r.width || r.top > limit || r.bottom < -window.innerHeight) return;
+      promote(img);
+      if (img.decode) img.decode().catch(() => {});
+    });
+  };
+  const whenIdle = (f) => (window.requestIdleCallback ? requestIdleCallback(f, { timeout: 1500 }) : setTimeout(f, 200));
+  if (document.readyState === 'complete') whenIdle(readAhead);
+  else window.addEventListener('load', () => whenIdle(readAhead), { once: true });
+
+  /* =============================== Places: the index and Credits =============================== */
+  const P = { overview: $('#overview'), credits: $('#credits') };
+  const placeOf = (hash) => (hash === '#credits' ? 'credits' : 'overview');
+  let place = placeOf(location.hash);
+  let savedY = 0;
+  function showPlace(name) {
+    root.classList.remove('at-overview', 'at-credits');
+    root.classList.add('at-' + name);
+    document.title = TITLES[name];
+  }
+  function focusHeading(name) {
+    const h = $('h1', P[name]);
+    if (h) h.focus({ preventScroll: true });
+  }
+  function route(next) {
+    if (next === place) return;
+    const prev = place;
+    const st = history.state || {};
+    if (prev === 'overview') savedY = window.scrollY;
+    place = next;
+    showPlace(next);
+    if (next === 'overview') {
+      window.scrollTo(0, st.y != null ? st.y : savedY);
+      const link = $('#overview .foot__a[href="#credits"]');
+      if (prev === 'credits' && link) link.focus({ preventScroll: true });
+      return;
+    }
+    window.scrollTo(0, 0);
+    focusHeading(next);
+  }
+  function goIndex() {
+    const st = history.state;
+    if (st && st.from === 'overview') { history.back(); return; }
+    hist('pushState', { place: 'overview' }, location.pathname);
+    route('overview');
+  }
+  const keepY = () => hist('replaceState', Object.assign({}, history.state, { place, y: window.scrollY }), location.href);
+  window.addEventListener('popstate', () => {
+    const next = placeOf(location.hash);
+    if (next === place) {
+      if (history.state && history.state.y != null) window.scrollTo(0, history.state.y);
+      return;
+    }
+    route(next);
+  });
+  window.addEventListener('hashchange', () => {
+    const next = placeOf(location.hash);
+    if (next !== place) route(next);
+  });
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (a.hasAttribute('data-index')) {
+      e.preventDefault();
+      goIndex();
+    } else if (href === '#credits') {
+      e.preventDefault();
+      if (place === 'credits') return;
+      savedY = window.scrollY;
+      keepY();
+      hist('pushState', { place: 'credits', from: place }, '#credits');
+      route('credits');
+    }
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && place === 'credits') { e.preventDefault(); goIndex(); }
+  });
+  const ch = $('#credits-h1');
+  if (ch && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => {
+      P.credits.classList.toggle('is-scrolled', !en.isIntersecting && en.boundingClientRect.top < 80);
+    }, { rootMargin: '-60px 0px 0px 0px' }).observe(ch);
+  }
+
+  /* =============================== The bio's copy button =============================== */
+  const cb = $('[data-copy]');
+  if (cb && navigator.clipboard && window.isSecureContext) {
+    cb.hidden = false;
+    const label = cb.textContent;
+    cb.addEventListener('click', () => {
+      const text = ($(cb.dataset.copy) || {}).textContent || '';
+      navigator.clipboard.writeText(text.trim()).then(() => {
+        cb.textContent = 'Copied';
+        setTimeout(() => { cb.textContent = label; }, 2000);
+      }, () => {});
+    });
+  }
+
+  if (place !== 'overview') hist('replaceState', { place }, location.href);
+  showPlace(place);
+})();
+
+</script>
 </body>
 </html>
