@@ -1,0 +1,1 @@
+{"id": "m09-what-does-81-mean", "illustrative": {"any": false, "label": ""}, "files": {"score-scale.json": {"scale": {"range": [0, 100]}, "study_groups": {"athlete": {"n": 17, "mean": 86.64}, "healthy": {"n": 113, "mean": 81.28}, "movement_impaired": {"n": 20, "mean": 68.43}}}}}
