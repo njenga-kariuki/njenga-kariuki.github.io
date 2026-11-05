@@ -1,3 +1,4 @@
+# Njenga Kariuki: every page is open to search engines and to AI search, answer and assistant crawlers.
 User-agent: *
 Allow: /
 

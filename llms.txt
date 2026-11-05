@@ -1,0 +1,32 @@
+# Njenga Kariuki
+
+> AI executive in Nairobi, Kenya, leading enterprise AI transformation at M-PESA Africa across Vodacom FinTech Group's eight African markets (100M+ customers, $2B+ revenue), reporting to the CEO. Before that, twelve years building AI products at Amazon and AWS, from Alexa to Amazon Bio Discovery. A master's degree from Stanford Graduate School of Business, and published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI's global economic impact (the Economy chapter of the AI Index Report 2025).
+
+## Facts
+
+- Role: Managing Executive, Artificial Intelligence, M-PESA Africa (Vodacom FinTech Group), Nairobi, 2026 to today. Owns the AI roadmap for customer experience, revenue growth, risk, fraud and operational efficiency, and is building the AI Center of Excellence for eight markets: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
+- Approach: leads AI transformation at two levels, setting the strategy with the CEO and executive team and working hands-on in the forward-deployed engineer's role; moves AI from units of work (one step in one function) to systems of work (the whole chain across functions), measured end to end against a comparison group.
+- Amazon and AWS, 2014 to 2026: product lead for Amazon Bio Discovery, an agentic AI application for antibody design (launched 14 April 2026), with an organization of 100+ engineers, scientists and product managers; Alexa Smart Home and Map View; first product lead of Amazon's Health Computer Vision and AI organization ($100M+ a year portfolio); founding team of Amazon Halo and product lead for Halo Body, Halo Tone and Halo Movement; first product lead for Alexa Shopping; founding product manager of Prime Now's local-store platform; Vendor Manager, Amazon Bedding & Bath.
+- Before Amazon: Senior Supply Chain Analyst for Target's $700M+ Apple category (2012 to 2014).
+- Six US patents (Halo Tone); three validation studies in npj Digital Medicine of products he led (2022, 2022, 2023).
+- Hands-on builds on GitHub (2025 to 2026): https://github.com/njenga-kariuki
+- Contact: LinkedIn https://www.linkedin.com/in/njengakariuki/
+
+## Pages
+
+- [Home](https://njenga-kariuki.github.io/): the work, the career and the approach, on one page
+- [About](https://njenga-kariuki.github.io/about/): the account in brief, the approach in full, patents and papers, hands-on builds, education
+- [M-PESA Africa](https://njenga-kariuki.github.io/m-pesa/) (2026–today): AI transformation of mobile money and financial services, for 100M+ customers in eight African markets.
+- [Amazon Bio Discovery](https://njenga-kariuki.github.io/bio-discovery/) (2025–2026): Scientists design antibodies with AI agents in one application, and partner labs test the designs.
+- [Stanford AI Index Report 2025, Economy chapter](https://njenga-kariuki.github.io/ai-index-2025/) (2024–2025): Published research on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots, measured from five sources.
+- [Alexa Map View](https://njenga-kariuki.github.io/map-view/) (2023–2024): A phone scan becomes a floor plan of the home, with every smart device on it, controlled from the map.
+- [Amazon Health AI](https://njenga-kariuki.github.io/health-ai-portfolio/) (2021–2023): An organization that turned phone-camera images into health measures: body fat, waist-to-hip ratio, and mobility, stability and posture.
+- [Halo Movement](https://njenga-kariuki.github.io/halo-movement/) (2019–2021): An assessment of mobility, stability and posture from phone video, with a personal exercise program to improve them.
+- [Halo Tone](https://njenga-kariuki.github.io/halo-tone/) (2018–2021): The Halo Band sampled the wearer’s voice; the phone showed how it sounded to others, in words such as “Hopeful.”
+- [Halo Body](https://njenga-kariuki.github.io/halo-body/) (2018–2021): A phone scan that returned a member’s body fat percentage and a 3D model of their body.
+- [Amazon Halo](https://njenga-kariuki.github.io/halo/) (2018–2021): Amazon’s first health wearable: a band with no screen, paired with an app and a membership.
+- [Alexa Shopping](https://njenga-kariuki.github.io/alexa-shopping/) (2017–2018): Ordering by voice on an Echo speaker: one spoken request, one offer read back, then a “yes.”
+- [Prime Now](https://njenga-kariuki.github.io/prime-now/) (2015–2017): How local stores with no online business sold through Prime Now, which delivered within one or two hours.
+- [Amazon Bedding & Bath](https://njenga-kariuki.github.io/bedding-and-bath/) (2014–2015): Amazon’s own business in sheets, towels and pillows: goods bought wholesale from brands and sold beside independent sellers.
+- [Target](https://njenga-kariuki.github.io/target-apple/) (2012–2014): The supply chain for Apple products at Target: iPads, iPods and accessories, stocked store by store.
+- [Sources and credits](https://njenga-kariuki.github.io/credits/): every source and picture, by chapter

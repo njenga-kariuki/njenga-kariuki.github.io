@@ -31,6 +31,7 @@ function segmented(name, labels, start, pick) {
     if (focus) buttons[i].focus();
     if (i !== cur) { cur = i; pick(i); }
   };
+  group._quiet = (i) => { buttons.forEach((b, j) => { b.setAttribute('aria-checked', String(j === i)); b.tabIndex = j === i ? 0 : -1; }); cur = i; };
   group.addEventListener('click', (e) => { const i = buttons.indexOf(e.target.closest('button')); if (i >= 0) set(i, false); });
   group.addEventListener('keydown', (e) => {
     const n = buttons.length;
@@ -70,10 +71,14 @@ function build(section, data) {
   const word = sv('text', { class: 't-big' });
   const more = [sv('text', { class: 't-ink' }), sv('text', { class: 't-ink' })];
   dot.append(sv('circle', { class: 'd-claim', r: '9', cx: '0', cy: '0' }), word, ...more);
-  svg.append(desc, shade, base, dot);
+  const ghosts = PICK.map(() => sv('text', { class: 't-ghost', 'text-anchor': 'middle', 'aria-hidden': 'true' }));
+  const ghostG = sv('g', { 'aria-hidden': 'true' });
+  ghosts.forEach((g) => ghostG.appendChild(g));
+  svg.append(desc, shade, base, ghostG, dot);
   const read = el('div', { class: 'm-read', 'aria-live': 'polite' });
   const controls = el('div', { class: 'm-controls' });
-  controls.appendChild(segmented('A voice Tone called', PICK.map(cap), START, (i) => { st.i = i; place(true); }));
+  const seg = segmented('A voice Tone called', PICK.map(cap), START, (i) => { stopTour(); st.i = i; place(true); });
+  controls.appendChild(seg);
   stage.append(svg, controls, read);
 
   let geo = null;
@@ -123,9 +128,38 @@ function build(section, data) {
       more[j].setAttribute('y', String(56 + j * 19));
       more[j].setAttribute('text-anchor', 'middle');
     });
+    PICK.forEach((w, j) => {
+      const qq = pickQ[j];
+      ghosts[j].textContent = w;
+      ghosts[j].setAttribute('x', String(qq.right ? cx + W / 4 : cx - W / 4));
+      ghosts[j].setAttribute('y', String((qq.top ? 0 : cy) + Math.round(cy * 0.3) + 35));
+      ghosts[j].classList.toggle('on', j !== st.i);
+    });
     const s = sentence(st.i);
     desc.textContent = `A plane with energy across and positivity up. ${Q.map((x) => `${scores(x)}: ${x.words.join(', ')}`).join('. ')}. The dot: ${s}`;
     if (say || !read.textContent) read.textContent = s;
+  }
+
+  // live mode, once: when the plane first comes into view, the dot moves through the four quarters as a voice would,
+  // then rests where it started; any touch, click or key stops it, and reduced motion skips it (v2.2)
+  let tour = null;
+  function stopTour() { if (tour) { clearTimeout(tour); tour = null; } read.setAttribute('aria-live', 'polite'); }
+  function runTour() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const seq = [1, 2, 3, 0];
+    let k = 0;
+    read.setAttribute('aria-live', 'off');
+    const next = () => {
+      st.i = seq[k]; seg._quiet(st.i); place(false); read.textContent = sentence(st.i);
+      k += 1;
+      if (k < seq.length) tour = setTimeout(next, 900); else { tour = null; read.setAttribute('aria-live', 'polite'); }
+    };
+    tour = setTimeout(next, 500);
+  }
+  ['pointerdown', 'keydown'].forEach((ev) => stage.addEventListener(ev, stopTour, { passive: true }));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { io.disconnect(); runTour(); } }), { threshold: 0.6 });
+    io.observe(stage);
   }
 
   draw();

@@ -377,11 +377,24 @@
       }
       end.style.transform = `translate(${x * W}px, 0px)`;
       const et = $('text', end);
-      if (et) { const short = x * W < BW * 0.46; et.setAttribute('text-anchor', short ? 'start' : 'end'); et.setAttribute('x', short ? '8' : '0'); et.setAttribute('y', short ? '12' : '38'); }
+      // the result's label: under the end mark at full length; once the chain is shorter, just past its end, inside the
+      // outline of the old length, whose own end reads "Before" (v2.2)
+      if (et) { const short = x * W < BW * 0.46; et.setAttribute('text-anchor', short ? 'start' : 'end'); et.setAttribute('x', short ? '8' : '0'); et.setAttribute('y', short ? '11.5' : '38'); }
       boxes.forEach((b, i) => b.classList.toggle('on-ai', CHAIN.ai[k].includes(i)));
       links.forEach(l => l.classList.toggle('joined', k >= 2));
     }
     layout('0');
+    return { to(s) { if (st.dataset.s === s) return; st.dataset.s = s; layout(s); } };
+  }
+  // Prime Now: the store platform builds station by station; the link into the app carries the cadence (v2.2)
+  function wirePipe(st) {
+    const stn = $$('.stn', st), lk = $$('.p-link', st);
+    function layout(s) {
+      const k = +s;
+      stn.forEach(g => { const i = +g.dataset.i; g.classList.toggle('on', i <= k || i === 4); g.classList.toggle('cur', k > 0 && i === k); });
+      lk.forEach(l => { const i = +l.dataset.i; l.classList.toggle('on', i < k); l.classList.toggle('live', k === 4 && i === 3); });
+    }
+    layout(st.dataset.s || '0');
     return { to(s) { if (st.dataset.s === s) return; st.dataset.s = s; layout(s); } };
   }
   /* ------------------------------------------------------------ the film stage: Amazon's own film of the flow, beside the story.
@@ -488,7 +501,7 @@
   if (stageEl && stageEl.dataset.stage === 'film') filmStage(stageEl);
   else if (stageEl) {
     const kind = stageEl.dataset.stage;
-    const wire = kind === 'map-view' ? wireMap : wireChain;
+    const wire = kind === 'map-view' ? wireMap : kind === 'pipeline' ? wirePipe : wireChain;
     const main = wire(stageEl);
     const steps = $$('.story .step');
     // the chain has a copy drawn for a phone's width; the floor plan scales as it is

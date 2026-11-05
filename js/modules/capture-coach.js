@@ -233,7 +233,8 @@ function build(section, data) {
   let wide = true;
   function draw() {
     const W = Math.max(280, Math.round(stage.clientWidth));
-    wide = !matchMedia(PHONE).matches;
+    // four screens stand in a row only when the stage is wide enough for them not to overlap (v2.2)
+    wide = !matchMedia(PHONE).matches && W >= 4 * 120 + 3 * 22;
     defs.innerHTML = '';
     scene.innerHTML = '';
     let H;
@@ -247,9 +248,9 @@ function build(section, data) {
       scene.appendChild(sv('line', { class: 'd-axis', x1: 0, x2: r1(W), y1: y + 2 * w + 0.5, y2: y + 2 * w + 0.5 }));
     } else {
       const w = 132;
-      H = 2 * w + 16;
+      H = 2 * w + 18;
       shown = [phone(st.i, (W - w) / 2, 6, w, 'cc4-clip-p')];
-      scene.appendChild(sv('line', { class: 'd-axis', x1: 0, x2: r1(W), y1: 2 * w + 6.5, y2: 2 * w + 6.5 }));
+      scene.appendChild(sv('line', { class: 'd-axis', x1: 0, x2: r1(W), y1: 2 * w + 8.5, y2: 2 * w + 8.5 }));
     }
     shown.forEach((p) => scene.appendChild(p.g));
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
