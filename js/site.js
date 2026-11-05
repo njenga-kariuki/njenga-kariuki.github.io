@@ -35,6 +35,14 @@
   }
 
   /* ------------------------------------------------------------ copy the address */
+  $$('.cpi[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    const done = () => { b.classList.add('done'); clearTimeout(b._t); b._t = setTimeout(() => b.classList.remove('done'), 1600); };
+    try { await navigator.clipboard.writeText(b.dataset.copy); done(); live('Address copied'); }
+    catch (e) {
+      const a = b.parentElement && $('.mailto', b.parentElement);
+      if (a) { const r = D.createRange(); r.selectNodeContents(a); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); live('Address selected'); }
+    }
+  }));
   $$('.cp[data-copy]').forEach(b => b.addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; live('Address copied'); }
     catch (e) { const r = D.createRange(); r.selectNodeContents(b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected'; }
@@ -247,7 +255,8 @@
   // links to the home page's sections from another page arrive at the section, below the bar
   if (isHome && location.hash && location.hash.length > 1) {
     const t = D.getElementById(location.hash.slice(1));
-    if (t) requestAnimationFrame(() => scrollTo(0, t.getBoundingClientRect().top + scrollY - head() - 8));
+    const h = t && ($('.sec-head', t) || t);
+    if (h) requestAnimationFrame(() => scrollTo(0, h.getBoundingClientRect().top + scrollY - head() - 24));
   }
 
   /* ------------------------------------------------------------ the chapter's opening picture: the film, or the views */
@@ -375,8 +384,109 @@
     layout('0');
     return { to(s) { if (st.dataset.s === s) return; st.dataset.s = s; layout(s); } };
   }
+  /* ------------------------------------------------------------ the film stage: Amazon's own film of the flow, beside the story.
+     Each step plays its own segment and loops it; the last step can hold the end with its reading. The film is fetched
+     once and shared by every copy; it plays only while it is on screen. Reduced motion: each step shows a still, and
+     steps cut. A lean connection: the poster, and no film. */
+  const LEAN = !!(navigator.connection && (navigator.connection.saveData || /2g/.test(navigator.connection.effectiveType || '')));
+  const blobs = {};
+  const filmURL = u => blobs[u] || (blobs[u] = fetch(u).then(r => { if (!r.ok) throw new Error(String(r.status)); return r.blob(); })
+    .then(b => URL.createObjectURL(b)).catch(() => u));
+  function wireFilm(st) {
+    const v = $('.fs-v', st), ticks = $$('.fs-rail i', st);
+    const segs = JSON.parse(st.dataset.segs || '[]'), endAt = st.dataset.end ? +st.dataset.end : -1;
+    let s = -1, vis = false, ready = null, raf = 0;
+    const seg = () => segs[s] || [0, 0];
+    const load = () => ready || (ready = filmURL(v.dataset.src).then(u => new Promise(res => {
+      v.addEventListener('loadeddata', res, { once: true }); v.addEventListener('error', res, { once: true });
+      v.src = u; v.load();
+    })));
+    const seek = t => { try { v.currentTime = t; } catch (e) { /* not seekable yet */ } };
+    function paint(p) {
+      ticks.forEach((t, i) => {
+        t.classList.toggle('done', i < s); t.classList.toggle('on', i === s);
+        const b = t.firstElementChild;
+        if (b) b.style.width = (i < s ? 100 : i === s ? Math.max(0, Math.min(100, Math.round(p * 1000) / 10)) : 0) + '%';
+      });
+    }
+    function hold() { const [a, b] = seg(); v.pause(); seek(Math.max(a, b - 0.05)); paint(1); if (s === endAt) st.classList.add('at-end'); }
+    function frame() {
+      cancelAnimationFrame(raf);
+      const [a, b] = seg(), t = v.currentTime;
+      if (t >= b - 0.03 || t < a - 0.25) {
+        // the end, and any segment too short to loop, play once and hold
+        if (s === endAt || b - a < 1.2) { hold(); return; }
+        seek(a);
+      }
+      paint((t - a) / (b - a));
+      if (!v.paused) raf = requestAnimationFrame(frame);
+    }
+    function run() {
+      if (s < 0) return;
+      const k = s, [a, b] = seg();
+      st.classList.remove('at-end');
+      cancelAnimationFrame(raf);
+      if (LEAN) { paint(1); if (k === endAt) st.classList.add('at-end'); return; }
+      if (RM) {
+        load().then(() => { if (k !== s) return; seek(k === endAt ? b - 0.05 : (a + b) / 2); v.classList.add('on'); paint(1); if (k === endAt) st.classList.add('at-end'); });
+        return;
+      }
+      if (!vis) { paint(0); return; }
+      load().then(() => {
+        if (k !== s || !vis) return;
+        seek(a);
+        const p = v.play();
+        const go = () => { v.classList.add('on'); frame(); };
+        if (p && p.then) p.then(go).catch(() => { seek(b - 0.05); v.classList.add('on'); paint(1); }); else go();
+      });
+    }
+    return {
+      to(k) { if (String(s) === String(k)) return; s = +k; st.dataset.s = String(k); run(); },
+      seen(on) { if (vis === on) return; vis = on; if (on) run(); else { cancelAnimationFrame(raf); if (!RM) v.pause(); } },
+    };
+  }
+  function filmStage(stageEl) {
+    const steps = $$('.story .step');
+    // the phone: each step carries its own copy of the stage, playing that step's segment
+    const minis = steps.map(step => {
+      const k = +step.dataset.s;
+      const box = stageEl.cloneNode(true);
+      box.removeAttribute('id');
+      box.classList.add('mini');
+      $$('.cap', box).forEach(c => c.remove());
+      step.insertBefore(box, step.children[1] || null);
+      const w = wireFilm(box);
+      w.to(k);
+      return [box, w];
+    });
+    const main = wireFilm(stageEl);
+    const rail = $('.fs-rail', stageEl);
+    if (rail && steps.length) {
+      rail.classList.add('go');
+      rail.addEventListener('click', e => {
+        const r = rail.getBoundingClientRect();
+        const i = Math.min(steps.length - 1, Math.max(0, Math.floor((e.clientX - r.left) / r.width * steps.length)));
+        glide(steps[i].getBoundingClientRect().top + scrollY - innerHeight * 0.3, 420);
+      });
+    }
+    if (!('IntersectionObserver' in window)) { main.to(0); main.seen(true); minis.forEach(([, w]) => w.seen(true)); return; }
+    const vio = new IntersectionObserver(es => es.forEach(en => { const w = en.target === stageEl ? main : (minis.find(m => m[0] === en.target) || [])[1]; if (w) w.seen(en.isIntersecting); }), { threshold: 0.35 });
+    vio.observe(stageEl); minis.forEach(([b]) => vio.observe(b));
+    const sio = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return;
+      steps.forEach(x => x.classList.toggle('on', x === en.target));
+      main.to(en.target.dataset.s);
+    }), { rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach(x => sio.observe(x));
+    main.to(0);
+    addEventListener('scroll', () => {
+      const s0 = steps[0];
+      if (s0 && s0.getBoundingClientRect().top > innerHeight * 0.55 && stageEl.dataset.s !== '0') { steps.forEach(x => x.classList.toggle('on', x === s0)); main.to(0); }
+    }, { passive: true });
+  }
   const stageEl = $('#stage');
-  if (stageEl) {
+  if (stageEl && stageEl.dataset.stage === 'film') filmStage(stageEl);
+  else if (stageEl) {
     const kind = stageEl.dataset.stage;
     const wire = kind === 'map-view' ? wireMap : wireChain;
     const main = wire(stageEl);

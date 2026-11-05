@@ -875,3 +875,205 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* motion: one character; reduced motion gets a complete still path */
 .m-stage .anim { transition: transform var(--t-2) var(--ease), opacity var(--t-1) linear, width var(--t-2) var(--ease), x var(--t-2) var(--ease), y var(--t-2) var(--ease); }
 @media (prefers-reduced-motion: reduce) { .m-stage *, .m-stage .anim { transition: none !important; animation: none !important; } }
+
+/* ============================================================ v2.1, the surgical pass (5 November 2026) */
+/* drawings: the site's own diagrams in story steps and heroes, drawn on a 380-unit-wide grid so that
+   type reads at about 1.2x on a laptop column and 0.94x on a phone */
+.dw { display: block; width: 100%; height: auto; font-family: var(--font); overflow: visible; }
+.dw text { fill: var(--ink); font-size: 14px; font-family: var(--font); }
+.dw .m { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; fill: var(--gray); }
+.dw .s { font-size: 12.5px; fill: var(--gray); }
+.dw .b { font-weight: 500; }
+.dw .n { font-family: var(--mono); font-size: 13px; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.dw .w { fill: #fff; }
+.dw .box { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+.dw .boxl { fill: var(--paper); stroke: var(--line); stroke-width: 1.2; }
+.dw .soft { fill: var(--wash-2); }
+.dw .mat { fill: var(--wash); }
+.dw .ln { fill: none; stroke: var(--line); stroke-width: 1.5; }
+.dw .lk { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.dw .dash { stroke-dasharray: 3 4; }
+.dw .ink { fill: var(--ink); }
+.dw .acc { fill: var(--c); }
+.dw .acs { fill: none; stroke: var(--c); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.dw .off { opacity: .32; }
+.ev.dwf { max-width: 460px; padding: 18px 18px 14px; border-radius: 14px; background: var(--wash); }
+.ev.dwf figcaption { margin-top: 12px; }
+@media (max-width: 899px) { .ev.dwf { max-width: none; padding: 14px 12px 12px; } }
+
+/* ---------- one link grammar (item 1, 2): no underlined words at rest; a link on its own line ends in one glyph;
+   on hover the text darkens, a hairline draws in from the left and the glyph moves toward where it goes */
+.g { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  transition: transform var(--t2) var(--out), color var(--t1) linear; }
+.xl, .pk { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); text-decoration: none; }
+.xl > span, .pk > span, .xl { background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-position: 0 100%; background-repeat: no-repeat; }
+.pk > span { transition: background-size var(--t2) var(--out); }
+.xl { background-size: 0 0; }
+.xl .g, .pk .arr, .pk .g { color: var(--gray); }
+@media (hover: hover) and (pointer: fine) {
+  .pk:hover > span { background-size: 100% 1px; }
+  .xl:hover, .pk:hover { color: var(--ink); }
+  .xl:hover .g, .pk:hover .arr { color: var(--ink); }
+  .xl:hover .g-next, .pk:hover .arr { transform: translateX(3px); }
+  .xl:hover .g-out { transform: translate(2px, -2px); }
+}
+.xl:active, .pk:active { opacity: .6; transition: none; }
+/* the header: LinkedIn leaves the site; its edge meets the content edge, its gap matches the nav's */
+.hd-ct { margin-left: 2px; }
+.hd-ct a { display: inline-flex; align-items: center; gap: 6px; margin-right: -10px; }
+.hd-ct a .g { width: 11px; height: 11px; color: var(--gray); }
+@media (hover: hover) and (pointer: fine) { .hd-ct a:hover .g { color: var(--ink); transform: translate(2px, -2px); } }
+.hd-nav a:active, .hd-ct a:active, .ch-pager button:active { background: #dcd9d1; color: var(--ink); transition: none; }
+/* How I lead: the product stands on its own line above the proof */
+.pr .proof .pk { display: flex; width: max-content; max-width: 100%; margin-bottom: 4px; font-weight: 500; font-size: var(--f15); min-height: 28px; }
+.pr .proof .pk .arr { width: 12px; height: 12px; opacity: 1; transform: none; transition: transform var(--t2) var(--out), color var(--t1) linear; }
+/* a chapter's sources, the 404's way home */
+.src .xl, .nf-home .xl { font-size: var(--f13); color: var(--ink-2); min-height: 32px; text-decoration: none; }
+.src a, .src .xl { text-decoration: none; }
+.src .xl .g, .nf-home .xl .g { width: 11px; height: 11px; }
+@media (hover: hover) and (pointer: fine) { .src .xl:hover, .nf-home .xl:hover { color: var(--ink); } }
+.nf-home { margin-top: 18px; }
+.nf-home .xl { font-size: var(--f17); color: var(--ink); }
+/* Sources: a reference list, so the rows carry no underline; it draws in on hover */
+.src-list a { text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-position: 0 100%; background-repeat: no-repeat;
+  transition: background-size var(--t2) var(--out); }
+@media (hover: hover) and (pointer: fine) { .src-list a:hover { background-size: 100% 1px; } }
+/* About: the chips go lower on the page; patents and papers leave the site */
+.about-nav a { display: inline-flex; align-items: center; gap: 7px; }
+.about-nav a .g { width: 11px; height: 11px; color: var(--gray); }
+@media (hover: hover) and (pointer: fine) { .about-nav a:hover .g { color: var(--ink); transform: translateY(2px); } }
+.about-nav a:active { background: #dcd9d1; transition: none; }
+.rc-t a { display: inline; text-decoration: none; }
+.rc-t a .g { display: inline-block; width: 11px; height: 11px; margin-left: 6px; vertical-align: 0; color: var(--gray); }
+@media (hover: hover) and (pointer: fine) { .rc-t a:hover .g { color: var(--ink); transform: translate(2px, -2px); } .rc-t a:hover { color: var(--ink); } }
+.sec-head .xl.meta { font-size: var(--f13); color: var(--ink-2); gap: 6px; }
+.sec-head .xl.meta .g { width: 11px; height: 11px; }
+
+/* ---------- Contact (item 1): the address leads, in type, a mail link with a copy button that turns into a check */
+.ft-in { align-items: baseline; }
+.ft-ct { gap: 6px; }
+.ft-ct a:hover { text-decoration: none; }
+.ft-mail { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: var(--f22); letter-spacing: -0.012em; line-height: 1.2; }
+.mailto { color: var(--ink); text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-position: 0 100%;
+  background-repeat: no-repeat; transition: background-size var(--t2) var(--out); overflow-wrap: anywhere; }
+@media (hover: hover) and (pointer: fine) { .mailto:hover { background-size: 100% 1px; } }
+.cpi { position: relative; display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; color: var(--gray); cursor: pointer;
+  transition: background var(--t1) linear, color var(--t1) linear, transform var(--t1) var(--out); }
+@media (hover: hover) and (pointer: fine) { .cpi:hover { background: var(--wash); color: var(--ink); } }
+.cpi:active { background: var(--wash-2); transform: scale(.94); }
+.cpi .g { grid-area: 1 / 1; width: 15px; height: 15px; transition: opacity var(--t1) linear, transform var(--t2) var(--out); }
+.cpi .g-check { opacity: 0; transform: scale(.5); }
+.cpi.done .g-copy { opacity: 0; transform: scale(.5); }
+.cpi.done .g-check { opacity: 1; transform: none; color: var(--ink); }
+.cpi .tip { position: absolute; left: calc(100% + 4px); top: 50%; transform: translateY(-50%); font-size: var(--f13); letter-spacing: 0; color: var(--gray); white-space: nowrap;
+  opacity: 0; transition: opacity var(--t1) linear; pointer-events: none; }
+.cpi.done .tip { opacity: 1; }
+.ft-prof { display: flex; flex-wrap: wrap; gap: 0 24px; font-size: var(--f15); }
+.ft-prof .xl { min-height: 40px; color: var(--ink-2); }
+.ft-prof .xl .g { width: 11px; height: 11px; }
+@media (max-width: 599px) { .ft-mail { font-size: 19px; } }
+
+/* ---------- the hero (item 4): the headline's lines broken by sense on a laptop */
+@media (min-width: 1000px) { .headline .hl-l { display: block; } }
+@media (max-width: 599px) { .headline { font-size: 29px; line-height: 1.1; letter-spacing: -0.024em; } }
+
+/* ---------- finish (item 8) */
+.sec { --pt: clamp(56px, 6vw, 112px); padding-top: var(--pt); scroll-margin-top: calc(8px - var(--pt)); }
+#work.sec { --pt: clamp(36px, 3.4vw, 56px); }
+@media (max-width: 599px) { #work.sec { --pt: 26px; } }
+.ch-head { align-items: start; }
+.ch-head .ch-what { padding-top: calc(var(--f56) * .62 - .6em); }
+@media (min-width: 600px) { .pl-l { min-height: calc(2em * 1.45); text-wrap: pretty; } }
+.next a { grid-template-columns: minmax(0, 1fr) 160px; min-height: 140px; align-items: center; }
+.next .np { width: 160px; height: 120px; border-radius: 10px; background: var(--wash); margin: 10px 0; }
+.next .np img { height: auto; width: auto; max-height: 76%; max-width: 78%; filter: drop-shadow(0 10px 18px rgba(20,18,12,.22)); }
+.next .np.drawn { padding: 8px; }
+.next .np.drawn .dw { width: 100%; height: 100%; }
+@media (max-width: 899px) { .next a { grid-template-columns: minmax(0, 1fr) 120px; min-height: 120px; } .next .np { width: 120px; height: 90px; } }
+.tl-tick { margin-top: -12px; }
+.tl-tick.paper { margin-top: 2px; }
+.rc-axis .ax-m { bottom: -2px; }
+.rc-axis .ax-m.paper { bottom: -9px; }
+.tl-scrub span { top: -44px; }
+.ch-plate.views .v { transition: opacity var(--t2) linear; }
+.hw-list:not([hidden]), .hw-mx:not([hidden]) { animation: fade var(--t2) linear both; }
+@keyframes rise { from { opacity: 0; transform: translateY(-4px); } }
+.drawer[open] .drawer-in, details[open] > .hw-b { animation: rise var(--t2) var(--out) both; }
+.p-about .byline, .p-404 .byline { display: none; }
+.step.on .k { color: color-mix(in srgb, var(--c) 78%, #000); }
+.stage[data-stage="chain"] { height: auto; }
+.stage[data-stage="chain"] svg { flex: none; height: auto; }
+.edu { border-top: 0; }
+@media (prefers-reduced-motion: reduce) { .ch-plate.views .v, .hw-list, .hw-mx, .drawer-in, .hw-b { transition: none !important; animation: none !important; } }
+
+/* ---------- a drawn hero and the film stage (items 5, 7) */
+.ch-plate.drawn { display: grid; place-items: center; background: var(--wash); padding: clamp(20px, 4vw, 64px) clamp(16px, 6vw, 96px); }
+.ch-plate.drawn .dw { width: 100%; max-width: 980px; height: 100%; }
+.film-stage { padding: 12px; }
+.film-stage .fs-mat { flex: 1; min-height: 0; display: grid; place-items: center; padding: 6px; }
+.film-stage .fs-box { position: relative; height: 100%; max-width: 100%; aspect-ratio: var(--fw) / var(--fh); border-radius: 16px; overflow: hidden;
+  background: var(--paper); box-shadow: 0 18px 36px -20px rgba(20,18,12,.35); }
+.film-stage .fs-box img, .film-stage .fs-box video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.film-stage .fs-v { opacity: 0; transition: opacity var(--t2) linear; }
+.film-stage .fs-v.on { opacity: 1; }
+.film-stage .fs-rail { flex: none; display: flex; gap: 6px; padding: 12px 8px 2px; }
+.film-stage .fs-rail i { flex: 1; height: 3px; border-radius: 2px; background: var(--wash-2); overflow: hidden; }
+.film-stage .fs-rail b { display: block; height: 100%; width: 0; background: var(--ink); border-radius: 2px; }
+.film-stage .fs-rail i.done b { width: 100%; background: var(--line); }
+.film-stage .fs-rail i.on b { background: var(--c); }
+.film-stage .fs-end { position: absolute; left: 10px; right: 10px; bottom: 10px; padding: 14px 14px 12px; border-radius: 12px; background: var(--paper);
+  box-shadow: 0 10px 28px -12px rgba(20,18,12,.4); opacity: 0; transform: translateY(8px); transition: opacity var(--t2) linear, transform var(--t3) var(--out); }
+.film-stage.at-end .fs-end { opacity: 1; transform: none; }
+.fs-end .big { font-size: 30px; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
+.fs-end .big small { font-size: var(--f15); letter-spacing: 0; color: var(--ink-2); }
+.fs-end .bar { display: block; margin-top: 10px; height: 6px; border-radius: 3px; background: var(--wash-2); overflow: hidden; }
+.fs-end .bar i { display: block; height: 100%; width: 0; background: var(--c); border-radius: 3px; transition: width var(--t4) var(--out) 120ms; }
+.film-stage.at-end .fs-end .bar i { width: var(--w); }
+.fs-end .t { margin-top: 8px; font-size: var(--f13); line-height: 1.4; color: var(--ink-2); }
+@media (max-width: 899px) {
+  .stage.mini.film-stage { display: flex; flex-direction: column; height: auto; padding: 10px; margin: 0 0 22px; }
+  .stage.mini.film-stage .fs-mat { height: 46vh; max-height: 440px; flex: none; }
+  .stage.mini.film-stage .cap { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .film-stage .fs-end, .fs-end .bar i { transition: none !important; } }
+
+/* ---------- v2.1, second block: the film rail, About's readings and phone matrix, a chapter's patents */
+.film-stage .fs-rail.go { cursor: pointer; padding-top: 16px; padding-bottom: 6px; }
+.hw-b.has-fig { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: 18px 40px; align-items: start; max-width: none; }
+.hw-tx { max-width: 52em; min-width: 0; }
+.hw-fig { margin-top: 2px; }
+.hw-fig.dwf { padding: 16px 16px 12px; border-radius: 12px; background: var(--wash); }
+@media (max-width: 899px) { .hw-b.has-fig { grid-template-columns: minmax(0, 1fr); } .hw-fig { max-width: 420px; } }
+.hw-u .pk { display: inline; font-weight: 500; }
+.hw-u .pk > span { transition: background-size var(--t2) var(--out); }
+.hw-u .pk .arr { display: inline-block; width: 11px; height: 11px; margin: 0 2px 0 5px; vertical-align: -1px; color: var(--gray); transition: transform var(--t2) var(--out), color var(--t1) linear; }
+@media (hover: hover) and (pointer: fine) { .hw-u .pk:hover > span { background-size: 100% 1px; } .hw-u .pk:hover .arr { color: var(--ink); transform: translateX(3px); } }
+.mx-list { display: none; }
+@media (max-width: 759px) {
+  .hw-mx .mx-wrap { display: none; }
+  .mx-list { display: block; border-top: 1px solid var(--rule); }
+  .mx-list li { padding: 14px 0 12px; border-bottom: 1px solid var(--rule); }
+  .mx-t { display: grid; grid-template-columns: 32px minmax(0, 1fr); font-size: var(--f15); line-height: 1.4; color: var(--ink); }
+  .mx-t .mono { font-size: var(--f13); color: var(--gray); padding-top: 1px; }
+  .mx-p { display: flex; flex-wrap: wrap; gap: 2px 14px; margin: 6px 0 0 32px; }
+  .mx-p a { display: inline-flex; align-items: center; gap: 7px; min-height: 32px; font-size: var(--f13); color: var(--ink-2); }
+  .mx-p a i { width: 9px; height: 9px; border-radius: 50%; background: var(--c2, var(--ink)); flex: none; }
+}
+.rd-rec .rcl { margin-top: 8px; }
+/* fixes from the first look at the build */
+.pr .proof a.pk, .hw-u a.pk { text-decoration: none; }
+.hd-ct { margin-left: -18px; }
+.ch-plate.drawn { aspect-ratio: auto; padding: clamp(36px, 5vw, 76px) clamp(16px, 7vw, 120px); }
+.ch-plate.drawn .dw { height: auto; }
+.story.solo .st-ev .ev.dwf { max-width: 500px; }
+@media (max-width: 899px) { .story.solo .st-ev .ev.dwf { max-width: none; } }
+.hw-b.has-fig { grid-template-columns: minmax(0, 1fr) minmax(300px, 420px); }
+@media (max-width: 899px) { .hw-b.has-fig { grid-template-columns: minmax(0, 1fr); } }
+.ch-plate.drawn .dw-narrow { display: none; }
+@media (max-width: 599px) { .ch-plate.drawn .dw-wide { display: none; } .ch-plate.drawn .dw-narrow { display: block; } .ch-plate.drawn { padding: 22px 16px 18px; } }
+/* the film's end: a card over the foot of the film, wider than a portrait film so its reading has room */
+.film-stage .fs-mat { position: relative; }
+.film-stage .fs-end { left: 50%; right: auto; bottom: 18px; width: min(290px, calc(100% - 28px)); transform: translate(-50%, 8px); }
+.film-stage.at-end .fs-end { transform: translate(-50%, 0); }
+.fs-end .big small { margin-left: 4px; white-space: nowrap; }
+@media (max-width: 899px) { .film-stage .fs-end { bottom: 12px; padding: 12px 12px 10px; } .fs-end .big { font-size: 26px; } }
