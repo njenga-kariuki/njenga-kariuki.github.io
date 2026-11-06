@@ -96,6 +96,15 @@
     });
   });
 
+  // the first screen's heads are doors (v2.6, D-055): under the hand, or on keyboard focus, a head lights the plate below it
+  $$('.lead.beats .bt').forEach(b => {
+    const a = $(`.pl[data-w="${b.dataset.w}"] .pl-a`);
+    if (!a) return;
+    const on = () => a.classList.add('lit'), off = () => a.classList.remove('lit');
+    if (FINE) { b.addEventListener('mouseenter', on); b.addEventListener('mouseleave', off); }
+    b.addEventListener('focusin', on); b.addEventListener('focusout', off);
+  });
+
   // the phone's work row counts the card in view
   const platesEl = $('#plates'), wc = $('#wc');
   if (platesEl && wc) {
@@ -279,6 +288,8 @@
       if (byline) hd.classList.toggle('named', byline.getBoundingClientRect().bottom < head());
       let cur = null;
       ['work', 'career', 'lead'].forEach(id => { const s = D.getElementById(id); if (s && s.getBoundingClientRect().top < innerHeight * 0.4) cur = id; });
+      // at the top of the page the reader is on the first screen, not yet in a section: the running line waits (v2.6)
+      if (scrollY < 40) cur = null;
       navs.forEach(a => a.classList.toggle('on', a.dataset.nav === cur));
       placeLine(false);
       railTick();
