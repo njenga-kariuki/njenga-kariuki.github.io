@@ -144,7 +144,7 @@
         const tw = n.parentElement.offsetWidth; if (!tw) return;
         const s = +n.dataset.s, e = +n.dataset.e, w = n.offsetWidth;
         if (s / 100 * tw + w <= tw) { n.style.left = `${s}%`; n.style.right = 'auto'; }
-        else { n.style.right = `${100 - e}%`; n.style.left = 'auto'; }
+        else { n.style.right = `${Math.max(0, 100 - e)}%`; n.style.left = 'auto'; }  // v2.9: never past the axis end
       });
     }
     placeNotes();
