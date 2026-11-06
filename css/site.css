@@ -1722,6 +1722,35 @@ img.zoomable { cursor: zoom-in; }
 /* v2.7: a step with no figure reads at a wider measure, so its empty column does not read as a missing figure */
 @media (min-width: 900px) { .story.solo .step:not(:has(> .st-ev)) { grid-template-columns: minmax(0, 36em); } }
 
+/* ---------- v2.8: the asset is the plate (the critic's gap 2; a blind panel chose it 3 of 3). A picture cropped edge to edge
+   keeps its point of interest (focus) in the tile */
+.plate .v[style*="--op"] img { object-position: var(--op); }
+/* on a phone the tiles after the first are square: a picture set to bleed fills its square from the top, its canvas's
+   empty sides cropped, instead of the inset padding of a contained picture */
+@media (max-width: 599px) { #plates > .pl:not(:first-child) .plate .v.fit.bleed img { padding: 0; object-fit: cover; object-position: 50% 0%; } }
+/* the header at 320 wide (v2.8): the phone's 16 px links and the 44 px targets made the nav 26 px too wide for a 320 px phone;
+   below 360 the links set at 15 px with a closer gap, their targets still 44 px tall and touching, never overlapping */
+@media (max-width: 359px) { .hd-nav { gap: 14px; } .hd-nav a { font-size: 15px; } .hd-nav a::before { inset: -6px -7px; } }
+/* a wide drawing that a laptop's or a tablet's column would set under 12 px gives way to its phone twin (site.js, fitTwins) */
+.tw-n > svg.dw.dw-wide, .story > .stage.two.tw-n > svg[data-v="w"], .stage.two.tw-n > svg[data-v="w"] { display: none !important; }
+.tw-n > svg.dw.dw-narrow, .stage.two.tw-n > svg[data-v="n"] { display: block !important; width: 100%; max-width: 480px; margin-left: auto; margin-right: auto; }
+/* a small laptop or a tablet held sideways (v2.8): the home's principles and a chapter's decisions read one to a row, each
+   figure beside its words at 340 px, so no label in them sets under 12 px in a third of the width */
+@media (min-width: 900px) and (max-width: 1179px) {
+  .prin { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: 44px; }
+  .pr { grid-row: auto; grid-template-rows: none; grid-template-columns: minmax(0, 1fr) 340px; column-gap: 40px; align-items: start; }
+  .pr > * { grid-column: 1; }
+  .pr > .pr-fig { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+}
+@media (min-width: 900px) and (max-width: 1099px) {
+  .dec ol { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .dec li:has(> .d-fig) { display: grid; grid-template-columns: minmax(0, 1fr) 340px; column-gap: 40px; align-items: start; }
+  .dec li:has(> .d-fig)::before { grid-column: 1 / -1; }
+  .dec li:has(> .d-fig) > :not(.d-fig) { grid-column: 1; }
+  .dec li:has(> .d-fig) > .d-fig { grid-column: 2; grid-row: 2 / span 2; margin-top: 0; }
+  .dec li > p { max-width: 40em; }
+}
+
 /* parts: each chapter's v2.7 styles (D-058) */
 
 /* m01, Target (v2.7, D-058): the store field, the launch strip and the Black Friday items. */
@@ -1843,6 +1872,10 @@ img.zoomable { cursor: zoom-in; }
 .stage[data-s="4"] .sc-p .sc-st[data-k="4"] .sc-stt { fill: var(--paper); font-weight: 500; }
 @media (prefers-reduced-motion: reduce) { .sc-p .sc-pan { transition: none !important; } }
 
+/* v2.8: What came next. Amazon's two phones, lifted off the press image's orange ground onto the wash (a composed view):
+   the picture carries the wash itself, so it takes none of the white mat a drawing gets, only the plate's round corners */
+.ch[data-ch="m04"] .after .lfig.line img { padding: 0; background: none; box-shadow: none; }
+
 /* Alexa Shopping (m05), v2.7 (D-058). The hero's voice order plays once, in turns, as the chapter opens. The first frame
    already reads: the ring lit on the wake word, the request in place. The ring turns once while Alexa works out its offer
    and dims while Alexa speaks; the offer arrives line by line, then the customer's "yes," and the ring lights again. Only
@@ -1946,8 +1979,32 @@ img.zoomable { cursor: zoom-in; }
 .cc7 .cc-tile { transition: opacity var(--t2) linear; }
 @media (prefers-reduced-motion: reduce) { .cc7 .cc-anim, .cc7 .cc-p, .cc7 .cc-tile { transition: none !important; } }
 
-/* the film stage's drawn steps (Before: the clinic; Test: the blinded study) sit on the stage's wash */
+/* the film stage's drawn steps (Before: the clinic; Analyze: the three networks; Test: the blinded study) sit on the
+   stage's wash */
 .ch[data-ch="m07"] .film-stage .fs-dw .dw { max-width: 760px; }
+/* v2.8: a stage box too narrow for a wide drawing's labels (a laptop under about 1180 px puts the stage in a narrow
+   column) shows the drawing's phone twin, which keeps every label at 12 px or more there */
+.ch[data-ch="m07"] .film-stage .fs-dw { container-type: size; }
+@container (max-width: 599px) {
+  .ch[data-ch="m07"] .film-stage .fs-dw svg.dw.dw-wide { display: none; }
+  .ch[data-ch="m07"] .film-stage .fs-dw svg.dw.dw-narrow { display: block; max-width: 480px; }
+}
+/* v2.8: a drawn step's parts arrive in the order of their mechanism when the reader first reaches it. The film stage is
+   not armed by site.js, so the parts of Analyze (step 02) and Test (step 04) wait while the reader is on an earlier step
+   and arrive, with the site's own motion (.dw .a and its --d), when their step shows; coming back up to an earlier step
+   readies them again. Reduced motion, and a page without script, show the finished drawing. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"]) .fs-dw[data-k="2"] .a,
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"], [data-s="2"], [data-s="3"]) .fs-dw[data-k="4"] .a { transition-delay: 0ms; }
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"]) .fs-dw[data-k="2"] .a-draw,
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"], [data-s="2"], [data-s="3"]) .fs-dw[data-k="4"] .a-draw { stroke-dashoffset: 1; }
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"]) .fs-dw[data-k="2"] :is(.a-fade, .a-up, .a-pop),
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"], [data-s="2"], [data-s="3"]) .fs-dw[data-k="4"] :is(.a-fade, .a-up, .a-pop) { opacity: 0; }
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"]) .fs-dw[data-k="2"] .a-up,
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"], [data-s="2"], [data-s="3"]) .fs-dw[data-k="4"] .a-up { transform: translateY(6px); }
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"]) .fs-dw[data-k="2"] .a-pop,
+  .js .ch[data-ch="m07"] .film-stage:is([data-s="0"], [data-s="1"], [data-s="2"], [data-s="3"]) .fs-dw[data-k="4"] .a-pop { transform: scale(.6); }
+}
 
 /* ---------------------------------------------------------------- Halo Tone (m08), v2.7 (D-058): the panel as its ratings, the battery,
    the audio's path in the path grammar it shares with Halo's split, the six patents on one time axis, and the plane the
@@ -1958,6 +2015,8 @@ img.zoomable { cursor: zoom-in; }
 .dw-m08 .yr { fill: var(--ink); }
 .dw-m08 .fl { font-size: 13px; fill: var(--ink-2); }
 .dw-m08 .cite { fill: var(--ink-2); }
+/* the site's one leader (as M-PESA's clock draws it): a hairline with right-angle elbows, no diagonal, no arrowhead */
+.dw-m08 .ld { fill: none; stroke: var(--line); stroke-width: 1; stroke-linejoin: round; }
 .dw-m08 .sh { stroke: var(--ink-2); stroke-width: .75; }
 .dw-m08 .sh .dsh, .dw-m08 .sh.dsh { stroke-dasharray: 2 1.6; }
 .dw-m08 .hit { fill: transparent; stroke: transparent; stroke-width: 2; transition: fill var(--t1) linear; }
@@ -2009,6 +2068,11 @@ img.zoomable { cursor: zoom-in; }
 }
 @media (prefers-reduced-motion: reduce) { .vp .vp-q, .m-stage svg.vp .t-ghost { transition: none !important; } }
 .dw-m08.pats:not(.n) .s { font-size: 13.5px; }
+/* a narrow desktop window (900 to 1023 px) scales the six patents' wide drawing to as little as 836 px: its smallest
+   labels are set a step larger there, so they keep the 12 px floor */
+@media (min-width: 900px) and (max-width: 1023px) {
+  .dw-m08.pats:not(.n) .n, .dw-m08.pats:not(.n) .fl, .dw-m08.pats:not(.n) .s { font-size: 14px; }
+}
 
 /* ---------------------------------------------------------------- Halo Movement (m09), v2.7 (D-058) */
 /* step 01: the app's setup screen from the 2022 study, redrawn */

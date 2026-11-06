@@ -106,7 +106,9 @@ function build(section, data) {
   let geo = null;
   function draw() {
     const W = Math.max(280, Math.round(stage.clientWidth));
-    const phone = matchMedia(PHONE).matches;
+    // the phone's layout wherever the module is narrow, a phone or a laptop's half-width column (v2.8: at 1024 wide the laptop
+    // layout ran past the module's edge)
+    const phone = matchMedia(PHONE).matches || W < 600;
     seg.setNames(R.map((r) => (phone ? r.short : r.name)));
     fixed.innerHTML = '';
     // the request in large type, each word set on its own so a mark can sit under the words that name the product; on a

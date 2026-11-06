@@ -812,5 +812,32 @@
   });
   $$(PICS).forEach(im => { if (!im.closest('a')) im.classList.add('zoomable'); });
 
+  /* ------------------------------------------------------------ a drawing is never read under 12 px (v2.8): where a laptop's
+     or a tablet's column draws a wide drawing smaller than that, its phone twin, drawn for 358 px with every label at 12 px
+     or more, shows in its place, held to 480 px. Measured on the drawing as laid out, at load and after a resize. */
+  function fitTwins() {
+    const boxes = new Map();
+    $$('svg.dw.dw-narrow, .stage.two > svg[data-v="n"]').forEach(n => {
+      const box = n.parentElement;
+      const w = n.matches('[data-v]') ? $(':scope > svg[data-v="w"]', box) : $(':scope > svg.dw.dw-wide', box);
+      if (w) boxes.set(box, w);
+    });
+    boxes.forEach((w, box) => box.classList.remove('tw-n'));
+    if (innerWidth < 900) return;
+    boxes.forEach((w, box) => {
+      let min = 99;
+      for (const t of w.querySelectorAll('text')) {
+        const m = t.getScreenCTM(); if (!m) continue;
+        const px = parseFloat(getComputedStyle(t).fontSize) * Math.hypot(m.a, m.b);
+        if (px > 0 && px < min) min = px;
+      }
+      if (min < 11.95) box.classList.add('tw-n');
+    });
+  }
+  let twT = 0;
+  fitTwins();
+  if (D.fonts && D.fonts.ready) D.fonts.ready.then(fitTwins);
+  addEventListener('resize', () => { clearTimeout(twT); twT = setTimeout(fitTwins, 150); });
+
   onScroll();
 })();
