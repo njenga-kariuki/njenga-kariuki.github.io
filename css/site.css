@@ -1307,3 +1307,1133 @@ main { flex: 1 0 auto; position: relative; z-index: 1; background: var(--paper);
 @media (max-width: 380px) { .headline { font-size: 26.5px; } }
 @media (max-width: 599px) and (max-height: 600px) { .headline { line-height: 1.06; } }
 @media (prefers-reduced-motion: reduce) { .lead.beats b { transition: none; } }
+
+
+/* ================================================================ v2.7 (6 November 2026, D-058): the phone as its own design,
+   and every figure drawn as what it is. The system is unchanged: paper, ink, one warm gray; each work's color only where
+   the reader touches it; one easing curve; 140 / 240 / 420 ms, and 640 ms for lines that draw. */
+
+/* ---------- drawings arrive in the order of their mechanism (rule 3): a part marked .a waits for its drawing to reach the
+   screen, then arrives once after its delay (--d). Lines draw (.a-draw, with pathLength="1"), parts fade (.a-fade), rise
+   (.a-up), grow from their start (.a-grow, .a-growy) or appear in place (.a-pop). Reduced motion: the finished drawing. */
+.dw .a { transition: opacity var(--t3) linear var(--d, 0ms), transform var(--t4) var(--out) var(--d, 0ms), stroke-dashoffset var(--t4) var(--out) var(--d, 0ms); }
+.dw .a-draw { stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+.dw .a-grow { transform-box: fill-box; transform-origin: left center; }
+.dw .a-growy { transform-box: fill-box; transform-origin: center bottom; }
+.dw .a-pop { transform-box: fill-box; transform-origin: center; }
+.js .armed .a-draw, .js .armed.a-draw { stroke-dashoffset: 1; }
+.js .armed .a-fade, .js .armed .a-up, .js .armed .a-pop { opacity: 0; }
+.js .armed .a-up { transform: translateY(6px); }
+.js .armed .a-grow { transform: scaleX(0); }
+.js .armed .a-growy { transform: scaleY(0); }
+.js .armed .a-pop { transform: scale(.6); }
+
+/* ---------- a drawing and its phone twin, drawn for 358 px: one of the two shows */
+svg.dw.dw-narrow { display: none; }
+@media (max-width: 599px) { svg.dw.dw-wide { display: none; } svg.dw.dw-narrow { display: block; } }
+.d-fig.d-draw { margin-top: 16px; max-width: 360px; }
+.d-fig.d-draw .dw { overflow: visible; }
+
+/* ---------- one stage per story (change 03). A phone pins the stage under the header at 40% of the screen and plays each
+   step in place; each step lands just below it, and the stage's foot fades the text passing under it, so no heading is ever
+   cut at rest. A tablet holds the drawing to 480 px. */
+.stage.two > svg[data-v="n"] { display: none; }
+.film-stage .fs-mat { position: relative; }
+.film-stage .fs-box { transition: opacity var(--t2) linear; }
+.film-stage.on-draw .fs-box { opacity: 0; }
+.film-stage .fs-dw { position: absolute; inset: 6px; display: grid; place-items: center; opacity: 0; transition: opacity var(--t2) linear; pointer-events: none; }
+.film-stage .fs-dw .dw { width: 100%; height: 100%; max-height: 100%; }
+.film-stage .fs-side { display: none; }
+.film-stage[data-s="0"] .fs-dw[data-k="0"], .film-stage[data-s="0"] .fs-n[data-k="0"],
+.film-stage[data-s="1"] .fs-dw[data-k="1"], .film-stage[data-s="1"] .fs-n[data-k="1"],
+.film-stage[data-s="2"] .fs-dw[data-k="2"], .film-stage[data-s="2"] .fs-n[data-k="2"],
+.film-stage[data-s="3"] .fs-dw[data-k="3"], .film-stage[data-s="3"] .fs-n[data-k="3"],
+.film-stage[data-s="4"] .fs-dw[data-k="4"], .film-stage[data-s="4"] .fs-n[data-k="4"],
+.film-stage[data-s="5"] .fs-dw[data-k="5"], .film-stage[data-s="5"] .fs-n[data-k="5"],
+.film-stage[data-s="6"] .fs-dw[data-k="6"], .film-stage[data-s="6"] .fs-n[data-k="6"],
+.film-stage[data-s="7"] .fs-dw[data-k="7"], .film-stage[data-s="7"] .fs-n[data-k="7"] { opacity: 1; }
+@media (min-width: 900px) {
+  .film-stage.has-side .fs-mat { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(16px, 2vw, 32px); place-items: center start; padding: 6px 18px 6px 6px; }
+  .film-stage.has-side .fs-box { height: 100%; }
+  .film-stage.has-side .fs-side { display: grid; align-self: center; }
+  .film-stage.has-side .fs-n { grid-area: 1 / 1; opacity: 0; transition: opacity var(--t2) linear; }
+  .film-stage.has-side .fs-n p { font-size: var(--f15); line-height: 1.5; color: var(--ink-2); max-width: 22em; }
+  .film-stage.has-side .fs-n p + p { margin-top: 10px; }
+  .film-stage.has-side .fs-n p b, .film-stage.has-side .fs-n .big { display: block; font-size: var(--f30); line-height: 1.1; letter-spacing: -0.02em; font-weight: 400; color: var(--ink); }
+}
+@media (max-width: 899px) {
+  .story:not(.solo) { display: flex; flex-direction: column; }
+  .story > .stage, .story > .stage.film-stage { display: flex; flex-direction: column; order: -1; align-self: stretch; position: sticky; z-index: 5;
+    top: calc(env(safe-area-inset-top, 0px) + var(--head)); height: 40svh; min-height: 210px; max-height: 460px; overflow: visible;
+    margin: 0 calc(-1 * var(--gut-r)) 0 calc(-1 * var(--gut)); width: auto; border-radius: 0; padding: 8px max(12px, var(--gut-r)) 0 max(12px, var(--gut)); }
+  .story > .stage::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 32px; pointer-events: none;
+    background: linear-gradient(var(--paper), rgba(255, 255, 255, 0)); }
+  .story > .stage > svg { flex: 1; min-height: 0; width: 100%; height: 100%; }
+  .story > .stage .cap { display: none; }
+  .story > .stage.two > svg[data-v="w"] { display: none; }
+  .story > .stage.two > svg[data-v="n"] { display: block; }
+  .story > .stage.film-stage { padding-top: 6px; }
+  .story > .stage.film-stage .fs-mat { padding: 4px 0 0; }
+  .story > .stage.film-stage .fs-box { border-radius: 12px; box-shadow: 0 12px 24px -16px rgba(20,18,12,.35); }
+  .story > .stage.film-stage .fs-rail { padding: 10px 2px 8px; }
+  .story > .stage.film-stage .fs-rail.go { padding-top: 10px; padding-bottom: 8px; }
+  .story:not(.solo) .steps { padding-bottom: 18svh; }
+  .story:not(.solo) .step, .story:not(.solo) .step:first-child { padding-top: 36px; scroll-margin-top: calc(var(--head) + 40svh + 12px); }
+  .story:not(.solo) .step:first-child { padding-top: 40px; }
+  .story:not(.solo) .step .module { max-height: none; }
+  .story:not(.solo) .step .module .m-stage { max-height: 45svh; }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .story > .stage > svg { max-width: 480px; margin: 0 auto; }
+  .story > .stage { height: 36svh; }
+}
+/* a phone held sideways: the stage sits beside the step instead of over it, so the text keeps the screen's height */
+@media (max-width: 899px) and (max-height: 500px) and (orientation: landscape) {
+  .story:not(.solo) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+  .story > .stage, .story > .stage.film-stage { order: 0; grid-column: 2; grid-row: 1; height: calc(100svh - var(--head) - 16px); max-height: none; min-height: 0;
+    margin: 0; border-radius: 14px; padding: 8px 10px 0; top: calc(var(--head) + 8px); }
+  .story > .stage::after { display: none; }
+  .story:not(.solo) .steps { grid-column: 1; grid-row: 1; padding-bottom: 30svh; }
+  .story:not(.solo) .step, .story:not(.solo) .step:first-child { scroll-margin-top: calc(var(--head) + 12px); }
+}
+@media (prefers-reduced-motion: reduce) { .film-stage .fs-box, .film-stage .fs-dw { transition: none !important; } }
+
+/* ---------- one form for each kind of number (change 07): a shelf, the requests, a span from the reference, counted, two
+   standing marks; every other comparison a reading, its subject's number large and every label on its mark. Hollow is
+   always the comparison. */
+.dw .a, .fm .a { transition: opacity var(--t3) linear var(--d, 0ms), transform var(--t4) var(--out) var(--d, 0ms), stroke-dashoffset var(--t4) var(--out) var(--d, 0ms); }
+.fm .a-draw { stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+.fm .a-grow { transform-box: fill-box; transform-origin: left center; }
+.fm .a-growy { transform-box: fill-box; transform-origin: center bottom; }
+.fm .a-pop { transform-box: fill-box; transform-origin: center; }
+.fm { overflow: visible; }
+.fm text { font-family: var(--font); }
+.fm .nf-l { font-size: 12.5px; fill: var(--gray); }
+.fm .nf-l.b { fill: var(--ink); font-weight: 500; }
+.fm .nf-n { font-family: var(--mono); font-size: 15px; fill: var(--gray); font-variant-numeric: tabular-nums; }
+.fm .nf-n.r { font-family: var(--font); font-size: 16px; }
+.fm .c-phone .box { fill: var(--paper); stroke: var(--ink); stroke-width: 1.3; }
+.fm .c-phone .ink { fill: var(--ink); }
+.fm .nf-v { font-size: 26px; letter-spacing: -0.02em; fill: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+.fm .nf-v2 { font-size: 18px; font-weight: 500; letter-spacing: -0.01em; fill: var(--ink); }
+.fm .nf-t { font-family: var(--mono); font-size: 12.5px; fill: var(--gray); }
+.fm .nf-c { font-family: var(--mono); font-size: 12px; fill: var(--ink-2); }
+.fm .u-in { fill: #cfccc4; }
+.fm .u-in.m { fill: var(--ink); }
+.fm .u-gap { fill: none; stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 2 2; }
+.fm .u-shelf { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; }
+.fm .u-ok { fill: #cfccc4; }
+.fm .u-ok.m { fill: var(--ink); }
+.fm .u-no { fill: none; stroke: #b4b2ab; stroke-width: 1.1; }
+.fm .sp-m { fill: var(--ink); }
+.fm .sp-c { fill: #cfccc4; }
+.fm .sp-r { fill: none; stroke: #a19f97; stroke-width: 1.2; }
+.fm .sp-ref { stroke: var(--ink); stroke-width: 1.5; }
+.fm .sp-lim { stroke: var(--gray); stroke-width: 1; stroke-dasharray: 3 3; }
+.fm .ct-b { fill: var(--ink); }
+.fm .ct-tick { stroke: var(--paper); stroke-width: 1.5; }
+.fm .ct-s { fill: none; stroke: var(--ink); stroke-width: 1.3; }
+.fm .mk-floor { stroke: var(--ink); stroke-width: 1.5; }
+.fm .mk-t { stroke: #b4b2ab; stroke-width: 4; }
+.fm .mk-t.m { stroke: var(--ink); }
+.fm .mk-was .box { fill: none; stroke: #a19f97; stroke-dasharray: 3 2.5; }
+.fm .mk-now .box { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+.fm .c-phone-side .box { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+.fm .mk-dim { fill: none; stroke: #a19f97; stroke-width: 1; }
+.fm .mk-dim.m { stroke: var(--ink); }
+.fm .rf-ax { stroke: var(--ink); stroke-width: 1; }
+.fm .rf-m { fill: var(--ink); }
+.fm .rf-o { fill: var(--paper); stroke: var(--gray); stroke-width: 1.8; }
+.fm .rf-rng { stroke: #b4b2ab; stroke-width: 2; }
+.fm .rf-mv { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.fm .rf-hd { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.pr-fig { height: auto; min-height: 168px; display: flex; align-items: center; }
+.pr-fig svg.fm { width: 100%; height: auto; }
+.dec .pr-svg.fm { max-width: 360px; }
+
+/* ---------- the work on a phone (change 01): all nine in a screen and a half. The current role full width; the other eight
+   in a two-column grid of square plates, years above the name so every row lines up. A tap still carries the plate into
+   its chapter. The sideways row and its count are gone. */
+@media (max-width: 599px) {
+  #plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; overflow: visible; scroll-snap-type: none;
+    margin: 0; padding: 0; -webkit-mask-image: none; mask-image: none; }
+  #plates > .pl { flex: none; width: auto; min-width: 0; }
+  #plates > .pl:first-child { grid-column: 1 / -1; margin-bottom: 26px; }
+  #plates > .pl:not(:first-child) { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+  #plates > .pl:not(:first-child) > .pl-a { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+  #plates > .pl:not(:first-child) .plate { aspect-ratio: 1 / 1; border-radius: 12px; }
+  #plates > .pl:not(:first-child) .plate .v.fit img { padding: 8%; }
+  #plates > .pl:not(:first-child) .pl-t { margin-top: 9px; padding-bottom: 22px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; }
+  #plates > .pl:not(:first-child) .pl-n { font-size: 16px; line-height: 1.25; }
+  #plates > .pl:not(:first-child) .pl-y { font-size: 13px; }
+  #plates > .pl:not(:first-child) .pl-l, #plates > .pl:not(:first-child) .pl-p, #plates > .pl:first-child .pl-p { display: none; }
+  #plates > .pl:first-child .pl-l { font-size: 16px; }
+  .work-count { display: none !important; }
+}
+
+/* ---------- the career on a phone (change 02): a staircase on one 2012 to 2026 axis, readable in one screen; a tap on a role
+   reads it out under the thumb. The readout keeps the height of its longest entry. */
+.cs { display: none; }
+@media (max-width: 899px) {
+  .tl { display: none; }
+  .cs { display: block; --csl: 122px; }
+  .cs-axis { position: relative; height: 24px; margin-left: var(--csl); border-bottom: 1px solid var(--rule); }
+  .cs-axis span { position: absolute; top: 3px; transform: translateX(-50%); font-family: var(--mono); font-size: 12px; color: var(--gray); }
+  .cs-axis span:first-child { transform: none; }
+  .cs-rows { position: relative; }
+  .cs-grid { position: absolute; top: 0; bottom: 0; left: var(--csl); right: 0; pointer-events: none; }
+  .cs-grid i { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--rule); opacity: .7; }
+  .cs-row { display: grid; grid-template-columns: var(--csl) 1fr; align-items: center; width: 100%; min-height: 44px; position: relative; text-align: left; }
+  .cs-row:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; border-radius: 6px; }
+  .cs-n { font-size: 15px; line-height: 1.2; color: var(--ink-2); padding-right: 10px; transition: color var(--t1) linear; }
+  .cs-t { position: relative; height: 44px; }
+  .cs-t::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--rule); }
+  .cs-bar { position: absolute; top: calc(50% - 3.5px); height: 7px; border-radius: 4px; background: var(--ink); transition: background var(--t1) linear; }
+  .cs-ev { position: absolute; top: calc(50% - 6px); width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--paper);
+    box-shadow: inset 0 0 0 2px var(--ink); transition: box-shadow var(--t1) linear; }
+  .cs-row.on .cs-n { color: var(--ink); font-weight: 500; }
+  .cs-row.on .cs-bar { background: var(--c2); }
+  .cs-row.on .cs-ev { box-shadow: inset 0 0 0 2px var(--c2); }
+  .cs-row:active .cs-n { color: var(--ink); }
+  .cs-row.on::after { content: ""; position: absolute; left: -11px; top: calc(50% - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--c2); }
+  .cs-read { display: grid; margin-top: 14px; padding: 16px 16px 18px; border-radius: 14px; background: var(--wash); }
+  .cs-read .r-in { grid-area: 1 / 1; visibility: hidden; opacity: 0; transition: opacity var(--t1) linear, visibility 0s linear var(--t1); }
+  .cs-read .r-in.on { visibility: visible; opacity: 1; transition: opacity var(--t1) linear; }
+  .cs-read .r-n { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font-size: 19px; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
+  .cs-read .r-n .arr { width: 13px; height: 13px; color: var(--c2); }
+  .cs-read .r-t { margin-top: 2px; font-size: 13.5px; line-height: 1.4; color: var(--gray); }
+  .cs-read .r-k { display: block; margin-top: 12px; }
+  .cs-read .r-p { margin-top: 3px; font-size: 16px; line-height: 1.5; color: var(--ink); }
+  .cs-read .r-p.ran { color: var(--ink-2); }
+  .cs .rec { margin-top: 18px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+  .cs .rec a { font-weight: 500; color: var(--ink); text-decoration: none; }
+  .tlp { display: none !important; }
+}
+@media (min-width: 600px) and (max-width: 899px) { .cs { --csl: 168px; } .cs-n { font-size: 16px; } }
+@media (prefers-reduced-motion: reduce) { .cs-read .r-in, .cs-bar, .cs-ev, .cs-n { transition: none !important; } }
+
+/* ---------- type on a phone (change 04): body text at 16 px (decisions, facts, plate lines, the career, principles);
+   captions stay 13 and labels 12 */
+@media (max-width: 599px) { :root { --f15: 16px; } }
+
+/* ---------- touch (change 05): 44 px targets with nothing moving visually */
+.ch-pager button, .cpi { position: relative; }
+.ch-pager button::after, .cpi::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; }
+.hd-name { display: inline-flex; align-items: center; min-height: 44px; }
+.src .xl { min-height: 44px; }
+/* the kicker keeps its dates together, and its dot on the first line */
+.ch-meta { align-items: flex-start; flex-wrap: wrap; row-gap: 2px; }
+.ch-meta .dot { flex: none; margin-top: .42em; }
+.ch-meta .mono { white-space: nowrap; }
+/* the Next card: a drawn hero becomes its symbol on a phone, without the words it carries at full size */
+.next .np.drawn svg text, .next .np.drawn svg tspan { display: none; }
+
+/* ---------- two sheets (v2.7): the chapter's name opens its index and the other works; on a phone, Sources opens in place */
+.crumb b { display: inline-flex; min-width: 0; }
+.crumb-b { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; min-width: 0; font-weight: 500; color: var(--ink); }
+.crumb-b > :first-child { overflow: hidden; text-overflow: ellipsis; }
+.crumb-b .chev { flex: none; width: 13px; height: 13px; color: var(--gray); transition: transform var(--t2) var(--out); }
+.crumb-b:active .chev { transform: translateY(2px); }
+.p-chapter .crumb b { pointer-events: none; }
+.hd.rh .crumb b { pointer-events: auto; }
+html.sheet-open, html.sheet-open body { overflow: hidden; }
+.sheet { position: fixed; inset: 0; z-index: 100; }
+.sh-back { position: absolute; inset: 0; background: rgba(11, 11, 10, .32); opacity: 0; transition: opacity var(--t2) linear; }
+.sheet.on .sh-back { opacity: 1; }
+.sh-panel { position: absolute; left: 0; right: 0; bottom: 0; max-height: min(86svh, 760px); display: flex; flex-direction: column; background: var(--paper);
+  border-radius: 18px 18px 0 0; box-shadow: 0 -12px 40px -12px rgba(11, 11, 10, .35); transform: translateY(100%); transition: transform var(--t2) var(--out);
+  padding-bottom: env(safe-area-inset-bottom, 0px); outline: none; }
+.sheet.on .sh-panel { transform: none; }
+@media (min-width: 900px) { .sh-panel { left: 50%; right: auto; width: min(560px, calc(100vw - 48px)); margin-left: calc(min(560px, calc(100vw - 48px)) / -2); } }
+.sh-top { position: relative; flex: none; display: flex; align-items: center; gap: 12px; padding: 18px var(--gut-r) 10px var(--gut); touch-action: none; cursor: grab; }
+.sh-grab { position: absolute; top: 7px; left: 50%; width: 38px; height: 4px; margin-left: -19px; border-radius: 2px; background: var(--wash-2); }
+.sh-h { flex: 1; min-width: 0; font-size: var(--f22); letter-spacing: -0.012em; line-height: 1.2; }
+.sh-x { flex: none; display: grid; place-items: center; width: 44px; height: 44px; margin-right: -10px; border-radius: 50%; color: var(--ink); }
+.sh-x svg { width: 16px; height: 16px; }
+.sh-x:active { background: var(--wash); }
+.sh-body { overflow-y: auto; overscroll-behavior: contain; padding: 4px var(--gut-r) 24px var(--gut); -webkit-overflow-scrolling: touch; }
+.sh-body > .lbl { margin-top: 18px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+.sh-body > .lbl:first-child { margin-top: 6px; }
+.sh-parts a, .sh-works a { display: flex; align-items: center; gap: 10px; min-height: 44px; border-bottom: 1px solid var(--rule); font-size: 16px; color: var(--ink); }
+.sh-parts li.sub a { padding-left: 14px; color: var(--ink-2); font-size: 15px; }
+.sh-parts li.sub .mono { flex: none; width: 92px; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--gray); }
+.sh-works i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--c2); }
+.sh-works span:not(.mono) { flex: 1; font-weight: 500; }
+.sh-works .mono { font-size: 13px; color: var(--gray); }
+.sh-works a[aria-current] { color: var(--gray); }
+.sh-works a[aria-current] span:not(.mono)::after { content: " · here"; font-weight: 400; color: var(--gray); }
+.sh-src { margin-top: 14px; }
+.sh-src .xl, .sh-all .xl { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; font-size: 16px; }
+.sh-wait { padding: 24px 0; color: var(--gray); font-size: var(--f15); }
+.sh-body .cr-cols { display: grid; gap: 22px; }
+.sh-body .cr-cols h3 { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); font-weight: 400; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+.sh-body .src-list li { padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 15px; line-height: 1.45; }
+.sh-body .src-list a { color: var(--ink); }
+.sh-body .src-list .pub { display: block; margin-top: 2px; font-size: 13px; color: var(--gray); }
+.sh-body .credit { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--gray); }
+.sh-body .credit .th img { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; background: var(--wash); }
+.sh-body .credit .c { color: var(--ink); font-size: 14px; }
+.sh-all { margin-top: 12px; }
+@media (prefers-reduced-motion: reduce) { .sh-panel, .sh-back { transition: opacity 160ms linear !important; } .sh-panel { transform: none; opacity: 0; } .sheet.on .sh-panel { opacity: 1; } }
+
+/* ---------- evidence at full size (change 04): a tap on a picture opens it full screen, with pinch and double-tap zoom */
+img.zoomable { cursor: zoom-in; }
+.lbx { position: fixed; inset: 0; z-index: 110; display: flex; flex-direction: column; background: rgb(11 11 10);
+  opacity: 0; transition: opacity var(--t2) linear; padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); }
+.lbx.on { opacity: 1; }
+.lbx-stage { flex: 1; min-height: 0; display: grid; place-items: center; overflow: hidden; touch-action: none; padding: 52px 12px 8px; cursor: zoom-in; }
+.lbx.zoomed .lbx-stage { cursor: grab; }
+.lbx-img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; background: var(--paper); transform-origin: center; user-select: none; -webkit-user-drag: none; }
+.lbx-cap { flex: none; max-width: 46em; margin: 0 auto; padding: 8px 20px 18px; font-size: 13px; line-height: 1.45; color: #d9d7d0; text-align: center; }
+.lbx-x { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 6px); right: max(6px, env(safe-area-inset-right, 0px)); display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 50%; color: #fff; background: rgba(255, 255, 255, .12); }
+.lbx-x svg { width: 16px; height: 16px; }
+.lbx-x:active { background: rgba(255, 255, 255, .24); }
+.lbx-x:focus-visible { outline-color: #fff; }
+
+/* ---------- the career on a laptop, finished (v2.7): bars at 8 px, each result on its bar, no key; the record as year
+   stacks, its marks named in the row's own words */
+.tl-bar { height: 8px; margin-top: -4px; border-radius: 4px; }
+.tl-ev { width: 12px; height: 12px; margin: -6px 0 0 -6px; }
+.tl-stk { position: absolute; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.tl-stk .tl-tick { position: static; margin: 0; width: 7px; height: 7px; border-radius: 1.5px; }
+.tl-stk .tl-tick.paper { width: 8px; height: 8px; margin: 0; border-radius: 50%; }
+.tl-lab .g-pk, .tl-lab .g-pp { display: inline-block; vertical-align: .05em; background: var(--ink); }
+.tl-lab .g-pk { width: 7px; height: 7px; border-radius: 1.5px; }
+.tl-lab .g-pp { width: 8px; height: 8px; border-radius: 50%; }
+.tl-rec .tl-track { height: 52px; }
+.pl-p.cap { color: var(--ink-2); }
+@media (max-width: 599px) { .ch-plate.views.pt { aspect-ratio: 4 / 5; } .ch-plate.views.pt .v.fit img { padding: 6%; } }
+.nw.g-w > svg.g { display: inline-block; vertical-align: -0.08em; margin-left: .2em; }
+
+/* ---------- About: where each principle shows up (v2.7): ink dots, color only under the hand, names set level, a count per
+   principle, the proof on tap; the record's axis as year stacks, each mark a way to its entry */
+.mx { min-width: 900px; }
+.mx thead th { height: auto; vertical-align: bottom; padding: 0 4px 12px; }
+.mx thead th a { writing-mode: horizontal-tb; transform: none; display: inline-block; white-space: normal; max-width: 7.2em; font-weight: 500; font-size: 12.5px;
+  line-height: 1.25; text-align: center; color: var(--ink-2); transition: color var(--t1) linear; }
+.mx thead th.mx-n { width: 44px; }
+.mx td { padding: 0; height: 44px; }
+.mx-d { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; vertical-align: middle; }
+.mx-d::before { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--ink); transition: background var(--t1) linear, transform var(--t2) var(--out); }
+.mx-d:focus-visible { outline-offset: -6px; }
+.mx td.mx-n { width: 44px; font-size: 12px; color: var(--gray); text-align: right; padding-right: 2px; }
+.mx.hl-on .mx-d::before { background: #c9c6be; }
+.mx.hl-on .mx-d.hl::before, .mx .mx-d.on::before { background: var(--c2); transform: scale(1.15); }
+.mx.hl-on thead th.hl a, .mx thead th.on a { color: var(--c2); }
+.mx tbody tr:hover th, .mx tbody tr:hover td { background: none; }
+.mx tbody tr.hl th { color: var(--ink); }
+.mx-read { min-height: 112px; margin-top: 18px; padding: 16px 18px; border-radius: 14px; background: var(--wash); }
+.mx-read .mx-hint { font-size: var(--f15); color: var(--gray); }
+.mx-read .mx-k { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); }
+.mx-read .mx-pt { margin-top: 4px; font-size: var(--f17); font-weight: 500; }
+.mx-read .mx-pp { margin-top: 6px; font-size: var(--f15); line-height: 1.55; color: var(--ink-2); max-width: 52em; }
+.mx-read .mx-go { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 500; font-size: var(--f15); color: var(--ink); }
+.mx-read .mx-go .arr { width: 12px; height: 12px; color: var(--c2); }
+.mx-p a i { background: var(--ink); }
+.mx-p a:active i { background: var(--c2); }
+.rc-axis .ax-s { position: absolute; bottom: -7px; transform: translateX(-50%); display: flex; flex-direction: column-reverse; align-items: center; gap: 3px; }
+.rc-axis .ax-s .ax-m { position: static; display: block; width: 7px; height: 7px; margin: 0; border-radius: 1.5px; background: var(--ink); }
+.rc-axis .ax-s .ax-m.paper { width: 8px; height: 8px; border-radius: 50%; }
+@media (hover: hover) and (pointer: fine) { .rc-axis .ax-s .ax-m:hover { background: var(--ink-2); transform: scale(1.3); } }
+.rc-axis { height: 64px; }
+.rc-axis .ax-y { bottom: auto; top: 0; }
+
+/* ---------- Hands-on builds (v2.7): each build with its screen; a walkthrough plays in place, loaded on a tap */
+.rcl.builds .rc.bd { grid-template-columns: 64px minmax(0, 1fr) minmax(0, 352px); gap: 20px; }
+/* the screen whole, at its own proportion (nothing cut at its edges); a walkthrough plays in a 16:9 box in its place */
+.rcl.builds .rc .bd-m { grid-column: 3; align-self: start; position: relative; margin: 2px 0 0 12px; border-radius: 10px; overflow: hidden; background: var(--wash);
+  box-shadow: 0 0 0 1px var(--rule); }
+.rcl.builds .bd-m img { display: block; width: 100%; height: auto; }
+.rcl.builds .bd-m.playing { aspect-ratio: 16 / 9; }
+.rcl.builds .bd-m.playing picture { position: absolute; inset: 0; visibility: hidden; }
+.rcl.builds .bd-m.typo { display: grid; place-items: center; padding: 20px; }
+.rcl.builds .bd-t { font-size: var(--f19); font-weight: 500; letter-spacing: -0.01em; color: var(--ink-2); text-align: center; }
+.bd-play { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-start; gap: 8px; padding: 12px; color: #fff;
+  background: linear-gradient(180deg, rgba(11, 11, 10, 0) 55%, rgba(11, 11, 10, .42)); }
+.bd-m.typo .bd-play { background: none; color: var(--ink); }
+.bd-pp { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(11, 11, 10, .62); color: #fff;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform var(--t1) var(--out), background var(--t1) linear; }
+.bd-pp svg { width: 14px; height: 14px; margin-left: 2px; }
+.bd-len { align-self: flex-end; margin-bottom: 14px; font-size: 12px; text-shadow: 0 1px 2px rgba(0, 0, 0, .4); }
+.bd-m.typo .bd-len { text-shadow: none; color: var(--gray); }
+.bd-play:active .bd-pp { transform: scale(.94); }
+@media (hover: hover) and (pointer: fine) { .bd-play:hover .bd-pp { background: var(--ink); } }
+.bd-m iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (max-width: 899px) {
+  .rcl.builds .rc.bd { grid-template-columns: 64px minmax(0, 1fr); }
+  .rcl.builds .rc .bd-m { grid-column: 2; margin: 4px 0 0; max-width: 480px; }
+}
+@media (max-width: 599px) {
+  .rcl.builds .rc.bd { grid-template-columns: 1fr; }
+  .rcl.builds .rc .bd-m { grid-column: 1; margin: 8px 0 0; }
+}
+
+/* ---------- a tablet held upright (v2.7): drawings are held to 480 px instead of the phone's drawn twice as large */
+@media (min-width: 600px) and (max-width: 899px) {
+  .ev.dwf, .story.solo .st-ev .ev.dwf { max-width: 480px; }
+  .d-fig, .rd-fig, .rd-fig.rd-draw, .hw-fig { max-width: 480px; }
+  .dec .pr-svg.fm { max-width: 400px; }
+}
+
+/* v2.7: a decision's dates and scale read at 12 px on the narrowest phone */
+.dates-svg .fig-t, .dates-svg .fig-a text, .scale-svg text, .scale-svg .fig-v { font-size: 12.5px; }
+
+/* v2.7: 44 px targets where a reader taps (change 05), with nothing moving visually */
+.rc-axis a.ax-s { padding: 6px 18px 0; min-width: 44px; min-height: 44px; justify-content: flex-start; }
+.cs-read .r-n { min-height: 44px; }
+.pr .proof .pk, .ft-mail .mailto, .cs .rec a, .hw-u a.pk { position: relative; }
+.pr .proof .pk::after, .ft-mail .mailto::after, .cs .rec a::after, .hw-u a.pk::after { content: ""; position: absolute; inset: -9px -4px; }
+.ft-nav a { min-width: 44px; justify-content: center; }
+.about-nav a { min-height: 44px; display: inline-flex; align-items: center; }
+@media (max-width: 899px) { .src-list li { padding-top: 6px; padding-bottom: 6px; } .src-list a { display: inline-block; padding: 3px 0; } }
+/* v2.7: a short phone (an iPhone SE) gives the pinned stage a little more of the screen, so its labels hold 12 px */
+@media (max-width: 899px) and (max-height: 620px) and (orientation: portrait) { .story > .stage, .story > .stage.film-stage { height: 47svh; } }
+/* v2.7: text links in titles and lists keep their lines and gain a 44 px reach (inline padding sets no layout) */
+.rc-t a, .src-list a, .credits-ch h2 a, .lead .bt-a { padding-top: 11px; padding-bottom: 11px; }
+.lead .bt-a, .rc-t a, .src-list a, .credits-ch h2 a { display: inline; }
+
+/* v2.7: figure titles at the label size; About's principle figures take the column's full width on a phone */
+.fm .fm-t { font-size: 12.5px; fill: var(--gray); }
+@media (max-width: 599px) {
+  .hw-b.has-fig .hw-fig { margin-left: -44px; max-width: none; }
+  .hw-fig.pr-fig { padding: 16px 12px 12px; }
+  .hw-fig.dwf { padding: 14px 12px 10px; }
+}
+
+/* v2.7: on any touch screen, the module kit's controls are 44 px tall, whatever the width (a phone held sideways) */
+@media (pointer: coarse) { .seg > button, .btn, .m-data summary { min-height: 44px; } }
+/* a phone held sideways: the drawings drawn for a phone, held to 480 px, so their labels keep the floor */
+@media (max-width: 899px) and (max-height: 500px) and (orientation: landscape) {
+  svg.dw.dw-wide { display: none; }
+  svg.dw.dw-narrow { display: block; max-width: 480px; }
+  .rd-draw .dw-n { display: block; max-width: 480px; }
+  .rd-draw .dw-wide { display: none; }
+}
+/* v2.7: a tablet shows a very wide drawing's phone twin, held to 480 px, instead of the wide one below the label floor */
+@media (min-width: 600px) and (max-width: 899px) {
+  svg.dw.dw-xw { display: none; }
+  svg.dw.dw-xw ~ svg.dw.dw-narrow, .ch-plate.drawn svg.dw.dw-xw ~ svg.dw.dw-narrow { display: block; max-width: 480px; margin-left: auto; margin-right: auto; }
+}
+/* v2.7: the film stage's caption names what is on it: the film, or a drawing of the idea on a drawn step */
+.film-stage .cap-dw, .film-stage.on-draw .cap-fm { display: none; }
+@media (min-width: 900px) { .film-stage.on-draw .cap-dw { display: block; } }
+
+/* v2.7: a step with no figure reads at a wider measure, so its empty column does not read as a missing figure */
+@media (min-width: 900px) { .story.solo .step:not(:has(> .st-ev)) { grid-template-columns: minmax(0, 36em); } }
+
+/* parts: each chapter's v2.7 styles (D-058) */
+
+/* m01, Target (v2.7, D-058): the store field, the launch strip and the Black Friday items. */
+.dw .m01-dot { fill: none; stroke-linecap: round; }
+/* the field is gray, so it reads as dots; the work's red marks only the larger shares, the stores the reader must see */
+.dw .m01-s0 { stroke: color-mix(in srgb, var(--line) 46%, var(--wash)); }
+.dw .m01-s1 { stroke: color-mix(in srgb, var(--line) 88%, var(--wash)); }
+.dw .m01-s2 { stroke: var(--c); }
+.dw .m01-ring { fill: var(--wash); stroke: var(--ink); stroke-width: 1.05; }
+.dw .m01-pick { fill: none; stroke: var(--gray); stroke-width: 1; }
+.dw .m01-scr { fill: none; stroke: var(--line); stroke-width: 1; }
+
+/* m03, Amazon Bedding & Bath (v2.7, D-058): the loupe on the margin's edge, the funding that peels off, the forecast. */
+.dw .m03-lens { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.dw .m03-rule, .dw .m03-tick { fill: none; stroke: var(--ink-2); stroke-width: 1; }
+.dw .m03-edge { fill: none; stroke: var(--ink); stroke-width: 2.5; }
+.dw .m03-fc { fill: none; stroke: var(--line); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.js .armed .m03-peel { transform: translateY(var(--py)); }
+.dw .m03-nm { font-size: 12.5px; }
+.dw .m03-lead { fill: none; stroke: var(--line); stroke-width: 1; }
+
+/* Prime Now (m04), v2.7 (D-058): the stage as one scene, shelf to app. The scene builds with the story: each step's part
+   of the system arrives, the parts not yet built wait as dashed outlines, and what fed the app runs under the app. A laptop
+   sees the whole scene with a soft ground under the part in view; a phone travels along it, one part at a time. */
+/* a laptop's stage holds the whole scene at its own height */
+@media (min-width: 900px) { .stage[data-stage="scene"] { height: auto; } .stage[data-stage="scene"] > svg { flex: none; height: auto; } }
+.sc text { font-family: var(--font); fill: var(--ink); }
+.sc .sc-kick { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; fill: var(--gray); }
+.sc .sc-good { fill: var(--wash-2); stroke: var(--ink-2); stroke-width: 1.1; }
+.sc .sc-lab { fill: var(--paper); stroke: var(--ink-2); stroke-width: .8; }
+.sc .sc-row { font-size: 13.2px; fill: var(--ink); }
+.sc .sc-newt { fill: var(--ink); }
+.sc .sc-rule { fill: none; stroke: var(--rule); stroke-width: 1; }
+.sc .sc-new { fill: var(--paper); stroke: var(--c); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.sc .sc-now { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 3; }
+.sc .sc-sold { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.sc .sc-ahead { fill: none; stroke: var(--c); stroke-width: 1.8; stroke-dasharray: 3.2 3; stroke-linecap: round; stroke-linejoin: round; }
+.sc .sc-lbl { font-size: 12.8px; fill: var(--gray); }
+.sc .sc-acc { fill: var(--c); }
+.sc .sc-cell { fill: var(--paper); stroke: var(--rule); stroke-width: 1; }
+.sc .sc-q { font-family: var(--mono); font-size: 13px; fill: var(--gray); }
+.sc .sc-ok circle { fill: var(--c); }
+.sc .sc-ok path { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.sc .sc-ghost { fill: none; stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 3 4; }
+.sc .sc-lane { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; }
+.sc .sc-lane-new { stroke: var(--c); }
+.sc .sc-feed { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 3 3; stroke-linecap: round; transition: stroke var(--t2) linear, stroke-width var(--t2) linear; }
+.stage[data-s="4"] .sc .sc-feed { stroke: var(--c); stroke-width: 2.2; stroke-dasharray: none; }
+.sc .sc-gap { fill: none; stroke: var(--line); stroke-width: 1.4; stroke-dasharray: 2 5; stroke-linecap: round; }
+.sc .sc-here { fill: var(--wash-2); opacity: 0; transition: opacity var(--t3) linear; }
+.sc .sc-name { font-size: 13.6px; fill: var(--gray); transition: fill var(--t2) linear; }
+.sc .sc-cd { font-family: var(--mono); font-size: 13.2px; letter-spacing: .02em; fill: var(--ink-2); opacity: 0; transition: opacity var(--t2) linear; }
+.sc .sc-cd.sc-auto { fill: var(--c); font-weight: 500; }
+.sc .sc-note { font-size: 15px; fill: var(--ink); opacity: 0; transition: opacity 120ms linear; }
+.sc .f1, .sc .f2, .sc .f3, .sc .f4 { opacity: 0; transition: opacity var(--t3) linear; }
+.sc .u1, .sc .u2, .sc .u3, .sc .h13 { opacity: 0; transition: opacity var(--t2) linear; }
+.stage[data-s="1"] .sc .h13, .stage[data-s="2"] .sc .h13, .stage[data-s="3"] .sc .h13 { opacity: 1; }
+.sc .sc-hand { fill: none; stroke: var(--ink-2); stroke-width: 1.4; stroke-dasharray: 3 3.5; stroke-linecap: round; }
+.sc .sc-hand-h { fill: var(--ink-2); stroke: none; }
+
+.stage[data-s="1"] .sc .f1, .stage[data-s="2"] .sc .f1, .stage[data-s="3"] .sc .f1, .stage[data-s="4"] .sc .f1 { opacity: 1; }
+.stage[data-s="2"] .sc .f2, .stage[data-s="3"] .sc .f2, .stage[data-s="4"] .sc .f2 { opacity: 1; }
+.stage[data-s="3"] .sc .f3, .stage[data-s="4"] .sc .f3 { opacity: 1; }
+.stage[data-s="4"] .sc .f4 { opacity: 1; }
+.stage[data-s="0"] .sc .u1 { opacity: 1; }
+.stage[data-s="0"] .sc .u2, .stage[data-s="1"] .sc .u2 { opacity: 1; }
+.stage[data-s="0"] .sc .u3, .stage[data-s="1"] .sc .u3, .stage[data-s="2"] .sc .u3 { opacity: 1; }
+.stage[data-s="0"] .sc .sc-here[data-k="0"] { opacity: 1; }
+.stage[data-s="0"] .sc .sc-name[data-k="0"] { fill: var(--ink); font-weight: 500; }
+.stage[data-s="0"] .sc .sc-cd[data-c="0"] { opacity: 1; }
+.stage[data-s="0"] .sc .sc-note[data-n="0"] { opacity: 1; transition: opacity var(--t2) linear 140ms; }
+.stage[data-s="1"] .sc .sc-here[data-k="1"] { opacity: 1; }
+.stage[data-s="1"] .sc .sc-name[data-k="1"] { fill: var(--ink); font-weight: 500; }
+.stage[data-s="1"] .sc .sc-cd[data-c="1"] { opacity: 1; }
+.stage[data-s="1"] .sc .sc-note[data-n="1"] { opacity: 1; transition: opacity var(--t2) linear 140ms; }
+.stage[data-s="2"] .sc .sc-here[data-k="2"] { opacity: 1; }
+.stage[data-s="2"] .sc .sc-name[data-k="2"] { fill: var(--ink); font-weight: 500; }
+.stage[data-s="2"] .sc .sc-cd[data-c="2"] { opacity: 1; }
+.stage[data-s="2"] .sc .sc-note[data-n="2"] { opacity: 1; transition: opacity var(--t2) linear 140ms; }
+.stage[data-s="3"] .sc .sc-here[data-k="3"] { opacity: 1; }
+.stage[data-s="3"] .sc .sc-name[data-k="3"] { fill: var(--ink); font-weight: 500; }
+.stage[data-s="3"] .sc .sc-cd[data-c="3"] { opacity: 1; }
+.stage[data-s="3"] .sc .sc-note[data-n="3"] { opacity: 1; transition: opacity var(--t2) linear 140ms; }
+.stage[data-s="4"] .sc .sc-here[data-k="4"] { opacity: 1; }
+.stage[data-s="4"] .sc .sc-name[data-k="4"] { fill: var(--ink); font-weight: 500; }
+.stage[data-s="4"] .sc .sc-cd[data-c="4"] { opacity: 1; }
+.stage[data-s="4"] .sc .sc-note[data-n="4"] { opacity: 1; transition: opacity var(--t2) linear 140ms; }
+/* the phone: the scene travels; the strip above it says where the reader is */
+.sc.sc-p { overflow: hidden; }
+.sc-p .sc-pan { transition: transform var(--t3) var(--out); }
+.sc-p .sc-name { opacity: 0; transition: opacity var(--t2) linear; }
+.sc-p .sc-name { font-size: 13.4px; }
+.sc-p .sc-row { font-size: 13.2px; }
+.sc-p .sc-lbl { font-size: 13.2px; }
+.sc-p .sc-q { font-size: 13.2px; }
+.sc-p .sc-cd { font-size: 13.4px; }
+.sc-p .sc-strip { fill: none; stroke: var(--rule); stroke-width: 1; }
+.sc-p .sc-stbg { fill: var(--paper); stroke: var(--rule); stroke-width: 1; transition: fill var(--t2) linear, stroke var(--t2) linear; }
+.sc-p .sc-stt { font-size: 13.2px; fill: var(--gray); transition: fill var(--t2) linear; }
+.stage[data-s="0"] .sc-p .sc-name[data-k="0"] { opacity: 1; }
+.stage[data-s="0"] .sc-p .sc-pan { transform: translateX(0px); }
+.stage[data-s="0"] .sc-p .sc-st[data-k="0"] .sc-stbg { fill: var(--ink); stroke: var(--ink); }
+.stage[data-s="0"] .sc-p .sc-st[data-k="0"] .sc-stt { fill: var(--paper); font-weight: 500; }
+.stage[data-s="1"] .sc-p .sc-name[data-k="1"] { opacity: 1; }
+.stage[data-s="1"] .sc-p .sc-pan { transform: translateX(-196px); }
+.stage[data-s="1"] .sc-p .sc-st[data-k="1"] .sc-stbg { fill: var(--ink); stroke: var(--ink); }
+.stage[data-s="1"] .sc-p .sc-st[data-k="1"] .sc-stt { fill: var(--paper); font-weight: 500; }
+.stage[data-s="2"] .sc-p .sc-name[data-k="2"] { opacity: 1; }
+.stage[data-s="2"] .sc-p .sc-pan { transform: translateX(-392px); }
+.stage[data-s="2"] .sc-p .sc-st[data-k="2"] .sc-stbg { fill: var(--ink); stroke: var(--ink); }
+.stage[data-s="2"] .sc-p .sc-st[data-k="2"] .sc-stt { fill: var(--paper); font-weight: 500; }
+.stage[data-s="3"] .sc-p .sc-name[data-k="3"] { opacity: 1; }
+.stage[data-s="3"] .sc-p .sc-pan { transform: translateX(-588px); }
+.stage[data-s="3"] .sc-p .sc-st[data-k="3"] .sc-stbg { fill: var(--ink); stroke: var(--ink); }
+.stage[data-s="3"] .sc-p .sc-st[data-k="3"] .sc-stt { fill: var(--paper); font-weight: 500; }
+.stage[data-s="4"] .sc-p .sc-name[data-k="4"] { opacity: 1; }
+.stage[data-s="4"] .sc-p .sc-pan { transform: translateX(-784px); }
+.stage[data-s="4"] .sc-p .sc-st[data-k="4"] .sc-stbg { fill: var(--ink); stroke: var(--ink); }
+.stage[data-s="4"] .sc-p .sc-st[data-k="4"] .sc-stt { fill: var(--paper); font-weight: 500; }
+@media (prefers-reduced-motion: reduce) { .sc-p .sc-pan { transition: none !important; } }
+
+/* Alexa Shopping (m05), v2.7 (D-058). The hero's voice order plays once, in turns, as the chapter opens. The first frame
+   already reads: the ring lit on the wake word, the request in place. The ring turns once while Alexa works out its offer
+   and dims while Alexa speaks; the offer arrives line by line, then the customer's "yes," and the ring lights again. Only
+   the chapter's own hero plays; reduced motion and every other copy show the finished exchange. */
+.dw.ex .ex-ring0 { fill: #3d3d3d; }
+.dw.ex .ex-spin { fill: none; stroke: #1f5fd1; stroke-width: 7px; stroke-dasharray: 16 84; stroke-linecap: round; opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .ch-plate.drawn .dw.ex .ex-in { animation: ex-in 320ms cubic-bezier(.16, 1, .3, 1) var(--d) both; }
+  .ch-plate.drawn .dw.ex .ex-lit { animation: ex-ring 3.6s linear both; }
+  .ch-plate.drawn .dw.ex .ex-spin { transform-box: fill-box; transform-origin: center; animation: ex-spin 900ms cubic-bezier(.45, 0, .3, 1) .25s both; }
+}
+@keyframes ex-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes ex-ring { 0%, 30% { opacity: 1; } 36%, 72% { opacity: .22; } 77%, 100% { opacity: 1; } }
+@keyframes ex-spin { 0% { opacity: 0; transform: rotate(-90deg); } 12% { opacity: 1; } 82% { opacity: 1; } 100% { opacity: 0; transform: rotate(450deg); } }
+
+/* Before: the Echo Plus, drawn in the hero's line */
+.dw.ec .ec-hole { fill: var(--line); }
+.dw.ec .ec-top { fill: #262626; stroke: var(--ink); stroke-width: 1.5; }
+.dw.ec .ec-ring0 { fill: none; stroke: #3d3d3d; stroke-width: 3.6; }
+.dw.ec .ec-ring { fill: none; stroke: #19b5e6; stroke-width: 3.6; }
+.dw.ec .ec-btn { fill: #4a4a4a; }
+.dw.ec .ec-wave { fill: none; stroke: var(--c); stroke-width: 1.8; stroke-linecap: round; }
+.dw.ec .ec-l { font-size: 13.6px; }
+.dw.ec .ec-s { font-size: 13.2px; fill: var(--gray); }
+
+/* Understand: labels on each word, one leader curve for every item */
+.dw.lb .lb-q { font-size: 19.5px; font-weight: 500; fill: var(--ink); }
+.dw.lb .lb-u { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; }
+.dw.lb .lb-l { fill: none; stroke: var(--ink-2); stroke-width: 1.3; stroke-linecap: round; }
+.dw.lb .lb-b { font-size: 13.6px; font-weight: 500; }
+.dw.lb .lb-n { font-size: 13.2px; fill: var(--gray); }
+.dw.lb.lb-p .lb-q { font-size: 15px; }
+.dw.lb.lb-p .m { font-size: 13px; }
+.dw.lb.lb-p .lb-b { font-size: 13.2px; }
+.dw.lb.lb-p .lb-n { font-size: 13.2px; }
+/* the turns' names at 12 px on a tablet's hero and at 360 px wide on a phone */
+.dw.ex .ex-k { font-size: 20.5px; }
+.dw.ex .ex-kp { font-size: 15px; }
+
+/* the request module: three replies, each a path along Hear, Understand and Offer; the open one stands on white */
+.jt .jt-k { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; fill: var(--gray); }
+.jt .jt-step { fill: var(--ink-2); }
+.jt .jt-n { font-size: 14px; fill: var(--ink-2); transition: fill var(--t-1) linear; }
+.jt .jt-row.on .jt-n { fill: var(--ink); font-weight: 500; }
+.jt .jt-v { font-size: 13px; fill: var(--gray); }
+.jt .jt-v.ok { fill: var(--ink); font-weight: 500; }
+.jt .jt-ln { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; }
+.jt .jt-never { stroke: var(--line); stroke-dasharray: 2 4; }
+.jt .jt-on { fill: var(--ink); }
+.jt .jt-off { fill: var(--paper); stroke: var(--line); stroke-width: 1.2; }
+.jt .jt-x, .jt .jt-mx { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; }
+/* the open reply's break, and the word its offer dropped, in the chapter's own color: where the reader is looking */
+.jt .jt-row.on .jt-x, .jt .jt-mx { stroke: var(--c); stroke-width: 2.6; }
+.jt .jt-mk { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.jt .jt-open { fill: var(--paper); }
+@media (max-width: 599px) { .jt .jt-k { font-size: 12.5px; } .jt .jt-n { font-size: 15px; } .jt .jt-v { font-size: 14px; } }
+.module[data-module="m05-judge-the-turn"] .seg > button { text-align: center; }
+
+/* ---------------------------------------------------------------- Amazon Halo (m06), v2.7 (D-058): the split in the path grammar it
+   shares with Halo Tone's audio path (draw_m06.py, draw_m08.py). */
+.dw-m06 .guide { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+.dw-m06 .s { font-size: 12.5px; }
+.dw-m06.n .s { font-size: 13px; }
+
+/* ---------------------------------------------------------------- Halo Body (m07), v2.7 (D-058) */
+/* step 03: the slider in the reader's hand (js/figs/m07-slider.js); the drawing is complete without it */
+.ch[data-ch="m07"] figure.dwf:has(.m07s) { max-width: 400px; }
+.m07s .m07s-o { transition: none; }
+.m07s.live .m07s-knob { cursor: grab; outline: none; }
+.m07s.live.dragging .m07s-knob, .m07s.live.dragging { cursor: grabbing; }
+.m07s.live .m07s-track { cursor: pointer; touch-action: none; }
+.m07s.live .m07s-knob { touch-action: none; }
+.m07s .m07s-knob circle.box { transition: stroke-width var(--t1) linear; }
+.m07s.live .m07s-knob:focus-visible circle.box { stroke-width: 2.5; }
+.m07s.live .m07s-knob:focus-visible .m07s-hit { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 2 3; }
+@media (hover: hover) and (pointer: fine) { .m07s.live .m07s-knob:hover circle.box { stroke-width: 2.5; } }
+.m07s .m07s-knob:active circle.box { stroke-width: 2.5; }
+.m07s .m07s-stop { transform-box: fill-box; transform-origin: center; }
+.m07s .m07s-stop.thud { animation: m07-thud 260ms var(--out); }
+@keyframes m07-thud { 0% { transform: scaleX(1); } 35% { transform: scaleX(1.9); } 100% { transform: scaleX(1); } }
+.m07s.at-floor .m07s-c { stroke-dasharray: none; }
+
+/* the capture coach: the room from the side, and the phone's screen beside it */
+.cc7 .cc-b { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.cc7 .cc-ink { fill: var(--ink); }
+.cc7 .cc-floor { fill: none; stroke: var(--line); stroke-width: 1.5; }
+.cc7 .cc-s { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; }
+.cc7 .cc-ok { fill: none; stroke: var(--c); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cc7 .cc-dim { fill: none; stroke: var(--gray); stroke-width: 1.2; }
+.cc7 .cc-zone { fill: none; stroke: var(--c); stroke-width: 2.4; stroke-linecap: round; }
+.cc7 .cc-lead { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 3; }
+.cc7 .cc-tb { fill: var(--paper); stroke: var(--rule); stroke-width: 1; }
+.cc7 .cc-tile .cc-b { stroke-width: 1; }
+.cc7 .cc-outline .cc-b { fill: none; stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 3 3; transition: stroke var(--t2) linear; }
+.cc7 .locked .cc-outline .cc-b { stroke: var(--c); stroke-dasharray: none; stroke-width: 1.6; }
+.cc7 text.cc-t { font-size: 13px; fill: var(--ink-2); }
+.cc7 text.cc-n { fill: var(--ink); }
+.cc7 text.cc-tl { font-size: 12px; fill: var(--gray); }
+.cc7 .cc-p { transition: opacity var(--t2) linear; }
+.cc7 .cc-anim { transition: transform var(--t3) var(--out), opacity var(--t2) linear; }
+.cc7 .cc-tile { transition: opacity var(--t2) linear; }
+@media (prefers-reduced-motion: reduce) { .cc7 .cc-anim, .cc7 .cc-p, .cc7 .cc-tile { transition: none !important; } }
+
+/* the film stage's drawn steps (Before: the clinic; Test: the blinded study) sit on the stage's wash */
+.ch[data-ch="m07"] .film-stage .fs-dw .dw { max-width: 760px; }
+
+/* ---------------------------------------------------------------- Halo Tone (m08), v2.7 (D-058): the panel as its ratings, the battery,
+   the audio's path in the path grammar it shares with Halo's split, the six patents on one time axis, and the plane the
+   reader can move. */
+.dw-m08 .pn { font-size: 15px; fill: var(--ink); }
+.dw-m08.n .pn { font-size: 15px; font-weight: 500; }
+.dw-m08 .n2 { font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em; fill: var(--gray); }
+.dw-m08 .yr { fill: var(--ink); }
+.dw-m08 .fl { font-size: 13px; fill: var(--ink-2); }
+.dw-m08 .cite { fill: var(--ink-2); }
+.dw-m08 .sh { stroke: var(--ink-2); stroke-width: .75; }
+.dw-m08 .sh .dsh, .dw-m08 .sh.dsh { stroke-dasharray: 2 1.6; }
+.dw-m08 .hit { fill: transparent; stroke: transparent; stroke-width: 2; transition: fill var(--t1) linear; }
+.dw-m08 a.pt { cursor: pointer; }
+.dw-m08 a.pt:focus { outline: none; }
+.dw-m08 a.pt:focus-visible .hit { stroke: var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  .dw-m08 a.pt:hover .hit { fill: rgba(255, 255, 255, .55); }
+  .dw-m08 a.pt:hover .pn { text-decoration: underline; text-decoration-color: var(--line); }
+}
+.dw-m08 a.pt:active .hit { fill: rgba(255, 255, 255, .8); }
+.rd-draw .dw-m08.pats { max-width: 960px; }
+.dw-m08.n .s { font-size: 13px; }
+
+/* the reading of the six patents sits on the page, not in a well: its sheets carry their own paper */
+.ch[data-ch="m08"] .rd-fig.rd-draw { max-width: 960px; }
+
+/* ---------- the plane the reader can move (voice-plane.js) */
+.vp { touch-action: pan-y; }
+.vp .vp-q { fill: var(--plate); opacity: 0; transition: opacity var(--t-2) linear; }
+.vp .vp-q.on { opacity: 1; }
+.vp .vp-end { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; fill: var(--gray); }
+.vp .vp-ax { font-size: 13px; fill: var(--ink-2); }
+.vp .vp-trail { fill: none; stroke: var(--c); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: .5; }
+.vp .vp-dot { fill: var(--c); stroke: var(--paper); stroke-width: 2.5; }
+.vp .vp-ring { fill: none; stroke: var(--c); stroke-width: 1.5; opacity: 0; }
+.vp .vp-hit { fill: transparent; cursor: grab; touch-action: none; }
+.vp .vp-dot, .vp .vp-ring { pointer-events: none; }
+.vp .vp-hit:active { cursor: grabbing; }
+.vp .vp-v:focus { outline: none; }
+.vp .vp-v:focus-visible .vp-ring { opacity: 1; }
+.vp.dragging .vp-ring { opacity: .45; }
+.vp .t-word { font-size: 22px; font-weight: 500; fill: var(--ink); }
+.vp .t-more { font-size: 13px; fill: var(--ink-2); }
+.m-stage svg.vp .t-ghost { font-size: 15px; fill: var(--line); opacity: 1; transition: opacity var(--t-2) linear; }
+.m-stage svg.vp .t-ghost.here { opacity: 0; }
+.vp .vp-paper { fill: var(--paper); }
+.vp .t-word, .vp .t-more { paint-order: stroke; stroke: var(--wash); stroke-width: 4px; stroke-linejoin: round; }
+.vp .vp-q { fill: var(--wash); }
+.vp-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 16px; }
+.vp-row .vp-note { font-size: var(--f13); color: var(--gray); }
+/* live mode is a control at all times: a play glyph and its words; while it plays it reads Stop, set in ink */
+.vp-play { gap: 8px; }
+.vp-play svg { width: 12px; height: 12px; flex: none; }
+.vp-play[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+@media (max-width: 599px) {
+  .vp-row { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .vp-row .seg, .vp-row .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .vp .vp-q, .m-stage svg.vp .t-ghost { transition: none !important; } }
+.dw-m08.pats:not(.n) .s { font-size: 13.5px; }
+
+/* ---------------------------------------------------------------- Halo Movement (m09), v2.7 (D-058) */
+/* step 01: the app's setup screen from the 2022 study, redrawn */
+.ch[data-ch="m09"] figure.dwf:has(.m09-setup) { max-width: 320px; }
+@media (max-width: 899px) { .ch[data-ch="m09"] figure.dwf:has(.m09-setup) { max-width: 300px; margin-left: auto; margin-right: auto; } }
+
+/* the film stage: the film in its own shape, the step's facts in the column beside it (a laptop); on a phone the stage
+   pins and the end holds its reading */
+@media (min-width: 900px) {
+  /* the end card stands in the facts' column, so a laptop and a phone show the same reading at the last step */
+  .ch[data-ch="m09"] .film-stage.has-side .fs-side { grid-column: 2; grid-row: 1; }
+  .ch[data-ch="m09"] .film-stage.has-side .fs-end { position: static; grid-column: 2; grid-row: 1; align-self: center; justify-self: start;
+    left: auto; right: auto; bottom: auto; width: min(320px, 100%); transform: translateY(8px); }
+  .ch[data-ch="m09"] .film-stage.has-side.at-end .fs-end { transform: none; }
+  .ch[data-ch="m09"] .film-stage.has-side .fs-end .big { font-size: 40px; }
+  .ch[data-ch="m09"] .film-stage.has-side .fs-side { padding-right: 8px; }
+  .ch[data-ch="m09"] .film-stage.has-side .fs-n p:first-child { font-size: var(--f30); line-height: 1.12; letter-spacing: -0.02em; color: var(--ink); max-width: 12em; text-wrap: balance; }
+  .ch[data-ch="m09"] .film-stage.has-side .fs-n p + p { margin-top: 14px; font-size: var(--f15); line-height: 1.5; color: var(--ink-2); max-width: 22em; }
+}
+
+/* the score module: the slider is the chart's own axis; the member's line in the work's color; above 90, rarely reached */
+.m81-plot { position: relative; }
+.m81-plot svg { display: block; }
+.m81-range { position: absolute; margin: 0; z-index: 1; }
+.m81-range.range::-webkit-slider-runnable-track { background: transparent; }
+.m81-range.range::-moz-range-track { background: transparent; }
+.m81-range.range::-webkit-slider-thumb { background: var(--c); box-shadow: 0 0 0 1px var(--c); }
+.m81-range.range::-moz-range-thumb { background: var(--c); box-shadow: 0 0 0 1px var(--c); }
+@media (hover: hover) and (pointer: fine) { .m81-range.range:hover::-webkit-slider-thumb { box-shadow: 0 0 0 4px var(--plate), 0 0 0 5px var(--c); } }
+.m81-plot svg .m81-axis { stroke: var(--ink-2); stroke-width: 1.5; }
+.m81-plot svg .m81-band { fill: color-mix(in srgb, var(--c) 9%, transparent); }
+.m81-plot svg .m81-bl { stroke: var(--c); stroke-width: 1; stroke-dasharray: 2 3; opacity: .7; }
+.m81-plot svg .m81-bt { font-size: 12.5px; fill: var(--gray); }
+.m81-plot svg .m81-mark .d1 { stroke-width: 2; }
+.m81-plot svg .m81-num { fill: var(--ink); }
+
+/* ---------------------------------------------------------------- Health AI (m10), v2.7 (D-058) */
+/* Before: the three instruments and the phone that replaced each */
+.ch[data-ch="m10"] .story.solo .st-ev .ev.dwf:has(.m10-bf) { max-width: 520px; }
+
+/* What came next: the 2023 paper as a small tile on its page, not a second hero */
+@media (min-width: 900px) { .ch[data-ch="m10"] .after { grid-template-columns: minmax(0, 1fr) minmax(0, 300px); } }
+.ch[data-ch="m10"] .after .lfig { max-width: 300px; }
+.ch[data-ch="m10"] .after .lfig img { background: #fff; padding: 8px; border-radius: 6px; box-shadow: 0 0 0 1px var(--rule), 0 10px 22px -16px rgba(20, 18, 12, .35); }
+
+/* the measures module: three products across, the chain of each study down; at rest all three show */
+.m10x { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.m10x th[scope="col"] { text-align: left; font-weight: 500; font-size: 16px; line-height: 1.25; color: var(--ink); padding: 0 12px 10px 16px; border-bottom: 1px solid var(--ink); transition: opacity var(--t2) linear; }
+.m10x .m10x-corner { border-bottom: 1px solid var(--ink); }
+.m10x th[scope="row"] { text-align: left; vertical-align: top; width: 21%; padding: 13px 12px 12px 0; font: 400 12px/1.35 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--gray); }
+.m10x td { position: relative; vertical-align: top; padding: 12px 14px 14px 16px; border-bottom: 1px solid var(--rule); transition: opacity var(--t2) linear; }
+.m10x tbody tr:last-child td, .m10x tbody tr:last-child th { border-bottom: 0; }
+.m10x .m10x-v { display: block; font-size: 14.5px; line-height: 1.4; color: var(--ink); }
+.m10x .m10x-s { display: block; margin-top: 3px; font-size: 13px; line-height: 1.4; color: var(--gray); }
+.m10x .m10x-big { display: block; font-size: 20px; line-height: 1.2; letter-spacing: -0.012em; color: var(--ink); }
+/* the chain: what the phone saw and its reference hollow, the result filled in the work's color, one line joining them */
+.m10x tbody tr[data-r="0"] td::before, .m10x tbody tr[data-r="1"] td::before, .m10x tbody tr[data-r="2"] td::before {
+  content: ""; position: absolute; left: 0; top: 18px; width: 8px; height: 8px; border-radius: 50%; background: var(--paper); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.m10x tbody tr[data-r="2"] td::before { background: var(--c); box-shadow: none; top: 19px; }
+.m10x tbody tr[data-r="0"] td::after, .m10x tbody tr[data-r="1"] td::after { content: ""; position: absolute; left: 3.5px; top: 27px; bottom: -19px; width: 1px; background: var(--line); }
+.m10x[data-pick="0"] [data-c]:not([data-c="0"]), .m10x[data-pick="1"] [data-c]:not([data-c="1"]), .m10x[data-pick="2"] [data-c]:not([data-c="2"]) { opacity: .3; }
+button .m10x-ln { display: none; }
+@media (max-width: 599px) {
+  button .m10x-lw { display: none; } button .m10x-ln { display: inline; }
+  .m10x, .m10x thead, .m10x tbody { display: block; }
+  .m10x tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 10px; }
+  .m10x .m10x-corner { display: none; }
+  .m10x th[scope="col"] { padding: 0 0 8px 0; font-size: 15px; }
+  .m10x th[scope="row"] { grid-column: 1 / -1; width: auto; padding: 14px 0 4px; }
+  .m10x td { padding: 2px 0 12px 13px; border-bottom: 0; }
+  .m10x tbody tr { border-bottom: 1px solid var(--rule); }
+  .m10x tbody tr:last-child { border-bottom: 0; }
+  .m10x .m10x-v { font-size: 13.5px; line-height: 1.38; }
+  .m10x .m10x-s { font-size: 13px; }
+  .m10x .m10x-big { font-size: 16px; line-height: 1.25; }
+  .m10x tbody tr[data-r="0"] td::before, .m10x tbody tr[data-r="1"] td::before, .m10x tbody tr[data-r="2"] td::before { top: 8px; width: 7px; height: 7px; }
+  .m10x tbody tr[data-r="2"] td::before { top: 8px; }
+  .m10x tbody tr[data-r="0"] td::after, .m10x tbody tr[data-r="1"] td::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .m10x td, .m10x th { transition: none !important; } }
+
+/* ---------------------------------------------------------------- m11, Alexa Map View (v2.7, D-058): the plan stage. Before,
+   the one list; 01 Scan, one room traced in Map View's blue as if walked with the phone, standing as a small 3D model, then
+   cooling to ink; 02 Join, the room settles to a top-down plan and each next room arrives and snaps on at its doorway;
+   03 Place, the devices travel from a tray onto their rooms with their state in the list's words; 04 Control, a tap. */
+.stage[data-stage="plan"] { --c: #1683c4; }
+.plan { overflow: hidden; }
+.plan text { font-family: var(--font); }
+.plan .pl-rm { font-size: 12.5px; fill: var(--gray); transition: opacity var(--t2) linear; }
+.plan[data-sid="n"] .pl-rm { font-size: 13.2px; }
+
+/* Before: the app's one list of devices */
+.plan .pl-list { pointer-events: none; transition: opacity var(--t3) linear, transform var(--t3) var(--out); transform-box: view-box; transform-origin: 50% 40%; }
+.stage:not([data-s="0"]) .plan .pl-list { opacity: 0; transform: scale(.96); }
+.plan .pl-lh { font-size: 15px; font-weight: 500; fill: var(--ink); }
+.plan .pl-row { fill: var(--paper); stroke: var(--rule); }
+.plan .pl-rn { font-size: 13px; fill: var(--ink); }
+.plan[data-sid="n"] .pl-rn { font-size: 13.6px; }
+.plan .pl-rs { font-size: 12px; fill: var(--gray); }
+.plan[data-sid="n"] .pl-rs { font-size: 13.8px; }
+.plan .pl-rsw { fill: #fff; }
+.plan .pl-on { fill: var(--c); }
+.plan .pl-off { fill: var(--wash-2); }
+
+/* the plan's line: walls in ink, furniture and doors lighter, windows as two thin lines in the wall. Widths are in the
+   drawing's own units, so a traced line's length is exact and every wall reaches its corner */
+.plan .pl-w { fill: none; stroke: var(--ink); stroke-width: 2.1; stroke-linecap: square; }
+.plan[data-sid="n"] .pl-w { stroke-width: 1.8; }
+.plan .pl-fur { fill: none; stroke: var(--ink-2); stroke-width: 1; stroke-linejoin: round; }
+.plan .pl-win { fill: none; stroke: var(--ink); stroke-width: .9; }
+.plan .pl-dm { fill: none; stroke: var(--ink-2); stroke-width: .9; }
+.plan .pl-swing { stroke-dasharray: 2 3; }
+.plan .pl-up { fill: none; stroke: var(--ink); stroke-width: 1.2; stroke-linecap: round; }
+
+/* 01 Scan: the room stands as a small 3D model and traces in Map View's blue along the walk, then cools to ink */
+.plan .pl-lr { transition: transform var(--t4) var(--out), opacity var(--t2) linear; }
+.stage[data-s="0"] .plan .pl-lr { opacity: 0; transform: var(--ob); }
+.stage[data-s="1"] .plan .pl-lr { transform: var(--ob); }
+.plan .pl-lr3 { transition: opacity var(--t2) linear; }
+.stage:not([data-s="1"]) .plan .pl-lr3 { opacity: 0; }
+.plan .pl-lr3 .pl-up { opacity: .5; }
+.plan .pl-trace { stroke-dasharray: 1.01 2; stroke-dashoffset: 0; }
+.stage[data-s="0"] .plan .pl-trace, .stage[data-s="1"] .plan .pl-trace { stroke-linecap: butt; }
+.stage[data-s="0"] .plan .pl-trace { stroke-dashoffset: 1.01; }
+.stage:not([data-s="0"]):not([data-s="1"]) .plan .pl-trace { stroke-dasharray: none; }
+/* the trace is an animation, so leaving the step finishes it at once and coming back walks the room again */
+.stage[data-s="1"] .plan .pl-trace { animation: pl-trace var(--t, 640ms) linear var(--d, 0ms) both, pl-cool var(--t4) linear calc(var(--d, 0ms) + var(--t, 640ms) + 600ms) both; }
+.stage[data-s="1"] .plan .pl-fur.pl-trace { animation-name: pl-trace, pl-cool2; }
+@keyframes pl-trace { from { stroke-dashoffset: 1.01; } to { stroke-dashoffset: 0; } }
+@keyframes pl-cool { from { stroke: var(--c); } to { stroke: var(--ink); } }
+@keyframes pl-cool2 { from { stroke: var(--c); } to { stroke: var(--ink-2); } }
+.stage[data-s="0"] .plan .pl-lr .pl-win, .stage[data-s="0"] .plan .pl-lr .pl-dm, .stage[data-s="1"] .plan .pl-lr .pl-rm { opacity: 0; }
+.plan .pl-lr .pl-win, .plan .pl-lr .pl-dm { transition: opacity var(--t3) linear; }
+.stage[data-s="1"] .plan .pl-lr .pl-win, .stage[data-s="1"] .plan .pl-lr .pl-dm { transition-delay: 1500ms; }
+
+/* 02 Join: each room arrives in turn and snaps on at its doorway; its door draws as it lands */
+.plan .pl-room { transition: transform var(--t3) var(--out) var(--rd, 0ms), opacity var(--t2) linear var(--rd, 0ms); }
+.stage[data-s="0"] .plan .pl-room, .stage[data-s="1"] .plan .pl-room { opacity: 0; transform: translate(var(--dx), var(--dy)); transition-delay: 0ms; }
+.plan .pl-room .pl-door { transition: opacity var(--t2) linear calc(var(--rd, 0ms) + 360ms); }
+.stage[data-s="0"] .plan .pl-room .pl-door, .stage[data-s="1"] .plan .pl-room .pl-door { opacity: 0; transition-delay: 0ms; }
+
+/* 03 Place: the tray, and the devices traveling from it onto their rooms */
+.plan .pl-tray { opacity: 0; transition: opacity var(--t2) linear; }
+.stage[data-s="3"] .plan .pl-tray { opacity: 1; }
+.plan .pl-sl { fill: none; stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.plan .pl-tn { font-size: 12px; fill: var(--ink-2); transition: opacity var(--t2) linear; }
+/* each slot leaves with its device, so the tray is empty once every device is placed */
+.plan .pl-slot { transition: opacity var(--t2) linear; }
+.stage[data-s="3"] .plan .pl-slot { opacity: 0; transition-delay: calc(var(--pd, 0ms) + 240ms); }
+.plan .pl-pin { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.plan .pl-hit { fill: transparent; }
+.plan .pl-mv { transform: translate(var(--tx), var(--ty)); opacity: 0; transition: opacity var(--t1) linear, transform 0ms linear var(--t1); }
+.stage[data-s="3"] .plan .pl-mv, .stage[data-s="4"] .plan .pl-mv { transform: none; opacity: 1; transition: opacity var(--t1) linear, transform var(--t4) var(--out) var(--pd, 0ms); }
+.stage[data-s="0"] .plan .pl-pin, .stage[data-s="1"] .plan .pl-pin, .stage[data-s="2"] .plan .pl-pin { pointer-events: none; }
+.plan .pl-b { fill: var(--paper); stroke: var(--ink); stroke-width: 2; transition: fill var(--t2) linear, transform var(--t1) var(--out); transform-box: fill-box; transform-origin: center; }
+.plan .pl-ic { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: stroke var(--t2) linear; }
+.plan .pl-fr { fill: none; stroke: var(--ink); stroke-width: 2; opacity: 0; }
+.plan .pl-pin:focus { outline: none; }
+.plan .pl-pin:focus-visible .pl-fr { opacity: 1; }
+.plan .pl-pin:active .pl-b { transform: scale(.88); }
+@media (hover: hover) and (pointer: fine) { .plan .pl-pin:hover .pl-b { stroke: var(--c); stroke-width: 3; } }
+.plan .pl-pin.on[data-k="lamp"] .pl-b, .plan .pl-pin.on[data-k="bed"] .pl-b { fill: #ffd25a; }
+.plan .pl-pin.on[data-k="plug"] .pl-b { fill: var(--ink); }
+.plan .pl-pin.on[data-k="plug"] .pl-ic { stroke: var(--paper); }
+.plan .pl-pin.on[data-k="echo"] .pl-b, .plan .pl-pin.on[data-k="thermo"] .pl-b { fill: #d6ecf8; }
+.plan .pl-waves { opacity: 0; transition: opacity var(--t2) linear; }
+.plan .pl-pin.on .pl-waves { opacity: 1; }
+/* each device's state, in the list's words, once it has landed */
+.plan .pl-tag { font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; fill: var(--ink-2); paint-order: stroke; stroke: var(--wash);
+  stroke-width: 4px; stroke-linejoin: round; opacity: 0; transition: opacity var(--t2) linear; pointer-events: none; }
+.stage[data-s="3"] .plan .pl-tag, .stage[data-s="4"] .plan .pl-tag { opacity: 1; transition-delay: calc(var(--pd, 0ms) + 560ms); }
+.plan[data-sid="n"] .pl-tag { font-size: 13.2px; letter-spacing: .04em; stroke-width: 4.5px; }
+
+/* 04 Control: the lamp's glow, the device's card, the hint */
+.plan .pl-glow { opacity: 0; transition: opacity var(--t3) var(--out); pointer-events: none; }
+.plan .pl-glow.on { opacity: 1; }
+.plan .pl-ring { fill: none; stroke: var(--c); stroke-width: 2; opacity: 0; transform-box: fill-box; transform-origin: center; pointer-events: none; }
+.stage.hinting .plan .pl-ring { animation: pl-pulse 900ms var(--out) 2 both; }
+@keyframes pl-pulse { 0% { opacity: .8; transform: scale(1); } 100% { opacity: 0; transform: scale(1.9); } }
+.plan .pl-tap { font-size: 13px; font-weight: 500; fill: var(--ink); paint-order: stroke; stroke: var(--wash); stroke-width: 5px; stroke-linejoin: round;
+  opacity: 0; transition: opacity var(--t2) linear; pointer-events: none; }
+.stage.hinting .plan .pl-tap { opacity: 1; }
+.plan .pl-ctl { opacity: 0; transition: opacity var(--t1) linear; pointer-events: none; }
+.plan .pl-ctl.on { opacity: 1; }
+.plan .pl-card { transition: transform var(--t2) var(--out); }
+.plan .pl-cbg { fill: var(--ink); }
+.plan .pl-ctn { font-size: 13px; font-weight: 500; fill: #fff; }
+.plan .pl-st { font-size: 13px; fill: #fff; }
+.plan[data-sid="n"] .pl-ctn, .plan[data-sid="n"] .pl-st { font-size: 13.2px; }
+.plan .pl-tgt { fill: #4a4944; transition: fill var(--t2) linear; }
+.plan .pl-tg.on .pl-tgt { fill: #ffd25a; }
+.plan .pl-tgk { fill: #fff; transition: transform var(--t2) var(--out); }
+.plan .pl-tg.on .pl-tgk { transform: translateX(12px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .plan .pl-lr, .plan .pl-room, .plan .pl-mv { transform: none !important; }
+  .plan .pl-lr3 { display: none; }
+  .plan .pl-trace { stroke-dashoffset: 0 !important; animation: none !important; }
+  .plan .pl-card { transition: none !important; }
+  .stage.hinting .plan .pl-ring { animation: none !important; }
+}
+
+/* ---------------------------------------------------------------- the reading: time to set up, three small drawings */
+.pl-setup .pl-mw { fill: none; stroke-width: 1.4; stroke-linecap: square; }
+.pl-setup .lk.pl-mw { stroke-width: 1.2; }
+.pl-setup .pl-mfur { fill: none; stroke: var(--line); stroke-width: 1; }
+.pl-setup .pl-q { font-size: 13px; fill: var(--gray); }
+.pl-setup .pl-big { font-size: 44px; font-weight: 300; letter-spacing: -0.03em; fill: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+.pl-setup .pl-big-n { font-size: 36px; }
+.pl-setup .pl-unit { font-size: 17px; font-weight: 400; letter-spacing: 0; fill: var(--ink-2); }
+.pl-setup .pl-what { font-size: 12.5px; }
+.pl-setup .pl-what-n, svg.dw-narrow.pl-setup .pl-q { font-size: 13.2px; }
+.pl-setup .pl-who-n { font-size: 14px; }
+.ch[data-ch="m11"] .rd-fig.rd-draw { max-width: 760px; }
+
+/* ---------------------------------------------------------------- m13, the AI Index chapter (v2.7, D-058) */
+
+/* The report's pages as published (CC BY-ND: shown whole and unmodified): a mark in the margin beside the sentence each
+   caption quotes, and a leader to the quoted words. Nothing is drawn on the page itself. The mark's place is the
+   sentence's place on the page, as a share of its height (--b0, --bh). */
+.ch[data-ch="m13"] #define .ev.line { --b0: .5558; --bh: .0412; }
+.ch[data-ch="m13"] #write .ev.line { --b0: .2500; --bh: .0247; }
+.ch[data-ch="m13"] #publish .ev.line { --b0: .4485; --bh: .0352; }
+.ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line picture { position: relative; display: block; width: fit-content; max-width: 100%; }
+.ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line picture::after {
+  content: ""; position: absolute; right: -11px; width: 3px; border-radius: 2px; background: var(--c);
+  top: calc(10px + (100% - 20px) * var(--b0)); height: calc((100% - 20px) * var(--bh)); }
+.ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line figcaption { font-size: var(--f15); line-height: 1.5; color: var(--ink); }
+@media (min-width: 600px) {
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line { --ph: 300px; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 30px;
+    align-items: start; max-width: 720px; }
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line img { max-height: var(--ph); }
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line picture::before {
+    content: ""; position: absolute; left: calc(100% + 11px); width: 19px; height: 1px; background: var(--c);
+    top: calc(10px + (100% - 20px) * (var(--b0) + var(--bh) / 2)); }
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line figcaption {
+    margin-top: max(0px, calc(10px + (var(--ph) - 20px) * (var(--b0) + var(--bh) / 2) - .75em)); max-width: 24em; }
+}
+@media (min-width: 1000px) {
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line { --ph: 420px; }
+}
+@media (max-width: 599px) {
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line img { max-height: 320px; }
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line figcaption { margin-top: 12px; }
+}
+
+/* the five layers: the year rides on the slider's thumb */
+.module[data-module="m13-one-claim-five-measures"] .m-controls { position: relative; }
+.module[data-module="m13-one-claim-five-measures"] .range::-webkit-slider-thumb { width: 52px; height: 28px; margin-top: -13px; border-radius: 14px;
+  background: var(--ink); border: 0; box-shadow: none; }
+.module[data-module="m13-one-claim-five-measures"] .range::-moz-range-thumb { width: 52px; height: 28px; border-radius: 14px; background: var(--ink); border: 0; box-shadow: none; }
+@media (hover: hover) and (pointer: fine) {
+  .module[data-module="m13-one-claim-five-measures"] .range:hover::-webkit-slider-thumb { box-shadow: 0 0 0 3px var(--wash-2); }
+}
+.module[data-module="m13-one-claim-five-measures"] .m-thumb { position: absolute; top: 50%; left: 0; width: 52px !important; margin: -14px 0 0 -26px;
+  height: 28px; display: grid; place-items: center; pointer-events: none; font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums;
+  letter-spacing: .02em; color: var(--paper); }
+@media (prefers-reduced-motion: reduce) { .module[data-module="m13-one-claim-five-measures"] .m-thumb { transition: none; } }
+
+/* the figures, published and then cited: the ranking as published, and the two documents that carried it on */
+.ci .ci-bar { fill: var(--c); }
+.ci .ci-v.ci-vin { fill: #fff; }
+.ci .ci-n { font-size: 13px; fill: var(--ink-2); }
+.ci .ci-v { font-family: var(--mono); font-size: 13px; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.ci .ci-who { font-size: 15px; }
+.ci .ci-title { font-size: 12.5px; }
+.ci .ci-did { font-size: 13.5px; fill: var(--ink); }
+.ci .ci-l, .ci .ci-h { stroke-width: 1.4; }
+/* a phone's drawing keeps every word at 12 px or more on a 360 px screen */
+svg.dw-n.ci .m { font-size: 13.2px; }
+svg.dw-n.ci .s, svg.dw-n.ci .ci-title { font-size: 13.2px; }
+svg.dw-n.ci .ci-n, svg.dw-n.ci .ci-v { font-size: 13.2px; }
+/* a laptop: the chain runs the reading's full width; the larger words keep it legible as it scales */
+.ch[data-ch="m13"] .rd-fig.rd-draw { max-width: 1280px; }
+.ch[data-ch="m13"] .rd-draw svg.dw-wide.ci { max-width: none; }
+svg.ci.ci-big .ci-m-l { font-size: 13px; }
+svg.ci.ci-big .ci-who-l { font-size: 18px; }
+svg.ci.ci-big .ci-title-l { font-size: 14.5px; }
+svg.ci.ci-big .ci-did-l { font-size: 16px; }
+svg.ci.ci-big .ci-n, svg.ci.ci-big .ci-v { font-size: 14.5px; }
+/* below a wide laptop the full-width chain would scale its words under the floor: the stacked one shows instead */
+@media (min-width: 900px) and (max-width: 1179px) {
+  .ch[data-ch="m13"] .rd-draw svg.dw-wide.ci { display: none; }
+  .ch[data-ch="m13"] .rd-draw svg.dw-narrow.ci { display: block; max-width: 480px; }
+}
+
+/* ---------------------------------------------------------------- m14, Amazon Bio Discovery (v2.7, D-058): months against weeks,
+   the ranking rule, the campaign design by design, and the product's screens seated in a hairline card with one callout each. */
+.dw .m14-hl { stroke: var(--gray); stroke-width: 1.3; }
+.dw .m14-span { stroke: none; }
+.dw .m14-lab { font-size: 15px; font-weight: 500; fill: var(--ink); letter-spacing: -0.004em; }
+.dw .m14-v { fill: color-mix(in srgb, var(--c) 84%, var(--ink)); }
+.dw .m14-g { fill: var(--gray); font-weight: 400; }
+.dw .m14-v2 { fill: color-mix(in srgb, var(--c) 66%, var(--paper)); }
+.dw .m14-num { font-size: 13.5px; fill: var(--ink-2); }
+.dw .m14-tk { font-size: 12.5px; fill: var(--gray); }
+.dw .m14-sub { font-size: 13px; }
+.dw .m14-out { fill: var(--line); }
+.dw .m14-in { fill: var(--c); }
+.dw .m14-in.f1 { fill: color-mix(in srgb, var(--c) 62%, var(--paper)); }
+.dw .m14-in.f2 { fill: color-mix(in srgb, var(--c) 38%, var(--paper)); }
+.dw .m14-front { fill: none; stroke: var(--c); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.dw .m14-front.f1 { stroke: color-mix(in srgb, var(--c) 62%, var(--paper)); stroke-width: 1.6; }
+.dw .m14-front.f2 { stroke: color-mix(in srgb, var(--c) 38%, var(--paper)); stroke-width: 1.4; }
+.dw .m14-bar { fill: var(--wash-2); stroke: var(--line); stroke-width: 1; }
+.dw .m14-wedge.k { fill: rgba(11, 11, 10, .07); }
+.dw .m14-wedge.v { fill: color-mix(in srgb, var(--c) 14%, transparent); }
+.dw .m14-wl { fill: none; stroke-width: 1.1; }
+.dw .m14-wl.k { stroke: rgba(11, 11, 10, .45); }
+.dw .m14-wl.v { stroke: color-mix(in srgb, var(--c) 75%, var(--paper)); }
+.dw .m14-hit { fill: var(--c); }
+.dw .m14-miss { fill: var(--paper); stroke: color-mix(in srgb, var(--c) 45%, var(--paper)); stroke-width: 1.1; }
+.dw .m14-big { font-size: 21px; letter-spacing: -0.015em; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.dw .m14-nm { font-size: 13.5px; fill: var(--gray); }
+.dw.nar .m14-big { font-size: 18px; }
+.dw.nar .m14-nm { font-size: 13.2px; }
+.dw.nar .m14-lab { font-size: 14.5px; }
+.dw.nar.m14-ruler .m14-tk, .dw.nar.m14-ruler .m14-num, .dw.nar.m14-ruler .m14-sub { font-size: 13.4px; }
+.dw.nar .m14-tk, .dw.nar .m14-num, .dw.nar .m14-sub { font-size: 13.2px; }
+.dw.nar.m14-pareto text.m { font-size: 13.2px; }
+.dw.nar.m14-pareto text.s { font-size: 13.2px; }
+.ch[data-ch="m14"] .rd-draw { max-width: 760px; }
+
+/* the product's screens in steps 01, 02 and 04: seated in a hairline card, with one callout to the region each caption
+   names (the rest of the screen dims a little around it) */
+.ch[data-ch="m14"] .st-ev figure.ev:has(img[src*="abd-blog-fig3"], img[src*="m14-i002"], img[src*="abd-blog-fig5"]) {
+  padding: 10px 10px 12px; background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; }
+.ch[data-ch="m14"] .st-ev figure.ev:has(img[src*="abd-blog-fig3"], img[src*="m14-i002"], img[src*="abd-blog-fig5"]) picture {
+  display: block; position: relative; overflow: hidden; border-radius: 7px; }
+.ch[data-ch="m14"] .st-ev figure.ev:has(img[src*="abd-blog-fig3"], img[src*="m14-i002"], img[src*="abd-blog-fig5"]) img { border-radius: 7px; }
+.ch[data-ch="m14"] .st-ev figure.ev:has(img[src*="abd-blog-fig3"], img[src*="m14-i002"], img[src*="abd-blog-fig5"]) figcaption { margin-top: 10px; padding: 0 2px; }
+.ch[data-ch="m14"] .st-ev figure.ev picture::after { content: none; position: absolute; border-radius: 6px; pointer-events: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--c) 50%, #fff), 0 0 0 4px rgba(6, 8, 14, .25), 0 0 0 2400px rgba(6, 8, 14, .34); }
+/* 01: the ranked binding regions, each with its evidence and rationale */
+.ch[data-ch="m14"] .st-ev figure.ev picture:has(img[src*="abd-blog-fig3"])::after { content: ""; left: 6.0%; top: 17.6%; width: 65.0%; height: 29.4%; }
+/* 02: the workflow of models from the catalog */
+.ch[data-ch="m14"] .st-ev figure.ev picture:has(img[src*="m14-i002"])::after { content: ""; left: 35.9%; top: 14.0%; width: 42.9%; height: 79.4%; }
+/* 04: the cost and time estimates */
+.ch[data-ch="m14"] .st-ev figure.ev picture:has(img[src*="abd-blog-fig5"])::after { content: ""; left: 45.0%; top: 44.4%; width: 24.4%; height: 11.4%; }
+
+/* ---------------------------------------------------------------- m15, M-PESA Africa (v2.7, D-058): the customer's clock.
+   One time bar from the first request to the result: work in ink, waiting hatched, AI's work in the work's green, the old
+   way as a dotted outline. clock.js moves the blocks; everything else is keyed here to the step in view (data-s). */
+.clk .clk-hl { stroke: var(--line); stroke-width: 1.5; }
+.clk .clk-b { fill: var(--ink); transition: fill var(--t2) linear, opacity var(--t2) linear; }
+.clk .clk-b.ai { fill: var(--c); }
+.clk .clk-old { fill: none; stroke: var(--gray); stroke-width: 1.2; stroke-dasharray: 2 3; opacity: 0; transition: opacity var(--t2) linear; }
+.clk .clk-tick { fill: none; stroke: var(--line); stroke-width: 1.2; }
+.clk .clk-tick.ink-t { stroke: var(--ink); }
+.clk .clk-tick.dot-t { stroke: var(--gray); stroke-dasharray: 2 3; }
+.clk .clk-lab { font-family: var(--mono); font-size: 13.5px; letter-spacing: .06em; text-transform: uppercase; fill: var(--gray); }
+.clk .clk-res { fill: var(--ink); }
+.clk .clk-r1, .clk .clk-r2 { transition: opacity var(--t2) linear; }
+.clk .clk-r2 { opacity: 0; }
+.stage[data-s="2"] .clk .clk-r1, .stage[data-s="3"] .clk .clk-r1, .stage[data-s="4"] .clk .clk-r1 { opacity: 0; }
+.stage[data-s="2"] .clk .clk-r2, .stage[data-s="3"] .clk .clk-r2, .stage[data-s="4"] .clk .clk-r2 { opacity: 1; }
+.clk .clk-oldk { opacity: 0; transition: opacity var(--t2) linear; }
+.clk .clk-chip { fill: var(--wash); }
+.clk .clk-wt { transition: opacity var(--t2) linear; }
+.clk .clk-ld { fill: none; stroke: var(--line); stroke-width: 1; stroke-linejoin: round; }
+.clk .clk-n { font-size: 16px; fill: var(--ink-2); transition: fill var(--t2) linear, opacity var(--t2) linear; }
+.clk .clk-nm { transition: opacity var(--t2) linear; }
+.clk .clk-nm.ai .clk-n { fill: color-mix(in srgb, var(--c) 72%, var(--ink)); font-weight: 500; }
+.clk .clk-sub { opacity: 0; transition: opacity var(--t2) linear; }
+.clk .clk-nm.ai .clk-sub-ai { opacity: 1; fill: color-mix(in srgb, var(--c) 72%, var(--ink)); }
+.clk .clk-ok { opacity: 0; transition: opacity var(--t2) linear; }
+.clk .clk-nms { transition: opacity var(--t2) linear; }
+.clk .clk-note { opacity: 0; transition: opacity var(--t2) linear; }
+.clk .clk-nt { font-size: 20px; letter-spacing: -0.006em; fill: var(--ink); }
+.clk .clk-mk { opacity: 0; transform: translateY(6px); transition: opacity var(--t2) linear var(--d, 0ms), transform var(--t3) var(--out) var(--d, 0ms); }
+.clk .clk-mb { fill: var(--ink); }
+.clk .clk-mb.ai { fill: var(--c); }
+.clk .clk-mn { font-size: 14.5px; fill: var(--ink-2); }
+.clk .clk-mkl { opacity: 0; transition: opacity var(--t2) linear; }
+.clk .clk-bar > * { transition: opacity var(--t2) linear; }
+
+.stage:not([data-s="0"]) .clk .clk-old, .stage:not([data-s="0"]) .clk .clk-oldk { opacity: 1; }
+.stage:not([data-s="0"]) .clk .clk-wt { opacity: 0; }
+.stage[data-s="3"] .clk .clk-b:not(.so) { opacity: .26; }
+.stage[data-s="3"] .clk .clk-nm:not(.so) { opacity: .4; }
+.stage[data-s="3"] .clk .clk-nm.so .clk-n { fill: var(--ink); font-weight: 500; }
+.stage[data-s="3"] .clk .clk-nm.so .clk-sub-so { opacity: 1; fill: var(--ink); }
+.stage[data-s="3"] .clk .clk-ok { opacity: 1; }
+.stage[data-s="4"] .clk .clk-nms { opacity: 0; }
+.stage[data-s="4"] .clk .clk-mk { opacity: 1; transform: none; }
+.stage[data-s="4"] .clk .clk-mkl { opacity: 1; }
+.stage[data-s="0"] .clk .clk-note[data-n="0"], .stage[data-s="1"] .clk .clk-note[data-n="1"], .stage[data-s="2"] .clk .clk-note[data-n="2"],
+.stage[data-s="3"] .clk .clk-note[data-n="3"], .stage[data-s="4"] .clk .clk-note[data-n="4"] { opacity: 1; }
+/* the stage without its script, and anywhere outside a stage: the first state */
+:not(.stage) > .clk .clk-note[data-n="0"] { opacity: 1; }
+
+/* the phone: names in two rows, the sentence in two lines; at 04 the bar gives way to the eight markets */
+.clk.clk-p .clk-n { font-size: 13.4px; }
+.clk.clk-p .clk-lab { font-size: 13.4px; letter-spacing: .02em; text-transform: none; font-family: var(--font); }
+.clk.clk-p .clk-nt { font-size: 14.2px; }
+.clk.clk-p .clk-mn { font-size: 13.4px; }
+.stage[data-s="4"] .clk.clk-p .clk-b, .stage[data-s="4"] .clk.clk-p .clk-q, .stage[data-s="4"] .clk.clk-p .clk-old,
+.stage[data-s="4"] .clk.clk-p .clk-end, .stage[data-s="4"] .clk.clk-p .clk-first { opacity: 0; }
+.stage[data-s="4"] .clk.clk-p .clk-mk { transform: none; }
+
+/* the stage on a laptop: the drawing sits a little higher than center, under its own title */
+.stage[data-stage="clock"] > svg[data-v="w"] { flex: 1; }
+
+/* the miniature (About, principle 13): the same grammar at a principle's size */
+.clk-mini .clk-hl { stroke: var(--line); stroke-width: 1.5; }
+.clk-mini .clk-mb { fill: var(--ink); }
+.clk-mini .clk-mb.ai { fill: #2f8f54; }
+.clk-mini .clk-mo { fill: none; stroke: var(--gray); stroke-width: 1.2; stroke-dasharray: 2 3; }
+.clk-mini .clk-mt { font-family: var(--mono); font-size: 13px; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.clk-mini .clk-mt.b { font-weight: 500; }
+.clk-mini .clk-ml { font-size: 13.5px; fill: var(--ink-2); }
+.clk-mini .clk-ml-l { fill: none; stroke: var(--line); stroke-width: 1; }
+.clk-mini .clk-chip { fill: var(--wash); }
+.clk-mini .clk-mk-t.clk-mk-ai { fill: #23704a; }
+.clk-mini.nar .clk-ml { font-size: 13.4px; }
+.clk-mini.nar .clk-mt, .clk-mini.nar text.m { font-size: 13.2px; }
+
+/* the hero: on a phone the app is cropped on purpose, the top of the phone filling the plate so its screen reads */
+@media (max-width: 599px) {
+  .ch[data-ch="m15"] .ch-plate.views .v.bleed img, .ch[data-ch="m15"] .ch-plate.views .v img[src*="mpesa-oneapp"] {
+    object-fit: cover; object-position: 50% 0%; transform: scale(1.32); transform-origin: 50% 2%; }
+}
+
+/* a laptop: the stage hugs its drawing, as the chain's did */
+@media (min-width: 900px) {
+  .stage[data-stage="clock"] { height: auto; }
+  .stage[data-stage="clock"] > svg[data-v="w"] { flex: none; height: auto; }
+}

@@ -17,12 +17,15 @@
     const y0 = scrollY, dy = y - y0, t0 = performance.now();
     (function step(now) { const p = Math.min(1, (now - t0) / ms); scrollTo(0, y0 + dy * ease(p)); if (p < 1) requestAnimationFrame(step); else done && done(); })(t0);
   }
+  // pressed states on iPhone: Safari applies :active only once the page listens for touches (v2.7, D-058)
+  D.addEventListener('touchstart', () => {}, { passive: true });
   const body = D.body;
   const isHome = body.classList.contains('p-home');
   const isChapter = body.classList.contains('p-chapter');
 
   /* ------------------------------------------------------------ lines and bars draw as they arrive */
-  const armed = $$('.sec, #tl, .setup, .funnel, .pr-fig, .d-fig, .r-body');
+  // v2.7 (D-058): every drawing with parts that arrive (.a) draws once, in the order of its mechanism
+  const armed = $$('.sec, #tl, .setup, .funnel, .pr-fig, .d-fig, .r-body').concat($$('svg.dw').filter(s => s.querySelector('.a') && !s.closest('.stage, .d-fig, .r-body, .pr-fig')));
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => es.forEach(en => {
       if (!en.isIntersecting) return;
@@ -33,6 +36,8 @@
     }), { threshold: 0.2 });
     armed.forEach(s => { if (!RM && s.getBoundingClientRect().top > innerHeight) s.classList.add('armed'); io.observe(s); });
   }
+  // printed, every drawing is finished, whether or not it has reached the screen
+  addEventListener('beforeprint', () => $$('.armed').forEach(el => { el.classList.remove('armed'); if (el.id === 'tl') el.classList.add('drawn'); }));
 
   /* ------------------------------------------------------------ copy the address: the site's own selection sweeps across it,
      the control turns to ink with a check, and both return. Where the clipboard is refused, the address is copied through a
@@ -74,6 +79,13 @@
     if (!vs[k] || vs[k].classList.contains('on')) return;
     vs.forEach((v, j) => v.classList.toggle('on', j === k));
     ts.forEach((t, j) => t.classList.toggle('on', j === k));
+    // v2.7: while the skim runs, the plate's third line names the picture; at rest it is the proof again
+    const a = plate.closest('.pl-a'), pp = a && $('.pl-p', a);
+    if (!pp || !a.dataset.caps) return;
+    if (pp._rest == null) pp._rest = pp.innerHTML;
+    let caps = []; try { caps = JSON.parse(a.dataset.caps); } catch (e) { caps = []; }
+    if (k === 0 || !caps[k]) { pp.innerHTML = pp._rest; pp.classList.remove('cap'); }
+    else { pp.textContent = caps[k]; pp.classList.add('cap'); }
   }
   $$('.pl-a').forEach(a => {
     const plate = $('.plate', a);
@@ -105,8 +117,8 @@
     b.addEventListener('focusin', on); b.addEventListener('focusout', off);
   });
 
-  // the phone's work row counts the card in view
-  const platesEl = $('#plates'), wc = $('#wc');
+  // (v2.7: the phone's work row and its count are gone; the work is a grid)
+  const platesEl = null, wc = null;
   if (platesEl && wc) {
     const count = () => {
       const cards = $$('.pl', platesEl), x0 = platesEl.getBoundingClientRect().left;
@@ -246,6 +258,36 @@
       lis.forEach(li => li.classList.toggle('on', li === cur));
     };
   }
+  /* ------------------------------------------------------------ the career on a phone (v2.7, D-058, change 02): a staircase
+     whose rows are tabs; the readout under it shows one role at a time, the current role at rest */
+  const cs = $('#cs');
+  let csShow = () => {};
+  if (cs) {
+    const rowsC = $$('.cs-row', cs), panes = $$('.cs-read .r-in', cs);
+    csShow = (k, focus) => {
+      rowsC.forEach((b, i) => { const on = i === k; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1; });
+      panes.forEach((p, i) => p.classList.toggle('on', i === k));
+      if (focus) rowsC[k].focus();
+    };
+    // a tap reads the role out; when its readout sits below the screen, it rises into view under the thumb
+    rowsC.forEach((b, i) => b.addEventListener('click', () => {
+      csShow(i);
+      const rd = $('.cs-read', cs).getBoundingClientRect();
+      const want = Math.min(rd.height, 230);
+      if (rd.top + want > innerHeight - 12) glide(scrollY + rd.top + want - innerHeight + 24, 320);
+    }));
+    $('.cs-rows', cs).addEventListener('keydown', e => {
+      const i = rowsC.findIndex(b => b.classList.contains('on'));
+      let j = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') j = Math.min(rowsC.length - 1, i + 1);
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') j = Math.max(0, i - 1);
+      else if (e.key === 'Home') j = 0;
+      else if (e.key === 'End') j = rowsC.length - 1;
+      if (j == null) return;
+      e.preventDefault(); csShow(j, true);
+    });
+    csShow.id = id => { const k = rowsC.findIndex(b => b.dataset.id === id); if (k >= 0) csShow(k); };
+  }
   // a figure in the opening lines is a door: it scrolls to the career and lights the roles it comes from
   D.addEventListener('click', e => {
     const f = e.target.closest('[data-light]');
@@ -253,10 +295,10 @@
     e.preventDefault();
     const ids = f.dataset.light;
     const phone = innerWidth < 900;
-    let target = $('#career');
-    if (phone) { const li = $(`#tlpl li[data-id="${ids.split(' ')[0]}"]`); if (li) target = li; }
-    const y = target.getBoundingClientRect().top + scrollY - head() - (phone ? 96 : 12);
-    if (Math.abs(y - scrollY) > 40) glide(y, 450, () => setTimeout(() => lightSet(ids), RM ? 0 : 200)); else lightSet(ids);
+    const target = phone && cs ? cs : $('#career');
+    const y = target.getBoundingClientRect().top + scrollY - head() - (phone ? 24 : 12);
+    const lit = () => { if (phone && cs) csShow.id(ids.split(' ')[0]); else lightSet(ids); };
+    if (Math.abs(y - scrollY) > 40) glide(y, 450, () => setTimeout(lit, RM ? 0 : 200)); else lit();
   });
 
   /* ------------------------------------------------------------ the header: one running line holds the reader's place (v2.5, D-053);
@@ -360,126 +402,41 @@
     plate.addEventListener('pointercancel', () => { x0 = null; });
   });
 
-  /* ------------------------------------------------------------ the stages: the step in view drives the drawing */
-  const PIN = {
-    lamp: { n: 'Living Room Lamp', off: 'Off', on: 'On', glow: 'lamp' },
-    echo: { n: 'Echo Studio', off: 'Paused', on: 'Playing' },
-    plug: { n: 'Coffee Maker', off: 'Off', on: 'On' },
-    thermo: { n: 'Hallway Thermostat', off: '68°', on: 'Heating to 72°' },
-    bed: { n: 'Bedroom Light', off: 'Off', on: 'On', glow: 'bed' },
-  };
-  const LABELS = [[40, 36, 104, 18], [330, 36, 66, 18], [330, 146, 66, 18], [330, 246, 56, 18], [480, 36, 66, 18], [480, 236, 76, 18]];
-  // the rooms of the plan (x, y, w, h): a card opens inside its device's room when it fits there
-  const ROOMS = [[30, 30, 290, 360], [320, 30, 150, 110], [320, 140, 150, 100], [320, 240, 150, 150], [470, 30, 120, 200], [470, 230, 120, 160]];
-  const SWITCH = { lamp: 1, plug: 1, bed: 1 };
-  function wireMap(st) {
-    const pins = $$('.pin', st), ctl = $('.ctl', st), card = $('.card', st);
-    let cardW = 188;
-    function place(px, py) {
-      const k = innerWidth < 900 ? 1.4 : 1, cw = cardW * k, chh = 54 * k;
-      const room = ROOMS.find(([rx, ry, rw, rh]) => px >= rx && px <= rx + rw && py >= ry && py <= ry + rh);
-      const inRoom = room && cw <= room[2] - 8 ? ([x]) => x >= room[0] + 4 && x + cw <= room[0] + room[2] - 4 : null;
-      const cx = room ? Math.min(Math.max(px - cw / 2, room[0] + 4), room[0] + room[2] - cw - 4) : px - cw / 2;
-      const tries = [[px + 26, py - chh - 10], [px - cw - 26, py - chh - 10], [cx, py - chh - 14], [cx, py + 24], [px - cw - 26, py - chh / 2], [px + 26, py - chh / 2], [px + 26, py + 22], [px - cw - 26, py + 22], [px - cw / 2, py + 26]];
-      // the card keeps clear of the room labels and of every other pin, so no device hides under it
-      const others = pins.map(q => (q.getAttribute('transform').match(/translate\(([-\d.]+)[ ,]+([-\d.]+)\)/) || []).slice(1).map(Number))
-        .filter(([qx, qy]) => !(qx === px && qy === py));
-      const clear = ([x, y]) => x >= 22 && y >= 22 && x + cw <= 598 && y + chh <= 398 &&
-        LABELS.every(([lx, ly, lw, lh]) => x + cw < lx - 4 || x > lx + lw + 4 || y + chh < ly - 4 || y > ly + lh + 4) &&
-        others.every(([qx, qy]) => x + cw < qx - 24 || x > qx + 24 || y + chh < qy - 24 || y > qy + 24);
-      return (inRoom && tries.find(t => clear(t) && inRoom(t))) || tries.find(clear) || [Math.min(Math.max(22, px + 26), 598 - cw), Math.max(22, py - chh - 10)];
-    }
-    function setPin(p, on, quiet) {
-      const d = PIN[p.dataset.k];
-      p.classList.toggle('on', on);
-      p.setAttribute('aria-pressed', on ? 'true' : 'false');
-      p.setAttribute('aria-label', `${d.n}, ${on ? d.on : d.off}`);
-      if (d.glow) { const g = $(`.glow[data-glow="${d.glow}"]`, st); if (g) g.classList.toggle('on', on); }
-      if (quiet) return;
-      st.classList.remove('hinting');
-      showCard(p, on);
-      live(`${d.n}, ${on ? d.on : d.off}`);
-    }
-    function showCard(p, on) {
-      const d = PIN[p.dataset.k];
-      const m = p.getAttribute('transform').match(/translate\(([-\d.]+)[ ,]+([-\d.]+)\)/);
-      const ctn = $('.ctn', st), stt = $('.st', st), tg = $('.tg', st);
-      ctn.textContent = d.n; stt.textContent = on ? d.on : d.off;
-      stt.style.fill = on && d.glow ? '#ffd25a' : '#fff';
-      // the card fits its words, and an on/off device gets its switch
-      let tw = 112;
-      try { tw = Math.max(ctn.getComputedTextLength(), stt.getComputedTextLength()); } catch (e) { /* not rendered yet */ }
-      const sw = SWITCH[p.dataset.k];
-      cardW = Math.ceil(14 + tw + (sw ? 18 + 30 : 0) + 14);
-      $('.cbg', st).setAttribute('width', cardW);
-      if (tg) { tg.style.display = sw ? '' : 'none'; tg.setAttribute('transform', `translate(${cardW - 44} 18)`); tg.classList.toggle('on', !!on); }
-      const [x, y] = place(+m[1], +m[2]);
-      card.style.transform = `translate(${x}px, ${y}px)`;
-      ctl.classList.add('on');
-    }
-    function liveOn(on) {
-      pins.forEach(p => { p.setAttribute('tabindex', on ? '0' : '-1'); p.setAttribute('aria-hidden', on ? 'false' : 'true'); if (!on) setPin(p, false, true); });
-      if (!on) ctl.classList.remove('on');
-    }
-    pins.forEach(p => {
-      const flip = () => { if (p.getAttribute('tabindex') === '0') setPin(p, !p.classList.contains('on')); };
-      p.addEventListener('click', flip);
-      p.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
-    });
-    let hinted = false;
-    return {
-      to(s) {
-        if (st.dataset.s === s) return;
-        st.dataset.s = s;
-        liveOn((s === '3' || s === '4') && !st.classList.contains('static'));
-        // 04 Control shows a device being controlled from the map: the living room lamp switched on, its room lit and
-        // its card open; going back to 03 switches it off again, and every pin stays live to tap
-        const lamp = pins.find(p => p.dataset.k === 'lamp');
-        if (lamp && s === '4') { setPin(lamp, true, true); showCard(lamp, true); }
-        else if (lamp && s === '3' && lamp.classList.contains('on')) { setPin(lamp, false, true); ctl.classList.remove('on'); }
-        if (s === '4' && !hinted && !RM) { hinted = true; st.classList.add('hinting'); setTimeout(() => st.classList.remove('hinting'), 2400); }
-      }
+  /* ------------------------------------------------------------ the stages: the step in view drives the stage (v2.7, D-058).
+     One stage per story. A laptop sets it beside the steps; a phone pins the same stage under the header and plays each step
+     in place, so no step carries a copy. A drawn stage's own script lives in js/stages/<kind>.js and returns { to(state) }. */
+  const PHONE = () => innerWidth < 900;
+  function driveSteps(stageEl, to) {
+    const steps = $$('.story .step');
+    if (!steps.length) return;
+    let cur = null, raf = 0;
+    const pick = () => {
+      raf = 0;
+      // the reading line: the middle of the screen on a laptop; on a phone, a little below the pinned stage
+      const sb = stageEl.getBoundingClientRect();
+      const line = PHONE() ? Math.min(innerHeight * 0.82, Math.max(sb.bottom, head() + 40) + (innerHeight - Math.max(sb.bottom, head())) * 0.28) : innerHeight * 0.5;
+      let k = 0;
+      steps.forEach((x, i) => { if (x.getBoundingClientRect().top < line) k = i; });
+      if (k === cur) return;
+      cur = k;
+      steps.forEach((x, i) => x.classList.toggle('on', i === k));
+      to(steps[k].dataset.s);
     };
-  }
-  // M-PESA: one chain of work. Its time is drawn as work and waiting; the chain redesigned shortens the waiting.
-  const CHAIN = {
-    work: [[16, 16, 16, 16, 16, 16], [16, 5, 16, 16, 16, 16], [16, 5, 8, 16, 6, 16]],
-    wait: [[91.2, 91.2, 91.2, 91.2, 91.2], [91.2, 91.2, 91.2, 91.2, 91.2], [10, 10, 10, 10, 10]],
-    ai: [[], [1], [1, 2, 4]],
-  };
-  function wireChain(st) {
-    const tw = $$('.tw[data-i]', st).sort((a, b) => a.dataset.i - b.dataset.i), tq = $$('.tq[data-i]', st).sort((a, b) => a.dataset.i - b.dataset.i);
-    const sv = $('svg', st), BW = +((sv && sv.dataset.bar) || 560), W = BW / 552;
-    const end = $('.end', st), boxes = $$('.cb', st), links = $$('.cl', st);
-    function layout(s) {
-      const k = Math.min(2, +s);
-      let x = 0;
-      for (let i = 0; i < 6; i++) {
-        const w = CHAIN.work[k][i];
-        tw[i].style.transform = `translate(${x * W}px, 0px) scale(${w * W}, 1)`; x += w;
-        if (i < 5) { const q = CHAIN.wait[k][i]; tq[i].style.transform = `translate(${x * W}px, 0px) scale(${q * W}, 1)`; x += q; }
-      }
-      end.style.transform = `translate(${x * W}px, 0px)`;
-      const et = $('text', end);
-      // the result's label: under the end mark at full length; once the chain is shorter, just past its end, inside the
-      // outline of the old length, whose own end reads "Before" (v2.2)
-      if (et) { const short = x * W < BW * 0.46; et.setAttribute('text-anchor', short ? 'start' : 'end'); et.setAttribute('x', short ? '8' : '0'); et.setAttribute('y', short ? '11.5' : '38'); }
-      boxes.forEach((b, i) => b.classList.toggle('on-ai', CHAIN.ai[k].includes(i)));
-      links.forEach(l => l.classList.toggle('joined', k >= 2));
+    const q = () => { if (!raf) raf = requestAnimationFrame(pick); };
+    addEventListener('scroll', q, { passive: true });
+    addEventListener('resize', q);
+    pick();
+    // the stage's rail is a door to each step
+    const rail = $('.fs-rail', stageEl);
+    if (rail) {
+      rail.classList.add('go');
+      rail.addEventListener('click', e => {
+        const r = rail.getBoundingClientRect();
+        const i = Math.min(steps.length - 1, Math.max(0, Math.floor((e.clientX - r.left) / r.width * steps.length)));
+        const off = PHONE() ? stageEl.getBoundingClientRect().height + head() + 12 : innerHeight * 0.3;
+        glide(steps[i].getBoundingClientRect().top + scrollY - off, 420);
+      });
     }
-    layout('0');
-    return { to(s) { if (st.dataset.s === s) return; st.dataset.s = s; layout(s); } };
-  }
-  // Prime Now: the store platform builds station by station; the link into the app carries the cadence (v2.2)
-  function wirePipe(st) {
-    const stn = $$('.stn', st), lk = $$('.p-link', st);
-    function layout(s) {
-      const k = +s;
-      stn.forEach(g => { const i = +g.dataset.i; g.classList.toggle('on', i <= k || i === 4); g.classList.toggle('cur', k > 0 && i === k); });
-      lk.forEach(l => { const i = +l.dataset.i; l.classList.toggle('on', i < k); l.classList.toggle('live', k === 4 && i === 3); });
-    }
-    layout(st.dataset.s || '0');
-    return { to(s) { if (st.dataset.s === s) return; st.dataset.s = s; layout(s); } };
   }
   /* ------------------------------------------------------------ the film stage: Amazon's own film of the flow, beside the story.
      Each step plays its own segment and loops it; the last step can hold the end with its reading. The film is fetched
@@ -523,6 +480,10 @@
       const k = s, [a, b] = seg();
       st.classList.remove('at-end');
       cancelAnimationFrame(raf);
+      // a step drawn instead of filmed (v2.7): the film rests, the drawing shows (the stylesheet keys it to data-s)
+      const drawn = segs[k] == null;
+      st.classList.toggle('on-draw', drawn);
+      if (drawn) { if (!v.paused) v.pause(); paint(1); return; }
       if (LEAN) { paint(1); if (k === endAt) st.classList.add('at-end'); return; }
       if (RM) {
         load().then(() => { if (k !== s) return; seek(k === endAt ? b - 0.05 : (a + b) / 2); v.classList.add('on'); paint(1); if (k === endAt) st.classList.add('at-end'); });
@@ -543,93 +504,22 @@
     };
   }
   function filmStage(stageEl) {
-    const steps = $$('.story .step');
-    // the phone: each step carries its own copy of the stage, playing that step's segment
-    const minis = steps.map(step => {
-      const k = +step.dataset.s;
-      const box = stageEl.cloneNode(true);
-      box.removeAttribute('id');
-      box.classList.add('mini');
-      $$('.cap', box).forEach(c => c.remove());
-      step.insertBefore(box, step.children[1] || null);
-      const w = wireFilm(box);
-      w.to(k);
-      return [box, w];
-    });
     const main = wireFilm(stageEl);
-    const rail = $('.fs-rail', stageEl);
-    if (rail && steps.length) {
-      rail.classList.add('go');
-      rail.addEventListener('click', e => {
-        const r = rail.getBoundingClientRect();
-        const i = Math.min(steps.length - 1, Math.max(0, Math.floor((e.clientX - r.left) / r.width * steps.length)));
-        glide(steps[i].getBoundingClientRect().top + scrollY - innerHeight * 0.3, 420);
-      });
-    }
-    if (!('IntersectionObserver' in window)) { main.to(0); main.seen(true); minis.forEach(([, w]) => w.seen(true)); return; }
-    const vio = new IntersectionObserver(es => es.forEach(en => { const w = en.target === stageEl ? main : (minis.find(m => m[0] === en.target) || [])[1]; if (w) w.seen(en.isIntersecting); }), { threshold: 0.35 });
-    vio.observe(stageEl); minis.forEach(([b]) => vio.observe(b));
-    const sio = new IntersectionObserver(es => es.forEach(en => {
-      if (!en.isIntersecting) return;
-      steps.forEach(x => x.classList.toggle('on', x === en.target));
-      main.to(en.target.dataset.s);
-    }), { rootMargin: '-45% 0px -45% 0px' });
-    steps.forEach(x => sio.observe(x));
-    main.to(0);
-    addEventListener('scroll', () => {
-      const s0 = steps[0];
-      if (s0 && s0.getBoundingClientRect().top > innerHeight * 0.55 && stageEl.dataset.s !== '0') { steps.forEach(x => x.classList.toggle('on', x === s0)); main.to(0); }
-    }, { passive: true });
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(en => main.seen(en.isIntersecting)), { threshold: 0.35 }).observe(stageEl);
+    else main.seen(true);
+    driveSteps(stageEl, s => main.to(s));
   }
   const stageEl = $('#stage');
   if (stageEl && stageEl.dataset.stage === 'film') filmStage(stageEl);
-  else if (stageEl) {
-    const kind = stageEl.dataset.stage;
-    const wire = kind === 'map-view' ? wireMap : kind === 'pipeline' ? wirePipe : wireChain;
-    const main = wire(stageEl);
-    const steps = $$('.story .step');
-    // the chain has a copy drawn for a phone's width; the floor plan scales as it is
-    const tpl = $('template', stageEl);
-    const svg = (tpl && tpl.content.querySelector('svg')) || $('svg', stageEl);
-    const last = steps.length - 1;
-    // the phone: each step carries its own copy of the drawing, in that step's state; nothing pins over the text
-    steps.forEach(step => {
-      const k = +step.dataset.s;
-      const box = D.createElement('div');
-      box.className = 'stage mini' + (kind === 'map-view' && k === 3 ? ' static' : '');
-      box.dataset.stage = kind;
-      box.dataset.s = String(Math.max(0, k - 1));
-      box.dataset.to = String(k);
-      const copy = D.importNode(svg, true);
-      copy.removeAttribute('id');
-      // each step's copy is cut to the height its state uses: the markets appear only at the last state
-      if (copy.dataset.h) copy.setAttribute('viewBox', `0 0 ${copy.dataset.vw} ${k >= 4 ? copy.dataset.h4 : copy.dataset.h}`);
-      const ids = {};
-      $$('[id]', copy).forEach(el => { const n = el.id + '-' + k; ids[el.id] = n; el.id = n; });
-      $$('*', copy).forEach(el => ['fill', 'mask', 'clip-path', 'stroke'].forEach(at => { const v = el.getAttribute(at); const m = v && v.match(/^url\(#(.+)\)$/); if (m && ids[m[1]]) el.setAttribute(at, `url(#${ids[m[1]]})`); }));
-      if (kind === 'map-view' && k !== last) copy.setAttribute('aria-label', 'Drawing of a home in Map View.');
-      box.appendChild(copy);
-      step.insertBefore(box, step.children[1] || null);
-      const w = wire(box);
-      box._advance = () => w.to(box.dataset.to);
-      if (kind === 'map-view' && k === 3) $$('.pin', box).forEach(p => { p.setAttribute('tabindex', '-1'); p.setAttribute('aria-hidden', 'true'); });
-    });
-    if ('IntersectionObserver' in window) {
-      const mio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target._advance(); mio.unobserve(en.target); } }), { threshold: 0.55 });
-      $$('.stage.mini').forEach(b => { if (RM) b._advance(); else mio.observe(b); });
-      const sio = new IntersectionObserver(es => es.forEach(en => {
-        if (!en.isIntersecting) return;
-        steps.forEach(s => s.classList.toggle('on', s === en.target));
-        main.to(en.target.dataset.s);
-      }), { rootMargin: '-45% 0px -45% 0px' });
-      steps.forEach(s => sio.observe(s));
-      addEventListener('scroll', () => {
-        const s0 = steps[0];
-        if (s0 && s0.getBoundingClientRect().top > innerHeight * 0.55 && stageEl.dataset.s !== '0') { steps.forEach(x => x.classList.toggle('on', x === s0)); main.to('0'); }
-      }, { passive: true });
-    } else {
-      $$('.stage.mini').forEach(b => b._advance());
-    }
+  else if (stageEl && stageEl.dataset.src) {
+    let w = null, want = '0';
+    driveSteps(stageEl, s => { want = s; if (w) w.to(s); else stageEl.dataset.s = s; });
+    import(stageEl.dataset.src).then(m => {
+      stageEl.dataset.s = '0';
+      w = m.wire(stageEl, { RM, FINE, live, $, $$, phone: PHONE });
+      w.to(want);
+      stageEl.classList.add('ready');
+    }).catch(() => stageEl.classList.add('ready'));
   }
 
   /* ------------------------------------------------------------ the products' interactives, loaded as they near the screen */
@@ -656,6 +546,15 @@
     mods.forEach(m => ob.observe(m));
   } else mods.forEach(load);
 
+  /* ------------------------------------------------------------ drawings the reader can handle (v2.7, D-058): a figure whose
+     drawing has a script (js/figs/<name>.js) mounts it as it nears the screen; the drawing works without it */
+  const figEls = $$('[data-fig]');
+  const loadFig = el => { if (el.dataset.ready) return; el.dataset.ready = '1'; import(el.dataset.fig).then(m => m.mount(el, { RM, FINE, live, glide })).catch(() => {}); };
+  if ('IntersectionObserver' in window) {
+    const fo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { fo.unobserve(e.target); loadFig(e.target); } }), { rootMargin: '400px 0px' });
+    figEls.forEach(f => fo.observe(f));
+  } else figEls.forEach(loadFig);
+
   /* ------------------------------------------------------------ About: How I work as a list, or where each principle shows up */
   const seg = $('#how-i-work .seg');
   if (seg) {
@@ -672,9 +571,246 @@
       n.click(); n.focus();
     });
   }
+  // the matrix (v2.7): a column or row under the hand takes its works' colors; a dot reads out how the principle shows up
+  const mxT = $('#how-i-work .mx'), mxR = $('#how-i-work .mx-read'), mxP = $('#mx-proofs');
+  if (mxT && mxR && mxP) {
+    const dots = $$('.mx-d', mxT), ths = $$('thead th[data-w]', mxT);
+    const hl = (w, p) => {
+      mxT.classList.toggle('hl-on', !!(w || p));
+      dots.forEach(d => d.classList.toggle('hl', (w && d.dataset.w === w) || (p && d.closest('tr').dataset.p === p)));
+      ths.forEach(t => t.classList.toggle('hl', !!w && t.dataset.w === w));
+      $$('tbody tr', mxT).forEach(r => r.classList.toggle('hl', !!p && r.dataset.p === p));
+    };
+    if (FINE) {
+      ths.forEach(t => { t.addEventListener('mouseenter', () => hl(t.dataset.w)); t.addEventListener('mouseleave', () => hl()); });
+      dots.forEach(d => { d.addEventListener('mouseenter', () => hl(d.dataset.w)); d.addEventListener('mouseleave', () => hl()); });
+      $$('tbody tr', mxT).forEach(r => { $('th', r).addEventListener('mouseenter', () => hl(null, r.dataset.p)); $('th', r).addEventListener('mouseleave', () => hl()); });
+    }
+    const read = d => {
+      dots.forEach(x => x.classList.toggle('on', x === d));
+      const pr = $(`[data-k="${d.dataset.k}"]`, mxP.content);
+      const row = d.closest('tr'), title = $('th', row).textContent.replace(/^\s*\d+\s*/, '');
+      const num = $('th .mono', row) ? $('th .mono', row).textContent : '';
+      mxR.style.setProperty('--c2', d.style.getPropertyValue('--c2'));
+      mxR.innerHTML = `<p class="mx-k">${num} · ${pr ? pr.dataset.n : ''}</p><p class="mx-pt"></p><p class="mx-pp"></p>` +
+        (pr ? `<a class="mx-go" href="${pr.dataset.href}">${pr.dataset.n}<svg class="arr" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>` : '');
+      $('.mx-pt', mxR).textContent = title;
+      if (pr) $('.mx-pp', mxR).innerHTML = pr.innerHTML;
+    };
+    dots.forEach(d => d.addEventListener('click', () => read(d)));
+  }
+  // a build's walkthrough plays in place (v2.7): the player loads only on a tap, and starts with the tap
+  $$('.bd-play[data-loom]').forEach(b => b.addEventListener('click', () => {
+    const f = D.createElement('iframe');
+    f.src = `https://www.loom.com/embed/${b.dataset.loom}?autoplay=1&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true`;
+    f.title = b.getAttribute('aria-label').replace(/^Play /, '').replace(/, here$/, '');
+    f.allow = 'autoplay; fullscreen'; f.allowFullscreen = true;
+    const m = b.closest('.bd-m');
+    m.classList.add('playing');
+    b.replaceWith(f);
+    f.focus();
+  }));
   // a link to one principle opens it
   const openHash = () => { const t = location.hash && D.getElementById(location.hash.slice(1)); if (t && t.classList.contains('hw-i')) { const d = $('details', t); if (d) d.open = true; } };
   openHash(); addEventListener('hashchange', openHash);
+
+  /* ------------------------------------------------------------ a sheet (v2.7, D-058): a panel that rises from the foot of the
+     screen over a dimmed page; it closes on its control, on the page behind it, on Escape, or drawn down by its top */
+  const X_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  function sheet(title, body, opener) {
+    const el = D.createElement('div');
+    el.className = 'sheet';
+    el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', title);
+    el.innerHTML = `<div class="sh-back" data-close></div><div class="sh-panel" tabindex="-1"><div class="sh-top"><span class="sh-grab" aria-hidden="true"></span>
+      <h2 class="sh-h"></h2><button class="sh-x" type="button" data-close aria-label="Close">${X_ICON}</button></div><div class="sh-body"></div></div>`;
+    $('.sh-h', el).textContent = title;
+    const bd = $('.sh-body', el);
+    if (typeof body === 'string') bd.innerHTML = body; else bd.appendChild(body);
+    D.body.appendChild(el);
+    const panel = $('.sh-panel', el);
+    const y0 = scrollY;
+    H.classList.add('sheet-open');
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('on')));
+    panel.focus({ preventScroll: true });
+    let closed = false;
+    const close = (then) => {
+      if (closed) return; closed = true;
+      el.classList.remove('on');
+      H.classList.remove('sheet-open');
+      D.removeEventListener('keydown', key, true);
+      setTimeout(() => { el.remove(); if (opener) opener.focus({ preventScroll: true }); if (then) then(); }, RM ? 0 : 240);
+    };
+    const key = e => {
+      if (e.key === 'Escape') { e.preventDefault(); close(); }
+      if (e.key === 'Tab') {  // focus stays in the sheet
+        const f = $$('a[href], button', el).filter(x => x.offsetParent);
+        if (!f.length) return;
+        if (e.shiftKey && D.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && D.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+      }
+    };
+    D.addEventListener('keydown', key, true);
+    el.addEventListener('click', e => {
+      if (e.target.closest('[data-close]')) { close(); return; }
+      const a = e.target.closest('a[href^="#"]');
+      if (a) {
+        e.preventDefault();
+        const t = D.getElementById(a.getAttribute('href').slice(1));
+        close(() => { if (t) { const y = t.getBoundingClientRect().top + scrollY - head() - 16; glide(y, 420); } });
+      }
+    });
+    // drawn down from its top, it closes
+    const top = $('.sh-top', el);
+    let sy = null, dy = 0;
+    top.addEventListener('pointerdown', e => { sy = e.clientY; dy = 0; top.setPointerCapture(e.pointerId); panel.style.transition = 'none'; });
+    top.addEventListener('pointermove', e => { if (sy == null) return; dy = Math.max(0, e.clientY - sy); panel.style.transform = `translateY(${dy}px)`; });
+    const up = () => { if (sy == null) return; sy = null; panel.style.transition = ''; panel.style.transform = ''; if (dy > 70) close(); };
+    top.addEventListener('pointerup', up); top.addEventListener('pointercancel', up);
+    if (Math.abs(scrollY - y0) > 2) scrollTo(0, y0);
+    return { el, close };
+  }
+  const art2 = $('article.ch');
+  // the chapter's name opens an index of its parts, and the other works
+  const crumbB = $('.crumb-b');
+  if (crumbB && art2) crumbB.addEventListener('click', () => {
+    const wrap = D.createElement('div');
+    const parts = [];
+    $$('.blk-h h2[id]', art2).forEach(h => {
+      parts.push(`<li><a href="#${h.id}">${h.textContent}</a></li>`);
+      if (h.id === 'how-h') $$('.story .step', art2).forEach(st => {
+        const k = $('.k', st), t = $('h3', st);
+        if (t && st.id) parts.push(`<li class="sub"><a href="#${st.id}"><span class="mono">${k ? k.textContent : ''}</span>${t.textContent}</a></li>`);
+      });
+    });
+    const src = $('.src a', art2);
+    wrap.innerHTML = `<p class="lbl">In this chapter</p><ol class="sh-parts">${parts.join('')}</ol>` +
+      (src ? `<p class="sh-src"><a class="xl" href="${src.getAttribute('href')}" data-sources>Sources</a></p>` : '') + '<p class="lbl">The work</p>';
+    const tpl = $('#ix-works');
+    if (tpl) wrap.appendChild(tpl.content.cloneNode(true));
+    const sh = sheet($('#ch-h') ? $('#ch-h').textContent : 'This chapter', wrap, crumbB);
+    const sl = $('[data-sources]', sh.el);
+    if (sl) sl.addEventListener('click', e => { e.preventDefault(); sh.close(() => openSources(src)); });
+  });
+  // Sources opens as a sheet on a phone: the chapter's own sources and picture credits, from the Sources page
+  function openSources(a) {
+    const href = a.getAttribute('href'), id = href.split('#')[1];
+    const box = D.createElement('div');
+    box.innerHTML = '<p class="sh-wait">Loading the sources</p>';
+    sheet('Sources', box, a);
+    fetch(href.split('#')[0]).then(r => r.text()).then(t => {
+      const sec = new DOMParser().parseFromString(t, 'text/html').getElementById(id);
+      const cols = sec && sec.querySelector('.cr-cols');
+      if (!cols) throw new Error('none');
+      $$('img', cols).forEach(im => { const u = new URL(im.getAttribute('src'), new URL(href, location.href)); im.src = u.href; im.removeAttribute('srcset'); });
+      $$('source', cols).forEach(so => so.remove());
+      box.innerHTML = '';
+      box.appendChild(cols);
+      const all = D.createElement('p'); all.className = 'sh-all';
+      all.innerHTML = `<a class="xl" href="${href}">All sources and credits</a>`;
+      box.appendChild(all);
+    }).catch(() => { location.href = href; });
+  }
+  const srcLink = art2 && $('.src a', art2);
+  if (srcLink) srcLink.addEventListener('click', e => { if (innerWidth < 900 && 'fetch' in window) { e.preventDefault(); openSources(srcLink); } });
+
+  /* ------------------------------------------------------------ evidence at full size (v2.7, D-058, change 04): a tap on a
+     picture opens it full screen, at its largest file, with pinch, double-tap and drag to zoom; it closes on its control,
+     on Escape, or drawn down at rest */
+  const PICS = 'figure.ev img, .lfig img, .after figure img, .ch-plate.views .v img, .ev-card img';
+  function biggest(im) {
+    let best = im.currentSrc || im.src, bw = 0;
+    const pic = im.closest('picture');
+    const sets = [im.getAttribute('srcset') || im.dataset.srcset || ''].concat(pic ? $$('source', pic).filter(s => /webp/.test(s.type || '')).map(s => s.getAttribute('srcset') || '') : []);
+    sets.join(',').split(',').forEach(c => { const m = c.trim().match(/^(\S+)\s+(\d+)w$/); if (m && +m[2] > bw) { bw = +m[2]; best = m[1]; } });
+    return best;
+  }
+  function lightbox(im) {
+    const fig = im.closest('figure');
+    const cap = fig && $('figcaption', fig) ? $('figcaption', fig).textContent.trim() : '';
+    const el = D.createElement('div');
+    el.className = 'lbx';
+    el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', im.alt || 'Picture');
+    el.innerHTML = `<div class="lbx-stage"><img class="lbx-img" alt=""></div>${cap ? '<p class="lbx-cap"></p>' : ''}<button class="lbx-x" type="button" aria-label="Close">${X_ICON}</button>`;
+    const img = $('.lbx-img', el), stage = $('.lbx-stage', el);
+    img.alt = im.alt || '';
+    img.src = im.currentSrc || im.src;
+    const big = biggest(im);
+    if (big && big !== img.src) { const pre = new Image(); pre.onload = () => { img.src = big; }; pre.src = big; }
+    if (cap) $('.lbx-cap', el).textContent = cap;
+    D.body.appendChild(el);
+    H.classList.add('sheet-open');
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('on')));
+    const x = $('.lbx-x', el);
+    x.focus({ preventScroll: true });
+    let s = 1, tx = 0, ty = 0;
+    const apply = (anim) => { img.style.transition = anim && !RM ? 'transform 240ms cubic-bezier(.16,1,.3,1)' : 'none'; img.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`; el.classList.toggle('zoomed', s > 1.01); };
+    const clamp = () => {
+      if (s <= 1) { s = 1; tx = 0; ty = 0; return; }
+      const r = stage.getBoundingClientRect(), w = img.offsetWidth * s, h = img.offsetHeight * s;
+      const mx = Math.max(0, (w - r.width) / 2), my = Math.max(0, (h - r.height) / 2);
+      tx = Math.max(-mx, Math.min(mx, tx)); ty = Math.max(-my, Math.min(my, ty));
+    };
+    const zoomAt = (cx, cy, ns) => {
+      const r = stage.getBoundingClientRect(), ox = cx - (r.left + r.width / 2), oy = cy - (r.top + r.height / 2);
+      const k = ns / s; tx = ox - (ox - tx) * k; ty = oy - (oy - ty) * k; s = ns; clamp();
+    };
+    const pts = new Map();
+    let pinch = null, drag = null, lastTap = 0, dragDown = 0;
+    stage.addEventListener('pointerdown', e => {
+      stage.setPointerCapture(e.pointerId);
+      pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), s, cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 }; drag = null; }
+      else if (pts.size === 1) { drag = { x: e.clientX, y: e.clientY, tx, ty, moved: false }; }
+    });
+    stage.addEventListener('pointermove', e => {
+      if (!pts.has(e.pointerId)) return;
+      pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pinch && pts.size === 2) {
+        const [a, b] = [...pts.values()];
+        const ns = Math.max(1, Math.min(5, pinch.s * Math.hypot(a.x - b.x, a.y - b.y) / pinch.d));
+        zoomAt((a.x + b.x) / 2, (a.y + b.y) / 2, ns); apply(false);
+      } else if (drag) {
+        const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+        if (Math.abs(dx) + Math.abs(dy) > 6) drag.moved = true;
+        if (s > 1) { tx = drag.tx + dx; ty = drag.ty + dy; clamp(); apply(false); }
+        else { dragDown = Math.max(0, dy); img.style.transition = 'none'; img.style.transform = `translateY(${dragDown}px)`; el.style.backgroundColor = `rgb(11 11 10 / ${Math.max(.3, 1 - dragDown / 400)})`; }
+      }
+    });
+    const end = e => {
+      pts.delete(e.pointerId);
+      if (pts.size < 2) pinch = null;
+      if (drag && pts.size === 0) {
+        if (s <= 1 && dragDown > 90) { close(); return; }
+        if (s <= 1) { dragDown = 0; el.style.backgroundColor = ''; apply(true); }
+        if (!drag.moved) {
+          const now = Date.now();
+          if (now - lastTap < 300) { zoomAt(e.clientX, e.clientY, s > 1.01 ? 1 : 2.5); apply(true); lastTap = 0; }
+          else lastTap = now;
+        }
+        drag = null;
+      }
+    };
+    stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
+    stage.addEventListener('wheel', e => { if (!e.ctrlKey && !e.metaKey) return; e.preventDefault(); zoomAt(e.clientX, e.clientY, Math.max(1, Math.min(5, s * (e.deltaY < 0 ? 1.15 : 0.87)))); apply(false); }, { passive: false });
+    stage.addEventListener('dblclick', e => { if (e.pointerType === 'touch') return; zoomAt(e.clientX, e.clientY, s > 1.01 ? 1 : 2.5); apply(true); });
+    let closed = false;
+    function close() {
+      if (closed) return; closed = true;
+      el.classList.remove('on'); H.classList.remove('sheet-open');
+      D.removeEventListener('keydown', key, true);
+      setTimeout(() => { el.remove(); im.focus && im.closest('[tabindex]') ? im.closest('[tabindex]').focus({ preventScroll: true }) : null; }, RM ? 0 : 240);
+    }
+    const key = e => { if (e.key === 'Escape') { e.preventDefault(); close(); } if (e.key === 'Tab') { e.preventDefault(); x.focus(); } };
+    D.addEventListener('keydown', key, true);
+    x.addEventListener('click', close);
+  }
+  D.addEventListener('click', e => {
+    const im = e.target.closest(PICS);
+    if (!im || e.defaultPrevented || im.closest('a')) return;
+    if (im.closest('.ch-plate') && im.closest('.ch-plate').dataset.dragged) return;
+    lightbox(im);
+  });
+  $$(PICS).forEach(im => { if (!im.closest('a')) im.classList.add('zoomable'); });
 
   onScroll();
 })();

@@ -1,14 +1,11 @@
 /* Health AI portfolio, "Three products, three clinical references" (3_content/modules/m10-measured-against-what.json).
-   Each product was held to a clinical reference and the study was published. One three-way choice of product; for each,
-   a chain of three steps: what the phone saw, what it was checked against (and on how many people), and the result; the
-   readout says where and when the study was published. The Body error, its limit and its sample come from
-   body-accuracy-vs-dxa-2022.json (m10-s031; m10-n013, m10-n036); the other samples and the dates are records:
-   Movement 150 adults (m10-n014), waist-to-hip 1,200 people (m10-n015), published 29 June 2022 (m10-e017),
+   v2.7 (D-058, rule 5: the whole claim at rest): the three products side by side, each a chain down the same four rows:
+   what the phone saw, what it was checked against (and on how many people), the result, and where and when the paper was
+   published. The control picks one product to read on its own; at rest all three show. The Body error, its limit and its
+   sample come from body-accuracy-vs-dxa-2022.json (m10-s031; m10-n013, m10-n036); the other samples and the dates are
+   records: Movement 150 adults (m10-n014), waist-to-hip 1,200 people (m10-n015), published 29 June 2022 (m10-e017),
    6 September 2022 (m10-e021) and 11 September 2023 (m10-e039). Words match lib/tables_m10_measured_against_what.py. */
-const NS = 'http://www.w3.org/2000/svg';
 const el = (tag, attrs = {}, text) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (text != null) e.textContent = text; return e; };
-const sv = (tag, attrs = {}, text) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (text != null) e.textContent = text; return e; };
-const phone = matchMedia('(max-width: 599px)');
 const num = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 /* the three products: the words, the people each study measured, and when its paper was published */
@@ -22,7 +19,7 @@ const PRODUCTS = [
     saw: 'Front, side and back photos', against: 'Tape measures by trained staff',
     big: 'About half', small: 'the error of people measuring themselves' },
 ];
-const STEPS = ['The phone saw', 'Checked against', 'The result'];
+const ROWS = ['The phone saw', 'Checked against', 'The result', 'Published'];
 
 export async function mount(section, dataUrl) {
   const stage = section.querySelector('[data-stage]');
@@ -36,115 +33,68 @@ export async function mount(section, dataUrl) {
   if (!vbc || !(vbc.mae_pct_points > 0) || !(vbc.n > 0) || !(limit > 0)) throw new Error('measured-against: no Body result');
   const P = PRODUCTS.map((p) => ({ ...p }));
   Object.assign(P[0], { count: vbc.n, big: `About ${vbc.mae_pct_points.toFixed(1)} points`, small: `average error in body fat; the limit was ${limit}` });
-  let k = 0;
+  let k = -1;
 
   stage.textContent = '';
-  const svg = sv('svg', { role: 'img' });
+  // the instrument is a table: products across, the chain of each study down
+  const table = el('table', { class: 'm10x' });
+  table.appendChild(el('caption', { class: 'vh' }, 'Three products, each checked against its own clinical reference, and where each study was published'));
+  const thead = el('thead');
+  const hr = el('tr');
+  hr.appendChild(el('td', { class: 'm10x-corner' }));
+  P.forEach((p, i) => { const th = el('th', { scope: 'col', 'data-c': String(i) }, p.label); hr.appendChild(th); });
+  thead.appendChild(hr);
+  table.appendChild(thead);
+  const tbody = el('tbody');
+  ROWS.forEach((r, j) => {
+    const tr = el('tr', { 'data-r': String(j) });
+    tr.appendChild(el('th', { scope: 'row' }, r));
+    P.forEach((p, i) => {
+      const td = el('td', { 'data-c': String(i) });
+      if (j === 0) td.appendChild(el('span', { class: 'm10x-v' }, p.saw));
+      if (j === 1) { td.appendChild(el('span', { class: 'm10x-v' }, p.against)); td.appendChild(el('span', { class: 'm10x-s' }, `${num(p.count)} ${p.people}`)); }
+      if (j === 2) { td.appendChild(el('span', { class: 'm10x-big' }, p.big)); td.appendChild(el('span', { class: 'm10x-s' }, p.small)); }
+      if (j === 3) { td.appendChild(el('span', { class: 'm10x-v' }, 'npj Digital Medicine')); td.appendChild(el('span', { class: 'm10x-s' }, p.when)); }
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+
+  // one product at a time, or all three: a second press returns to all
   const seg = el('div', { class: 'seg', role: 'radiogroup', 'aria-label': 'Product' });
+  // a phone's label for the third product, so the control never wraps: Waist-hip (v2.7)
+  const SHORT = { 'Waist-to-hip': 'Waist-hip' };
   const radios = P.map((p, i) => {
-    const b = el('button', { type: 'button', role: 'radio', 'aria-checked': i === k ? 'true' : 'false', tabindex: i === k ? '0' : '-1', style: 'text-align: center' }, p.label);
-    b.addEventListener('click', () => pick(i));
+    const b = el('button', { type: 'button', role: 'radio', 'aria-checked': 'false', tabindex: i === 0 ? '0' : '-1', style: 'text-align: center' });
+    // the name a reader hears is the one on the screen: the stylesheet shows one of the two (display: none hides the other)
+    if (SHORT[p.label]) b.append(el('span', { class: 'm10x-lw' }, p.label), el('span', { class: 'm10x-ln' }, SHORT[p.label]));
+    else b.textContent = p.label;
+    b.addEventListener('click', () => pick(i === k ? -1 : i));
     seg.appendChild(b);
     return b;
   });
   seg.addEventListener('keydown', (e) => {
     const n = radios.length;
-    const to = { ArrowRight: k + 1, ArrowDown: k + 1, ArrowLeft: k - 1 + n, ArrowUp: k - 1 + n, Home: 0, End: n - 1 }[e.key];
+    const c = Math.max(0, k);
+    const to = { ArrowRight: c + 1, ArrowDown: c + 1, ArrowLeft: c - 1 + n, ArrowUp: c - 1 + n, Home: 0, End: n - 1, Escape: -1 }[e.key];
     if (to == null) return;
     e.preventDefault();
-    pick(to % n);
-    radios[k].focus();
+    pick(to < 0 ? -1 : to % n);
+    if (k >= 0) radios[k].focus();
   });
   const controls = el('div', { class: 'm-controls' });
   controls.appendChild(seg);
   const read = el('p', { class: 'm-read', 'aria-live': 'polite' });
-  stage.append(svg, controls, read);
+  stage.append(table, controls, read);
 
-  // ---------------------------------------------------------------- drawing
-  // text set in lines no wider than w, as the face measures it
-  function lines(parent, text, x, y, w, cls, lh) {
-    const t = sv('text', { x, y, class: cls });
-    parent.appendChild(t);
-    let ts = sv('tspan', { x, dy: 0 });
-    t.appendChild(ts);
-    let line = [];
-    String(text).split(' ').forEach((word) => {
-      ts.textContent = line.concat(word).join(' ');
-      if (line.length && ts.getComputedTextLength() > w) {
-        ts.textContent = line.join(' ');
-        ts = sv('tspan', { x, dy: lh }, word);
-        t.appendChild(ts);
-        line = [word];
-      } else line.push(word);
-    });
-    return t;
-  }
-  let layout = null, words = null;
-  function draw() {
-    const W = stage.getBoundingClientRect().width;
-    const ph = phone.matches;
-    const H = ph ? 226 : 112;
-    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-    svg.style.height = `${H}px`;
-    svg.textContent = '';
-    // where each step sits: three columns joined by a line (desktop), or three rows down a line (phone)
-    if (ph) {
-      const x = 22, top = [0, 60, 140];
-      layout = STEPS.map((_, i) => ({ x, y: top[i], w: W - x, node: [4.5, top[i] + 8] }));
-      svg.appendChild(sv('line', { x1: 4.5, y1: 8, x2: 4.5, y2: top[2] + 8, class: 'd-grid' }));
-    } else {
-      const gap = 24, share = [0.27, 0.3, 0.43], free = W - 2 * gap;
-      let x = 0;
-      layout = share.map((f) => { const c = { x, y: 20, w: free * f - 8, node: [x + 4.5, 6] }; x += free * f + gap; return c; });
-      svg.appendChild(sv('line', { x1: 4.5, y1: 6, x2: layout[2].node[0], y2: 6, class: 'd-grid' }));
-    }
-    layout.forEach((c, i) => {
-      // the first two steps hollow, the result filled
-      const dot = sv('circle', { cx: c.node[0], cy: c.node[1], r: 4.5, class: 'd-claim', 'stroke-width': 1.5 });
-      if (i < 2) dot.style.fill = 'var(--paper)';
-      svg.appendChild(dot);
-      svg.appendChild(sv('text', { x: c.x, y: c.y + (ph ? 12 : 14), 'letter-spacing': '0.06em' }, STEPS[i].toUpperCase()));
-    });
-    words = null;
-    read.style.minHeight = ph ? '3em' : '';
-    show(false);
-  }
-  function show(fade) {
-    const p = P[k];
-    const ph = phone.matches;
-    const g = sv('g', { class: 'anim' });
-    const old = words;
-    words = g;
-    // the words are set in place first (a line can only be measured on the page), then shown
-    if (fade && old) g.style.opacity = '0';
-    else if (old) old.remove();
-    svg.appendChild(g);
-    const [a, b, c] = layout;
-    const v = ph ? 32 : 40;
-    lines(g, p.saw, a.x, a.y + v, a.w, 't-strong', 18);
-    const ref = lines(g, p.against, b.x, b.y + v, b.w, 't-strong', 18);
-    lines(g, `${num(p.count)} ${p.people}`, b.x, b.y + v + 18 * ref.childNodes.length, b.w, '', 18);
-    const big = lines(g, p.big, c.x, c.y + (ph ? 37 : 45), c.w, 't-big', 26);
-    lines(g, p.small, c.x, c.y + (ph ? 57 : 65) + 26 * (big.childNodes.length - 1), c.w, '', 18);
-    if (fade && old) {
-      old.style.opacity = '0';
-      g.getBoundingClientRect();
-      g.style.opacity = '1';
-      setTimeout(() => old.remove(), 160);
-    }
-    svg.setAttribute('aria-label', `${p.label}. The phone saw: ${p.saw}. Checked against: ${p.against}, in ${num(p.count)} ${p.people}. The result: ${p.big}, ${p.small}.`);
-    read.textContent = `Published in npj Digital Medicine in ${p.when}.`;
-  }
+  const ALL = 'All three studies were published in npj Digital Medicine, in 2022 and 2023.';
   function pick(i) {
-    if (i === k) return;
     k = i;
-    radios.forEach((b, j) => { b.setAttribute('aria-checked', j === k ? 'true' : 'false'); b.tabIndex = j === k ? 0 : -1; });
-    show(true);
+    radios.forEach((b, j) => { b.setAttribute('aria-checked', j === k ? 'true' : 'false'); b.tabIndex = j === Math.max(0, k) ? 0 : -1; });
+    if (k < 0) table.removeAttribute('data-pick'); else table.setAttribute('data-pick', String(k));
+    const p = P[k];
+    read.textContent = k < 0 ? ALL : `${p.label}: published in npj Digital Medicine in ${p.when}.`;
   }
-
-  draw();
-  if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(draw);
-  let lastW = stage.getBoundingClientRect().width;
-  new ResizeObserver(() => { const w = stage.getBoundingClientRect().width; if (Math.abs(w - lastW) > 0.5) { lastW = w; draw(); } }).observe(stage);
-  phone.addEventListener('change', draw);
+  pick(-1);
 }

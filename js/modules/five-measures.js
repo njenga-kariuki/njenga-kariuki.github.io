@@ -2,7 +2,8 @@
    The chapter measured AI in the economy with five data sources, one for each layer. Five rows, each in its own units
    and on its own scale, from the chapter's published CSV files, values as printed. One control, the year (a native
    slider set under the sparklines, so each step moves the marked year on every row); the readout says which measures
-   rose and which fell that year. Direction words only; nothing is computed beyond them. */
+   rose and which fell that year. Direction words only; nothing is computed beyond them. v2.7 (D-058): the year rides on
+   the slider's thumb. */
 const NS = 'http://www.w3.org/2000/svg';
 const el = (tag, attrs = {}, text) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (text != null) e.textContent = text; return e; };
 const sv = (tag, attrs = {}, text) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (text != null) e.textContent = text; return e; };
@@ -80,7 +81,8 @@ export async function mount(section, dataUrl) {
   const range = el('input', { type: 'range', class: 'range', min: String(Y0), max: String(Y1), step: '1', value: String(year), 'aria-label': 'Year' });
   range.addEventListener('input', () => { const y = parseInt(range.value, 10); if (y !== year) { year = y; show(); } });
   const controls = el('div', { class: 'm-controls' });
-  controls.appendChild(range);
+  const thumb = el('span', { class: 'm-thumb', 'aria-hidden': 'true' });
+  controls.append(range, thumb);
   const read = el('p', { class: 'm-read', 'aria-live': 'polite' });
   stage.append(svg, controls, read);
 
@@ -128,9 +130,9 @@ export async function mount(section, dataUrl) {
     });
     // the years, under the sparklines
     const yl = YEARS.map((y) => { const t = sv('text', { x: xOf(y), y: H - 5, 'text-anchor': 'middle' }, String(y)); svg.appendChild(t); return t; });
-    // the slider sits under the sparklines, its thumb on the same years
-    range.style.width = `${sw + 20}px`;
-    range.style.marginLeft = `${sx - 10}px`;
+    // the slider sits under the sparklines, its thumb (52 px, the year on it) centered on the same years
+    range.style.width = `${sw + 52}px`;
+    range.style.marginLeft = `${sx - 26}px`;
     range.style.display = 'block';
     g = { hair, rows, yl, xOf, thin: sw / (Y1 - Y0) < 40 };
     read.style.minHeight = ph ? '3em' : '';
@@ -139,6 +141,8 @@ export async function mount(section, dataUrl) {
   function show() {
     const { hair, rows, yl, xOf } = g;
     hair.style.transform = `translate(${xOf(year).toFixed(1)}px, 0px)`;
+    thumb.textContent = String(year);
+    thumb.style.transform = `translateX(${xOf(year).toFixed(1)}px)`;
     rows.forEach((r) => {
       const p = S[r.L.id][year];
       const at = r.at(year);
@@ -155,11 +159,11 @@ export async function mount(section, dataUrl) {
         r.unit.textContent = `the data end in ${Math.max(...Object.keys(S[r.L.id]).map(Number))}`;
       }
     });
-    // every year is labeled where the labels fit; where they do not, every other year, and always the year chosen
+    // every year is labeled where the labels fit; where they do not, every other year; the year chosen is on the thumb
     yl.forEach((t, i) => {
       const y = YEARS[i];
-      t.setAttribute('class', y === year ? 't-strong' : '');
-      t.style.opacity = !g.thin || y === year || ((y - Y0) % 2 === 0 && Math.abs(y - year) !== 1) ? '1' : '0';
+      t.setAttribute('class', '');
+      t.style.opacity = y === year ? '0' : !g.thin || ((y - Y0) % 2 === 0 && Math.abs(y - year) !== 1) ? '1' : '0';
     });
     svg.setAttribute('aria-label', `${year}: ${rows.map((r) => { const p = S[r.L.id][year]; return `${r.L.name}, ${r.L.source}: ${p ? `${r.L.show(p.t)}, ${r.L.unit}` : `no ${year} data`}`; }).join('; ')}.`);
     range.setAttribute('aria-valuetext', String(year));
