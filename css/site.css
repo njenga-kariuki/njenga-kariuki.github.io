@@ -2077,6 +2077,11 @@ img.zoomable { cursor: zoom-in; }
   .vp-row { display: grid; grid-template-columns: 1fr; gap: 10px; }
   .vp-row .seg, .vp-row .btn { width: 100%; }
 }
+/* v2.9.1: under 360 px the four words sit two by two, so the row never scrolls sideways */
+@media (max-width: 359px) {
+  .vp-row { grid-template-columns: minmax(0, 1fr); }
+  .vp-row .seg { display: grid; grid-template-columns: 1fr 1fr; }
+}
 @media (prefers-reduced-motion: reduce) { .vp .vp-q, .m-stage svg.vp .t-ghost { transition: none !important; } }
 .dw-m08.pats:not(.n) .s { font-size: 13.5px; }
 /* a narrow desktop window (900 to 1023 px) scales the six patents' wide drawing to as little as 836 px: its smallest
