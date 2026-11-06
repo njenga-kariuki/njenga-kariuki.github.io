@@ -250,10 +250,29 @@
     if (Math.abs(y - scrollY) > 40) glide(y, 450, () => setTimeout(() => lightSet(ids), RM ? 0 : 200)); else lightSet(ids);
   });
 
-  /* ------------------------------------------------------------ the header: the name joins the bar; the section is underlined */
+  /* ------------------------------------------------------------ the header: one running line holds the reader's place (v2.5, D-053);
+     a page's title joins the bar once its heading has scrolled under it: a chapter's name beside "Work", on About the name */
   const hd = $('#hd'), prog = $('#prog'), byline = $('#byline');
   const navs = $$('.hd-nav a[data-nav]');
+  const hdNav = $('.hd-nav'), hdLine = $('.hd-line');
   const art = $('article.ch');
+  const chH = $('#ch-h'), abH = $('.ab-h1');
+  let lineOn = false, lineAt = null;
+  function placeLine(jump) {
+    if (!hdNav || !hdLine) return;
+    const t = navs.find(a => (a.classList.contains('on') || a.getAttribute('aria-current') === 'page') && a.offsetParent);
+    if (!t) { if (lineOn) { hdLine.classList.remove('on'); lineOn = false; } lineAt = null; return; }
+    if (t === lineAt && !jump) return;
+    const first = !lineOn, nr = hdNav.getBoundingClientRect(), r = t.getBoundingClientRect();
+    const set = () => { hdLine.style.setProperty('--x', `${r.left - nr.left}px`); hdLine.style.setProperty('--w', `${r.width}px`); };
+    // reduced motion: the line does not travel; it fades out and back in at its new place (160 ms in all)
+    if (RM && !first && !jump) { hdLine.classList.add('out'); clearTimeout(placeLine.t); placeLine.t = setTimeout(() => { set(); hdLine.classList.remove('out'); }, 80); lineAt = t; return; }
+    if (first || jump) hdLine.classList.add('jump');
+    set();
+    if (first || jump) { void hdLine.offsetWidth; hdLine.classList.remove('jump'); }
+    if (first) { lineOn = true; requestAnimationFrame(() => requestAnimationFrame(() => { if (lineOn) hdLine.classList.add('on'); })); }
+    lineAt = t;
+  }
   function onScroll() {
     if (hd) hd.classList.toggle('edge', scrollY > 8);
     if (isHome) {
@@ -261,13 +280,23 @@
       let cur = null;
       ['work', 'career', 'lead'].forEach(id => { const s = D.getElementById(id); if (s && s.getBoundingClientRect().top < innerHeight * 0.4) cur = id; });
       navs.forEach(a => a.classList.toggle('on', a.dataset.nav === cur));
+      placeLine(false);
       railTick();
     } else if (isChapter && art && prog) {
       prog.style.transform = `scaleX(${Math.min(1, Math.max(0, scrollY / Math.max(1, art.offsetHeight - innerHeight)))})`;
     }
+    // the title rises into the bar with the heading's last 28 px under it, so it reads as the heading carrying on upward
+    const rhEl = chH || abH;
+    if (hd && rhEl) {
+      const p = Math.min(1, Math.max(0, (head() + 20 - rhEl.getBoundingClientRect().bottom) / 28));
+      hd.style.setProperty('--rh', p.toFixed(3));
+      hd.classList.toggle(chH ? 'rh' : 'named', p >= 1);
+    }
   }
   addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', onScroll);
+  addEventListener('resize', () => { onScroll(); placeLine(true); });
+  placeLine(true);
+  if (D.fonts && D.fonts.ready) D.fonts.ready.then(() => placeLine(true));
   // links to the home page's sections from another page arrive at the section, below the bar
   if (isHome && location.hash && location.hash.length > 1) {
     const t = D.getElementById(location.hash.slice(1));

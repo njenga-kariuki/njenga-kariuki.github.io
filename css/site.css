@@ -66,10 +66,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------------------------------------------------------------- header */
 .hd { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--paper); }
-.hd::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--rule); transform: scaleX(0); transform-origin: left;
-  transition: transform var(--t4) var(--out); }
-.hd.edge::after { transform: scaleX(1); }
-.hd-in { display: flex; align-items: center; gap: 20px; height: var(--head); }
+/* the bar's edge fades in once the page moves under it; in the bar, only the running line travels (D-053) */
+.hd::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--rule); opacity: 0;
+  transition: opacity var(--t1) linear; }
+.hd.edge::after { opacity: 1; }
+.hd-in { display: flex; align-items: center; gap: 16px; height: var(--head); }
 .hd-name { font-weight: 500; font-size: var(--f15); white-space: nowrap; opacity: 0; transform: translateY(6px);
   transition: opacity var(--t2) linear, transform var(--t3) var(--out); pointer-events: none; }
 .hd.named .hd-name { opacity: 1; transform: none; pointer-events: auto; }
@@ -83,19 +84,36 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .p-chapter .hd-name { display: none; }
 .p-chapter .crumb { display: inline-flex; }
 .p-chapter .hd-nav a[data-nav="work"] { display: none; }
-.hd-nav { margin-left: auto; display: flex; gap: 2px; }
-.hd-nav a, .hd-ct a { position: relative; font-size: var(--f15); color: var(--ink-2); padding: 8px 10px; border-radius: 8px; transition: color var(--t1) linear, background var(--t1) linear; }
-.hd-nav a:hover, .hd-ct a:hover { color: var(--ink); background: var(--wash); }
-.hd-nav a:active, .hd-ct a:active { background: var(--wash-2); color: var(--ink); }
-.hd-nav a.on { color: var(--ink); }
-.hd-nav a.on::after { content: ""; position: absolute; left: 10px; right: 10px; bottom: 3px; height: 1.5px; background: var(--ink); border-radius: 2px; }
-.hd-ct { display: flex; }
+/* the links set apart (v2.5, D-053): the warm gray, 32 px apart; the ink arrives with the running line; hover inks the word;
+   pressing draws a lighter 2 px line under it, so it never reads as the place mark */
+.hd-nav { position: relative; margin-left: auto; display: flex; gap: 32px; }
+.hd-nav a, .hd-ct a { position: relative; display: inline-flex; align-items: center; height: 32px; font-size: var(--f15); letter-spacing: .003em; color: var(--gray); transition: color var(--t3) var(--out); }
+.hd-nav a::before, .hd-ct a::before { content: ""; position: absolute; inset: -6px -14px; }
+.hd-nav a::after, .hd-ct a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px; border-radius: 1px; background: var(--ink); opacity: .45; transform: scaleX(0); }
+@media (hover: hover) and (pointer: fine) { .hd-nav a:hover, .hd-ct a:hover { color: var(--ink); } }
+.hd-nav a:active, .hd-ct a:active { color: var(--ink); transition: none; }
+.hd-nav a:active::after, .hd-ct a:active::after { transform: scaleX(1); }
+.hd-nav a.on, .hd-nav a[aria-current="page"] { color: var(--ink); }
+.hd-nav a:focus-visible, .hd-ct a:focus-visible { outline-offset: 5px; border-radius: 3px; }
+/* the running line: one ink line holds the reader's place, under the section on the home page and under About on About (site.js) */
+.hd-line { position: absolute; left: 0; bottom: 6px; width: var(--w, 0px); height: 1.5px; border-radius: 2px; background: var(--ink); pointer-events: none;
+  transform: translateX(var(--x, 0px)); clip-path: inset(0 100% 0 0); transition: transform var(--t3) var(--out), width var(--t3) var(--out), clip-path var(--t3) var(--out); }
+.hd-line.on { clip-path: inset(0); }
+.hd-line.jump { transition: none; }
+/* LinkedIn, the one link that leaves the site, set apart by a rule at the nav's own spacing */
+.hd-ct { position: relative; display: flex; margin-left: 16px; padding-left: 32px; }
+.hd-ct::before { content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: 14px; margin-top: -7px; background: var(--line); opacity: .6; }
+.hd-ct a { gap: 5px; }
+.hd-ct a::after { right: 16px; }
+.hd-ct a .g { width: 11px; height: 11px; color: var(--gray); transition: color var(--t1) linear, transform var(--t2) var(--out); }
+@media (hover: hover) and (pointer: fine) { .hd-ct a:hover .g { color: var(--ink); transform: translate(2px, -2px); } }
+@media (max-width: 1359px) { .hd-nav { gap: 28px; } .hd-ct { margin-left: 12px; padding-left: 28px; } }
 .hd-progress { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; transform-origin: left; transform: scaleX(0); background: var(--c); opacity: 0; transition: opacity var(--t2) linear; z-index: 1; }
 .p-chapter .hd-progress { opacity: 1; }
 @media (max-width: 760px) {
   .hd-ct { display: none; }
-  .hd-in { gap: 8px; }
-  .hd-nav a { font-size: var(--f13); padding: 8px 6px; }
+  .hd-nav { gap: 22px; }
+  .hd-nav a::before { inset: -6px -11px; }
   .p-chapter .hd-nav { display: none; }
 }
 
@@ -159,7 +177,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .work-count b { font-weight: 400; color: var(--ink); }
   #work .sec-head .meta { display: none; }
   .plates { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 52px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 52px), transparent); }
-  .hd-nav a { min-height: 44px; display: inline-flex; align-items: center; }
 }
 .pl { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + var(--head) + 24px); }
 
@@ -466,6 +483,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     transition-duration: 160ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
   .plate .v img, .pl-a:hover .plate .v img { transform: none !important; }
   .pin .pg, .room, .list, .hd-name { transform: none !important; }
+  .hd-line { transition: opacity 80ms linear !important; }
+  .hd-line.out { opacity: 0; }
+  .p-chapter .crumb .sep, .p-chapter .crumb b { transform: none !important; }
   .ctl .card { transition: none !important; }
   .stage[data-s="1"] .scanline { animation: none !important; transform: translateX(110px); }
   .stage.hinting .ring { animation: none !important; opacity: 0; }
@@ -519,13 +539,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ================================================================ v2 additions: the multi-page site (D-042) */
 
 /* the shell on every page: the name joins the bar on the home page once the hero's name scrolls away; elsewhere it is there */
-.p-home .hd-name, .p-about .hd-name, .p-credits .hd-name, .p-404 .hd-name { opacity: 1; transform: none; pointer-events: auto; }
+.p-home .hd-name, .p-credits .hd-name, .p-404 .hd-name { opacity: 1; transform: none; pointer-events: auto; }
 .p-chapter .hd-name { display: none; }
 .p-chapter .crumb { display: inline-flex; }
 .p-chapter .hd-nav a[data-nav="work"] { display: none; }
 .p-chapter .hd-progress { opacity: 1; }
-.hd-nav a[aria-current="page"] { color: var(--ink); }
-.hd-nav a[aria-current="page"]::after { content: ""; position: absolute; left: 10px; right: 10px; bottom: 3px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+/* a page's title joins the bar once its heading has scrolled under it, so no title shows twice: a chapter's name beside "Work",
+   and on About the name; it rises with the heading's last 28 px under the bar (site.js sets --rh from 0 to 1) */
+.p-chapter .crumb .sep, .p-chapter .crumb b, .p-about .hd-name { opacity: var(--rh, 0); transform: translateY(calc((1 - var(--rh, 0)) * 10px)); transition: none; }
 @media (max-width: 760px) { .p-chapter .hd-nav { display: none; } .crumb b { max-width: 52vw; } }
 @media (max-width: 420px) { .hd-nav a[data-nav="lead"] { display: none; } }
 
@@ -902,12 +923,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .xl:hover .g-out { transform: translate(2px, -2px); }
 }
 .xl:active, .pk:active { opacity: .6; transition: none; }
-/* the header: LinkedIn leaves the site; its edge meets the content edge, its gap matches the nav's */
-.hd-ct { margin-left: 2px; }
-.hd-ct a { display: inline-flex; align-items: center; gap: 6px; margin-right: -10px; }
-.hd-ct a .g { width: 11px; height: 11px; color: var(--gray); }
-@media (hover: hover) and (pointer: fine) { .hd-ct a:hover .g { color: var(--ink); transform: translate(2px, -2px); } }
-.hd-nav a:active, .hd-ct a:active, .ch-pager button:active { background: #dcd9d1; color: var(--ink); transition: none; }
+.ch-pager button:active { background: #dcd9d1; color: var(--ink); transition: none; }
 /* How I lead: the product stands on its own line above the proof */
 .pr .proof .pk { display: flex; width: max-content; max-width: 100%; margin-bottom: 4px; font-weight: 500; font-size: var(--f15); min-height: 28px; }
 .pr .proof .pk .arr { width: 12px; height: 12px; opacity: 1; transform: none; transition: transform var(--t2) var(--out), color var(--t1) linear; }
@@ -1023,7 +1039,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .rd-rec .rcl { margin-top: 8px; }
 /* fixes from the first look at the build */
 .pr .proof a.pk, .hw-u a.pk { text-decoration: none; }
-.hd-ct { margin-left: -18px; }
 .ch-plate.drawn { aspect-ratio: auto; padding: clamp(36px, 5vw, 76px) clamp(16px, 7vw, 120px); }
 .ch-plate.drawn .dw { height: auto; }
 .story.solo .st-ev .ev.dwf { max-width: 500px; }
