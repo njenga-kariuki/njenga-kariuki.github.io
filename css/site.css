@@ -285,18 +285,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .bar-g { transform-origin: bottom; transform-box: fill-box; transition: transform var(--t4) var(--out); transition-delay: var(--dd, 0ms); }
 }
 
-/* ---------------------------------------------------------------- contact */
-.ft { padding-top: clamp(72px, 8vw, 140px); padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px)); }
-.ft-in { border-top: 1px solid var(--ink); padding-top: 14px; display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 16px 24px; }
-.ft h2 { font-size: var(--f22); letter-spacing: -0.012em; line-height: 1.2; }
-.ft-ct { display: grid; gap: 2px; align-content: start; justify-items: start; font-size: var(--f17); }
-.ft-ct a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
-.ft-ct a:hover { text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
-.ft-ct a svg { width: 12px; height: 12px; }
-.ft-mail { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; }
-.cp { font-size: var(--f13); color: var(--gray); padding: 4px 8px; border-radius: 6px; transition: background var(--t1) linear, color var(--t1) linear; }
-.cp:hover { background: var(--wash); color: var(--ink); }
-@media (max-width: 699px) { .ft-in { grid-template-columns: 1fr; } }
 
 /* ---------------------------------------------------------------- chapter */
 .ch-head { padding-top: clamp(24px, 2.6vw, 44px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 12px clamp(24px, 4vw, 80px); align-items: end; }
@@ -540,10 +528,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hd-nav a[aria-current="page"]::after { content: ""; position: absolute; left: 10px; right: 10px; bottom: 3px; height: 1.5px; background: var(--ink); border-radius: 2px; }
 @media (max-width: 760px) { .p-chapter .hd-nav { display: none; } .crumb b { max-width: 52vw; } }
 @media (max-width: 420px) { .hd-nav a[data-nav="lead"] { display: none; } }
-.ft-nav { grid-column: 2; display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 18px; font-size: var(--f13); }
-.ft-nav a { color: var(--gray); min-height: 32px; display: inline-flex; align-items: center; transition: color var(--t1) linear; }
-.ft-nav a:hover { color: var(--ink); }
-@media (max-width: 699px) { .ft-nav { grid-column: 1; } }
 
 /* the chart language, drawn by figs.py: a dot on a labeled scale; a dot that moves from before to after */
 .f-ax { stroke: var(--ink); stroke-width: 1; }
@@ -796,7 +780,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* forced colors and print floors */
 @media (forced-colors: active) { .plate, .ch-plate, .stage, .pr-fig { forced-color-adjust: none; } }
-@media print { .hd, .ft, .next, .stage, .skip { display: none !important; } .step { min-height: 0 !important; opacity: 1 !important; } }
+@media print { .hd, .next, .stage, .skip { display: none !important; } .step { min-height: 0 !important; opacity: 1 !important; } }
 
 /* ================================================================ the module kit (F1): the interactives share one look */
 /* Module kit: the shared look of every interactive module (F1: modules define no state rules of their own).
@@ -949,29 +933,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .sec-head .xl.meta { font-size: var(--f13); color: var(--ink-2); gap: 6px; }
 .sec-head .xl.meta .g { width: 11px; height: 11px; }
 
-/* ---------- Contact (item 1): the address leads, in type, a mail link with a copy button that turns into a check */
-.ft-in { align-items: baseline; }
-.ft-ct { gap: 6px; }
-.ft-ct a:hover { text-decoration: none; }
-.ft-mail { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: var(--f22); letter-spacing: -0.012em; line-height: 1.2; }
-.mailto { color: var(--ink); text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-position: 0 100%;
-  background-repeat: no-repeat; transition: background-size var(--t2) var(--out); overflow-wrap: anywhere; }
-@media (hover: hover) and (pointer: fine) { .mailto:hover { background-size: 100% 1px; } }
-.cpi { position: relative; display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; color: var(--gray); cursor: pointer;
-  transition: background var(--t1) linear, color var(--t1) linear, transform var(--t1) var(--out); }
-@media (hover: hover) and (pointer: fine) { .cpi:hover { background: var(--wash); color: var(--ink); } }
-.cpi:active { background: var(--wash-2); transform: scale(.94); }
-.cpi .g { grid-area: 1 / 1; width: 15px; height: 15px; transition: opacity var(--t1) linear, transform var(--t2) var(--out); }
-.cpi .g-check { opacity: 0; transform: scale(.5); }
-.cpi.done .g-copy { opacity: 0; transform: scale(.5); }
-.cpi.done .g-check { opacity: 1; transform: none; color: var(--ink); }
-.cpi .tip { position: absolute; left: calc(100% + 4px); top: 50%; transform: translateY(-50%); font-size: var(--f13); letter-spacing: 0; color: var(--gray); white-space: nowrap;
-  opacity: 0; transition: opacity var(--t1) linear; pointer-events: none; }
-.cpi.done .tip { opacity: 1; }
-.ft-prof { display: flex; flex-wrap: wrap; gap: 0 24px; font-size: var(--f15); }
-.ft-prof .xl { min-height: 40px; color: var(--ink-2); }
-.ft-prof .xl .g { width: 11px; height: 11px; }
-@media (max-width: 599px) { .ft-mail { font-size: 19px; } }
 
 /* ---------- the hero (item 4): the headline's lines broken by sense on a laptop */
 @media (min-width: 1000px) { .headline .hl-l { display: block; } }
@@ -1228,3 +1189,60 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .ctl .tg.on rect.tgt { fill: #ffd25a; }
 .ctl .tgk { fill: #fff; transition: transform var(--t2) var(--out); }
 .ctl .tg.on .tgk { transform: translateX(12px); }
+
+/* ---------- Contact (6 November 2026): the end paper. The page is a sheet that lifts off a warm end paper at its end:
+   main carries the paper and a rounded lower edge with one soft shadow; the footer holds still beneath it (sticky), so
+   the last scroll reveals it. No script and no scroll handling. The address leads in quiet type with a copy control;
+   the profiles and the site's three pages share its row, each under one of the page's three columns on a laptop. */
+:root { --end: #efede7; --end-2: #e4e1d9; --end-3: #d8d5cc; --lift: clamp(18px, 2vw, 28px); }
+body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+main { flex: 1 0 auto; position: relative; z-index: 1; background: var(--paper); padding-bottom: clamp(56px, 6vw, 112px);
+  border-radius: 0 0 var(--lift) var(--lift); box-shadow: 0 1px 0 rgba(20, 18, 12, .05), 0 22px 44px -24px rgba(20, 18, 12, .28); }
+.ft { --gray: #5f5e58; position: sticky; bottom: 0; z-index: 0; margin-top: calc(-1 * var(--lift)); background: var(--end); color: var(--ink);
+  padding-top: calc(var(--lift) + clamp(36px, 3.2vw, 48px)); padding-bottom: calc(clamp(36px, 3.2vw, 48px) + env(safe-area-inset-bottom, 0px)); }
+.ft-in { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(24px, 3vw, 56px); align-items: baseline; }
+.ft-mail { display: flex; align-items: center; gap: 10px; min-width: 0; font-size: var(--f22); letter-spacing: -0.012em; line-height: 1.25; }
+.mailto { position: relative; display: inline-block; min-width: 0; color: var(--ink); text-decoration: none; }
+.mailto .mt { background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 0 calc(100% - .04em);
+  background-size: 0% 1px; transition: background-size var(--t2) var(--out); }
+@media (hover: hover) and (pointer: fine) { .mailto:hover .mt { background-size: 100% 1px; } }
+.mailto:active { opacity: .6; transition: none; }
+/* the copy shows what it copied: the site's own selection (ink ground, paper type) sweeps across the address and lifts */
+.mailto::after { content: attr(data-t); position: absolute; inset: 0 -.08em; padding: 0 .08em; background: var(--ink); color: var(--paper);
+  clip-path: inset(0 100% 0 0); pointer-events: none; }
+.ft-mail.sw .mailto::after { clip-path: inset(0 0 0 0); transition: clip-path 420ms cubic-bezier(.3, .7, .2, 1); }
+.ft-mail.sw.out .mailto::after { clip-path: inset(0 0 0 100%); transition: clip-path 320ms cubic-bezier(.6, 0, .4, 1); }
+.cpi { flex: none; display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: var(--gray); cursor: pointer;
+  transition: background var(--t1) linear, color var(--t1) linear, transform var(--t1) var(--out); }
+@media (hover: hover) and (pointer: fine) { .cpi:hover { background: var(--end-2); color: var(--ink); } }
+.cpi:active { background: var(--end-3); color: var(--ink); transform: scale(.94); transition: none; }
+.cpi:focus-visible { outline-offset: 1px; border-radius: 50%; }
+.cpi .g { grid-area: 1 / 1; width: 16px; height: 16px; stroke-width: 1.35; transition: opacity var(--t1) linear, transform var(--t2) var(--out); }
+.cpi .g-check { opacity: 0; transform: scale(.4); stroke-width: 1.7; }
+.cpi.done { background: var(--ink); color: var(--paper); pointer-events: none; }
+.cpi.done .g-copy { opacity: 0; transform: scale(.4); }
+.cpi.done .g-check { opacity: 1; transform: none; }
+.ft-prof { display: flex; flex-wrap: wrap; gap: 0 28px; font-size: var(--f15); }
+.ft-prof .xl { min-height: 44px; color: var(--ink-2); }
+.ft-prof .xl .g { width: 11px; height: 11px; color: var(--gray); }
+@media (hover: hover) and (pointer: fine) { .ft-prof .xl:hover, .ft-prof .xl:hover .g { color: var(--ink); } }
+.ft-nav { display: flex; flex-wrap: wrap; gap: 0 24px; font-size: var(--f13); }
+.ft-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gray); transition: color var(--t1) linear; }
+@media (hover: hover) and (pointer: fine) { .ft-nav a:hover { color: var(--ink); } }
+.ft-nav a:active { opacity: .6; transition: none; }
+@media (max-width: 1199px) {
+  .ft-in { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "mail mail" "prof nav"; row-gap: 6px; }
+  .ft-mail { grid-area: mail; } .ft-prof { grid-area: prof; } .ft-nav { grid-area: nav; justify-self: end; }
+}
+@media (max-width: 599px) {
+  .ft-in { grid-template-columns: minmax(0, 1fr); grid-template-areas: "mail" "prof" "nav"; row-gap: 2px; }
+  .ft-mail { font-size: 19px; }
+  .ft-nav { margin-top: 6px; justify-self: start; }
+}
+@media (max-width: 359px) { .ft-mail { font-size: 17px; letter-spacing: -0.008em; } }
+@media (prefers-reduced-motion: reduce) { .ft-mail.sw .mailto::after, .ft-mail.sw.out .mailto::after { transition: none; } }
+@media (forced-colors: active) { main { border-bottom: 1px solid CanvasText; } }
+@media print {
+  body { display: block; } main { box-shadow: none; border-radius: 0; padding-bottom: 0; }
+  .ft { position: static; margin: 0; padding: 16px 0 0; background: none; } .cpi, .ft-nav, .ft-prof .g { display: none; }
+}

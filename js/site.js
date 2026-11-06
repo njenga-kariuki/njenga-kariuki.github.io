@@ -34,14 +34,30 @@
     armed.forEach(s => { if (!RM && s.getBoundingClientRect().top > innerHeight) s.classList.add('armed'); io.observe(s); });
   }
 
-  /* ------------------------------------------------------------ copy the address */
+  /* ------------------------------------------------------------ copy the address: the site's own selection sweeps across it,
+     the control turns to ink with a check, and both return. Where the clipboard is refused, the address is copied through a
+     selection, or left selected for the reader. */
   $$('.cpi[data-copy]').forEach(b => b.addEventListener('click', async () => {
-    const done = () => { b.classList.add('done'); clearTimeout(b._t); b._t = setTimeout(() => b.classList.remove('done'), 1600); };
-    try { await navigator.clipboard.writeText(b.dataset.copy); done(); live('Address copied'); }
+    const box = b.closest('.ft-mail'), a = box && $('.mailto', box);
+    let ok = false;
+    try { await navigator.clipboard.writeText(b.dataset.copy); ok = true; }
     catch (e) {
-      const a = b.parentElement && $('.mailto', b.parentElement);
-      if (a) { const r = D.createRange(); r.selectNodeContents(a); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); live('Address selected'); }
+      if (a) {
+        const r = D.createRange(); r.selectNodeContents($('.mt', a) || a); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        try { ok = D.execCommand('copy'); } catch (x) { ok = false; }
+        if (ok) sel.removeAllRanges();
+      }
     }
+    if (!ok) { live('Address selected'); return; }
+    live('Address copied');
+    clearTimeout(b._t1); clearTimeout(b._t2); clearTimeout(b._t3);
+    b.classList.add('done');
+    b._t3 = setTimeout(() => b.classList.remove('done'), 1900);
+    if (!box) return;
+    box.classList.remove('sw', 'out'); void box.offsetWidth;
+    box.classList.add('sw');
+    b._t1 = setTimeout(() => box.classList.add('out'), RM ? 700 : 1050);
+    b._t2 = setTimeout(() => box.classList.remove('sw', 'out'), RM ? 701 : 1400);
   }));
   $$('.cp[data-copy]').forEach(b => b.addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; live('Address copied'); }
