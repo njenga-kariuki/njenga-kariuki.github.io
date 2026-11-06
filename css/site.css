@@ -1759,6 +1759,8 @@ img.zoomable { cursor: zoom-in; }
 .facts dd a:active { opacity: .6; transition: none; }
 .facts dd a:focus-visible { outline: none; background: var(--wash-2); text-decoration-color: var(--ink); text-decoration-thickness: 2px; }
 @media (pointer: coarse) { .facts dd a::after { content: ""; position: absolute; inset: -11px -4px; } }
+/* v2.8.4: a fact with several links opens its lines a little, so each link keeps a 24 px reach with a mouse */
+.facts dd:has(a ~ a) { line-height: 1.7; }
 
 /* parts: each chapter's v2.7 styles (D-058) */
 
