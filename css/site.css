@@ -1751,6 +1751,15 @@ img.zoomable { cursor: zoom-in; }
   .dec li > p { max-width: 40em; }
 }
 
+/* v2.8.1 (D-061): a fact that names a published work opens it. The link keeps the fact's words and the house ↗ (gray,
+   as in the header and on About), breaks as one piece, takes the lead's focus (a wash and an ink underline), and reaches 44 px on a touch screen without moving a line */
+.facts dd a { position: relative; white-space: nowrap; color: var(--ink); padding: 3px; margin: 0 -3px; border-radius: 3px; transition: text-decoration-color var(--t1) linear; }
+.facts dd a .g { width: 11px; height: 11px; color: var(--gray); }
+@media (hover: hover) and (pointer: fine) { .facts dd a:hover { text-decoration-color: var(--ink); } .facts dd a:hover .g { color: var(--ink); transform: translate(2px, -2px); } }
+.facts dd a:active { opacity: .6; transition: none; }
+.facts dd a:focus-visible { outline: none; background: var(--wash-2); text-decoration-color: var(--ink); text-decoration-thickness: 2px; }
+@media (pointer: coarse) { .facts dd a::after { content: ""; position: absolute; inset: -11px -4px; } }
+
 /* parts: each chapter's v2.7 styles (D-058) */
 
 /* m01, Target (v2.7, D-058): the store field, the launch strip and the Black Friday items. */
