@@ -11,10 +11,11 @@ const num = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 /* the three products: the words, the people each study measured, and when its paper was published */
 const PRODUCTS = [
   { label: 'Body', when: 'June 2022', people: 'adults',
-    saw: 'Front and back photos', against: 'DXA, a clinical X-ray scan' },
+    saw: 'Front and back photos', against: 'DXA, a clinical X-ray scan',
+    big: 'About half', small: 'the error of the best smart scale' },
   { label: 'Movement', when: 'September 2022', people: 'adults', count: 150,
     saw: 'Video of five exercises', against: 'A motion-capture suit and 13 clinical tests',
-    big: 'Moderate to strong', small: 'agreement with the suit and the 13 tests' },
+    big: 'Told apart', small: 'athletes, healthy adults and adults with impaired movement' },
   { label: 'Waist-to-hip', when: 'September 2023', people: 'people', count: 1200,
     saw: 'Front, side and back photos', against: 'Tape measures by trained staff',
     big: 'About half', small: 'the error of people measuring themselves' },
@@ -32,7 +33,6 @@ export async function mount(section, dataUrl) {
   const limit = body.acceptable_error_threshold_pct_points;
   if (!vbc || !(vbc.mae_pct_points > 0) || !(vbc.n > 0) || !(limit > 0)) throw new Error('measured-against: no Body result');
   const P = PRODUCTS.map((p) => ({ ...p }));
-  Object.assign(P[0], { count: vbc.n, big: `About ${vbc.mae_pct_points.toFixed(1)} points`, small: `average error in body fat; the limit was ${limit}` });
   let k = -1;
 
   stage.textContent = '';
@@ -52,7 +52,7 @@ export async function mount(section, dataUrl) {
     P.forEach((p, i) => {
       const td = el('td', { 'data-c': String(i) });
       if (j === 0) td.appendChild(el('span', { class: 'm10x-v' }, p.saw));
-      if (j === 1) { td.appendChild(el('span', { class: 'm10x-v' }, p.against)); td.appendChild(el('span', { class: 'm10x-s' }, `${num(p.count)} ${p.people}`)); }
+      if (j === 1) td.appendChild(el('span', { class: 'm10x-v' }, p.against));
       if (j === 2) { td.appendChild(el('span', { class: 'm10x-big' }, p.big)); td.appendChild(el('span', { class: 'm10x-s' }, p.small)); }
       if (j === 3) { td.appendChild(el('span', { class: 'm10x-v' }, 'npj Digital Medicine')); td.appendChild(el('span', { class: 'm10x-s' }, p.when)); }
       tr.appendChild(td);
