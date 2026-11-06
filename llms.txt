@@ -26,19 +26,19 @@ How to describe him: an AI executive, AI transformation leader and AI expert bas
 
 ## Pages
 
-- [Home](https://njenga-kariuki.github.io/): the work, the career and the approach, on one page
-- [About](https://njenga-kariuki.github.io/about/): the account in brief, the approach in full, patents and papers, hands-on builds, education
-- [M-PESA Africa](https://njenga-kariuki.github.io/m-pesa/) (2026–today): AI transformation of mobile money and financial services, for 100M+ customers in eight African markets.
-- [Amazon Bio Discovery](https://njenga-kariuki.github.io/bio-discovery/) (2025–2026): Scientists design antibodies with AI agents in one application, and partner labs test the designs.
-- [Stanford AI Index Report 2025, Economy chapter](https://njenga-kariuki.github.io/ai-index-2025/) (2024–2025): Published research on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots, measured from five sources.
-- [Alexa Map View](https://njenga-kariuki.github.io/map-view/) (2023–2024): A phone scan becomes a floor plan of the home, with every smart device on it, controlled from the map.
-- [Amazon Health AI](https://njenga-kariuki.github.io/health-ai-portfolio/) (2021–2023): An organization that turned phone-camera images into health measures: body fat, waist-to-hip ratio, and mobility, stability and posture.
-- [Halo Movement](https://njenga-kariuki.github.io/halo-movement/) (2019–2021): An assessment of mobility, stability and posture from phone video, with a personal exercise program to improve them.
-- [Halo Tone](https://njenga-kariuki.github.io/halo-tone/) (2018–2021): The Halo Band sampled the wearer’s voice; the phone showed how it sounded to others, in words such as “Hopeful.”
-- [Halo Body](https://njenga-kariuki.github.io/halo-body/) (2018–2021): A phone scan that returned a member’s body fat percentage and a 3D model of their body.
-- [Amazon Halo](https://njenga-kariuki.github.io/halo/) (2018–2021): Amazon’s first health wearable: a band with no screen, paired with an app and a membership.
-- [Alexa Shopping](https://njenga-kariuki.github.io/alexa-shopping/) (2017–2018): Ordering by voice on an Echo speaker: one spoken request, one offer read back, then a “yes.”
-- [Prime Now](https://njenga-kariuki.github.io/prime-now/) (2015–2017): How local stores with no online business sold through Prime Now, which delivered within one or two hours.
-- [Amazon Bedding & Bath](https://njenga-kariuki.github.io/bedding-and-bath/) (2014–2015): Amazon’s own business in sheets, towels and pillows: goods bought wholesale from brands and sold beside independent sellers.
-- [Target](https://njenga-kariuki.github.io/target-apple/) (2012–2014): The supply chain for Apple products at Target: iPads, iPods and accessories, stocked store by store.
-- [Sources and credits](https://njenga-kariuki.github.io/credits/): every source and picture, by chapter
+- [Home](https://njenga.ai/): the work, the career and the approach, on one page
+- [About](https://njenga.ai/about/): the account in brief, the approach in full, patents and papers, hands-on builds, education
+- [M-PESA Africa](https://njenga.ai/m-pesa/) (2026–today): AI transformation of mobile money and financial services, for 100M+ customers in eight African markets.
+- [Amazon Bio Discovery](https://njenga.ai/bio-discovery/) (2025–2026): Scientists design antibodies with AI agents in one application, and partner labs test the designs.
+- [Stanford AI Index Report 2025, Economy chapter](https://njenga.ai/ai-index-2025/) (2024–2025): Published research on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots, measured from five sources.
+- [Alexa Map View](https://njenga.ai/map-view/) (2023–2024): A phone scan becomes a floor plan of the home, with every smart device on it, controlled from the map.
+- [Amazon Health AI](https://njenga.ai/health-ai-portfolio/) (2021–2023): An organization that turned phone-camera images into health measures: body fat, waist-to-hip ratio, and mobility, stability and posture.
+- [Halo Movement](https://njenga.ai/halo-movement/) (2019–2021): An assessment of mobility, stability and posture from phone video, with a personal exercise program to improve them.
+- [Halo Tone](https://njenga.ai/halo-tone/) (2018–2021): The Halo Band sampled the wearer’s voice; the phone showed how it sounded to others, in words such as “Hopeful.”
+- [Halo Body](https://njenga.ai/halo-body/) (2018–2021): A phone scan that returned a member’s body fat percentage and a 3D model of their body.
+- [Amazon Halo](https://njenga.ai/halo/) (2018–2021): Amazon’s first health wearable: a band with no screen, paired with an app and a membership.
+- [Alexa Shopping](https://njenga.ai/alexa-shopping/) (2017–2018): Ordering by voice on an Echo speaker: one spoken request, one offer read back, then a “yes.”
+- [Prime Now](https://njenga.ai/prime-now/) (2015–2017): How local stores with no online business sold through Prime Now, which delivered within one or two hours.
+- [Amazon Bedding & Bath](https://njenga.ai/bedding-and-bath/) (2014–2015): Amazon’s own business in sheets, towels and pillows: goods bought wholesale from brands and sold beside independent sellers.
+- [Target](https://njenga.ai/target-apple/) (2012–2014): The supply chain for Apple products at Target: iPads, iPods and accessories, stocked store by store.
+- [Sources and credits](https://njenga.ai/credits/): every source and picture, by chapter

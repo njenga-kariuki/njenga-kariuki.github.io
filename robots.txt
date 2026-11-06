@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://njenga-kariuki.github.io/sitemap.xml
+Sitemap: https://njenga.ai/sitemap.xml
