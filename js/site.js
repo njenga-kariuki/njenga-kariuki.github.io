@@ -716,7 +716,7 @@
   /* ------------------------------------------------------------ evidence at full size (v2.7, D-058, change 04): a tap on a
      picture opens it full screen, at its largest file, with pinch, double-tap and drag to zoom; it closes on its control,
      on Escape, or drawn down at rest */
-  const PICS = 'figure.ev img, .lfig img, .after figure img, .ch-plate.views .v img, .ev-card img';
+  const PICS = 'figure.ev img, .lfig img, .after figure img, .ch-plate.views .v img, .ev-card img, .bd-m.scr img';
   function biggest(im) {
     let best = im.currentSrc || im.src, bw = 0;
     const pic = im.closest('picture');
