@@ -2559,3 +2559,24 @@ svg.ci.ci-big .ci-n, svg.ci.ci-big .ci-v { font-size: 14.5px; }
 /* the home row: when one caption runs to two lines, the rows still line up across the three (the figures sit at the
    foot of their shared grid row; the captions above take what they need) */
 .prin .pr > .pr-fig { align-self: end; }
+
+/* ---------- v2.9.2 (D-064): the open items, finished */
+/* the career chart: the first row's note clear of the year axis */
+.tl-body { padding-top: 10px; }
+/* the phone career: a milestone ring no taller than its bar's line allows; close milestones are one ring (lib/v2.py) */
+.cs-ev { top: calc(50% - 4.5px); width: 9px; height: 9px; margin-left: -4.5px; box-shadow: inset 0 0 0 1.75px var(--ink); }
+.cs-row.on .cs-ev { box-shadow: inset 0 0 0 1.75px var(--c2); }
+/* About, My approach: the two views as quiet text tabs standing on the section's rule, at every width */
+#how-i-work .seg { display: flex; gap: 22px; padding: 0; border: 0; border-radius: 0; background: none; align-self: flex-end; margin-bottom: -12px; }
+#how-i-work .seg > button { position: relative; flex: none; min-height: 34px; padding: 0; border-radius: 0; font-size: var(--f15); line-height: 1.2;
+  color: var(--gray); background: none; box-shadow: inset 0 -3px 0 transparent; white-space: nowrap; }
+#how-i-work .seg > button::before { content: ""; position: absolute; inset: -10px -8px 0; }
+#how-i-work .seg > button[aria-checked="true"] { color: var(--ink); background: none; box-shadow: inset 0 -3px 0 var(--ink); }
+#how-i-work .seg > button:active, #how-i-work .seg > button[aria-checked="true"]:active { background: none; }
+@media (hover: hover) and (pointer: fine) { #how-i-work .seg > button:hover { background: none; color: var(--ink); } }
+@media (max-width: 599px) {
+  #how-i-work .seg { order: 3; flex-basis: 100%; margin-top: 4px; }
+  #how-i-work .seg > button { flex: none; min-height: 44px; padding: 0; }
+}
+/* the record's year sits on its entry's first line */
+.rc-y { padding-top: 0; line-height: 1.3; }
