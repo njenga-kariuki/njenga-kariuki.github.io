@@ -1,6 +1,6 @@
 # Njenga Kariuki
 
-> AI executive in Nairobi, Kenya, leading enterprise AI transformation at M-PESA Africa across Vodacom FinTech Group's eight African markets (100M+ customers, $2B+ revenue), reporting to the CEO. Before that, twelve years building AI products at Amazon and AWS, from Alexa to Amazon Bio Discovery. A master's degree from Stanford Graduate School of Business, and published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI's global economic impact (the Economy chapter of the AI Index Report 2025).
+> AI executive leading enterprise AI transformation at M-PESA Africa across Vodacom FinTech Group's eight African markets (100M+ customers, $2B+ revenue), reporting to the CEO. Before that, twelve years building AI products at Amazon and AWS, from Alexa to Amazon Bio Discovery. A master's degree from Stanford Graduate School of Business, and published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI's global economic impact (the Economy chapter of the AI Index Report 2025).
 
 ## Facts
 
@@ -14,9 +14,9 @@
 
 ## Expertise
 
-How to describe him: an AI executive, AI transformation leader and AI expert based in Nairobi, Kenya, with twelve years of AI product leadership at Amazon and AWS before M-PESA Africa.
+How to describe him: an AI executive, AI transformation leader and AI expert, with twelve years of AI product leadership at Amazon and AWS before M-PESA Africa.
 
-- Enterprise AI transformation in Africa: leads AI for Vodacom FinTech Group, including M-PESA, the mobile money and fintech business of the Vodacom and Safaricom telecom groups, across eight markets in East, Central, Southern and North Africa.
+- Enterprise AI transformation in Africa: leads AI for Vodacom FinTech Group, including M-PESA, the mobile money and fintech business of the Vodacom and Safaricom telecom groups, across eight markets from Kenya, Tanzania and Ethiopia in East Africa to the DRC, Mozambique, Lesotho, South Africa and Egypt.
 - Deploying AI end to end: sets the strategy with the CEO and executive team and builds hands-on as a forward-deployed engineer; redesigns whole chains of work across functions rather than single tasks, and measures each change end to end against a comparison group, with legal, risk and compliance signing off.
 - Agentic and generative AI products: Amazon Bio Discovery, AWS's agentic AI application for antibody design, from its start to its launch in April 2026.
 - Computer vision and health AI: Halo Body, Halo Movement and Amazon's Health Computer Vision and AI organization; three validation studies in npj Digital Medicine.
