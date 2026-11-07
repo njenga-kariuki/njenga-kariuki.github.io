@@ -1,0 +1,1660 @@
+# Njenga Kariuki: the whole site as text
+
+> Every page of https://njenga.ai/ in reading order, as Markdown: the words on each page, without its drawings or controls. A summary is at https://njenga.ai/llms.txt.
+
+---
+
+Page: Njenga Kariuki | AI transformation executive, M-PESA Africa
+Address: https://njenga.ai/
+
+# Leading AI transformation at M-PESA, after 12 years building AI products at Amazon and AWS.
+
+Eight markets, 100M+ customers and $2B+ revenue across Vodacom FinTech Group, reporting to the CEO.
+From Alexa to Amazon Bio Discovery, agentic AI for drug discovery, leading organizations of 100+.
+A master’s degree from Stanford GSB, and published research on AI’s global economic impact.
+
+## Work
+
+2017–2026
+M-PESA Africa · 2026–today · AI strategy and the AI Center of Excellence for eight markets · 100M+ customers · reporting to the CEO
+Amazon Bio Discovery · 2025–2026 · Agentic AI that designs antibodies, tested in partner labs · Launched April 2026 · cross-functional organization of 100+
+Stanford AI Institute · 2024–2025 · Published research on AI’s global economic impact · Cited by the Federal Reserve Board and the White House
+Alexa Map View · 2023–2024 · A phone scan becomes a floor plan with every device on it · Launched November 2023, in an app with 50M+ monthly users
+Amazon Health AI · 2021–2023 · First product lead of a computer vision and AI organization · 100+ scientists and engineers · $100M+ a year portfolio
+Halo Movement · 2019–2021 · Mobility, stability and posture, scored from phone video · Peer-reviewed in a Nature Portfolio journal, 2022
+Halo Tone · 2018–2021 · How your voice sounds to others, analyzed on the phone · 6 US patents
+Halo Body · 2018–2021 · Body fat and a 3D model from a phone scan · Peer-reviewed in a Nature Portfolio journal, 2022
+Alexa Shopping · 2017–2018 · How Alexa understood spoken shopping requests · Requests that ended in the right offer: about 50% to 85%
+
+## Career
+
+2012–2026
+M-PESA Africa
+Managing Executive: AI · 2026–today · Nairobi
+Runs
+AI strategy and the AI Center of Excellence for eight markets, 100M+ customers and $2B+ revenue.
+Now
+Under way across the group’s markets: AI moving from single tasks to whole chains of work, redesigned end to end.
+Amazon Bio Discovery, AWS
+Head of Product, AWS Applied AI, Life Sciences · 2025–2026 · Seattle
+Ran
+Directed a cross-functional organization of 100+ engineers, scientists and product managers, from start to launch.
+Result
+Launched 14 April 2026. Memorial Sloan Kettering said its launch campaign went from target to lab order in weeks.
+Stanford
+Master’s degree, Graduate School of Business · 2024–2025
+Ran
+Wrote the text and analysis of published research from the Stanford Institute for Human-Centered AI on AI’s global economic impact.
+Result
+Published 7 April 2025. Cited by the Federal Reserve Board and the White House.
+Alexa Smart Home and Map View
+Senior Manager, Technical Product Management · 2023–2024 · Seattle
+Ran
+Led the smart home features of the Alexa app, used by 50M+ people a month. Technical advisor and chief of staff to the Vice President of Amazon Smart Home and Health.
+Result
+Map View launched in the United States, November 2023.
+Amazon Health AI
+Principal Technical Product Manager · 2021–2023 · Seattle
+Ran
+First product lead of a computer vision and AI organization of 100+ scientists and engineers. Directed its $100M+ a year investment portfolio; managed 10 product managers.
+Result
+Three peer-reviewed studies in a Nature Portfolio journal: Body and Movement in 2022, waist-to-hip in 2023.
+Amazon Halo
+Senior Technical Product Manager, founding team · 2018–2021 · Seattle
+Ran
+Product lead for Body, Tone and Movement, from the founding team to launch.
+Result
+Body and Tone launched in August 2020, Movement in June 2021. Six US patents from this work.
+Alexa Shopping
+Technical Product Manager, first product lead · 2017–2018 · Seattle
+Ran
+First product lead for how Alexa understood shopping requests; built and led a 10-person evaluation team.
+Result
+Shopping success rose from about 50% to 85%.
+Prime Now
+Product Manager, founding · 2015–2017 · Seattle
+Ran
+Founding product manager of the local-store and seller platform.
+Result
+Partner stores in 7 countries by 2017. Out of stock at partner stores fell from 25% to 5%; 40 hours a week of manual work automated.
+Amazon Bedding & Bath
+Vendor Manager · 2014–2015 · Seattle
+Ran
+Owned a $100M+ a year profit and loss, from brand negotiations to supply-chain terms.
+Target, Apple category
+Senior Supply Chain Analyst · 2012–2014 · Minneapolis
+Ran
+Owned supply-chain strategy for a $700M+ a year Apple category across about 1,800 stores.
+Result
+In-stock rate up 24% and market share up 3%. Allocated the iPad mini launch to each store, November 2012.
+Patents and papers: six US patents, 2022 to 2026; three peer-reviewed studies in a Nature Portfolio journal, 2022 and 2023; published research from the Stanford Institute for Human-Centered AI, 2025.
+
+## My approach
+
+I lead AI transformation at two levels: setting the strategy with the CEO and executive team, and working hands-on in the forward-deployed engineer’s role, building the first systems with the teams who will run them.
+
+### Move AI from units of work to systems of work
+
+AI on a unit of work, one step in one function, changes little while the handoffs around it stay the same. I redesign the system of work, the whole chain across functions, and measure it from the first request to the result.
+Prime Now · I took the stores’ spreadsheets, then automated a matched catalog, forecasts and a daily stock upload. Out of stock at partner stores fell from 25% to 5%.
+
+### Decide what “accurate” means before building
+
+I start from the claim a customer will read, and choose the reference the model learns from and is judged against. When the labels are noisier than the claim allows, I change where the labels come from.
+Halo Body · Training labels moved from experts’ eyes to clinical X-ray scans. Published error: 2.16 points, half that of the best smart scale tested.
+
+### Put one customer measure above the model metrics
+
+A model can beat its benchmarks while customers think the product does not work. I run one measure of the customer’s outcome for the whole system, and hold every model metric to it.
+Alexa Shopping · I listened to 1,000 requests a week and wrote how each was judged. Success rose from about 50% to 85%.
+All thirteen principles · Hands-on builds
+
+---
+
+Page: About Njenga Kariuki
+Address: https://njenga.ai/about/
+
+# Njenga Kariuki
+
+I lead AI transformation across Vodacom FinTech Group, including M-PESA: 100M+ customers in eight markets and $2B+ revenue. I report to the CEO and am building the AI Center of Excellence.
+Before that, I spent twelve years at Amazon and AWS building AI products and businesses from zero to one, in software, hardware and mobile apps, across e-commerce, connected devices, supply chain, health and life sciences. I led cross-functional organizations of 100+ engineers, scientists and product managers, directed a $100M+ a year AI investment portfolio, and delivered machine learning, computer vision and large language model capabilities at global scale. Most recently I led product for Amazon Bio Discovery, an agentic AI application for antibody design.
+I hold a master’s degree from Stanford Graduate School of Business, and my research on AI’s global economic impact was published by the Stanford Institute for Human-Centered AI in 2025.
+My approach · Patents and papers · Hands-on builds · Education
+
+## My approach
+
+I still work in the order my operations training taught me: define the problem, measure it, find the cause, fix it, keep it fixed.
+
+### Building an AI product
+
+01 · Prove the problem before the technology · I state the customer problem without naming the technology, and test it apart from the capability before we invest.
+I look for a durable customer problem, one people had before the technology and will still have after it. At Amazon’s Health Computer Vision and AI organization, every new capability had to answer such a problem. We ran customer research and capability experiments side by side, and paused further investment when either lacked proof.
+- Amazon Health AI The products that shipped moved clinic measures onto the phone: body fat, waist-to-hip ratio, and mobility, stability and posture.
+- Alexa Map View Phone room scanning already existed; I restated the problem as whether a customer could easily map a home.
+02 · Own the reference, starting from the claim · I decide what each model is trained and checked against, starting from the claim customers will read.
+The reference decides what accurate means to a customer, so the one product leader accountable chooses it. A claim measured against a clinical instrument needs that instrument’s readings to learn from. When the labels are noisier than the claim allows, I change where the labels come from.
+- Halo Body Training labels moved from fitness experts’ ratings by eye to clinical X-ray (DXA) scans.
+- Halo Movement The target was the score a movement expert would give, later checked against motion capture and clinical tests.
+03 · Measure perceived utility and build around it · I measure how accurate and useful a result feels to the customer, apart from how the model scores.
+A model’s accuracy on benchmarks and the accuracy a customer perceives are separate measures. So I ask customers directly whether a result feels accurate, means something to them and leads them to act. Then I change the model and the interface together, and measure again.
+- Halo Tone Raw chart positions, first shown with two presidents’ voices, were replaced by daily bars and words such as “Hopeful.”
+- Halo Movement The top of the 0 to 100 scale became a product decision: very athletic people rarely scored above 90.
+- Amazon Bio Discovery Checkpoints measured the interface and how useful scientists found it, beyond the models’ scores.
+04 · Keep customer and model metrics in harmony · I run one customer measure for the whole system above model metrics that scientists can improve step by step, and keep the two aligned.
+The customer measure sets the target for each component, because a customer experiences the whole system. Three components that are each 90% accurate leave about one user in four with a problem. Fast rounds of customer feedback keep the two measures moving together.
+- Alexa Shopping Success on each shopping request, judged against my written scoring guide, became the top measure above model metrics.
+- Alexa Map View We worked on ease and map accuracy in the same rounds, and the scan went one room at a time.
+05 · Measure perceived value at 2 and 4 weeks · Novelty lifts a first rating, so I measure perceived value again weeks after first use.
+In my essay of June 2024, I recommended a 4-week test, because engagement starts to drop by week 2. My preferred measure is the Sean Ellis test: how disappointed people would be if they could no longer use the product. Between model versions, small groups of people new to the product react to each change, so their comments shape the next version.
+- Amazon Halo We measured the value Halo members saw at first use and again at about 2 and 4 weeks.
+- Halo Movement Improvement after 2 weeks of exercises became the outcome measure, matching the program’s reassessment point.
+06 · Be first-hand on annotation and labeling · I work on annotation and labeling myself, because a rising score cannot show me what changed for the customer.
+Labeling shows me how a model improved, which improvement it was and how it ties to what customers notice. The scoring guide that others will label by comes from real interactions I have judged myself.
+- Alexa Shopping I listened to 1,000 requests a week and judged each request and reply as success or failure.
+- Halo Tone I defined what listener panels rated, from happy to sad and low to high energy; ratings became training labels.
+- Prime Now I sat in the stores, asked for whatever data they had, and designed the catalog matching around it.
+07 · Turn coarse feedback into named dimensions · I turn coarse customer feedback into named dimensions, each with a measure the team can improve.
+Each dimension then enters the evaluation with its own measure, so the team can track it from one model version to the next. Some dimensions sit outside the model: in products with complex input steps, the input step is part of the quality customers perceive.
+- Halo Tone Customers wanted to see how their voice varied, so that variation, dynamism, became a measured dimension.
+- Halo Movement Customers wanted variety in live workout feedback, so dynamism became a measured dimension of the workouts.
+- Halo Body The scan itself became a measured part of quality, and from August 2021 it worked in smaller rooms.
+08 · Measure on real-world data, beyond lab demos · I judge models on data from real use, measured against the real outcome.
+What people perceive in the lab and in daily life differs sharply. A demo on curated lab data is the easy part. Most of the work is moving it into daily use, and I plan for that from the start. The warning sign is a model that beats industry benchmarks while users think the product does not work.
+- Prime Now Store stock changed daily, so each store got forecasts and an automated daily upload of its inventory.
+- Halo Tone I measured the whole audio path in daily wear, band to phone, against the accuracy customers perceived.
+- Amazon Bio Discovery In antibody design, lab measurements of binding became the reference; models’ confidence scores showed little correlation with them.
+09 · Codify the measure-and-improve loop for others · I write down how we measure and improve, as scoring guides, procedures and standards, so others can run it without me.
+The core team first agrees on what counts as an error, and writes an example set for each one. Any ambiguity in the core team grows once a labeling team applies the rules. Written rules let labelers agree with each other, and let other teams run the same measures.
+- Alexa Shopping My error definitions, each with example cases, became the procedures that a team of 10 data analysts applied.
+- Amazon Health AI Body fat, mobility and waist-to-hip ratio were each tested against a named clinical reference in a published study.
+- M-PESA Africa A written standard for AI in work that moves money: every check still runs.
+
+### Leading the organization that builds it
+
+10 · Lead at two levels: the strategy and the work · I set the strategy with the CEO and executive team, and go hands-on in the work itself, in the forward-deployed engineer’s role.
+A working prototype on a team’s own work shows what the technology can do. So I build the first version with the people who will run it. The executive work decides which chains of work change; the hands-on work shows how they can.
+- M-PESA Africa I set the direction reporting to the CEO, and build the first versions with the teams that redesign each chain of work.
+- Prime Now I learned to code to automate the stores’ uploads myself, before the system ran for every store.
+- Alexa Shopping I listened to 1,000 shopping requests a week while leading the evaluation team.
+11 · Change how the team itself works · I change how my own organization works in short cycles, and keep only the changes that hold up.
+In Amazon’s health AI teams, a product manager, a designer and a group of engineers spent each Friday on one charter: “build something that won’t work.” At AWS, I made the product organization itself AI-native, from how we defined products to how we built them.
+- Amazon Health AI Ideas from the Friday builds still had to pass the same two proofs before investment scaled.
+- Amazon Bio Discovery Alongside the product, the organization moved to AI-native ways of defining and building products.
+12 · Change what teams and people are measured on · People work toward what they are measured and promoted on, so I change the measures first.
+At Prime Now, each new country was measured on revenue, a goal that did not reward growing two-hour delivery. I proposed measuring each country on its percentage growth instead, and leadership adopted it.
+- Prime Now Each country’s goal moved from revenue to percentage growth.
+- M-PESA Africa Each changed workflow is measured end to end, against a comparison group working the old way.
+13 · Measure the whole time the customer waits · I measure the whole time a customer waits, because AI that speeds up one step changes little while the handoffs around it stay the same.
+If AI halves a two-day step in a 10-day process, the customer waits nine days instead of 10. The other eight days are handoffs, approvals and waiting. So I measure from the first request to the result, and change the steps around the AI along with the step it speeds up.
+- M-PESA Africa Where the time goes in one workflow: halving the waiting saves more than halving the work.
+- Amazon Bio Discovery Bench scientists had waited for computational biologists to run models; Bio Discovery put both in one application.
+
+## Patents and papers
+
+2022–2026
+- 2022 · Peer-reviewed study · [Smartphone camera based assessment of adiposity: a validation study](https://www.nature.com/articles/s41746-022-00628-3) · A clinical test of how closely Halo Body’s phone scan measured body fat.
+- 2022 · US 11,393,462 · Patent · [System to characterize vocal presentation](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11393462) · Tells a wearer how their voice sounded to others across a conversation, in a few descriptive words.
+- 2022 · US 11,430,467 · Patent · [Interaction emotion determination](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11430467) · Scores how the wearer sounded in each conversation and, over time, shows it for each person they talk with often.
+- 2022 · Peer-reviewed study · [Validation of Amazon Halo Movement: a smartphone camera-based assessment of movement health](https://www.nature.com/articles/s41746-022-00684-9) · A test of whether Halo Movement’s phone score for mobility, stability and posture matched clinical measures.
+- 2022 · US 11,462,218 · Patent · [Conserving battery while detecting for human voice](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11462218) · A wearable that puts its microphone to sleep between short checks for the wearer’s voice, to save battery.
+- 2023 · US 11,632,456 · Patent · [Call based emotion detection](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11632456) · During a phone call, the wearable samples the wearer’s voice more often, and the phone shows how the call sounded.
+- 2023 · Peer-reviewed study · [Development and validation of an accurate smartphone application for measuring waist-to-hip circumference ratio](https://doi.org/10.1038/s41746-023-00909-5) · A test of how closely the Halo app measured waist-to-hip ratio, a body-shape measure linked to disease risk.
+- 2023 · US 11,783,834 · Patent · [Conserving battery while detecting for human voice](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11783834) · A later patent built on the battery patent: how the device times its checks for voice.
+- 2024 · Essay · [3 Lessons for PMs Building B2C AI Products](https://medium.com/@njenga.kariuki/top-3-lessons-for-pms-building-b2c-ai-products-2f0d587d01d6) · An essay for product managers who build business-to-consumer AI products, drawn from Alexa shopping and Halo.
+- 2025 · Published research · [Artificial Intelligence Index Report 2025, Chapter 4: Economy](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf) · Research from the Stanford Institute for Human-Centered AI on AI’s global economic impact: investment, jobs, company use and robot installations.
+- 2026 · US 12,586,583 · Patent · [Power state control of a device performing detection of voice in audio data](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12586583) · A wearable that learns when its wearer’s voice tends to start, and times its low-power sleep to match.
+
+## Hands-on builds
+
+[GitHub](https://github.com/njenga-kariuki)
+I build AI applications myself, because a leader learns what the technology can do by using it every day, and a working prototype shows a team what AI does with its own work.
+- 2025 · February–June 2025 · [Ask Heidi](https://github.com/njenga-kariuki/AskHeidiAI) · Built for my mentor Heidi Roizen and published by her venture firm on its site: founders seeking its funding could ask a question and get an answer from 688 entries of her published advice, each linked to its source. · [Watch the walkthrough · 3 min](https://www.loom.com/share/24b23383e9f34d6ab663bd1a069a6fd0)
+- 2025 · March–April 2025 · [Math Reasoning Annotation Tool](https://github.com/njenga-kariuki/math-annotation-tool-demo) · A reviewer marks the first wrong step in an AI-written math solution, names the error and guides each revision.
+- 2025 · April–June 2025 · [Video-to-Workflow Capture](https://github.com/njenga-kariuki/Automate-Any-Workflow-POC) · A proof of concept that turns a narrated screen recording into an editable diagram of the workflow. · [Watch the walkthrough · 5 min](https://www.loom.com/share/d8724535ef7c4da589168639d906facf)
+- 2025 · May–June 2025; rebuilt September 2026 · [ChatPRFAQ](https://github.com/njenga-kariuki/ChatPRFAQ) · Turns a short product idea into a researched press release and frequently asked questions, the document Amazon writes before building. · [Watch the walkthrough · 5 min](https://www.loom.com/share/7fa90080455846d2a626f6a45d65a4f2)
+- 2026 · February–May 2026 · [AI Daily Digest](https://github.com/njenga-kariuki/ai-daily-digest) · Collects the day’s AI reading from eight kinds of source, writes a briefing linked to earlier coverage, and emails it.
+
+## Education
+
+- 2024–2025 · Stanford Graduate School of Business · Master of Science in Management
+- 2008–2012 · University of St. Thomas, Opus College of Business · B.A. in Business Administration, Operations Management
+
+---
+
+Page: M-PESA Africa: AI transformation | Njenga Kariuki
+Address: https://njenga.ai/m-pesa/
+
+2026–today · Vodacom FinTech Group
+
+# M-PESA Africa
+
+AI transformation of mobile money and financial services, for 100M+ customers in eight African markets.
+M-PESA in Safaricom’s app in Kenya, 2026: the home screen. · 1 / 3
+Role
+Managing Executive: AI, reporting to the CEO
+Scale
+100M+ customers in eight markets; $2B+ revenue
+Now
+End-to-end redesign of work under way across the group’s markets
+I lead AI transformation across Vodacom FinTech Group, including M-PESA, reporting to the CEO. I set the direction, from single AI tasks to whole chains of work redesigned across functions, and I am building the AI Center of Excellence that holds every change to one standard. I also work hands-on with the teams, building the first versions of each redesigned chain of work.
+
+## What I decided
+
+### Set the strategy: from units of work to systems of work
+
+A unit of work is one task in one function, done faster with AI. A system of work is the whole chain of steps, across functions, that a customer or a colleague waits on. The chain is what we redesign.
+
+### Held AI to one standard: every check still runs
+
+When AI changes work that moves people’s money, every check still runs, screening and fraud included. Legal, risk and compliance join from the start and keep their sign-off. AI assists people before it automates a step.
+
+### Judged each change by two results
+
+Time end to end, against a comparison group working the old way, and value that finance signs off. Each workflow then ends in a decision: scale it, continue, narrow it or stop.
+
+## How it worked
+
+Before
+
+### Mobile money at scale, with most of the time spent waiting
+
+Safaricom and Vodacom set up M-PESA Africa in 2020 to develop M-PESA, their mobile money service, as one platform. I own the AI roadmap for customer experience, revenue growth, risk, fraud and operational efficiency. I measure each workflow from the first request to the result, because most of its time is spent waiting between steps.
+01 Units
+
+### AI on one task changes little
+
+AI that speeds up one task in one function leaves the handoffs around it as they were, so the customer still waits. We started there, with pilots inside single functions, and that work continues: it builds the skills and the proof.
+02 Systems
+
+### The whole chain, redesigned across functions
+
+We bring together the functions that share a chain of work, then redesign it with AI and automate it end to end. That move is under way across the group’s markets. Which workflows, and their results, stay internal while the work runs.
+03 Standard
+
+### High-risk steps stay with a person
+
+Steps with high compliance risk stay with a person. Legal, risk and compliance teams set the conditions for each change and keep their sign-off. Each market owns its results.
+04 People
+
+### The people who will use it
+
+The AI Center of Excellence sets shared standards for AI across eight markets and trains the people who use them: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
+A drawing of the idea.
+Sources
+Next
+Amazon Bio Discovery
+2025–2026
+
+---
+
+Page: Amazon Bio Discovery | Njenga Kariuki
+Address: https://njenga.ai/bio-discovery/
+
+2025–2026 · AWS Applied AI, Life Sciences
+
+# Amazon Bio Discovery
+
+Scientists design antibodies with AI agents in one application, and partner labs test the designs.
+Choosing the target protein, then asking for recommended binding sites. · 1 / 2
+Role
+Head of Product, AWS Applied AI, Life Sciences, from the start to the launch
+Scale
+Directed a cross-functional organization of 100+ engineers, scientists and product managers
+Launched
+14 April 2026, at the AWS Life Sciences Symposium in New York
+I led product for Amazon Bio Discovery, an agentic AI application for antibody design, from its start to its launch on 14 April 2026, with an organization of 100+ engineers, scientists and product managers. Memorial Sloan Kettering said its launch campaign went from target to lab order in weeks.
+
+## What I decided
+
+### Set the bar at the scientists’ own work
+
+Drug discovery scientists work at the frontier of their field, so my bar was a product that fit the way they already worked. Access to models was only the first step. Fitting them into daily work meant working closely with those scientists.
+
+### Checked the interface and its usefulness
+
+From my earlier products I brought frequent checkpoints on two things beyond the models: the interface, and how useful scientists found it. Our team ran a design campaign with Memorial Sloan Kettering Cancer Center (MSK), and the scientists’ feedback shaped the product.
+
+### Launched once the product met the bar
+
+We checked each version against that bar and launched when the product met it. It opened on 14 April 2026 with AI agents and more than 40 biological AI models.
+
+## How it worked
+
+Before
+
+### Months from a target to a candidate
+
+A paper AWS published at launch put conventional antibody discovery at 6 to 12 months, from a target protein to the antibody chosen for development. Scientists had little control over where on the target an antibody would bind. Bench scientists knew the biology and waited for computational biologists to run the models.
+Conventional discovery took 6 to 12 months from a target to the antibody chosen for development; with Bio Discovery, the launch campaign reached a lab order in weeks.
+01 Ask
+
+### The agent proposes where to bind
+
+A scientist uploads a target protein and presses “Recommend hotspots,” and an AI agent proposes where on the protein to bind. The agent runs bioinformatics tools, and a language model turns their results into ranked regions, each with written evidence. On known antibody-target pairs, one of its top five regions overlapped the true binding site about 80% of the time.
+The agent’s ranked binding regions on a target, each with its evidence and rationale.
+02 Design
+
+### Three models, 288,000 designs
+
+In the campaign with MSK, three design models, each working a different way, produced 96,000 nanobody designs apiece: 288,000 in all. A nanobody is a small antibody. The run used 2,000 GPUs in two AWS regions.
+A workflow built from models in the catalog, ready to publish for others to run.
+03 Judge
+
+### What a design must pass to reach a lab
+
+A second agent ranked the designs on five scores at once and kept the best trade-offs, until 100,000 remained.
+An illustration with two of the five scores: the agent kept the best trade-offs first, then the next best, until 100,000 remained.
+04 Test
+
+### Only a lab test confirms a binder
+
+Twist Bioscience, a launch lab partner, made the DNA for 100,000 designs, and a first lab screen sent 116 on to a binding test. Of the 116, 46 were confirmed to bind the target.
+Each lab result returns to the experiment that produced it and is checked before any model retrains on it. At launch, MSK said the campaign went from target to a lab order in weeks.
+Sending selected designs to a partner lab, with cost and time estimates.
+
+## The launch campaign, design by design
+
+## Launch
+
+At launch: candidate designs filtered to the ones sent for lab testing.
+“Patients come here with a clock. We need results sooner.”
+Nai-Kong Cheung of Memorial Sloan Kettering, in Amazon’s launch announcement
+Amazon Bio Discovery opened on 14 April 2026 at the AWS Life Sciences Symposium in New York. Scientists could design with its agents and more than 40 models, and send designs to partner labs with cost and turnaround shown before ordering. Amazon named Bayer, the Broad Institute, Fred Hutch Cancer Center and Voyager Therapeutics as early adopters.
+
+## What came next
+
+On 10 August 2026, Novo Nordisk made AWS its preferred cloud provider and strategic AI partner, and said it would use Bio Discovery to identify drug targets and design therapies faster. In October 2026, NVIDIA and the University of Washington’s Institute for Protein Design released an open protein design model, “available today through partners including Amazon Bio Discovery.”
+Sources
+Next
+Stanford AI Institute
+2024–2025
+
+---
+
+Page: Stanford AI Institute | Njenga Kariuki
+Address: https://njenga.ai/ai-index-2025/
+
+2024–2025 · Stanford Institute for Human-Centered Artificial Intelligence (HAI)
+
+# Stanford AI Institute
+
+Published research on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots, measured from five sources.
+The AI Index Report 2025, published 7 April 2025.
+Role
+Author of the text and analysis
+Research
+AI investment, jobs, enterprise adoption and robots
+Published
+7 April 2025, by Stanford HAI, in its [AI Index](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf)
+I wrote the text and analysis of published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots. HAI published it on 7 April 2025 as the economy chapter of its AI Index, Stanford’s annual report on the state of AI.
+
+## What I decided
+
+### Measured the economy in five layers
+
+The chapter measured AI in the economy in five layers, each from its own data source, LinkedIn and McKinsey among them: investment, job postings, hiring, company use and robot installations.
+
+### Wrote it in two-week memo cycles
+
+Until April 2025 I brought a memo of 4 to 6 pages to the team’s weekly meeting every two weeks, sometimes every week.
+
+### Opened with ten findings, each with a comparison
+
+Ten findings open the chapter, each with a claim, a number and a comparison. In 2024, US private AI investment reached $109.1 billion, nearly 12 times China’s $9.3 billion.
+
+## How it worked
+
+Before
+
+### One chapter for what AI was doing to the economy
+
+The AI Index is Stanford’s annual report on the state of AI, written for policymakers, executives, journalists and the public by HAI. In 2024 I joined it as a graduate researcher, and my assignment was the economy.
+01 Define
+
+### Each number rests on a printed rule
+
+A posting counted as an AI job only if it named a skill on Lightcast’s list of AI skills. Robot data run a year behind, so the chapter reported installations for 2023.
+“This chapter examines AI-related economic trends using data from Lightcast, LinkedIn, Quid, McKinsey and the International Federation of Robotics (IFR).” The chapter’s overview, page 3.
+
+### Five layers, one year at a time
+
+Each layer has its own source and its own units, from investment in AI to robot installations.
+The data as a table
+Five data sources, one for each layer: values as printed, 2018 to 2024
+Measure, source and unit · 2018 · 2019 · 2020 · 2021 · 2022 · 2023 · 2024
+Investment, Quid private AI investment, world, billions of US dollars · 43.10 · 58.18 · 73.79 · 145.40 · 113.01 · 104.34 · 150.79
+Job postings, Lightcast % of US job postings · 1.38% · 1.52% · 1.37% · 1.49% · 1.69% · 1.39% · 1.79%
+Hiring, LinkedIn US AI hiring rate, yearly change (December) · 18.62% · 18.32% · 15.58% · 5.50% · 4.33% · −0.73% · 24.73%
+Company use, McKinsey % of respondents who say their organization uses AI · 47% · 58% · 50% · 56% · 50% · 55% · 78%
+Robots installed, IFR robots installed, world, thousands · 423 · 387 · 390 · 526 · 553 · 541 · No data
+02 Write
+
+### New research, in the chapter within eight weeks
+
+Anthropic published its study of how people used its Claude assistant on 10 February 2025, and eight weeks later it was a four-page highlight in the chapter.
+“Text and analysis by Njenga Kariuki”: the chapter’s opening page.
+03 Find
+
+### Three layers, three comparisons
+
+Global corporate AI investment reached $252.3 billion in 2024, up 25.5% from 2023. The share of survey respondents whose organizations used AI rose to 78%, from 55% in 2023. China installed 276,300 industrial robots in 2023, six times Japan’s number.
+Global corporate investment in AI, 2013 to 2024.
+04 Publish
+
+### The chapter and its data go out together
+
+The chapter runs 77 pages, with 89 figures and an appendix on where each measure comes from. Each chart carries a source line, and the chart data are published as public files.
+“U.S. private AI investment hit $109.1 billion in 2024, nearly 12 times higher than China’s $9.3 billion…” The third of the chapter’s highlights, page 4: a claim, a number and a comparison.
+
+## The chapter’s figures, published and then cited
+
+## Launch
+
+“Business is all in on AI, fueling record investment and usage”
+One of the 2025 AI Index’s top takeaways, built on the chapter
+HAI’s launch press release of 7 April 2025 used the chapter’s figures for investment and adoption.
+
+## What came next
+
+In October 2025, a Federal Reserve Board research note reproduced the chapter’s data on private AI investment and credited the 2025 AI Index. In January 2026, a White House Council of Economic Advisers report cited the chapter’s figures on investment and adoption, and reproduced its 2024 country ranking.
+The White House Council of Economic Advisers, 2026: the chapter’s country ranking of AI investment.
+Sources
+Next
+Alexa Map View
+2023–2024
+
+---
+
+Page: Alexa Map View | Njenga Kariuki
+Address: https://njenga.ai/map-view/
+
+2023–2024 · Alexa Smart Home, Amazon
+
+# Alexa Map View
+
+A phone scan becomes a floor plan of the home, with every smart device on it, controlled from the map.
+Amazon’s Map View film, 2023: scan a room, then control a device from the map.
+Role
+Led the Alexa app’s smart home features and took Map View to launch
+Scale
+50M+ monthly users of the app’s smart home features
+Launched
+November 2023, in the United States
+I led the Alexa app’s smart home features, used by 50M+ people a month, and took Map View to launch in November 2023: a phone scan becomes a floor plan with every device on it. The mapping technology existed; the problem I owned was ease.
+
+## What I decided
+
+### Named ease as the hard problem
+
+Phones could already measure a room: the iPhone 12 Pro gained LiDAR in 2020, and Apple gave developers a room-scanning tool in 2022. The question I owned was whether a customer could map a whole home.
+
+### Set a measured bar for ease
+
+Customers rated “Scanning my home to create a Map View is incredibly easy” on a 7-point scale. The scan had to reach 5.5, with the map still accurate.
+
+### Worked ease and accuracy in the same cycles
+
+Ease ratings and checks of the map against the real home changed the coaching, the flow and the editor in the same rounds, so one never improved at the other’s cost. The scan went one room at a time.
+
+## How it worked
+
+Before
+
+### One list for every device
+
+In September 2023, Amazon said customers had connected more than 400 million smart home devices to Alexa, and millions of them had more than 20. In the Alexa app, each device was a row in one list, found by its name.
+Amazon’s devices event, 20 September 2023: the slide before Map View.
+01 Scan
+
+### Walk the room with the phone
+
+A customer held up a Pro iPhone and walked one room at a time. White lines traced the walls and furniture as a small 3D model of the room grew on screen.
+Map View’s scan, in Amazon’s 2023 film: white lines trace a kitchen.
+02 Join
+
+### Depth becomes a floor plan
+
+The LiDAR scanner measured depth as the customer walked, and software on the phone found the walls, doors, windows and furniture. Camera images were processed on the phone and not stored. Each new room joined the last at the doorway the customer chose.
+03 Place
+
+### Drag each device onto its room
+
+Lights, speakers, plugs and the thermostat became pins on the plan. Beta customers and research showed that seeing status at a glance mattered, so each pin showed its device’s live state from Alexa.
+Map View in the Alexa app: each device on its room, with its state.
+04 Control
+
+### Tap the map to run the home
+
+A tap on a pin sent the command through Alexa to the light, plug or thermostat. Every device on the map works: tap one to switch it.
+A coffee maker’s plug switched from the map, in Amazon’s 2023 film.
+Drawing of the flow, from Amazon’s published descriptions.
+
+## Time to set up, as each source measured it
+
+## Launch
+
+Amazon’s press image for Map View’s launch, September 2023.
+“Finally, no more scrolling through an endless list of devices.”
+The Verge, on Map View’s launch
+Announced on 20 September 2023 and launched in November 2023 for customers in the United States who had signed up. At CES in January 2024, Samsung, LG and TP-Link’s Tapo showed map-based controls of their own.
+
+## What came next
+
+On 28 October 2026, Amazon announced Alexa Home Map, a 3D successor that keeps Map View’s steps: scan each room, place each device, control it from the map. The Verge called it “a ground-up rebuild of the map view that launched in 2023.”
+Alexa Home Map on an Echo Show 16, 2026.
+Sources
+Next
+Amazon Health AI
+2021–2023
+
+---
+
+Page: Amazon Health AI | Njenga Kariuki
+Address: https://njenga.ai/health-ai-portfolio/
+
+2021–2023 · Amazon Health AI
+
+# Amazon Health AI
+
+An organization that turned phone-camera images into health measures: body fat, waist‑to‑hip ratio, and mobility, stability and posture.
+Halo Movement’s detailed results, 2021: mobility and stability by body region. · 1 / 2
+Role
+First product lead of Amazon’s Health Computer Vision and AI organization
+Scale
+100+ scientists and engineers; a $100M+ a year investment portfolio I directed
+Validated
+Three studies in npj Digital Medicine: [Body](https://doi.org/10.1038/s41746-022-00628-3) and [Movement](https://doi.org/10.1038/s41746-022-00684-9) in 2022, [waist-to-hip](https://doi.org/10.1038/s41746-023-00909-5) in 2023
+I was the first product lead of Amazon’s Health Computer Vision and AI organization: 100+ scientists and engineers and a $100M+ a year portfolio. I tied further investment to two proofs: real customer value and a capability that worked. Three of its products were validated in npj Digital Medicine.
+
+## What I decided
+
+### Brought the leaders together on one direction
+
+I brought the organization’s leaders together for three days to agree on one direction: using the camera in everyone’s phone to help people live healthier lives.
+
+### Required two proofs before scaling investment
+
+Each new capability needed both proofs: a customer problem stated without the technology, and experiments showing the capability worked. If either was missing, we paused further investment.
+
+### Chose each measure’s clinical reference first
+
+For each product, I chose the clinical reference by starting from the claim we needed to publish. All three studies appeared in npj Digital Medicine, a Nature Portfolio journal.
+
+## How it worked
+
+Before
+
+### Every measure needed a clinic and an instrument
+
+Body fat came from a clinical X-ray (DXA) scan, a movement assessment from a motion-capture suit and a physical therapist, and a waist-to-hip ratio from trained staff with a tape. Each needed a clinic and trained staff.
+Each measure in a clinic, and with the phone.
+01 Direction
+
+### One organization, from research to products
+
+In 2021 I became the first product lead of Amazon’s Health Computer Vision and AI organization, which ran from research and development to commercial products.
+02 Measure
+
+### What the camera asked, and what came back
+
+Halo Body estimated body fat from phone photos, and from August 2021 its scan worked from the knees up, for members in smaller rooms. Halo Movement scored mobility, stability and posture from 0 to 100, from five exercises filmed by a phone on the floor. A third model estimated waist-to-hip ratio, a body-shape measure linked to disease risk, from three photos taken to voice prompts.
+Halo Body’s result, in Amazon Science’s June 2021 article on how it worked: a 3D model and body fat.
+03 Reference
+
+### Each measure against its own reference
+
+Body was tested against clinical DXA scans at two clinical sites, Movement against a motion-capture suit and clinical tests. The waist-to-hip model was tested against tape measurements by trained staff and laser body scans.
+
+### Three products, three clinical references
+
+Each product was checked against its own clinical reference.
+The data as a table
+Product · The phone saw · Checked against · The result · Published
+Body · Front and back photos · DXA, a clinical X-ray scan · About half the error of the best smart scale · npj Digital Medicine, June 2022
+Movement · Video of five exercises · A motion-capture suit and 13 clinical tests · Told apart athletes, healthy adults and adults with impaired movement · npj Digital Medicine, September 2022
+Waist-to-hip · Front, side and back photos · Tape measures by trained staff · About half the error of people measuring themselves · npj Digital Medicine, September 2023
+04 Gate
+
+### Friday builds with a 1% chance of working
+
+Some ideas started as Friday builds: each Friday a product manager, a designer and a group of engineers took on one charter, “build something that won’t work.” We chose builds with about a 1% chance of working and a tenfold gain on a business metric if they did.
+
+## Average error in waist-to-hip ratio, against trained staff with a tape
+
+## Launch
+
+On 28 September 2022, at Amazon’s devices event, I introduced Halo Rise, a bedside sleep tracker built by Amazon’s Halo Rise team.
+
+## What came next
+
+The waist-to-hip study was published in September 2023. In June 2024 I published the method we ran, in an essay for product managers building consumer AI products.
+From the 2023 paper: the app’s waist-to-hip ratio against tape measurements by trained staff.
+Sources
+Next
+Halo Movement
+2019–2021
+
+---
+
+Page: Halo Movement | Njenga Kariuki
+Address: https://njenga.ai/halo-movement/
+
+2019–2021 · Amazon Halo
+
+# Halo Movement
+
+An assessment of mobility, stability and posture from phone video, with a personal exercise program to improve them.
+Amazon’s results screen, June 2021: an overall score of 71, “Good.”
+Role
+Product lead for Movement, end to end
+Validated
+[npj Digital Medicine, 2022](https://www.nature.com/articles/s41746-022-00684-9)
+Result
+More than 80% of members who exercised for two weeks improved
+I led Halo Movement end to end: a movement score and program from phone video. I set the score to match a movement expert’s judgment, and cut 10 to 15 exercises to five. Of members who exercised for two weeks, more than 80% improved.
+
+## What I decided
+
+### Set the score to match an expert’s judgment
+
+I set the target as the score a movement expert would give. Experts annotated example videos with each error and its severity. A published study then checked the score against motion capture and clinical tests.
+
+### Cut 10 to 15 exercises to five
+
+Our fitness experts first proposed 10 to 15 exercises, and many were hard for ordinary people. With the computer vision team, I cut the set to five and kept the score aligned with an expert’s.
+
+### Built real-time feedback into the workouts
+
+We built real-time feedback into the workouts to make them dynamic, accurate and rich, which motivated people once they had a score. When members asked for more variety in that feedback, we made variety a measured dimension.
+
+## How it worked
+
+Before
+
+### A movement screen needed a professional
+
+Everyone wants to improve their mobility. A full clinical screen needed a physical therapist and equipment: a goniometer to measure joint angles, foam pads, a hurdle and a plumb line. My goal was a professional-grade mobility assessment and personal exercises, at home, with only a phone.
+01 Film
+
+### Five movements, filmed on the phone
+
+A member stood the phone on the floor, leveled it with an on-screen guide, and stepped back into a square framing the body. Five movements followed, including a single-leg balance and an overhead squat, in under 10 minutes. The video was encrypted, analyzed in Amazon’s cloud within seconds and deleted, and no person saw it.
+The app’s setup screen in the 2022 study, redrawn: the phone ready to record.
+02 Score
+
+### A score out of 100, from the errors an expert would see
+
+Weighted errors became scores for mobility, stability and posture, by body area. The scale ran up to Olympic athletes, so even the most athletic people using Halo would rarely score above 90.
+
+### What a score of 81 meant
+
+A score made sense beside the 2022 study’s three groups: athletes, healthy adults and adults with impaired movement.
+The data as a table
+Average score by group in the 2022 study
+Group · Average score
+Athletes · About 87
+Healthy adults · About 81
+Adults with impaired movement · About 68
+03 Program
+
+### A program aimed at the errors found
+
+The same errors chose the corrective exercises in the member’s program: five to seven routines from a library of 35 corrective exercises by the physical therapist Kelly Starrett, each 5 to 10 minutes, at least three times a week.
+04 Reassess
+
+### A new assessment after two weeks
+
+The app recommended two weeks of exercises before a new assessment. Of members who did the recommended exercises for two weeks and reassessed, more than 80% improved.
+Amazon’s Movement Health explainer, 2021.
+A drawing of the idea.
+
+## Launch
+
+Amazon’s graphic announcing Movement, June 2021: “Tools to improve the way you move.”
+“Like having a personal trainer and physical therapist in your pocket”
+TODAY (NBC News), the day after Movement went live
+Amazon announced Movement Health on 3 June 2021. It went live on 30 June 2021, included in the $3.99-a-month Halo membership.
+
+## What came next
+
+On 6 September 2022, npj Digital Medicine, a Nature Portfolio journal, published the validation study. The score separated athletes, healthy adults and adults with impaired movement.
+Sources
+Next
+Halo Tone
+2018–2021
+
+---
+
+Page: Halo Tone | Njenga Kariuki
+Address: https://njenga.ai/halo-tone/
+
+2018–2021 · Amazon Halo
+
+# Halo Tone
+
+The Halo Band sampled the wearer’s voice; the phone showed how it sounded to others, in words such as “Hopeful.”
+Launch illustration of Tone, 2020: the day’s tones and two notable moments. · 1 / 2
+Role
+Led Tone end to end, from the listener panels to launch
+Patents
+Six US patents, granted 2022 to 2026
+Launched
+August 2020, in the United States
+I led Halo Tone end to end: how your voice sounds to others, analyzed on the phone. I defined what that meant, built the listener panels that taught the model, and set the audio sampling the band’s battery was designed around. Six US patents came from it.
+
+## What I decided
+
+### Took the training labels from listener panels
+
+How a voice sounds to others is a judgment people make, so the model’s labels came from listener panels. I defined what the panels rated and how they were built.
+
+### Sampled the least audio a result needed
+
+I worked back from the least audio a meaningful result needed. That became the hardware team’s requirement for the band’s battery and size. Three of the six patents describe this sampling.
+
+### Replaced four labels with two scores and words
+
+The first model aimed at accuracy on four labels: happy, sad, low energy and high energy. Playing results back to customers did not work: people wanted to know what a result meant. So we moved to two continuous scores and plain words.
+
+## How it worked
+
+Before
+
+### No measure for how you come across
+
+Social well-being affects long-term health, and there was no good measure of it. Tone began with a demo that placed the voices of two US presidents on two axes, energy and positivity. The two voices fell far apart.
+01 Rate
+
+### Listeners rated the clips the model learned from
+
+Panels of listeners rated short clips from happy to sad and from low to high energy. Their ratings became the labels the model learned from. Amazon said its employees rated tens of thousands of voices across US regions and demographic groups.
+Each listener rates the same clip; together their ratings set its label.
+02 Score
+
+### Two scores for every stretch of speech
+
+The model gave each stretch of speech two scores: positivity, how happy or sad it sounded, and energy, how excited or tired. In live mode, the voice moved around a positivity and energy graph with each word.
+
+### Two scores, one word
+
+Tone placed each voice reading on two scales, energy and positivity, and named its region with a word, such as content or irritated.
+Illustration
+The data as a table
+The word for each region of energy and positivity
+Word · Energy · Positivity · Other words
+Excited · Higher · Higher · amused, delighted
+Content · Lower · Higher · appreciative, caring
+Worried · Lower · Lower · reserved, discouraged
+Irritated · Higher · Lower · displeased, enraged
+03 Describe
+
+### Plain words for the day, such as “Hopeful”
+
+Tone showed the day’s moments as plain words with times, such as “Hopeful” at 10:30 AM. Customers wanted to see how their voice varied, so we made that variation a measured dimension.
+Amazon’s Halo launch film, 2020: the day’s notable moments, each a word and a time.
+04 Sample
+
+### Sample just enough voice to save the battery
+
+The band sampled speech at intervals through the day, which saved its battery. In the patents’ example, a wearable that listens nonstop lasts under 10 hours on a charge. One that sleeps between checks lasts 2 days or more.
+Battery life on one charge, in the patents’ example.
+05 Protect
+
+### Only the wearer’s voice, and no audio kept
+
+I defined the path from band to phone and balanced its privacy and legal requirements so Tone could launch. The band sent short, encrypted segments to the phone, which kept only the wearer’s speech, analyzed it and deleted the audio. Only positivity and energy summaries reached Amazon’s cloud, and no one heard a recording.
+The audio’s path: what leaves each step gets smaller.
+
+## Six US patents, by grant date
+
+Drawn from each patent
+
+## Launch
+
+“I found the Tone feature to be eerily accurate”
+Android Central’s review of Amazon Halo, September 2020
+Tone launched with Amazon Halo on 27 August 2020, in early access in the United States.
+
+## What came next
+
+Amazon’s next band, Halo View, announced in September 2021, had no microphone; its owners ran Tone live on the phone.
+Sources
+Next
+Halo Body
+2018–2021
+
+---
+
+Page: Halo Body | Njenga Kariuki
+Address: https://njenga.ai/halo-body/
+
+2018–2021 · Amazon Halo
+
+# Halo Body
+
+A phone scan that returned a member’s body fat percentage and a 3D model of their body.
+Halo Body at launch, 2020: a member’s 3D model, body fat and weight.
+Role
+Product lead for Body, end to end
+Validated
+[npj Digital Medicine, 2022](https://www.nature.com/articles/s41746-022-00628-3)
+Accuracy
+About half the error of the best smart scale, against a clinical scan
+I led Halo Body end to end: body fat and a 3D model from a phone scan. Amazon’s CEO set the challenge, a scan close to the best body fat scanners. I moved its training labels to clinical instruments; in the published study its error was about half the best smart scale’s.
+
+## What I decided
+
+### Started from the claim we could publish
+
+I started from what the customer would read: an accuracy claim we could publish. A claim measured against the most accurate scanners needed their readings to learn from.
+
+### Moved the training labels to clinical instruments
+
+Our first models learned from fitness experts who judged body fat by eye. We changed the labels to readings from reference instruments: the model we validated learned from the body fat values of clinical X-ray (DXA) scans and never saw the images.
+
+### Made the scan itself part of quality
+
+Feedback showed the scan itself was part of the quality members perceived, so we measured and improved it. From August 2021, members could stand about 1 to 2 feet (30 to 60 centimeters) closer, so Body worked in smaller rooms.
+
+## How it worked
+
+Before
+
+### An accurate body fat number needed a clinic
+
+In 2020, measuring body fat accurately meant a DXA scan in a clinic, with a doctor’s prescription. An accurate scan cost people $75 to $150, a price we judged too high for customers.
+01 Capture
+
+### Four coached photos, in any room
+
+The aim was a fully automatic phone scan that worked at home, in any room and any light. A member stood 4 to 6 feet (1.2 to 1.8 meters) from the phone, in tight, minimal clothing, for four coached photos: front, back and each side.
+
+### The capture coach, step by step
+
+The app coached four photos, checking the phone’s level, the distance and the pose, so any room could produce a usable scan.
+Illustration
+The data as a table
+The four steps of a scan
+Step · What the app coached
+Level · The phone stands upright on a surface, about knee to waist high.
+Distance · The member steps back, about 4 to 6 feet (1.2 to 1.8 m).
+Pose · Arms and legs move into the outline on the screen.
+Photos · Four photos: front, back, left and right.
+02 Analyze
+
+### Three neural networks, results in seconds
+
+In Amazon’s cloud, one neural network separated the person from the room. A second read body fat from the front and back photos only, and a third built a 3D model from the silhouettes. Results came back in seconds.
+03 Show
+
+### A 3D model, a number and a slider
+
+Each member saw a 3D model of their own body beside their body fat percentage. A slider showed the same body at more or less body fat. The Verge, a technology news site, wrote that the slider “could also be literally dangerous for people with body dysmorphic disorder.” From launch day it stopped at the bottom of a healthy range for the member’s sex and age, and Body was for adults only.
+The same body at less body fat, down to the slider’s floor: a drawing of the idea.
+04 Test
+
+### Tested at two clinics against DXA
+
+Massachusetts General Hospital and Pennington Biomedical Research Center tested Body in a blinded study. Its average error against DXA was the lowest of seven methods, and stayed the lowest in every group by sex, body mass index and race. Amazon saw no DXA result until Body’s estimates were with the investigators, and the model had never trained on clinic data.
+Amazon’s Halo launch film, 2020.
+A drawing of the idea.
+
+## Average error against a clinical X-ray scan (DXA), in points
+
+2022 study
+
+## Launch
+
+Amazon’s launch illustration, 2020: a scan at home, and the 3D model it returns.
+“Amazon’s Halo passes Pennington’s test for accurately measuring percentage of body fat”
+The Advocate, on the study’s results, June 2021
+Body launched with Halo on 27 August 2020. The study’s results came out on 16 June 2021, and npj Digital Medicine, a Nature Portfolio journal, published the paper on 29 June 2022.
+
+## What came next
+
+In September 2022, an independent study tested Body against a reference more thorough than DXA, and only Body’s estimate passed. In 2025, four obesity and nutrition societies cited the 2022 study in an advisory on nutrition during GLP-1 obesity treatment.
+Sources
+Next
+Amazon Halo
+2018–2021
+
+---
+
+Page: Amazon Halo | Njenga Kariuki
+Address: https://njenga.ai/halo/
+
+2018–2021 · Amazon Health AI
+
+# Amazon Halo
+
+Amazon’s first health wearable: a band with no screen, paired with an app and a membership.
+The Halo Band in its three launch colors, 2020. · 1 / 3
+Role
+Product lead for Body, Tone and Movement, on Halo’s founding team
+Patents
+6 US patents, 2022 to 2026
+Launched
+August 2020
+I joined Amazon Halo’s founding team in 2018 as the one product owner for Body, Tone and Movement: three health measures from a band and a phone. I set what each model was trained and checked against, and launched them in 2020 and 2021.
+
+## What I decided
+
+### Set what each model was checked against
+
+For Body, Tone and Movement, I set what each model was trained and checked against: clinical X-ray scans of body fat, listener panels’ ratings of recorded voices, and the score a fitness expert would give.
+
+### Measured value at first use and weeks later
+
+Novelty lifts a first rating, so we measured the value members saw in a result at first use, and again at about 2 and 4 weeks. Groups of people new to the product gave fast feedback on each change.
+
+### Judged the models on real-world data
+
+What people perceived in the lab and at home differed sharply, so we judged the models on real-world data.
+
+## How it worked
+
+Before
+
+### Health measures that needed a clinic
+
+An accurate body fat reading needed a clinical X-ray scan and a doctor’s prescription. A full movement screen needed a physical therapist and equipment.
+01 Wear
+
+### A band with no screen, and one app
+
+The band had no display, notifications or clock: everything a member saw appeared in the app. Its home screen held four tiles: Activity, Sleep, Tone and Body.
+The band and the Halo app, December 2020.
+02 Measure
+
+### Three AI measures from a band and a phone
+
+Body estimated body fat and built a 3D model of the member’s body from phone photos. Tone used words such as “hopeful” to describe how the wearer’s voice sounded to others. From June 2021, Movement scored mobility, stability and posture out of 100 from five movements filmed on the phone.
+Body, Tone and Movement as members saw them in the app, 2020 and 2021.
+03 Split
+
+### Analyzed on the phone or in the cloud, then deleted
+
+Tone’s audio went from the band’s microphones to the phone, which analyzed and deleted it; only a summary reached the cloud. Body’s photos and Movement’s videos were processed in Amazon’s cloud, then deleted.
+Where each measure was analyzed, and where its data was deleted.
+04 Repeat
+
+### A new result every few weeks
+
+Amazon recommended a Body scan every 2 weeks and a new Movement assessment every 2 to 4 weeks. In December 2020, Amazon added Insights from early-access feedback: trends such as a member’s peak periods of positivity.
+Body screen, 2021: the 3D model and a trend chart of body fat.
+
+## Launch
+
+Amazon’s illustration introducing Halo, August 2020: the app’s Activity, Sleep, Tone and Body tiles.
+“Amazon’s first health wearable is no Fitbit or Apple Watch clone”
+Fast Company, on Halo’s launch day
+Amazon announced Halo on 27 August 2020, with invitation-only early access, and opened it to all US customers on 14 December 2020. The band cost $99.99 with 6 months of membership; after that, membership cost $3.99 a month.
+
+## What came next
+
+Amazon ended Halo in 2023. The app was rated close to 4.5 stars, and its AI features set it apart, but it worked only with a Halo band. In a crowded wearables market, a place on the customer’s wrist was hard to earn. What I took from it: distribution sets a product’s ceiling as much as its quality does. An app that also worked with the Apple Watch or Fitbit a customer already wore could have earned a subscription of its own. Hearing how you sound to others, or measuring body fat close to a clinical scan from a phone, would still stand out today.
+Sources
+Next
+Alexa Shopping
+2017–2018
+
+---
+
+Page: Alexa Shopping | Njenga Kariuki
+Address: https://njenga.ai/alexa-shopping/
+
+2017–2018 · Alexa, Amazon
+
+# Alexa Shopping
+
+Ordering by voice on an Echo speaker: one spoken request, one offer read back, then a “yes.”
+A voice order, drawn from Amazon’s 2017 examples.
+Role
+First product lead for how Alexa understood shopping requests
+Team
+Built and led a 10-person evaluation team
+Result
+Shopping success from about 50% to 85%
+I was the first product lead for how Alexa understood shopping requests. Alexa’s overall measures said shopping worked; I set out to test that. I listened to 1,000 requests a week and wrote how each would be judged. Success rose from about 50% to 85%.
+
+## What I decided
+
+### Judged each request by its one offer
+
+A request counted as a success only when Alexa’s one offer was the product the customer asked for. Shopping success was the share of sampled requests that met that bar.
+
+### Held a 10-person team to one written standard
+
+Each type of error had a written definition and a set of examples, so 10 people would judge the same request the same way. When the team found a case the rubric did not cover, we added it. The models learned from the team’s judgments.
+
+### Ranked one customer measure above model measures
+
+Three steps that are each 90% accurate leave about one customer in four with an error. So shopping success ranked above model measures such as speech recognition accuracy.
+
+## How it worked
+
+Before
+
+### One request, one offer, no screen
+
+A customer could say “Alexa, order,” name a product, hear one offer with Prime delivery, and say “yes.” An Echo speaker had no screen and no list of results, so only that offer counted. A request could break at any step: a misheard brand, the wrong task or the wrong offer.
+Echo Plus, drawn: the light ring glows when Alexa hears its wake word.
+01 Hear
+
+### Brand names were easy to mishear
+
+Speech recognition in Amazon’s cloud turned the sound into words. Brand names were easy to mishear, and a speaker could not suggest completions the way a search box does. In one published case, background noise turned “epilepsy bracelets” into “apple upci uhhh bracelets.”
+02 Understand
+
+### The same words could mean another task
+
+Language understanding models then decided what the customer wanted done, and which words named the product. The same verb could mean different tasks; Amazon’s own 2018 example was “order me a cab” and “order me an Echo Dot.” Fixing one could weaken the other.
+Labels on each word let Alexa split one spoken request into separate list items. Drawn from an Amazon Science example, 2018.
+03 Offer
+
+### Only the one offer counted
+
+Alexa offered an item from the customer’s order history first, then an Amazon’s Choice product, popular and well priced, then the top search result. In one of Amazon’s 2017 examples, “Alexa, order Bose Soundlink three,” an offer of any other model was a wrong order.
+04 Judge
+
+### Judge every request, then fix what failed
+
+Each week I listened to 1,000 sampled interactions and marked every turn, one request and Alexa’s reply, a success or a failure. From that listening I wrote the rubric, the written guide to what counted as success, with examples. Each failure went to the scientists and engineers who could fix it, in quick rounds. I led the fine-tuning of Alexa’s base language model for shopping requests.
+
+### One request, judged by its offer
+
+Under my rubric, a spoken shopping request succeeded only if Alexa offered the product the customer asked for.
+Example
+The data as a table
+“Alexa, order Bose Soundlink three.” Three example replies, judged
+Alexa’s reply · Where it broke · Words the offer kept · Judged
+The requested Bose SoundLink model, with price, then a request to confirm · Nowhere · Bose, Soundlink, three · Success. The customer gets the speaker they asked for.
+A different Bose SoundLink model · Understand · Bose, Soundlink · Failure. The customer would get the wrong speaker.
+A reply that no matching product was found · Offer · None · Failure. The customer gets no product.
+
+## Sampled shopping requests that ended in the right offer
+
+## What came next
+
+In December 2018, Amazon said customers’ use of Alexa for shopping had more than tripled from 2017. In May 2026, Amazon combined its Rufus and Alexa+ assistants into Alexa for Shopping, which works by voice, touch or both.
+Sources
+Next
+Prime Now
+2015–2017
+
+---
+
+Page: Prime Now | Njenga Kariuki
+Address: https://njenga.ai/prime-now/
+
+2015–2017 · Prime Now, Amazon
+
+# Prime Now
+
+How local stores with no online business sold through Prime Now, which delivered within one or two hours.
+Choosing a delivery window at launch, December 2014, redrawn. · 1 / 3
+Role
+Founding product manager of the local-store and seller platform
+Reach
+Partner stores in 7 countries by 2017
+Result
+Out of stock from 25% to 5%; 40 hours a week of manual work automated
+I was the founding product manager of Prime Now’s platform for local stores and sellers. I sat in the first stores, took the spreadsheets they had, then learned to code and automated the rest. Out of stock at partner stores fell from 25% to 5%.
+
+## What I decided
+
+### Took whatever data each store had
+
+The stores had never sold online, so I asked for what they had: “Send me spreadsheets, whatever you have.” For six months I uploaded their files by hand, starting at 4 AM, and updated them four times a day.
+
+### Synced every store’s stock to the app daily
+
+I built a system that matched each store’s items to Amazon’s catalog, produced forecasts and uploaded its stock every day. Out of stock at partner stores fell from 25% to 5%.
+
+### Measured each new country on its growth
+
+As Prime Now opened in new countries, each was measured on revenue, a goal that did not reward growing two-hour delivery. I proposed measuring each country on its percentage growth, and leadership adopted it.
+
+## How it worked
+
+Before
+
+### Delivery within the hour needed the item on the shelf
+
+Prime Now began selling goods from local stores on 21 May 2015, starting in Manhattan. Until then it had sold only Amazon’s own stock. The stores had never sold online: no online catalog, no product feed and no way to send their stock to an app. Delivery within the hour worked only if the item the app showed was on the shelf when the order came in.
+01 Collect
+
+### Take each store’s spreadsheet as it came
+
+Each store sent its items in whatever file it kept. Packaged goods carried barcodes, loose produce carried four- or five-digit codes for its kind, and everything else carried the store’s own item codes. PCC, a Seattle grocer, put 10,000 or more items into the app.
+02 Match
+
+### Match each item to Amazon’s catalog
+
+The system built each store’s catalog by matching its items to Amazon’s products by algorithm. Loose produce and a store’s own brands had no record to find, so they needed new ones. In Madrid in September 2016, partner stores brought 7,000 products, 5,000 of them new to Prime Now.
+03 Forecast
+
+### A forecast for every store
+
+The system produced forecasts for each store. Lavinia, a Paris wine merchant, said Amazon supplied it with forecasts based on Amazon’s experience in other European countries.
+04 Upload
+
+### Upload every store’s stock every day
+
+Each day the system uploaded every store’s stock to the app automatically. Each daily upload closed the gap that had opened between the app and the shelf. The system automated 40 hours of manual work a week.
+I also designed the payment and fulfillment APIs that independent sellers used, carrying millions of transactions.
+A drawing of the system.
+
+## Out of stock at partner stores
+
+## What came next
+
+In 2021 Amazon retired the Prime Now app and moved fast delivery into its main app. Partner stores such as Bartell’s, Morrisons and Monoprix moved with it. In December 2025 Amazon began testing a successor, Amazon Now, with delivery in about 30 minutes.
+Amazon Now, Prime Now’s 30-minute successor, 2026.
+Sources
+Next
+Amazon Bedding & Bath
+2014–2015
+
+---
+
+Page: Amazon Bedding & Bath | Njenga Kariuki
+Address: https://njenga.ai/bedding-and-bath/
+
+2014–2015 · Amazon Retail
+
+# Amazon Bedding & Bath
+
+Amazon’s own business in sheets, towels and pillows: goods bought wholesale from brands and sold beside independent sellers.
+A sale’s price, from the cost of goods to the margin, with the margin’s edge under a loupe: a drawing of the idea.
+Role
+Vendor manager, owner of the business’s profit and loss
+P&L
+$100M+ a year
+Review
+Every weekly margin change, explained to a hundredth of a percentage point
+I owned the profit and loss of Amazon’s Bedding & Bath business, more than $100 million a year. I led the negotiations with its brands, set the supply-chain terms, and explained every weekly margin change to a hundredth of a percentage point.
+
+## What I decided
+
+### Negotiated cost and funding with the brands
+
+I led the negotiations with the category’s brands, over the cost of each item and the funding each brand gave Amazon. Both moved the margin I explained every week.
+
+### Set the terms for stock and shipping
+
+I set the supply-chain terms: how much stock to hold, and how each item shipped. When FedEx and UPS began pricing every ground parcel by its size, a comforter’s box became a cost to negotiate.
+
+### Explained every margin change, every week
+
+Every week, in the business review, I explained each change in the category’s margin, down to one basis point: a hundredth of a percentage point.
+
+## How it worked
+
+Before
+
+### A $100M+ P&L, explained weekly to a hundredth of a point
+
+Amazon bought sheets, towels and pillows wholesale from brands, owned the stock, set the price and shipped each order. On each product page, Amazon’s own offer sat beside offers from independent sellers. In 2014 those sellers sold more than 40% of Amazon’s units.
+01 Funding
+
+### Brand funding counted as a lower cost of goods
+
+Brands funded marketing, promotions and volume rebates, and Amazon booked that money as a lower cost of goods. A rebate usually depended on buying a minimum volume. Vendor managers also negotiated deals with their brands, such as holiday discounts.
+Brand funding, booked as a lower cost of goods.
+02 Ship
+
+### Carriers began pricing every parcel by its size
+
+From the turn of 2015, FedEx and UPS priced every ground parcel by its size as well as its weight. Light, bulky goods such as comforters cost more to ship.
+Shipping, priced by parcel size as well as weight from January 2015.
+03 Forecast
+
+### Machine-learning forecasts, which managers could override
+
+A vendor manager decided how much of each item to place in each Amazon warehouse, and when. Machine-learning forecasts sat in the vendor manager’s tools. A vendor manager could override them. For example, a manager could raise an order before a brand’s marketing push the forecast did not expect.
+A manager’s order, raised ahead of a marketing push.
+
+## What came next
+
+In 2015 I moved from Bedding & Bath to Prime Now, which delivered within one or two hours.
+Sources
+Next
+Target
+2012–2014
+
+---
+
+Page: Target | Njenga Kariuki
+Address: https://njenga.ai/target-apple/
+
+2012–2014 · Target, Apple category
+
+# Target
+
+The supply chain for Apple products at Target: iPads, iPods and accessories, stocked store by store.
+iPad mini, launched November 2012, and iPad Air, launched November 2013.
+Role
+Senior supply chain analyst, owner of supply-chain strategy for the Apple category
+Scale
+A $700M+ a year category across about 1,800 stores
+Result
+In-stock rate up 24%; market share up 3%
+I owned supply-chain strategy for Target’s $700M+ Apple category across about 1,800 stores. I changed how systems built for everyday goods stocked Apple products, store by store, and allocated the iPad mini launch to each store. The in-stock rate rose 24% and market share 3%.
+
+## What I decided
+
+### Changed how systems stocked Apple, store by store
+
+I changed how Target’s systems stocked Apple products, store by store, for one of the company’s largest businesses.
+
+### Launched the 2012 Apple shop-in-shop rollout
+
+I launched the rollout of the Apple shop-in-shop in 2012. One of the first shops carried most of Apple’s line, with a Target employee trained on Apple products.
+
+### Allocated the iPad mini launch to each store
+
+I managed the most important allocation of Apple products at Target, for the iPad mini’s launch on 2 November 2012. Online ship times were about two weeks, Target’s included, so the units on each shelf were the units most shoppers could buy.
+
+## How it worked
+
+Before
+
+### Apple products on systems built for shampoo
+
+The category held the iPads, iPods and accessories on Target’s shelves. Its retail systems were set up for everyday goods such as shampoo and toothpaste. Most of its goods moved through its distribution centers.
+01 Shops
+
+### From two Apple shops to about two dozen
+
+In January 2012 Target confirmed a test of Apple shops inside 25 of its stores. Two were open by early May, and about two dozen by August.
+02 Allocate
+
+### Each store’s share, with no sales history
+
+Allocation decided how many units each store received. Apple launch units went direct to each store, outside the distribution centers. A new product such as the iPad mini had no sales history, and once a store sold out, its sales stopped measuring demand.
+Each store’s share of the launch units, sent direct from Apple: one dot per store, the shares a drawing of the idea.
+03 Launch
+
+### Too few iPad minis, 21 days before Black Friday
+
+The iPad mini went on sale on 2 November 2012, 21 days before Black Friday, which opens the US holiday shopping season. Fortune reported that white iPad mini pre-orders sold out in about 20 minutes. Apple later said it could not make enough of them in any week of the holiday quarter. The fight to allocate was intense.
+The 21 days from the iPad mini’s launch to Black Friday, 2012.
+04 Peak
+
+### iPads were Target’s top three Black Friday items
+
+On Black Friday 2013, a shopper panel put Apple products at about 22% of Target’s early sales. Target’s three best-selling single items were all iPads, led by the iPad Air.
+Black Friday 2013, in a shopper panel’s receipts.
+
+## Change while I ran the category
+
+In-stock rate · Up 24%
+Market share · Up 3%
+
+## What came next
+
+In February 2021 Target introduced Apple at Target shops in 17 stores. It told CNBC that it had tested more prominent Apple displays nearly a decade earlier, and that the new shops went much further. By October 2022 they were in more than 150 stores.
+Sources
+Back to the start
+M-PESA Africa
+2026–today
+
+---
+
+Page: Sources and credits | Njenga Kariuki
+Address: https://njenga.ai/credits/
+
+# Sources and credits
+
+The public sources behind each chapter, and the owner of every picture on the site.
+
+## M-PESA Africa
+
+### Sources
+
+- [Vodacom and Safaricom to accelerate M-Pesa expansion](https://www.vodafone.com/news/newsroom/technology/vodacom-and-safaricom-joint-venture-to-accelerate-m-pesa-expansion) · Vodafone Group Plc, 2020
+- [M-Pesa celebrates reaching 50 million customers](https://www.vodafone.com/news/newsroom/services/m-pesa-celebrates-reaching-50-million-customers) · Vodafone Group Plc, 2021
+- [Safaricom Group revenue hits KES414billion with net income of KES100 Billion in FY26](https://www.safaricom.co.ke/media-center-landing/press-releases/safaricom-group-revenue-hits-kes414billion-with-net-income-of-kes100-billion-in-fy26) · Safaricom PLC, 2026
+- [Vodacom Group Integrated Report for the year ended 31 March 2026: Financial capital](https://vodacom-reports.co.za/integrated-reports/ir-2026/documents/Financial-capital.pdf) · Vodacom Group Limited, 2026
+- [Vodacom Group Integrated Report for the year ended 31 March 2026: Intellectual capital](https://vodacom-reports.co.za/integrated-reports/ir-2026/documents/Intellectual-capital.pdf) · Vodacom Group Limited, 2026
+- [Vodacom Group Integrated Report for the year ended 31 March 2026: Our business](https://vodacom-reports.co.za/integrated-reports/ir-2026/documents/Our-business.pdf) · Vodacom Group Limited, 2026
+- [njenga-kariuki (Njenga Kariuki) on GitHub](https://github.com/njenga-kariuki) · GitHub, 2026
+- [About Us | M-PESA Africa](https://www.m-pesa.africa/about-us) · M-PESA Africa (Vodacom Group Limited)
+
+### Pictures
+
+- Safaricom PLC (Apple App Store listing). All rights reserved.
+- An M-PESA agent shop in Kenya, painted in Safaricom green. · Realt0n12 / Wikimedia Commons. [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+- M-PESA in Safaricom’s app in Kenya, 2026: the home screen. · Safaricom PLC (Apple App Store listing). All rights reserved.
+- M-PESA’s services in the app, 2026. · Safaricom PLC (Apple App Store listing). All rights reserved.
+
+## Amazon Bio Discovery
+
+### Sources
+
+- [Agent-guided de novo design of nanobody binders against a novel cancer target](https://www.amazon.science/publications/agent-guided-de-novo-design-of-nanobody-binders-against-a-novel-cancer-target) · Amazon Science (ICML 2026 Workshop on Generative and Agentic AI for Biology), 2026
+- [AWS and Gray Lab at Johns Hopkins Whiting School of Engineering announce groundbreaking database for AI/ML antibody design](https://www.amazon.science/news/aws-gray-lab-johns-hopkins-announce-groundbreaking-database-for-ai-ml-antibody-design) · Amazon Science, 2026
+- [AWS launches Amazon Bio Discovery to accelerate AI-powered research in life sciences](https://www.aboutamazon.com/news/aws/aws-amazon-bio-discovery-ai-drug-research) · Amazon (About Amazon newsroom), 2026
+- [Amazon Bio Discovery cut MSK antibody design from a year to weeks, AWS says](https://www.drugdiscoverytrends.com/amazon-bio-discovery-cut-msk-antibody-design-from-a-year-to-weeks-aws-says/) · Drug Discovery Trends (WTWH Media), 2026
+- [Introducing Amazon Bio Discovery](https://aws.amazon.com/blogs/industries/introducing-amazon-bio-discovery/) · AWS for Industries blog, 2026
+- [Executive Insights from the 2026 AWS Life Sciences Symposium](https://aws.amazon.com/blogs/industries/executive-insights-from-the-2026-aws-life-sciences-symposium/) · AWS for Industries blog, 2026
+- [Twist provides the integrated biologic solutions in AWS’s AI-driven drug discovery application](https://www.twistbioscience.com/resources/flyer/amazon-bio-discovery-twist-bioscience) · Twist Bioscience, 2026
+- [Highlights from the 2026 AWS Life Sciences Symposium: Research and Drug Discovery](https://aws.amazon.com/blogs/industries/highlights-from-the-2026-aws-life-sciences-symposium-research-and-drug-discovery/) · AWS for Industries blog, 2026
+- [Novo Nordisk and AWS enter strategic partnership to accelerate drug discovery through AI](https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916594) · Novo Nordisk, 2026
+- [Novo Nordisk selects AWS as strategic partner to accelerate drug discovery with AI](https://aws.amazon.com/blogs/industries/novo-nordisk-selects-aws-as-strategic-partner-to-accelerate-drug-discovery-with-ai/) · AWS for Industries blog, 2026
+- [Healthcare and Life Sciences Leaders Build on NVIDIA to Advance Drug Discovery and Expand Patient Care](https://nvidianews.nvidia.com/news/healthcare-and-life-sciences-leaders-build-on-nvidia-to-advance-drug-discovery-and-expand-patient-care) · NVIDIA Newsroom, 2026
+- [Amazon Bio Discovery](https://aws.amazon.com/biodiscovery/) · Amazon Web Services, 2026
+
+### Pictures
+
+- Choosing the target protein, then asking for recommended binding sites. · Amazon. All rights reserved.
+- Filtering 5,700 candidate designs to 25, ready to send for lab testing. · Amazon. All rights reserved.
+- Building a workflow from models in the catalog. · Amazon. All rights reserved.
+- How a predicted property is spread across the candidates, with outliers marked. · Amazon. All rights reserved.
+- The agent’s ranked binding regions on a target, each with its evidence and rationale. · Amazon Web Services. All rights reserved.
+- Sending selected designs to a partner lab, with cost and time estimates. · Amazon Web Services. All rights reserved.
+
+## Stanford AI Institute
+
+### Sources
+
+- [World Robotics 2024 press conference presentation](https://ifr.org/img/worldrobotics/Press_Conference_2024.pdf) · International Federation of Robotics (IFR), 2024
+- [Introducing the Anthropic Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index) · Anthropic, 2025
+- [Which Economic Tasks are Performed with AI? Evidence from Millions of Claude Conversations](https://assets.anthropic.com/m/2e23255f1e84ca97/original/Economic_Tasks_AI_Paper.pdf) · Anthropic (arXiv:2503.04761), 2025
+- [AI Index 2025 public data: Chapter 4 Economy (Charts and Data folders)](https://drive.google.com/drive/folders/1oGKD04Iyw9EVhOTs5DsyrO568DORZnBS) · Stanford HAI (Google Drive), 2025
+- [Economy | The 2025 AI Index Report | Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report/economy) · Stanford HAI, 2025
+- [Artificial Intelligence Index Report 2025](https://hai.stanford.edu/assets/files/hai_ai_index_report_2025.pdf) · Stanford Institute for Human-Centered Artificial Intelligence (HAI), 2025
+- [Stanford HAI’s 2025 AI Index Reveals Record Growth in AI Capabilities, Investment, and Regulation](https://www.businesswire.com/news/home/20250407539812/en/Stanford-HAIs-2025-AI-Index-Reveals-Record-Growth-in-AI-Capabilities-Investment-and-Regulation) · Business Wire (Stanford HAI), 2025
+- [The 2025 AI Index Report | Stanford HAI](https://hai.stanford.edu/ai-index/2025-ai-index-report) · Stanford HAI, 2025
+- [The State of AI Competition in Advanced Economies (FEDS Notes)](https://www.federalreserve.gov/econres/notes/feds-notes/the-state-of-ai-competition-in-advanced-economies-20251006.html) · Board of Governors of the Federal Reserve System, 2025
+- [AI Index Report 2025, Chapter 4: Economy (standalone chapter PDF)](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf) · Stanford HAI, 2025
+- [Artificial Intelligence and the Great Divergence](https://www.whitehouse.gov/wp-content/uploads/2026/01/Artificial-Intelligence-and-the-Great-Divergence-5.pdf) · The White House Council of Economic Advisers, 2026
+- [AI Index | Stanford HAI](https://hai.stanford.edu/ai-index) · Stanford HAI
+- [Lightcast Skills Taxonomy (Open Skills)](https://lightcast.io/open-skills) · Lightcast
+- [School Profile | Stanford Graduate School of Business](https://www.gsb.stanford.edu/experience/about/school-profile) · Stanford Graduate School of Business
+
+### Pictures
+
+- The AI Index Report 2025, published 7 April 2025. · Stanford HAI, AI Index. [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/).
+- The chapter’s opening page: “Text and analysis by Njenga Kariuki.” · Stanford Institute for Human-Centered Artificial Intelligence (HAI), AI Index Steering Committee. [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/).
+- The chapter’s chart of global corporate investment in AI, 2013 to 2024. · AI Index 2025 (Stanford HAI); chart data as credited on the chart. [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/).
+- “This chapter examines AI-related economic trends using data from Lightcast, LinkedIn, Quid, McKinsey and the International Federation of Robotics (IFR).” The chapter’s overview, page 3. · AI Index 2025 (Stanford HAI); text and analysis by Njenga Kariuki. [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/).
+- “U.S. private AI investment hit $109.1 billion in 2024, nearly 12 times higher than China’s $9.3 billion…” The third of the chapter’s highlights, page 4: a claim, a number and a comparison. · AI Index 2025 (Stanford HAI); text and analysis by Njenga Kariuki. [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/).
+- The White House Council of Economic Advisers, 2026: the chapter’s country ranking of AI investment. · Council of Economic Advisers, Executive Office of the President (US government work); data: Quid via AI Index 2025 (Stanford HAI). Public domain; its data under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/).
+
+## Alexa Map View
+
+### Sources
+
+- [Apple introduces iPhone 12 Pro and iPhone 12 Pro Max with 5G](https://www.apple.com/newsroom/2020/10/apple-introduces-iphone-12-pro-and-iphone-12-pro-max-with-5g/) · Apple Newsroom, 2020
+- [Create parametric 3D room scans with RoomPlan - WWDC22](https://developer.apple.com/videos/play/wwdc2022/10127/) · Apple Developer, 2022
+- [Announced in 2023: Amazon devices and features coming to your home](https://www.aboutamazon.com/news/devices/amazon-fall-event-2023-announcements) · Amazon News (aboutamazon.com), 2023
+- [Introducing a new era for the Alexa smart home](https://www.aboutamazon.com/news/devices/amazon-smart-home-announcements-2023) · Amazon News (aboutamazon.com), 2023
+- [Live Blog: See Amazon’s new 2023 devices and services](https://www.aboutamazon.com/news/devices/amazon-2023-devices-event-live-blog) · Amazon News (aboutamazon.com), 2023
+- [Amazon’s Map View arrives to create a digital map of your smart home](https://www.theverge.com/2023/11/14/23960355/amazon-alexa-map-view-launch-public-preview) · The Verge, 2023
+- [Five ways Alexa’s Map View will help you manage your smart home devices more efficiently](https://www.techradar.com/home/smart-home/alexas-map-view-will-help-manage-your-smart-home-devices-more-efficiently-here-are-five-ways-how) · TechRadar, 2023
+- [How to set up Alexa’s new Map View, and why you’ll need one of these iOS devices](https://www.zdnet.com/home-and-office/smart-home/how-to-set-up-alexas-new-map-view-and-why-youll-need-one-of-these-ios-devices/) · ZDNET, 2023
+- [Amazon Map View is a game-changer for your smart home — here’s how it works](https://www.tomsguide.com/news/if-you-have-a-lot-of-smart-home-devices-amazon-map-view-is-a-game-changer-heres-how-it-works) · Tom’s Guide, 2023
+- [How the smart home is finally getting out of your phone and into your home](https://www.theverge.com/24043060/smart-home-interface-map-view-samsung-lg-amazon-ces-2024) · The Verge, 2024
+- [Amazon’s Alexa Home Map is getting a smarter 3D redesign](https://www.theverge.com/tech/1020392/amazon-alexa-home-view-3d-update-external-view) · The Verge, 2026
+- [Meet Alexa Home Map, an interactive 3D map that lets you see and control your home](https://www.aboutamazon.com/news/devices/alexa-home-map-3d-smart-home-view) · Amazon News (aboutamazon.com), 2026
+- [Our first look at Amazon’s big new Echo Show 16](https://www.theverge.com/tech/1020286/amazon-echo-show-16-hands-on-price-screen-styles) · The Verge, 2026
+
+### Pictures
+
+- Amazon’s Map View film, 2023: scan a room, then control a device from the map. · Amazon. All rights reserved. A short silent loop of the film.
+- Map View’s scan, in Amazon’s 2023 film: white lines trace a kitchen. · Amazon. All rights reserved.
+- Map View: the home’s floor plan, with device pins and a control card. · Amazon. All rights reserved.
+- A coffee maker’s plug switched from the map, in Amazon’s 2023 film. · Amazon. All rights reserved.
+- Alexa Home Map on an Echo Show 16, 2026. · Amazon. All rights reserved.
+- Amazon’s devices event, 20 September 2023: the slide before Map View. · Amazon. All rights reserved.
+- Amazon’s press image for Map View’s launch, September 2023. · Amazon. All rights reserved.
+
+## Amazon Health AI
+
+### Sources
+
+- [The science behind the Halo Body feature](https://www.amazon.science/latest-news/the-science-behind-the-amazon-halo-band-body-feature) · Amazon Science, 2021
+- [Improved Halo Body technology allows customers to take scans in tighter spaces](https://www.amazon.science/latest-news/improved-halo-body-technology-allows-customers-to-take-scans-in-tighter-spaces) · Amazon Science, 2021
+- [Smartphone camera based assessment of adiposity: a validation study](https://doi.org/10.1038/s41746-022-00628-3) · npj Digital Medicine (Nature Portfolio), 2022
+- [Normalized sensitivity of multi-dimensional body composition biomarkers for risk change prediction](https://doi.org/10.1038/s41598-022-16142-1) · Scientific Reports (Nature Portfolio), 2022
+- [Validation of Amazon Halo Movement: a smartphone camera-based assessment of movement health](https://doi.org/10.1038/s41746-022-00684-9) · npj Digital Medicine (Nature Portfolio), 2022
+- [Everything Amazon announced at the 2022 Devices & Services Event](https://www.aboutamazon.com/news/devices/devices-and-services-news-2022) · Amazon (aboutamazon.com), 2022
+- [Amazon introduces Halo Rise, a no-contact sleep tracker, but also so much more](https://www.aboutamazon.com/news/devices/amazon-halo-rise) · Amazon (aboutamazon.com), 2022
+- [Development and validation of an accurate smartphone application for measuring waist-to-hip circumference ratio](https://doi.org/10.1038/s41746-023-00909-5) · npj Digital Medicine (Nature Portfolio), 2023
+- [3 Lessons for PMs Building B2C AI Products](https://medium.com/@njenga.kariuki/top-3-lessons-for-pms-building-b2c-ai-products-2f0d587d01d6) · Medium, 2024
+
+### Pictures
+
+- Amazon. All rights reserved.
+- Error against a clinical DXA scan: Halo Body (VBC, left) beside six other methods. 2022 study. · Majmudar MD, Chandra S, Yakkala K et al. npj Digital Medicine 5, 79 (2022). doi:10.1038/s41746-022-00628-3. © The Author(s) 2022. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- Movement scores for athletes, healthy adults and adults with impaired mobility. 2022 study. · Fanton M, Harari Y, Giffhorn M et al. npj Digital Medicine 5, 134 (2022). © The Author(s) 2022. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- Waist-to-hip ratio from the app, compared with tape measurements by trained staff. 2023 study. · Choudhary S, Iyer G, Smith BM et al. npj Digital Medicine 6, 168 (2023), doi:10.1038/s41746-023-00909-5. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- Halo Movement’s detailed results, 2021: mobility and stability by body region. · Amazon. All rights reserved.
+- Halo Body’s result, in Amazon Science’s August 2021 article: body fat, weight and a trend. · Amazon (Amazon Science). All rights reserved.
+- Halo Body’s result, in Amazon Science’s June 2021 article on how it worked: a 3D model and body fat. · Amazon Science (Amazon). All rights reserved.
+
+## Halo Movement
+
+### Sources
+
+- [Validation of a Smartphone-based Assessment of Movement Health (NCT04854148)](https://clinicaltrials.gov/study/NCT04854148) · ClinicalTrials.gov (U.S. National Library of Medicine), 2021
+- [Amazon Brings Movement Health to Halo](https://www.thurrott.com/wearables/250792/amazon-brings-movement-health-to-halo) · Thurrott.com, 2021
+- [Amazon Halo will use your smartphone camera to assess your ‘Movement Health’](https://www.theverge.com/2021/6/3/22465737/amazon-halo-fitness-phone-camera-measure-movement-health) · The Verge, 2021
+- [Amazon adds fitness tests and posture-improving exercises to its Halo app](https://www.engadget.com/amazons-halo-app-gets-functional-fitness-tests-and-corrective-exercises-130034361.html) · Engadget, 2021
+- [Amazon’s Halo fitness tracker can now judge how your body moves](https://mashable.com/article/amazon-halo-health-tracker-movement-health) · Mashable, 2021
+- [Amazon’s Halo wearable adds a fresh approach to personalized workouts](https://www.fastcompany.com/90643036/amazon-halo-wearable-movement-fitness) · Fast Company, 2021
+- [Introducing Movement Health, new to Amazon Halo](https://www.aboutamazon.com/news/devices/introducing-movement-health-new-to-amazon-halo) · Amazon (aboutamazon.com), 2021
+- [New Amazon Halo feature will assess routine body movement, and offer exercises for improvement](https://www.geekwire.com/2021/new-amazon-halo-feature-will-assess-routine-body-movement-offer-exercises-improvement/) · GeekWire, 2021
+- [Amazon Halo fitness tracker measures ‘movement health,’ flexibility like a virtual trainer](https://www.foxbusiness.com/lifestyle/amazon-halo-fitness-tracker-launches-movement-feature) · Fox Business, 2021
+- [Huge Amazon Halo ‘Movement’ update makes it the perfect fitness app for us olds](https://www.androidcentral.com/huge-amazon-halo-movement-update-makes-perfect-fitness-app-for-us-olds) · Android Central, 2021
+- [Movement Health Comes to Amazon Halo](https://www.thurrott.com/wearables/252608/movement-health-comes-to-amazon-halo) · Thurrott.com, 2021
+- [Amazon Halo is like a personal trainer, therapist and sleep coach on your wrist](https://www.today.com/tmrw/amazon-halo-trainer-therapist-sleep-coach-all-one-t224224) · TODAY (NBC News), 2021
+- [Amazon Halo View review](https://www.livingetc.com/reviews/amazon-halo-view-review) · Livingetc, 2022
+- [Amazon health feature can accurately assess users’ mobility, study finds](https://www.statnews.com/2022/09/06/amazon-health-feature-can-accurately-assess-users-mobility-study-finds/) · STAT, 2022
+- [Validation of Amazon Halo Movement: a smartphone camera-based assessment of movement health](https://www.nature.com/articles/s41746-022-00684-9) · npj Digital Medicine (Nature Portfolio), 2022
+- [System for correcting user movement (US 12,067,806 B2)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12067806) · United States Patent and Trademark Office, 2024
+
+### Pictures
+
+- Amazon’s results screen, June 2021: an overall score of 71, “Good.” · Amazon. All rights reserved.
+- Amazon’s Movement Health explainer, 2021. · Amazon. All rights reserved.
+- Setup: the phone stands 6 to 10 feet (1.8 to 3 m) away, ready to record. · Fanton M, Harari Y, Giffhorn M et al. npj Digital Medicine 5, 134 (2022). © The Author(s) 2022. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- Amazon’s graphic announcing Movement, June 2021: “Tools to improve the way you move.” · Amazon. All rights reserved.
+
+## Halo Tone
+
+### Sources
+
+- [Social Relationships and Mortality Risk: A Meta-analytic Review](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000316) · PLOS Medicine, 2010
+- [A new tool to help you understand and improve your social wellbeing](https://www.aboutamazon.com/news/devices/a-new-tool-to-help-you-understand-and-improve-your-social-wellbeing) · Amazon (About Amazon / Day One blog), 2020
+- [Introducing Amazon Halo and Amazon Halo Band—A New Service that Helps Customers Improve Their Health and Wellness](https://press.aboutamazon.com/2020/8/introducing-amazon-halo-and-amazon-halo-band-a-new-service-that-helps-customers-improve-their-health-and-wellness) · Amazon (US Press Center), 2020
+- [How Amazon’s new health tracker will use AI to monitor your tone of voice](https://qz.com/1897411/amazons-new-fitness-tracker-halo-will-monitor-your-tone-of-voice) · Quartz, 2020
+- [Amazon Halo review: This fitness tracker knows you inside and out](https://www.androidcentral.com/amazon-halo-review) · Android Central, 2020
+- [Amazon Halo Privacy Whitepaper (reproduction)](https://manuals.plus/amazon/amazon-halo-privacy-whitepaper) · Amazon (reproduced by Manuals+), 2020
+- [Amazon’s new health band is the most invasive tech we’ve ever tested](https://www.seattletimes.com/business/technology/amazons-new-health-band-is-the-most-invasive-tech-weve-ever-tested/) · The Washington Post (syndicated by The Seattle Times), 2020
+- [Amazon Halo review: Super intrusive but big-brand Labs shine through](https://www.wareable.com/fitness-trackers/amazon-halo-review-8244) · Wareable, 2020
+- [Amazon Halo review (MakeUseOf)](https://www.makeuseof.com/amazon-halo-review/) · MakeUseOf, 2021
+- [Amazon Adds More to Halo—Introducing Halo View, Halo Fitness, and Halo Nutrition](https://press.aboutamazon.com/2021/9/amazon-adds-more-to-halo-introducing-halo-view-halo-fitness-and-halo-nutrition) · Amazon (US Press Center), 2021
+- [Amazon is fixing its fitness wearables by not listening to its customers](https://www.androidcentral.com/halo-view-amazon-privacy-tone) · Android Central, 2021
+- [System to characterize vocal presentation (US 11,393,462 B1)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11393462) · United States Patent and Trademark Office, 2022
+- [Interaction emotion determination (US 11,430,467 B1)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11430467) · United States Patent and Trademark Office, 2022
+- [Conserving battery while detecting for human voice (US 11,462,218 B1)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11462218) · United States Patent and Trademark Office, 2022
+- [Call based emotion detection (US 11,632,456 B1)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11632456) · United States Patent and Trademark Office, 2023
+- [Conserving battery while detecting for human voice (US 11,783,834 B1, continuation)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11783834) · United States Patent and Trademark Office, 2023
+- [Power state control of a device performing detection of voice in audio data (US 12,586,583 B1, second continuation)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12586583) · United States Patent and Trademark Office, 2026
+- [USPTO Patent Public Search: documents citing the six patents (field URPN)](https://ppubs.uspto.gov/pubwebapp/) · United States Patent and Trademark Office, 2026
+- [USPTO Patent Public Search: inventor search ‘Kariuki’ (US-PGPUB, USPAT, USOCR)](https://ppubs.uspto.gov/pubwebapp/) · United States Patent and Trademark Office, 2026
+
+### Pictures
+
+- Launch illustration of Tone, 2020: the day’s tones and two notable moments. · Amazon. All rights reserved.
+- Amazon’s Halo launch film, 2020: the day’s tones, then notable moments. · Amazon. All rights reserved. A short silent loop of the film.
+- Amazon’s Halo launch film, 2020: the day’s notable moments, each a word and a time. · Amazon. All rights reserved.
+
+## Halo Body
+
+### Sources
+
+- [Body composition techniques](https://pmc.ncbi.nlm.nih.gov/articles/PMC6366261/) · Indian Journal of Medical Research, 2018
+- [A better measure of health](https://www.aboutamazon.com/news/devices/a-better-measure-of-health) · Amazon (About Amazon / Day One blog), 2020
+- [Amazon Halo: Jaw-Dropping New Health-Monitoring Wearable & Service Revealed](https://www.forbes.com/sites/davidphelan/2020/08/27/amazon-halo-jaw-dropping-new-health-monitoring-wearable-and-service-revealed-measures-body-fat-in-a-way-never-seen-before/) · Forbes, 2020
+- [Amazon announces Halo, a fitness band and app that scans your body and voice](https://www.theverge.com/2020/8/27/21402493/amazon-halo-band-health-fitness-body-scan-tone-emotion-activity-sleep) · The Verge, 2020
+- [Amazon’s New Fitness Tracker Sounds Like a Body-Shaming, Tone-Policing Disaster](https://gizmodo.com/amazons-new-fitness-tracker-sounds-like-a-body-shaming-1844866654) · Gizmodo, 2020
+- [Introducing Amazon Halo and Amazon Halo Band—A New Service that Helps Customers Improve Their Health and Wellness](https://press.aboutamazon.com/2020/8/introducing-amazon-halo-and-amazon-halo-band-a-new-service-that-helps-customers-improve-their-health-and-wellness) · Amazon (US Press Center / Business Wire), 2020
+- [Evaluation of the Accuracy of a Computer Vision-based Tool for Assessment of Total Body Fat Percentage (MEASURE), NCT04854421](https://clinicaltrials.gov/study/NCT04854421) · ClinicalTrials.gov (U.S. National Library of Medicine), 2021
+- [A new model of accuracy: Amazon Halo Body feature](https://medium.com/amazonhaloblog/a-new-model-of-accuracy-amazon-halo-body-feature-2ca920051251) · Amazon Halo Blog (Medium), 2021
+- [Smartphone Camera Based Assessment of Adiposity: A Multi-Site Validation Study](https://www.medrxiv.org/content/10.1101/2021.06.10.21258595v1) · medRxiv, 2021
+- [Amazon’s Halo passes Pennington’s test for accurately measuring percentage of body fat](https://www.theadvocate.com/baton_rouge/entertainment_life/article_61e2c904-d062-11eb-b4a9-b7b67591ba7d.html) · The Advocate (Baton Rouge), 2021
+- [Two-dimensional image collection for three-dimensional body composition modeling (US 11,232,629 B1)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11232629) · United States Patent and Trademark Office, 2022
+- [Smartphone camera based assessment of adiposity: a validation study](https://www.nature.com/articles/s41746-022-00628-3) · npj Digital Medicine (Springer Nature), 2022
+- [Visual body composition assessment methods: A 4-compartment model comparison of smartphone-based artificial intelligence for body composition estimation in healthy adults](https://doi.org/10.1016/j.clnu.2022.09.014) · Clinical Nutrition (Elsevier), 2022
+- [Body fat measurements from a two-dimensional image (US 11,903,730 B1)](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11903730) · United States Patent and Trademark Office, 2024
+- [Nutritional priorities to support GLP-1 therapy for obesity: a joint Advisory](https://doi.org/10.1016/j.ajcnut.2025.04.023) · The American Journal of Clinical Nutrition (with ACLM, ASN, OMA and The Obesity Society), 2025
+- [Europe PMC citations list for PMID 35768575](https://www.ebi.ac.uk/europepmc/webservices/rest/MED/35768575/citations?format=json) · Europe PMC (EMBL-EBI), 2026
+
+### Pictures
+
+- Halo Body at launch, 2020: a member’s 3D model, body fat and weight. · Amazon. All rights reserved.
+- The Halo app home screen, with Body beside Activity, Sleep and Tone. · Amazon. All rights reserved.
+- Amazon’s Halo launch film, 2020. · Amazon. All rights reserved. A short silent loop of the film.
+- Amazon’s launch illustration, 2020: a scan at home, and the 3D model it returns. · Amazon. All rights reserved.
+
+## Amazon Halo
+
+### Sources
+
+- [Introducing Amazon Halo](https://medium.com/amazonhaloblog/introducing-amazon-halo-9203d16349af) · Amazon Halo Blog (Medium), 2020
+- [Amazon Halo fitness tracker sounds awesome, but also like a Black Mirror episode](https://www.cnet.com/tech/mobile/amazon-halo-new-health-app-fitness-tracker-metrics-include-body-fat-tone-of-voice/) · CNET, 2020
+- [Amazon’s first health wearable is no Fitbit or Apple Watch clone](https://www.fastcompany.com/90544010/amazons-first-health-wearable-is-no-fitbit-or-apple-watch-clone) · Fast Company, 2020
+- [Amazon Halo: New and (already) improved](https://medium.com/amazonhaloblog/amazon-halo-new-and-already-improved-ed6bb37c8a0a) · Amazon Halo Blog (Medium), 2020
+- [Amazon’s Halo fitness tracker is now available to everyone](https://www.cnbc.com/2020/12/14/amazons-halo-fitness-tracker-available-price-release-date.html) · CNBC, 2020
+- [Amazon’s body-scanning Halo fitness band is now available to everyone in the US](https://techcrunch.com/2020/12/14/amazons-body-scanning-halo-fitness-band-is-now-available-to-everyone-in-the-us/) · TechCrunch, 2020
+- [Smartphone camera based assessment of adiposity: a validation study](https://www.nature.com/articles/s41746-022-00628-3) · npj Digital Medicine, 2022
+- [Validation of Amazon Halo Movement: a smartphone camera-based assessment of movement health](https://www.nature.com/articles/s41746-022-00684-9) · npj Digital Medicine, 2022
+- [Amazon will brick all Halo health trackers on August 1](https://arstechnica.com/gadgets/2023/04/amazon-will-brick-all-halo-health-trackers-on-august-1/) · Ars Technica, 2023
+- [Our decision to wind down Amazon Halo (Amazon discontinues Amazon Halo effective July 31)](https://www.aboutamazon.com/news/company-news/amazon-halo-discontinued) · Amazon (About Amazon), 2023
+
+### Pictures
+
+- The Halo Band in its three launch colors, 2020. · Amazon. All rights reserved.
+- The Halo app home screen: Activity, Sleep, Tone and Body. · Amazon. All rights reserved.
+- Activity: the week’s points toward a target of 150. · Amazon. All rights reserved.
+- The band and the Halo app, December 2020. · Amazon. All rights reserved.
+- Body, Tone and Movement as members saw them in the app, 2020 and 2021. · Composed for this site from: Amazon. All rights reserved.
+- Body screen, 2021: the 3D model and a trend chart of body fat. · Amazon (Amazon Science). All rights reserved.
+- Amazon’s illustration introducing Halo, August 2020: the app’s Activity, Sleep, Tone and Body tiles. · Amazon. All rights reserved.
+
+## Alexa Shopping
+
+### Sources
+
+- [Amazon Echo Can Now Do Some Of Your Shopping For You, Prime Members](https://techcrunch.com/2015/05/14/amazon-echo-can-now-do-some-of-your-shopping-for-you-prime-members/) · TechCrunch, 2015
+- [Alexa, What Are Your Prime Day Deals?](https://press.aboutamazon.com/2016/7/alexa-what-are-your-prime-day-deals) · Amazon (US Press Center), 2016
+- [Amazon.com Announces Third Quarter Sales up 34% to $43.7 Billion](https://press.aboutamazon.com/2017/10/amazon-com-announces-third-quarter-sales-up-34-to-43-7-billion) · Amazon (US Press Center), 2017
+- [The talking shop: the rise of voice commerce](https://www.occstrategy.com/wp-content/uploads/2023/10/the-talking-shop_uk.pdf) · OC&C Strategy Consultants, 2018
+- [Making Alexa more friction-free](https://www.amazon.science/blog/making-alexa-more-friction-free) · Amazon Science, 2018
+- [Amazon scientists use transfer learning to accelerate development of new Alexa capabilities](https://www.amazon.science/blog/amazon-scientists-use-transfer-learning-to-accelerate-development-of-new-alexa-capabilities) · Amazon Science, 2018
+- [New way to annotate training data should enable more sophisticated Alexa interactions](https://www.amazon.science/blog/new-way-to-annotate-training-data-should-enable-more-sophisticated-alexa-interactions) · Amazon Science, 2018
+- [Amazon Customers Made This Holiday Season Record-Breaking with More Items Ordered Worldwide Than Ever Before](https://press.aboutamazon.com/2018/12/amazon-customers-made-this-holiday-season-record-breaking-with-more-items-ordered-worldwide-than-ever-before) · Amazon (US Press Center), 2018
+- [Alexa at five: Looking back, looking forward](https://www.amazon.science/blog/alexa-at-five-looking-back-looking-forward) · Amazon Science, 2019
+- [Query rewriting for voice shopping null queries](https://www.amazon.science/publications/query-rewriting-for-voice-shopping-null-queries) · Amazon Science (SIGIR 2020), 2020
+- [Amazon announces Rufus, a new generative AI-powered conversational shopping experience](https://www.aboutamazon.com/news/retail/amazon-rufus) · Amazon (About Amazon), 2024
+- [Meet Alexa for Shopping, your personalized, agentic AI assistant on Amazon](https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant) · Amazon (About Amazon), 2026
+
+### Pictures
+
+- Drawn for this site from the public record.
+- Echo Plus: the light ring glows when Alexa hears its wake word. · Asivechowdhury, via Wikimedia Commons. [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+- Labels on each word let Alexa split one spoken request into separate list items (2018). · Amazon Science (Amazon.com, Inc.). All rights reserved.
+
+## Prime Now
+
+### Sources
+
+- [Amazon Introduces Prime Now: One-Hour Delivery on Tens of Thousands of Daily Essentials Exclusively for Prime Members](https://press.aboutamazon.com/2014/12/amazon-introduces-prime-now-one-hour-delivery-on-tens-of-thousands-of-daily-essentials-exclusively-for-prime-members) · Amazon.com, Inc. (US Press Center, via Business Wire), 2014
+- [Amazon Prime Now Adds Local Stores In Manhattan](https://techcrunch.com/2015/05/21/amazon-prime-now-local-stores/) · TechCrunch, 2015
+- [Prime Now Gets Even Better: One-Hour Delivery from Your Favorite Local Stores](https://press.aboutamazon.com/2015/5/prime-now-gets-even-better-one-hour-delivery-from-your-favorite-local-stores) · Amazon.com, Inc. (US Press Center, via Business Wire), 2015
+- [Amazon Continues to Expand Its Superfast Delivery Service: Prime Now Lands in Los Angeles Featuring Tens of Thousands of Items from Amazon; Local Store Deliveries Coming Soon](https://press.aboutamazon.com/2015/9/amazon-continues-to-expand-its-superfast-delivery-service-prime-now-lands-in-los-angeles-featuring-tens-of-thousands-of-items-from-amazon-local-store-deliveries-coming-soon) · Amazon.com, Inc. (US Press Center, via Business Wire), 2015
+- [Amazon launches Prime Now local store delivery in Seattle, starting with PCC and Uwajimaya](https://www.geekwire.com/2016/amazon-launches-prime-now-local-store-delivery-seattle-starting-pcc-uwajimaya/) · GeekWire, 2016
+- [Amazon.com, Inc. 2015 Letter to Shareholders (Exhibit 99.1 to Form 8-K)](https://www.sec.gov/Archives/edgar/data/1018724/000119312516530910/d168744dex991.htm) · U.S. Securities and Exchange Commission (EDGAR), 2016
+- [Amazon amplía su servicio de entregas rápidas, Prime Now: a partir de hoy los clientes pueden comprar productos de los supermercados DIA, las tiendas Lavinia y decenas de puestos del Mercado de la Paz](https://press.aboutamazon.com/es/2016/9/amazon-amplia-su-servicio-de-entregas-rapidas-prime-now-a-partir-de-hoy-los-clientes-pueden-comprar-productos-de-los-supermercados-dia-las-tiendas-lavinia-y-decenas-de-puestos-del-mercado-de-la-paz) · Amazon.es (Spain Press Center), 2016
+- [Lavinia se suma, junto a DIA y el Mercado de La Paz, a Amazon Prime Now](https://www.alimarket.es/alimentacion/noticia/222873/lavinia-se-suma--junto-a-dia-y-el-mercado-de-la-paz--a-amazon-prime-now) · Alimarket, 2016
+- [Amazon Prime Now change de dimension en devenant une marketplace](https://www.journaldunet.com/retail/1187199-amazon-prime-now-devient-une-marketplace-ship-from-store/) · Journal du Net (JDN), 2016
+- [Prime Now gets even better: one-hour delivery from local London shops](https://press.aboutamazon.com/uk/2016/11/prime-now-gets-even-better-one-hour-delivery-from-local-london-shops) · Amazon.co.uk (UK Press Center), 2016
+- [Prime Now finds a new home on Amazon](https://www.aboutamazon.com/news/retail/prime-now-finds-a-new-home-on-amazon) · Amazon (aboutamazon.com), 2021
+- [Amazon Now: ultrafast delivery in 30 minutes or less](https://www.aboutamazon.com/news/retail/philadelphia-seattle-30-min-amazon-delivery) · Amazon (aboutamazon.com), 2025
+- [PLU Codes — IFPS](https://www.ifpsglobal.com/plu-codes) · International Federation for Produce Standards (IFPS)
+- [What is a GTIN? | GS1 US](https://www.gs1us.org/upcs-barcodes-prefixes/what-is-a-gtin) · GS1 US
+
+### Pictures
+
+- Choosing a delivery window at launch, December 2014, redrawn. · Drawn for this site from: Amazon (as published by GeekWire). All rights reserved.
+- The sign at Prime Now’s first site, in New York. · Amazon. All rights reserved.
+- Picking groceries from a store shelf for Prime Now, 2021. · Amazon. All rights reserved.
+- Amazon Now, Prime Now’s 30-minute successor, 2026. · Composed for this site from: Amazon. All rights reserved.
+
+## Target
+
+### Sources
+
+- [Estimation of Consumer Demand with Stock-Out Based Substitution: An Application to Vending Machine Products](https://ideas.repec.org/a/inm/ormksc/v17y1998i4p406-423.html) · Marketing Science (INFORMS), 1998
+- [Apple to open new store-within-a-store outlets inside Target this year](https://appleinsider.com/articles/12/01/06/apple_to_open_new_store_within_a_store_outlets_inside_target_this_year) · AppleInsider, 2012
+- [Target says it will launch upscale Apple shops in 25 of its discount stores](https://9to5mac.com/2012/01/12/target-says-it-will-launch-upscale-apple-shops-in-25-of-its-discount-stores) · 9to5Mac, 2012
+- [Target to create small Apple shops in 25 stores](https://www.mprnews.org/story/2012/01/12/target-specialty-shops) · MPR News (Associated Press), 2012
+- [Target Corporation Form 10-K for fiscal year ended January 28, 2012](https://www.sec.gov/Archives/edgar/data/27419/000104746912002714/a2207838z10-k.htm) · U.S. Securities and Exchange Commission, 2012
+- [Apple expected to expand store-within-store presence at Walmart, Target](https://forums.appleinsider.com/discussion/149813) · AppleInsider, 2012
+- [Apple to expand store-within-store concept to Target, Walmart?](https://www.mactech.com/2012/05/03/apple-to-expand-store-within-store-concept-to-target-walmart/) · MacTech, 2012
+- [Geek Squad to Join Target Stores as Part of Pilot Program](https://tcbmag.com/geek-squad-to-join-target-stores-as-part-of-pilot-program/) · Twin Cities Business, 2012
+- [Report: Retailers short on iPhone 5’s as Apple stores had plenty](https://www.techradar.com/news/phone-and-communications/mobile-phones/report-retailers-short-on-iphone-5-s-as-apple-stores-had-plenty-1099356) · TechRadar, 2012
+- [iPad Mini’s likely launch date means inventory will be everything, say analysts](https://www.computerworld.com/article/2721999/ipad-mini-s-likely-launch-date-means-inventory-will-be-everything--say-analysts.html) · Computerworld, 2012
+- [Apple Introduces iPad mini](https://www.apple.com/newsroom/2012/10/23Apple-Introduces-iPad-mini/) · Apple Newsroom, 2012
+- [Apple’s white iPad mini sells out in 20 minutes](https://fortune.com/2012/10/26/apples-white-ipad-mini-sells-out-in-20-minutes/) · Fortune, 2012
+- [Initial iPad mini stock selling out at various Apple Stores around the world](https://9to5mac.com/2012/11/02/initial-ipad-mini-stock-selling-out-at-various-apple-stores-around-the-world/) · 9to5Mac, 2012
+- [iPad Mini available today, so here’s how to get one fast](https://www.nbcnews.com/tech/gadgets/ipad-mini-available-today-so-heres-how-get-one-fast-flna1c6833474) · NBC News, 2012
+- [Apple Reports Record Results](https://www.apple.com/newsroom/2013/01/23Apple-Reports-Record-Results/) · Apple Newsroom, 2013
+- [MacDailyNews presents live notes from Apple’s Q113 conference call](https://macdailynews.com/2013/01/23/macdailynews-presents-live-notes-from-apples-q113-conference-call/) · MacDailyNews, 2013
+- [Target Corporation Form 10-K for fiscal year ended February 2, 2013](https://www.sec.gov/Archives/edgar/data/27419/000104746913003100/a2213506z10-k.htm) · U.S. Securities and Exchange Commission, 2013
+- [Apple’s Cyber Monday: What the analysts are saying](https://fortune.com/2013/12/02/apples-cyber-monday-what-the-analysts-are-saying-update) · Fortune, 2013
+- [Black Friday 2013 belonged to the iPad](https://www.csmonitor.com/Technology/Horizons/2013/1202/Black-Friday-2013-belonged-to-the-iPad) · The Christian Science Monitor, 2013
+- [Target Debuts Apple Shopping Destination With Expanded Footprint, Extended Assortment and Enhanced Services](https://corporate.target.com/press/release/2021/02/target-debuts-apple-shopping-destination-with-expa) · Target Corporation, 2021
+- [Target to open mini Apple shops in latest move to woo customers](https://www.cnbc.com/2021/02/25/target-to-open-mini-apple-shops-in-latest-move-to-woo-customers.html) · CNBC, 2021
+- [See the tiny new Apple stores inside Target](https://www.fastcompany.com/90609183/see-the-tiny-new-apple-stores-inside-target) · Fast Company, 2021
+- [Target and Apple Deepen Collaboration with More Shop-in-Shops and the Best Offer Available Through a Retailer on Apple Fitness+ and More, Just in Time for the Holidays](https://corporate.target.com/press/release/2022/10/target-and-apple-deepen-collaboration-with-more-sh) · Target Corporation, 2022
+- [Target and Apple expand product collaboration](https://www.retailcustomerexperience.com/news/target-apple-expand-product-collaboration/) · Retail Customer Experience, 2022
+
+### Pictures
+
+- iPad mini, launched November 2012, and iPad Air, launched November 2013. · Composed for this site from: Apple Inc. All rights reserved.
+
+## About
+
+### Sources
+
+- [University of St. Thomas Undergraduate Catalog, 2010-2012](https://cdm17521.contentdm.oclc.org/digital/collection/catalogs/id/11441) · University of St. Thomas; digitized by University of St. Thomas Libraries, Special Collections, 2010
+- [A Look at Who’s Speaking at This Year’s Commencement Exercises](https://news.stthomas.edu/a-look-at-whos-speaking-at-this-years-commencement-exercises/) · University of St. Thomas Newsroom, 2012
+- [Alexa, What Are Your Prime Day Deals?](https://press.aboutamazon.com/2017/7/alexa-what-are-your-prime-day-deals) · Amazon (US Press Center), 2017
+- [Stanford Academic Calendar 2024-2025](https://studentservices.stanford.edu/calendar-events/academic-calendars/stanford-academic-calendar-2024-2025) · Stanford University Student Services, 2024
+- [Stanford MSx Program Evolves Over Six Decades… and Counting](https://www.gsb.stanford.edu/experience/history/centennial/stories/stanford-msx-program-evolves-over-six-decades-counting) · Stanford Graduate School of Business (Centennial stories), 2025
+- [Stanford Sloan Program Relaunched as Stanford MSx in 2013](https://www.gsb.stanford.edu/experience/history/centennial/stories/stanford-sloan-program-relaunched-stanford-msx-2013) · Stanford Graduate School of Business (Centennial stories), 2025
+- [Artificial Intelligence Index Report 2025 (arXiv:2504.07139)](https://arxiv.org/abs/2504.07139) · arXiv, 2025
+- [Introducing Ask Heidi AI](https://www.loom.com/share/24b23383e9f34d6ab663bd1a069a6fd0) · Loom share (uploader not shown in the metadata), Loom, 2025
+- [AI-Powered PRFAQ Process Overview](https://www.loom.com/share/7fa90080455846d2a626f6a45d65a4f2) · Loom share (uploader not shown in the metadata), Loom, 2025
+- [Workflow Automation Made Easy](https://www.loom.com/share/d8724535ef7c4da589168639d906facf) · Loom share (uploader not shown in the metadata), Loom, 2025
+- [Stanford University Commencement 2025: List of Conferred Degrees and Degree Candidates (134th Commencement)](https://commencement.stanford.edu/sites/g/files/sbiybj17666/files/media/file/commencement2025.pdf) · Stanford University, 2025
+- [njenga-kariuki/AskHeidiAI](https://github.com/njenga-kariuki/AskHeidiAI) · GitHub (account njenga-kariuki), 2026
+- [njenga-kariuki/Automate-Any-Workflow-POC](https://github.com/njenga-kariuki/Automate-Any-Workflow-POC) · GitHub (account njenga-kariuki), 2026
+- [njenga-kariuki/ChatPRFAQ](https://github.com/njenga-kariuki/ChatPRFAQ) · GitHub (account njenga-kariuki), 2026
+- [njenga-kariuki/ChatPRFAQ: the September 2026 rebuild](https://github.com/njenga-kariuki/ChatPRFAQ/tree/claude/critical-project-frontier-refresh-87z5r1) · GitHub (account njenga-kariuki), 2026
+- [njenga-kariuki/ai-daily-digest](https://github.com/njenga-kariuki/ai-daily-digest) · GitHub (account njenga-kariuki), 2026
+- [njenga-kariuki/math-annotation-tool-demo](https://github.com/njenga-kariuki/math-annotation-tool-demo) · GitHub (account njenga-kariuki), 2026
+- [njenga-kariuki (Njenga Kariuki) GitHub profile](https://github.com/njenga-kariuki) · GitHub, 2026
+
+### Pictures
+
+- Njenga Kariuki, 2026. · Njenga Kariuki. All rights reserved.
+- Ask Heidi: Ask Heidi AI on Threshold’s site: a question about secondary sales, and the first lines of the answer as it arrives. · A frame from my walkthrough of the build, 2025.
+- Math Reasoning Annotation Tool: The tool’s annotation guide: review the problem and the solution, identify the first error, then give guidance. · The build’s own first screen, rendered from its public repository.
+- Video-to-Workflow Capture: The build’s first screen, under its working name, Data Jaw: Show us once, never do it again. · A frame from my walkthrough of the build, 2025.
+- ChatPRFAQ: ChatPRFAQ’s first screen: C-Suite Ready PRFAQs in 5 Minutes, and the AI team that drafts one. · A frame from my walkthrough of the build, 2025.

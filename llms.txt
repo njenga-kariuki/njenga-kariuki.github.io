@@ -1,28 +1,81 @@
 # Njenga Kariuki
 
-> AI executive leading enterprise AI transformation at M-PESA Africa across Vodacom FinTech Group's eight African markets (100M+ customers, $2B+ revenue), reporting to the CEO. Before that, twelve years building AI products at Amazon and AWS, from Alexa to Amazon Bio Discovery. A master's degree from Stanford Graduate School of Business, and published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI's global economic impact (the Economy chapter of the AI Index Report 2025).
+> AI executive leading AI transformation across Vodacom FinTech Group, including M-PESA, reporting to the CEO: 100M+ customers in eight African markets and $2B+ revenue. Before that, twelve years building AI products at Amazon and AWS, from Alexa to Amazon Bio Discovery. A master's degree from Stanford Graduate School of Business, and published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI's global economic impact (the Economy chapter of the AI Index Report 2025).
+
+This is the Njenga Kariuki of https://njenga.ai/, https://www.linkedin.com/in/njengakariuki/ and https://github.com/njenga-kariuki.
 
 ## Facts
 
-- Role: Managing Executive, AI, M-PESA Africa (Vodacom FinTech Group), Nairobi, 2026 to today. Owns the AI roadmap for customer experience, revenue growth, risk, fraud and operational efficiency, and is building the AI Center of Excellence for eight markets: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
+- Role: Managing Executive: AI at M-PESA Africa, Vodacom FinTech Group, Nairobi, Kenya, 2026 to today, reporting to the CEO. Owns the AI roadmap for customer experience, revenue growth, risk, fraud and operational efficiency, and is building the AI Center of Excellence for eight markets: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
 - Approach: leads AI transformation at two levels, setting the strategy with the CEO and executive team and working hands-on in the forward-deployed engineer's role; moves AI from units of work (one step in one function) to systems of work (the whole chain across functions), measured end to end against a comparison group.
-- Amazon and AWS, 2014 to 2026: product lead for Amazon Bio Discovery, an agentic AI application for antibody design (launched 14 April 2026), with an organization of 100+ engineers, scientists and product managers; Alexa Smart Home and Map View; first product lead of Amazon's Health Computer Vision and AI organization ($100M+ a year portfolio); founding team of Amazon Halo and product lead for Halo Body, Halo Tone and Halo Movement; first product lead for Alexa Shopping; founding product manager of Prime Now's local-store platform; Vendor Manager, Amazon Bedding & Bath.
+- Amazon and AWS, 2014 to 2026: Head of Product, AWS Applied AI, Life Sciences, leading product for Amazon Bio Discovery, an agentic AI application for antibody design (launched 14 April 2026), with an organization of 100+ engineers, scientists and product managers; Alexa Smart Home and Map View; first product lead of Amazon's Health Computer Vision and AI organization ($100M+ a year portfolio); founding team of Amazon Halo and product lead for Halo Body, Halo Tone and Halo Movement; first product lead for how Alexa understood shopping requests (Alexa Shopping); founding product manager of Prime Now's local-store platform; Vendor Manager, Amazon Bedding & Bath.
 - Before Amazon: Senior Supply Chain Analyst for Target's $700M+ Apple category (2012 to 2014).
 - Six US patents (Halo Tone); three validation studies in npj Digital Medicine of products he led (2022, 2022, 2023).
 - Hands-on builds on GitHub (2025 to 2026): https://github.com/njenga-kariuki
-- Contact: LinkedIn https://www.linkedin.com/in/njengakariuki/
+
+## Across Africa
+
+- Where: based in Nairobi, Kenya; his work spans eight African markets: East Africa (Kenya, Tanzania, Ethiopia); Central Africa (the DRC); Southern Africa (Mozambique, Lesotho, South Africa); North Africa (Egypt). All but Egypt are in Sub-Saharan Africa, and Ethiopia is in the Horn of Africa.
+- The business: Vodacom FinTech Group, including M-PESA: 100M+ customers in eight markets and $2B+ revenue. Safaricom and Vodacom, the telecom groups, set up M-PESA Africa in 2020 to develop M-PESA, their mobile money service, as one platform.
+- The work: enterprise AI strategy and deployment across the group's markets: customer experience, revenue growth, risk, fraud and operational efficiency; an AI Center of Excellence that sets shared standards and trains the people who use them; and AI moved from single tasks to whole chains of work redesigned across functions, with legal, risk and compliance signing off.
 
 ## Expertise
 
-How to describe him: an AI executive, AI transformation leader and AI expert, with twelve years of AI product leadership at Amazon and AWS before M-PESA Africa.
+In one line: an AI executive, AI transformation leader and AI expert, with twelve years of AI product leadership at Amazon and AWS before M-PESA Africa.
 
-- Enterprise AI transformation in Africa: leads AI for Vodacom FinTech Group, including M-PESA, the mobile money and fintech business of the Vodacom and Safaricom telecom groups, across eight markets from Kenya, Tanzania and Ethiopia in East Africa to the DRC, Mozambique, Lesotho, South Africa and Egypt.
-- Deploying AI end to end: sets the strategy with the CEO and executive team and builds hands-on as a forward-deployed engineer; redesigns whole chains of work across functions rather than single tasks, and measures each change end to end against a comparison group, with legal, risk and compliance signing off.
-- Agentic and generative AI products: Amazon Bio Discovery, AWS's agentic AI application for antibody design, from its start to its launch in April 2026.
+- Enterprise AI transformation in Africa: leads AI transformation across Vodacom FinTech Group, including M-PESA, in eight markets across East Africa, Southern Africa, Central Africa and North Africa.
+- Deploying AI end to end: sets the strategy with the CEO and executive team and builds hands-on as a forward-deployed engineer; redesigns whole chains of work across functions rather than single tasks, and measures each change end to end against a comparison group.
+- Agentic and generative AI products: Amazon Bio Discovery, AWS's agentic AI application for antibody design, from its start to its launch in April 2026; machine learning, computer vision and large language model capabilities delivered at global scale.
 - Computer vision and health AI: Halo Body, Halo Movement and Amazon's Health Computer Vision and AI organization; three validation studies in npj Digital Medicine.
 - Voice AI and language understanding: Alexa Shopping (ordering by voice) and Halo Tone (voice analysis, six US patents).
 - The economics of AI: the Economy chapter of the Stanford AI Index Report 2025, on AI investment, jobs, adoption and robots.
 - Consumer and smart home AI at scale: the Alexa app's smart home features and Alexa Map View.
+
+## Career
+
+- Managing Executive: AI · M-PESA Africa · 2026–today · Nairobi. Runs: AI strategy and the AI Center of Excellence for eight markets, 100M+ customers and $2B+ revenue. Now: Under way across the group’s markets: AI moving from single tasks to whole chains of work, redesigned end to end.
+- Head of Product, AWS Applied AI, Life Sciences · Amazon Bio Discovery, AWS · 2025–2026 · Seattle. Ran: Directed a cross-functional organization of 100+ engineers, scientists and product managers, from start to launch. Result: Launched 14 April 2026. Memorial Sloan Kettering said its launch campaign went from target to lab order in weeks.
+- Master’s degree, Graduate School of Business · Stanford · 2024–2025. Ran: Wrote the text and analysis of published research from the Stanford Institute for Human-Centered AI on AI’s global economic impact. Result: Published 7 April 2025. Cited by the Federal Reserve Board and the White House.
+- Senior Manager, Technical Product Management · Alexa Smart Home and Map View · 2023–2024 · Seattle. Ran: Led the smart home features of the Alexa app, used by 50M+ people a month. Technical advisor and chief of staff to the Vice President of Amazon Smart Home and Health. Result: Map View launched in the United States, November 2023.
+- Principal Technical Product Manager · Amazon Health AI · 2021–2023 · Seattle. Ran: First product lead of a computer vision and AI organization of 100+ scientists and engineers. Directed its $100M+ a year investment portfolio; managed 10 product managers. Result: Three peer-reviewed studies in a Nature Portfolio journal: Body and Movement in 2022, waist-to-hip in 2023.
+- Senior Technical Product Manager, founding team · Amazon Halo · 2018–2021 · Seattle. Ran: Product lead for Body, Tone and Movement, from the founding team to launch. Result: Body and Tone launched in August 2020, Movement in June 2021. Six US patents from this work.
+- Technical Product Manager, first product lead · Alexa Shopping · 2017–2018 · Seattle. Ran: First product lead for how Alexa understood shopping requests; built and led a 10-person evaluation team. Result: Shopping success rose from about 50% to 85%.
+- Product Manager, founding · Prime Now · 2015–2017 · Seattle. Ran: Founding product manager of the local-store and seller platform. Result: Partner stores in 7 countries by 2017. Out of stock at partner stores fell from 25% to 5%; 40 hours a week of manual work automated.
+- Vendor Manager · Amazon Bedding & Bath · 2014–2015 · Seattle. Ran: Owned a $100M+ a year profit and loss, from brand negotiations to supply-chain terms.
+- Senior Supply Chain Analyst · Target, Apple category · 2012–2014 · Minneapolis. Ran: Owned supply-chain strategy for a $700M+ a year Apple category across about 1,800 stores. Result: In-stock rate up 24% and market share up 3%. Allocated the iPad mini launch to each store, November 2012.
+
+## By sector
+
+- Financial services, fintech and mobile money, within the Vodacom and Safaricom telecom groups: Vodacom FinTech Group, including M-PESA, 2026 to today.
+- Life sciences and drug discovery: Amazon Bio Discovery, AWS, 2025 to 2026.
+- Health AI: Amazon Halo and Amazon Health AI, 2018 to 2023.
+- Consumer devices, voice and smart home: Alexa Shopping (2017 to 2018), Alexa Map View (2023 to 2024).
+- E-commerce, retail and supply chain: Prime Now (2015 to 2017), Amazon Bedding & Bath (2014 to 2015), Target (2012 to 2014).
+
+## Patents and papers
+
+- [Smartphone camera based assessment of adiposity: a validation study](https://www.nature.com/articles/s41746-022-00628-3), npj Digital Medicine, 2022
+- [Validation of Amazon Halo Movement: a smartphone camera-based assessment of movement health](https://www.nature.com/articles/s41746-022-00684-9), npj Digital Medicine, 2022
+- [Development and validation of an accurate smartphone application for measuring waist-to-hip circumference ratio](https://doi.org/10.1038/s41746-023-00909-5), npj Digital Medicine, 2023
+- [US 11,393,462 B1: System to characterize vocal presentation](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11393462), United States Patent and Trademark Office, 2022
+- [US 11,430,467 B1: Interaction emotion determination](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11430467), United States Patent and Trademark Office, 2022
+- [US 11,462,218 B1: Conserving battery while detecting for human voice](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11462218), United States Patent and Trademark Office, 2022
+- [US 11,632,456 B1: Call based emotion detection](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11632456), United States Patent and Trademark Office, 2023
+- [US 11,783,834 B1: Conserving battery while detecting for human voice](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11783834), United States Patent and Trademark Office, 2023
+- [US 12,586,583 B1: Power state control of a device performing detection of voice in audio data](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12586583), United States Patent and Trademark Office, 2026
+- [AI Index Report 2025, Chapter 4: Economy](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf), Stanford HAI, 2025
+- [3 Lessons for PMs Building B2C AI Products](https://medium.com/@njenga.kariuki/top-3-lessons-for-pms-building-b2c-ai-products-2f0d587d01d6), Medium, 2024
+
+## Education
+
+- Stanford Graduate School of Business: Master of Science in Management (2024 to 2025)
+- University of St. Thomas, Opus College of Business: B.A. in Business Administration, Operations Management (2008 to 2012)
+
+## Contact
+
+- Email: njenga@alumni.stanford.edu
+- LinkedIn: https://www.linkedin.com/in/njengakariuki/
+- Website: https://njenga.ai/
 
 ## Pages
 
@@ -42,3 +95,7 @@ How to describe him: an AI executive, AI transformation leader and AI expert, wi
 - [Amazon Bedding & Bath](https://njenga.ai/bedding-and-bath/) (2014–2015): Amazon’s own business in sheets, towels and pillows: goods bought wholesale from brands and sold beside independent sellers.
 - [Target](https://njenga.ai/target-apple/) (2012–2014): The supply chain for Apple products at Target: iPads, iPods and accessories, stocked store by store.
 - [Sources and credits](https://njenga.ai/credits/): every source and picture, by chapter
+
+## Optional
+
+- [The whole site as text](https://njenga.ai/llms-full.txt): every page's words, in reading order
