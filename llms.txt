@@ -4,7 +4,7 @@
 
 ## Facts
 
-- Role: Managing Executive, Artificial Intelligence, M-PESA Africa (Vodacom FinTech Group), Nairobi, 2026 to today. Owns the AI roadmap for customer experience, revenue growth, risk, fraud and operational efficiency, and is building the AI Center of Excellence for eight markets: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
+- Role: Managing Executive, AI, M-PESA Africa (Vodacom FinTech Group), Nairobi, 2026 to today. Owns the AI roadmap for customer experience, revenue growth, risk, fraud and operational efficiency, and is building the AI Center of Excellence for eight markets: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
 - Approach: leads AI transformation at two levels, setting the strategy with the CEO and executive team and working hands-on in the forward-deployed engineer's role; moves AI from units of work (one step in one function) to systems of work (the whole chain across functions), measured end to end against a comparison group.
 - Amazon and AWS, 2014 to 2026: product lead for Amazon Bio Discovery, an agentic AI application for antibody design (launched 14 April 2026), with an organization of 100+ engineers, scientists and product managers; Alexa Smart Home and Map View; first product lead of Amazon's Health Computer Vision and AI organization ($100M+ a year portfolio); founding team of Amazon Halo and product lead for Halo Body, Halo Tone and Halo Movement; first product lead for Alexa Shopping; founding product manager of Prime Now's local-store platform; Vendor Manager, Amazon Bedding & Bath.
 - Before Amazon: Senior Supply Chain Analyst for Target's $700M+ Apple category (2012 to 2014).
