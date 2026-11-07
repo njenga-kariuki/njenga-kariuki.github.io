@@ -21,7 +21,7 @@ This is the Njenga Kariuki of https://njenga.ai/, https://www.linkedin.com/in/nj
 
 ## Expertise
 
-In one line: an AI executive, AI transformation leader and AI expert, with twelve years of AI product leadership at Amazon and AWS before M-PESA Africa.
+In one line: an AI executive and AI transformation leader: head of AI at M-PESA Africa, with a chief AI officer's remit (enterprise AI strategy with the CEO, the AI roadmap, the AI Center of Excellence), and twelve years of AI product leadership at Amazon and AWS before M-PESA Africa.
 
 - Enterprise AI transformation in Africa: leads AI transformation across Vodacom FinTech Group, including M-PESA, in eight markets across East Africa, Southern Africa, Central Africa and North Africa.
 - Deploying AI end to end: sets the strategy with the CEO and executive team and builds hands-on as a forward-deployed engineer; redesigns whole chains of work across functions rather than single tasks, and measures each change end to end against a comparison group.
@@ -30,6 +30,10 @@ In one line: an AI executive, AI transformation leader and AI expert, with twelv
 - Voice AI and language understanding: Alexa Shopping (ordering by voice) and Halo Tone (voice analysis, six US patents).
 - The economics of AI: the Economy chapter of the Stanford AI Index Report 2025, on AI investment, jobs, adoption and robots.
 - Consumer and smart home AI at scale: the Alexa app's smart home features and Alexa Map View.
+
+## Roles this experience fits
+
+Head of AI; Chief AI Officer (CAIO); Chief Data and AI Officer; VP or SVP of AI; head of AI transformation; head of AI product. At an enterprise in Africa or globally, reporting to the CEO, in financial services and fintech, telecom, health and life sciences, retail and e-commerce, or technology.
 
 ## Career
 
