@@ -2816,3 +2816,17 @@ main { padding-bottom: clamp(44px, 4.4vw, 72px); }
   .m10x tbody tr[data-r="2"] td::before { top: 8px; }
   .m10x tbody tr[data-r="0"] td::after, .m10x tbody tr[data-r="1"] td::after { display: none; }
 }
+
+/* ---------- H (v2.15.1). The 12px floor on Map View's two decision figures. The pass's floor sweep found it, on the
+   published site as well: the two figures are drawn 340 wide (the other chapters' are 300), and from 1100px to 1171px
+   a third of the column set them at 303px to 326px, their labels at 11.1px to 11.9px. Through 1179px the list keeps
+   the form it has from 900px to 1099px (site.css, repeated unchanged): one column, each figure beside its words at
+   340px. 1179px is the bound the home page's figures already use for the same reason. */
+@media (min-width: 1100px) and (max-width: 1179px) {
+  .ch[data-ch="m11"] .dec ol { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .ch[data-ch="m11"] .dec li:has(> .d-fig) { display: grid; grid-template-columns: minmax(0, 1fr) 340px; column-gap: 40px; align-items: start; }
+  .ch[data-ch="m11"] .dec li:has(> .d-fig)::before { grid-column: 1 / -1; }
+  .ch[data-ch="m11"] .dec li:has(> .d-fig) > :not(.d-fig) { grid-column: 1; }
+  .ch[data-ch="m11"] .dec li:has(> .d-fig) > .d-fig { grid-column: 2; grid-row: 2 / span 2; margin-top: 0; }
+  .ch[data-ch="m11"] .dec li > p { max-width: 40em; }
+}
