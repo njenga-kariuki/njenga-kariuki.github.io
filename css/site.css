@@ -2640,3 +2640,179 @@ svg.ci.ci-big .ci-n, svg.ci.ci-big .ci-v { font-size: 14.5px; }
 /* the page's end: the last content stands as far from the lifted edge as a chapter's next work stands from its sources
    (it sat a full section break away, plus the row's own margin) */
 main { padding-bottom: clamp(44px, 4.4vw, 72px); }
+
+/* v2.15 (D-075, 11 November 2026): the review pass. "zz-" and a later number, so this part joins last, after zz-v2.10.css
+   (the build joins parts in name order). Four changes (A to D), six corrections (E), two repairs (F) and two more (G). */
+
+/* ---------- A. A chapter opens with the name, then Role / Scale / Now, then the picture. (A1 is a markup change.) */
+/* A2. The name in a chapter's bar. 900px and wider: the name is first, then a 1px rule, then the back link. */
+@media (min-width: 900px) {
+  .p-chapter .hd-name { display: inline-flex; opacity: 1; transform: none; pointer-events: auto; }
+  .p-chapter .crumb { position: relative; padding-left: 16px; }
+  .p-chapter .crumb::before { content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: 14px; margin-top: -7px; background: var(--line); opacity: .6; }
+}
+/* Under 900px: at the top of the page the name is placed after the back link. It fades out as the chapter title rises
+   into the bar (site.js sets --rh from 0 to 1). 94px = the back link's width (about 60px) + 16px + the 1px rule + 16px. */
+@media (max-width: 899px) {
+  .p-chapter .hd-name { display: inline-flex; position: absolute; left: calc(var(--gut) + 94px); top: 0; height: var(--head); min-height: 0;
+    opacity: calc(1 - var(--rh, 0) * 2); transform: translateY(calc(var(--rh, 0) * -10px)); transition: none; pointer-events: auto; }
+  .p-chapter .hd-name::before { content: ""; position: absolute; left: -17px; top: 50%; width: 1px; height: 14px; margin-top: -7px; background: var(--line); opacity: .6; }
+  .p-chapter .hd.rh .hd-name { pointer-events: none; }
+}
+/* A3. M-PESA chapter only: the opening picture has a fixed height, so the app screenshots are drawn sharp.
+   The photo (the view without .fit) is framed on the painted lettering. */
+@media (min-width: 900px) {
+  .ch[data-ch="m15"] .ch-hero .ch-plate { aspect-ratio: auto; height: clamp(300px, 44vh, 420px); }
+  .ch[data-ch="m15"] .ch-hero .ch-plate .v:not(.fit) img { object-position: 50% 78%; }
+}
+
+/* ---------- B. The career chart. (B2 is a data change.) */
+/* B1. At rest, the current role's row has a wash band behind it, its bar is solid, and the bar ends in a point.
+   Under the pointer, the band is behind the row being read. */
+#tl .tl-row { isolation: isolate; }
+#tl .tl-row::before { content: ""; position: absolute; inset: 4px -12px; border-radius: 10px; background: transparent; z-index: -1; pointer-events: none; transition: background var(--t1) linear; }
+#tl:not(.active) .tl-row.now::before, #tl.active:not(.recon) .tl-row.on::before { background: var(--wash); }
+#tl .tl-row.now .tl-bar { background: var(--c2); }
+#tl .tl-row.now .tl-bar::after { content: ""; position: absolute; right: -6px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%;
+  background: var(--c2); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c2) 22%, transparent); }
+#tl .tl-row.now .tl-note { color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) {
+  .js #tl.armed .tl-row.now .tl-bar::after { opacity: 0; }
+  #tl.drawn .tl-row.now .tl-bar::after { animation: fade var(--t2) linear both; animation-delay: calc(var(--i) * 40ms + 200ms); }
+}
+/* B3. The readout and the year axis stay under the header while the chart is on screen. A 1px rule shows under the
+   axis while rows are under it (site.js sets .pinned). --rdh repeats the readout heights that v2.10 sets. */
+@media (min-width: 900px) and (min-height: 600px) {
+  #tl { --rdh: 118px; }
+  #tl .tl-read { position: sticky; top: calc(var(--head) + 12px); z-index: 6; height: var(--rdh); margin-bottom: 0; padding-bottom: 8px; box-sizing: content-box; }
+  #tl .tl-read::before { content: ""; position: absolute; inset: -12px -12px 0; background: var(--paper); z-index: -1; }
+  #tl .tl-axis { position: sticky; top: calc(var(--head) + 12px + var(--rdh) + 8px); z-index: 6; }
+  #tl .tl-axis::before { content: ""; position: absolute; inset: 0 -12px; background: var(--paper); z-index: -1; }
+  #tl .tl-axis::after { content: ""; position: absolute; left: -12px; right: -12px; bottom: 0; height: 1px; background: var(--rule); opacity: 0; transition: opacity var(--t1) linear; }
+  #tl.pinned .tl-axis::after { opacity: 1; }
+}
+@media (min-width: 900px) and (max-width: 1279px) and (min-height: 600px) { #tl { --rdh: 135px; } }
+@media (min-width: 900px) and (max-width: 1099px) and (min-height: 600px) { #tl { --rdh: 158px; } }
+/* The pointer's year marker rides the axis (site.js moves it there from the scrub line), so the pinned block's ground
+   never covers it and it shows above the rows whether or not the axis is pinned. Its look and place are as before:
+   18px above the axis, centered on the pointer. */
+.tl-axis > #scrubT { position: absolute; top: -18px; z-index: 1; transform: translateX(-50%); background: var(--ink); color: var(--paper);
+  font-family: var(--mono); font-size: var(--f11); padding: 2px 7px; border-radius: 5px; white-space: nowrap;
+  font-variant-numeric: lining-nums tabular-nums; pointer-events: none; opacity: 0; transition: opacity var(--t1) linear; }
+.tl.scrubbing .tl-axis > #scrubT { opacity: 1; }
+/* B4. The phone career chart: every bar in its full color at rest. The bold name and the dot mark the selected role. */
+.cs-bar { background: var(--c2, var(--ink)); }
+.cs-ev { box-shadow: inset 0 0 0 1.75px var(--c2, var(--ink)); }
+
+/* ---------- C. A pinned drawing is placed at the vertical middle of the space under the header (site.js sets --stage-top). */
+@media (min-width: 900px) { .story > .stage { top: var(--stage-top, calc(env(safe-area-inset-top, 0px) + var(--head) + 6vh)); } }
+
+/* ---------- D. The home page in print: one page, written by the build, shown only in print. */
+@media print {
+  body.p-home > *:not(.cv) { display: none !important; }
+  body.p-home::before { display: none; }
+  body.p-home > .cv { display: block; font-family: var(--font); color: var(--ink); font-size: 8pt; line-height: 1.33; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cv p { margin: 0; }
+  .cv a { color: inherit; text-decoration: none; }
+  .cv-head { display: grid; grid-template-columns: 1fr auto; column-gap: 10mm; align-items: end; padding-bottom: 3.4mm; border-bottom: .35mm solid var(--ink); }
+  .cv-name { font-size: 22pt; line-height: 1.05; font-weight: 500; letter-spacing: -0.022em; white-space: nowrap; }
+  .cv-line { margin-top: 2.2mm; font-size: 10pt; line-height: 1.3; letter-spacing: -0.006em; max-width: 118mm; text-wrap: balance; }
+  .cv-contact { font-size: 8pt; line-height: 1.5; color: var(--ink-2); text-align: right; white-space: nowrap; }
+  .cv-sec { display: flex; justify-content: space-between; align-items: baseline; margin-top: 2.8mm; padding-bottom: 1.1mm; font-size: 8pt; }
+  .cv-sec span:first-child { font-weight: 500; }
+  .cv-sec span:last-child { color: var(--gray); font-variant-numeric: tabular-nums; }
+  .cv-row { display: grid; grid-template-columns: 22mm 52mm 1fr; column-gap: 4mm; padding: 1.3mm 0 1.4mm; border-top: .18mm solid var(--rule); break-inside: avoid; }
+  .cv-y { position: relative; padding-left: 3.6mm; color: var(--gray); font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+  .cv-y > span { display: block; margin-top: .3mm; font-size: 7.5pt; line-height: 1.32; }
+  .cv-row:not(.cv-extra) .cv-y::before { content: ""; position: absolute; left: 0; top: 1.1mm; width: 1.8mm; height: 1.8mm; border-radius: 50%; background: var(--c2); }
+  .cv-who b { display: block; font-weight: 500; font-size: 8.5pt; line-height: 1.3; }
+  .cv-who > span { display: block; margin-top: .3mm; color: var(--gray); font-size: 7.5pt; line-height: 1.32; text-wrap: pretty; }
+  .cv-what p { color: var(--ink-2); text-wrap: pretty; }
+  .cv-what p + p { margin-top: .45mm; }
+  .cv-what .cv-res { color: var(--ink); }
+  .cv-what .cv-res i { font-style: normal; color: var(--gray); margin-right: 1.6mm; font-size: 7.5pt; }
+  .cv-extra { border-top-color: var(--ink); }
+  .cv-extra + .cv-extra { border-top-color: var(--rule); }
+  .cv-foot { padding-top: 2mm; border-top: .18mm solid var(--rule); font-size: 7.2pt; color: var(--gray); }
+}
+
+/* ---------- E. Six corrections. */
+/* E1. The Alexa Shopping plate, drawn in HTML with the site's type. No label is smaller than 12px: a plate too narrow
+   for a line of text does not show that line. */
+.plate .v.xc { container-type: inline-size; }
+.xc-in { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transform: scale(1.0001); transition: transform var(--t4) var(--out); }
+.pl-a:hover .xc-in { transform: scale(1.02); }
+.xc-dot { flex: none; width: 46%; height: auto; }
+.xc-t { display: none; }
+@container (min-width: 264px) {
+  .xc-in { justify-content: flex-start; padding: 0 4.5cqw 0 6cqw; gap: 4.5cqw; }
+  .xc-dot { width: 24cqw; }
+  .xc-t { display: block; min-width: 0; }
+  .xc-t p { margin: 0; white-space: nowrap; }
+  .xc-k { font-size: 12px; line-height: 1.3; letter-spacing: .02em; color: var(--gray); }
+  .xc-q { margin-top: 3px; font-size: 13.5px; line-height: 1.25; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
+  .xc-2 { display: none; }
+}
+@container (min-width: 340px) {
+  .xc-in { padding: 0 4.5cqw 0 6.5cqw; gap: 6cqw; }
+  .xc-dot { width: 30cqw; }
+  .xc-q { font-size: clamp(15px, 4.3cqw, 19px); }
+  .xc-2 { display: block; }
+  .xc-a { margin-top: 3px; font-size: clamp(14px, 3.8cqw, 17px); line-height: 1.3; color: var(--ink-2); }
+  .xc-k.xc-2 { margin-top: clamp(8px, 3cqw, 14px); }
+}
+@media (prefers-reduced-motion: reduce) { .xc-in, .pl-a:hover .xc-in { transform: none; transition: none; } }
+/* E2. A plate's third line: each fact stays whole, a separator is not shown at the start of a line, and the line wraps
+   like the description above it. */
+.pl-p { display: block; overflow: hidden; text-wrap: pretty; }
+.pl-p .pl-fs { display: flex; flex-wrap: wrap; margin-left: -.858em; }
+.pl-p .pl-f { position: relative; min-width: 0; padding-left: .858em; }
+.pl-p .pl-f::before { content: "·"; position: absolute; left: 0; width: .858em; text-align: center; }
+/* E3. A hyphen between capitals, raised to the middle of the capital height. */
+.hy { position: relative; top: -.072em; }
+/* E4. An opening quotation mark hangs in the margin, so both lines of a quotation start on one edge.
+   Under 600px the page margin is 16px, too narrow for the mark, so the mark stays in the column. */
+@media (min-width: 600px) { .launch blockquote { text-indent: -.39em; } }
+/* E5. The arrow in a chart note is the site's drawn arrow. */
+.tl-note .arr { display: inline-block; width: .86em; height: .86em; margin: 0 .22em; vertical-align: -.06em; }
+/* E6. The hatch that stands for waiting is drawn in the warm gray, in the chapter drawing and in the small drawing on About. */
+.clk .clk-hl, .clk-mini .clk-hl { stroke: var(--gray); stroke-width: 1.25; }
+
+/* ---------- F. Two repairs. */
+/* F1. In an opening figure with several pictures, only the picture that is shown takes the pointer, so a click opens that
+   picture at full size. (The full-size caption is a script change.) */
+.ch-plate.views .v:not(.on) { pointer-events: none; }
+/* F2. The AI Index chapter's report pages. From 900px to 1199px the column beside a step's text is 351px to 588px wide,
+   too narrow for a page with its note beside it. In that range the note goes under the page, as on a phone, and the
+   leader is not drawn. The mark in the page's margin stays. */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line { display: block; }
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line picture::before { content: none; }
+  .ch[data-ch="m13"] :is(#define, #write, #publish) .ev.line figcaption { margin-top: 12px; }
+}
+
+/* ---------- G. Two more blocks that chose their form from the window's width. From 900px a step's evidence sits in a
+   column beside its text, so the column is narrow while the window is wide. */
+/* G1. The AI Index chapter's "Five layers" chart takes its narrow form when its own stage is narrow
+   (js/modules/five-measures.js). No style change: the narrow form needs none of the phone's rules. */
+/* G2. The Health AI chapter's "measured against" table. From 900px to 1139px its stage is 315px to 494px wide, too narrow
+   for four columns (to 1079px words run past their cells; to 1139px "Waist-to-hip" and "Checked against" take two lines),
+   so it takes the form it has on a phone: the row's label on its own line, then three equal columns. These are the
+   phone's rules (parts/m10.css), repeated unchanged. (js/modules/measured-against.js keeps "X-ray" whole.) */
+@media (min-width: 900px) and (max-width: 1139px) {
+  button .m10x-lw { display: none; } button .m10x-ln { display: inline; }
+  .m10x, .m10x thead, .m10x tbody { display: block; }
+  .m10x tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 10px; }
+  .m10x .m10x-corner { display: none; }
+  .m10x th[scope="col"] { padding: 0 0 8px 0; font-size: 15px; }
+  .m10x th[scope="row"] { grid-column: 1 / -1; width: auto; padding: 14px 0 4px; }
+  .m10x td { padding: 2px 0 12px 13px; border-bottom: 0; }
+  .m10x tbody tr { border-bottom: 1px solid var(--rule); }
+  .m10x tbody tr:last-child { border-bottom: 0; }
+  .m10x .m10x-v { font-size: 13.5px; line-height: 1.38; }
+  .m10x .m10x-s { font-size: 13px; }
+  .m10x .m10x-big { font-size: 16px; line-height: 1.25; }
+  .m10x tbody tr[data-r="0"] td::before, .m10x tbody tr[data-r="1"] td::before, .m10x tbody tr[data-r="2"] td::before { top: 8px; width: 7px; height: 7px; }
+  .m10x tbody tr[data-r="2"] td::before { top: 8px; }
+  .m10x tbody tr[data-r="0"] td::after, .m10x tbody tr[data-r="1"] td::after { display: none; }
+}

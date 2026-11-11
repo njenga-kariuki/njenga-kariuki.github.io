@@ -7,6 +7,8 @@
    6 September 2022 (m10-e021) and 11 September 2023 (m10-e039). Words match lib/tables_m10_measured_against_what.py. */
 const el = (tag, attrs = {}, text) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (text != null) e.textContent = text; return e; };
 const num = (x) => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+// v2.15 (D-075): X-ray never breaks at its hyphen (D-063), in this table as in the page's text
+const whole = (e, x) => { x.split(/(X-ray)/).forEach((v) => { if (v) e.append(v === 'X-ray' ? el('span', { class: 'nw' }, v) : v); }); return e; };
 
 /* the three products: the words, the people each study measured, and when its paper was published */
 const PRODUCTS = [
@@ -52,7 +54,7 @@ export async function mount(section, dataUrl) {
     P.forEach((p, i) => {
       const td = el('td', { 'data-c': String(i) });
       if (j === 0) td.appendChild(el('span', { class: 'm10x-v' }, p.saw));
-      if (j === 1) td.appendChild(el('span', { class: 'm10x-v' }, p.against));
+      if (j === 1) td.appendChild(whole(el('span', { class: 'm10x-v' }), p.against));
       if (j === 2) { td.appendChild(el('span', { class: 'm10x-big' }, p.big)); td.appendChild(el('span', { class: 'm10x-s' }, p.small)); }
       if (j === 3) { td.appendChild(el('span', { class: 'm10x-v' }, 'npj Digital Medicine')); td.appendChild(el('span', { class: 'm10x-s' }, p.when)); }
       tr.appendChild(td);

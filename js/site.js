@@ -131,11 +131,16 @@
 
   /* ------------------------------------------------------------ the career: one instrument */
   const tl = $('#tl'), dataEl = $('#career-data');
-  let R = [], rows = [], lightSet = () => {}, railTick = () => {};
+  let R = [], rows = [], lightSet = () => {}, railTick = () => {}, pinTick = () => {};
   if (tl && dataEl) {
     R = JSON.parse(dataEl.textContent);
     const T0 = 2012, T1 = 2027, NOW = 2026.85;
     const tlb = $('#tlb'), scrub = $('#scrub'), scrubT = $('#scrubT'), rdRow = $('#rdRow');
+    // v2.15 (D-075): .pinned is set while chart rows are under the pinned readout and axis
+    const tlAxis = $('.tl-axis', tl);
+    pinTick = () => tl.classList.toggle('pinned', tlb.getBoundingClientRect().top < tlAxis.getBoundingClientRect().bottom - 1);
+    // the pointer's year marker rides the axis, so it shows above the rows whether or not the axis is pinned
+    tlAxis.appendChild(scrubT);
     rows = $$('.tl-row[data-id^="m"]', tlb);
     const ARR = '<svg class="arr" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     const escH = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -197,6 +202,7 @@
         const t = T0 + (x - any.left) / any.width * (T1 - T0);
         tl.classList.add('scrubbing');
         scrub.style.left = (x - tlb.getBoundingClientRect().left) + 'px';
+        scrubT.style.left = (x - tlAxis.getBoundingClientRect().left + 0.5) + 'px';  // on the middle of the 1px line
         scrubT.textContent = t > NOW ? 'Today' : Math.floor(t);
         if (Date.now() < lockT) return;
         // the row under the pointer comes first: over a role, its own years read it out, and elsewhere on that row the
@@ -335,6 +341,7 @@
       navs.forEach(a => a.classList.toggle('on', a.dataset.nav === cur));
       placeLine(false);
       railTick();
+      pinTick();
     } else if (isChapter && art && prog) {
       prog.style.transform = `scaleX(${Math.min(1, Math.max(0, scrollY / Math.max(1, art.offsetHeight - innerHeight)))})`;
     }
@@ -510,6 +517,17 @@
     driveSteps(stageEl, s => main.to(s));
   }
   const stageEl = $('#stage');
+  // v2.15 (D-075): at 900px and wider, the stage is pinned at the vertical middle of the space under the header
+  if (stageEl) {
+    const centerStage = () => {
+      if (innerWidth < 900) { stageEl.style.removeProperty('--stage-top'); return; }
+      const h = head();
+      stageEl.style.setProperty('--stage-top', `${Math.max(h + 16, h + (innerHeight - h - stageEl.offsetHeight) / 2)}px`);
+    };
+    centerStage();
+    addEventListener('resize', centerStage);
+    if ('ResizeObserver' in window) new ResizeObserver(centerStage).observe(stageEl);
+  }
   if (stageEl && stageEl.dataset.stage === 'film') filmStage(stageEl);
   else if (stageEl && stageEl.dataset.src) {
     let w = null, want = '0';
@@ -726,10 +744,13 @@
   }
   function lightbox(im) {
     const fig = im.closest('figure');
-    const cap = fig && $('figcaption', fig) ? $('figcaption', fig).textContent.trim() : '';
+    // v2.15 (D-075): an opening figure's caption element also holds the picture counter; [data-cap] holds the caption text alone
+    const capEl = fig && ($('[data-cap]', fig) || $('figcaption', fig));
+    const cap = capEl ? capEl.textContent.trim() : '';
     const el = D.createElement('div');
     el.className = 'lbx';
-    el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', im.alt || 'Picture');
+    // a picture with no description of its own (the later pictures of an opening set) is named by its caption
+    el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', im.alt || cap || 'Picture');
     el.innerHTML = `<div class="lbx-stage"><img class="lbx-img" alt=""></div>${cap ? '<p class="lbx-cap"></p>' : ''}<button class="lbx-x" type="button" aria-label="Close">${X_ICON}</button>`;
     const img = $('.lbx-img', el), stage = $('.lbx-stage', el);
     img.alt = im.alt || '';

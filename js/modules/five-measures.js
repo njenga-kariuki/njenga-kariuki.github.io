@@ -90,7 +90,8 @@ export async function mount(section, dataUrl) {
   let g = null;
   function draw() {
     const W = stage.getBoundingClientRect().width;
-    const ph = phone.matches;
+    // v2.15 (D-075): the narrow form also when the stage itself is narrow (a step's evidence column on a laptop)
+    const ph = phone.matches || W < 480;
     const rowH = ph ? 72 : 64, axisH = 22, H = LAYERS.length * rowH + axisH;
     // the sparklines' years sit where the slider's thumb sits: its center runs 10 px in from each end
     const nameW = W < 700 ? 140 : 176, valW = W < 700 ? 200 : 210;

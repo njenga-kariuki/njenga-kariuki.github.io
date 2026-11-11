@@ -229,13 +229,13 @@ Address: https://njenga.ai/m-pesa/
 # M-PESA Africa
 
 AI transformation of mobile money and financial services, for 100M+ customers in eight African markets.
-M-PESA in Safaricom’s app in Kenya, 2026: the home screen. · 1 / 3
 Role
 Managing Executive: AI, reporting to the CEO
 Scale
 100M+ customers in eight markets; $2B+ revenue
 Now
 End-to-end redesign of work under way across the group’s markets
+M-PESA in Safaricom’s app in Kenya, 2026: the home screen. · 1 / 3
 I lead AI transformation across Vodacom FinTech Group, including M-PESA, reporting to the CEO. I set the direction, from single AI tasks to whole chains of work redesigned across functions, and I am building the AI Center of Excellence that holds every change to one standard. I also work hands-on with the teams, building the first versions of each redesigned chain of work.
 
 ## What I decided
@@ -295,13 +295,13 @@ Address: https://njenga.ai/bio-discovery/
 # Amazon Bio Discovery
 
 Scientists design antibodies with AI agents in one application, and partner labs test the designs.
-Choosing the target protein, then asking for recommended binding sites. · 1 / 2
 Role
 Head of Product, AWS Applied AI, Life Sciences, from the start to the launch
 Scale
 Directed a cross-functional organization of 100+ engineers, scientists and product managers
 Launched
 14 April 2026, at the AWS Life Sciences Symposium in New York
+Choosing the target protein, then asking for recommended binding sites. · 1 / 2
 I led product for Amazon Bio Discovery, an agentic AI application for antibody design, from its start to its launch on 14 April 2026, with an organization of 100+ engineers, scientists and product managers. Memorial Sloan Kettering said its launch campaign went from target to lab order in weeks.
 
 ## What I decided
@@ -379,13 +379,13 @@ Address: https://njenga.ai/ai-index-2025/
 # Stanford AI Institute
 
 Published research on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots, measured from five sources.
-The AI Index Report 2025, published 7 April 2025.
 Role
 Author of the text and analysis
 Research
 AI investment, jobs, enterprise adoption and robots
 Published
 7 April 2025, by Stanford HAI, in its [AI Index](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf)
+The AI Index Report 2025, published 7 April 2025.
 I wrote the text and analysis of published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots. HAI published it on 7 April 2025 as the economy chapter of its AI Index, Stanford’s annual report on the state of AI.
 
 ## What I decided
@@ -473,13 +473,13 @@ Address: https://njenga.ai/map-view/
 # Alexa Map View
 
 A phone scan becomes a floor plan of the home, with every smart device on it, controlled from the map.
-Amazon’s Map View film, 2023: scan a room, then control a device from the map.
 Role
 Led the Alexa app’s smart home features and took Map View to launch
 Scale
 50M+ monthly users of the app’s smart home features
 Launched
 November 2023, in the United States
+Amazon’s Map View film, 2023: scan a room, then control a device from the map.
 I led the Alexa app’s smart home features, used by 50M+ people a month, and took Map View to launch in November 2023: a phone scan becomes a floor plan with every device on it. The mapping technology existed; the problem I owned was ease.
 
 ## What I decided
@@ -557,13 +557,13 @@ Address: https://njenga.ai/health-ai-portfolio/
 # Amazon Health AI
 
 An organization that turned phone-camera images into health measures: body fat, waist‑to‑hip ratio, and mobility, stability and posture.
-Halo Movement’s detailed results, 2021: mobility and stability by body region. · 1 / 2
 Role
 First product lead of Amazon’s Health Computer Vision and AI organization
 Scale
 100+ scientists and engineers; a $100M+ a year investment portfolio I directed
 Validated
 Three studies in npj Digital Medicine: [Body](https://doi.org/10.1038/s41746-022-00628-3) and [Movement](https://doi.org/10.1038/s41746-022-00684-9) in 2022, [waist-to-hip](https://doi.org/10.1038/s41746-023-00909-5) in 2023
+Halo Movement’s detailed results, 2021: mobility and stability by body region. · 1 / 2
 I was the first product lead of Amazon’s Health Computer Vision and AI organization: 100+ scientists and engineers and a $100M+ a year portfolio. I tied further investment to two proofs: real customer value and a capability that worked. Three of its products were validated in npj Digital Medicine.
 
 ## What I decided
@@ -644,13 +644,13 @@ Address: https://njenga.ai/halo-movement/
 # Halo Movement
 
 An assessment of mobility, stability and posture from phone video, with a personal exercise program to improve them.
-Amazon’s results screen, June 2021: an overall score of 71, “Good.”
 Role
 Product lead for Movement, end to end
 Validated
 [npj Digital Medicine, 2022](https://www.nature.com/articles/s41746-022-00684-9)
 Result
 More than 80% of members who exercised for two weeks improved
+Amazon’s results screen, June 2021: an overall score of 71, “Good.”
 I led Halo Movement end to end: a movement score and program from phone video. I set the score to match a movement expert’s judgment, and cut 10 to 15 exercises to five. Of members who exercised for two weeks, more than 80% improved.
 
 ## What I decided
@@ -699,7 +699,7 @@ Adults with impaired movement · About 68
 
 ### A program aimed at the errors found
 
-The same errors chose the corrective exercises in the member’s program: five to seven routines from a library of 35 corrective exercises by the physical therapist Kelly Starrett, each 5 to 10 minutes, at least three times a week.
+The same errors chose the corrective exercises in the member’s program: five to seven routines from a library of 35 exercises by the physical therapist Kelly Starrett, each 5 to 10 minutes, at least three times a week.
 04 Reassess
 
 ### A new assessment after two weeks
@@ -733,13 +733,13 @@ Address: https://njenga.ai/halo-tone/
 # Halo Tone
 
 The Halo Band sampled the wearer’s voice; the phone showed how it sounded to others, in words such as “Hopeful.”
-Launch illustration of Tone, 2020: the day’s tones and two notable moments. · 1 / 2
 Role
 Led Tone end to end, from the listener panels to launch
 Patents
 Six US patents, granted 2022 to 2026
 Launched
 August 2020, in the United States
+Launch illustration of Tone, 2020: the day’s tones and two notable moments. · 1 / 2
 I led Halo Tone end to end: how your voice sounds to others, analyzed on the phone. I defined what that meant, built the listener panels that taught the model, and set the audio sampling the band’s battery was designed around. Six US patents came from it.
 
 ## What I decided
@@ -833,13 +833,13 @@ Address: https://njenga.ai/halo-body/
 # Halo Body
 
 A phone scan that returned a member’s body fat percentage and a 3D model of their body.
-Halo Body at launch, 2020: a member’s 3D model, body fat and weight.
 Role
 Product lead for Body, end to end
 Validated
 [npj Digital Medicine, 2022](https://www.nature.com/articles/s41746-022-00628-3)
 Accuracy
 About half the error of the best smart scale, against a clinical scan
+Halo Body at launch, 2020: a member’s 3D model, body fat and weight.
 I led Halo Body end to end: body fat and a 3D model from a phone scan. Amazon’s CEO set the challenge, a scan close to the best body fat scanners. I moved its training labels to clinical instruments; in the published study its error was about half the best smart scale’s.
 
 ## What I decided
@@ -928,13 +928,13 @@ Address: https://njenga.ai/halo/
 # Amazon Halo
 
 Amazon’s first health wearable: a band with no screen, paired with an app and a membership.
-The Halo Band in its three launch colors, 2020. · 1 / 3
 Role
 Product lead for Body, Tone and Movement, on Halo’s founding team
 Patents
 6 US patents, 2022 to 2026
 Launched
 August 2020
+The Halo Band in its three launch colors, 2020. · 1 / 3
 I joined Amazon Halo’s founding team in 2018 as the one product owner for Body, Tone and Movement: three health measures from a band and a phone. I set what each model was trained and checked against, and launched them in 2020 and 2021.
 
 ## What I decided
@@ -1008,13 +1008,13 @@ Address: https://njenga.ai/alexa-shopping/
 # Alexa Shopping
 
 Ordering by voice on an Echo speaker: one spoken request, one offer read back, then a “yes.”
-A voice order, drawn from Amazon’s 2017 examples.
 Role
 First product lead for how Alexa understood shopping requests
 Team
 Built and led a 10-person evaluation team
 Result
 Shopping success from about 50% to 85%
+A voice order, drawn from Amazon’s 2017 examples.
 I was the first product lead for how Alexa understood shopping requests. Alexa’s overall measures said shopping worked; I set out to test that. I listened to 1,000 requests a week and wrote how each would be judged. Success rose from about 50% to 85%.
 
 ## What I decided
@@ -1092,13 +1092,13 @@ Address: https://njenga.ai/prime-now/
 # Prime Now
 
 How local stores with no online business sold through Prime Now, which delivered within one or two hours.
-Choosing a delivery window at launch, December 2014, redrawn. · 1 / 3
 Role
 Founding product manager of the local-store and seller platform
 Reach
 Partner stores in 7 countries by 2017
 Result
 Out of stock from 25% to 5%; 40 hours a week of manual work automated
+Choosing a delivery window at launch, December 2014, redrawn. · 1 / 3
 I was the founding product manager of Prime Now’s platform for local stores and sellers. I sat in the first stores, took the spreadsheets they had, then learned to code and automated the rest. Out of stock at partner stores fell from 25% to 5%.
 
 ## What I decided
@@ -1166,13 +1166,13 @@ Address: https://njenga.ai/bedding-and-bath/
 # Amazon Bedding & Bath
 
 Amazon’s own business in sheets, towels and pillows: goods bought wholesale from brands and sold beside independent sellers.
-A sale’s price, from the cost of goods to the margin, with the margin’s edge under a loupe: a drawing of the idea.
 Role
 Vendor manager, owner of the business’s profit and loss
 P&L
 $100M+ a year
 Review
 Every weekly margin change, explained to a hundredth of a percentage point
+A sale’s price, from the cost of goods to the margin, with the margin’s edge under a loupe: a drawing of the idea.
 I owned the profit and loss of Amazon’s Bedding & Bath business, more than $100 million a year. I led the negotiations with its brands, set the supply-chain terms, and explained every weekly margin change to a hundredth of a percentage point.
 
 ## What I decided
@@ -1233,13 +1233,13 @@ Address: https://njenga.ai/target-apple/
 # Target
 
 The supply chain for Apple products at Target: iPads, iPods and accessories, stocked store by store.
-iPad mini, launched November 2012, and iPad Air, launched November 2013.
 Role
 Senior supply chain analyst, owner of supply-chain strategy for the Apple category
 Scale
 A $700M+ a year category across about 1,800 stores
 Result
 In-stock rate up 24%; market share up 3%
+iPad mini, launched November 2012, and iPad Air, launched November 2013.
 I owned supply-chain strategy for Target’s $700M+ Apple category across about 1,800 stores. I changed how systems built for everyday goods stocked Apple products, store by store, and allocated the iPad mini launch to each store. The in-stock rate rose 24% and market share 3%.
 
 ## What I decided
