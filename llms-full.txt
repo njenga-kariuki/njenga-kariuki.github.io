@@ -50,7 +50,7 @@ Published 7 April 2025. Cited by the Federal Reserve Board and the White House.
 Alexa Smart Home and Map View
 Senior Manager, Technical Product Management · 2023–2024 · Seattle
 Ran
-Led the smart home features of the Alexa app, used by 50M+ people a month. Technical advisor and chief of staff to the Vice President of Amazon Smart Home and Health.
+Led the smart home features of the Alexa app, an app with 50M+ monthly users. Technical advisor and chief of staff to the Vice President of Amazon Smart Home and Health.
 Result
 Map View launched in the United States, November 2023.
 Amazon Health AI
@@ -476,11 +476,11 @@ A phone scan becomes a floor plan of the home, with every smart device on it, co
 Role
 Led the Alexa app’s smart home features and took Map View to launch
 Scale
-50M+ monthly users of the app’s smart home features
+50M+ monthly Alexa app users
 Launched
 November 2023, in the United States
 Amazon’s Map View film, 2023: scan a room, then control a device from the map.
-I led the Alexa app’s smart home features, used by 50M+ people a month, and took Map View to launch in November 2023: a phone scan becomes a floor plan with every device on it. The mapping technology existed; the problem I owned was ease.
+I led the smart home features of the Alexa app, an app with 50M+ monthly users. I took Map View to launch in November 2023: a phone scan becomes a floor plan with every device on it. The mapping technology existed; the problem I owned was ease.
 
 ## What I decided
 
