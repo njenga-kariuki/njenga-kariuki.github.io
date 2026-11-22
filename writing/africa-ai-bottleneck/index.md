@@ -4,7 +4,7 @@
 
 **Date:** 22 November 2026  
 **Reading time:** 13 min read · 19 min audio  
-**Author:** Njenga Kariuki (views are my own)
+**Author:** Njenga Kariuki
 
 ---
 
@@ -128,4 +128,4 @@ As for cost, separate two jobs. Proving a frontier model poses no catastrophic A
 
 ---
 
-**About the author:** [Njenga Kariuki](https://njenga.ai/about/) leads enterprise AI transformation across Vodacom FinTech Group, including M-PESA Africa (100M+ customers across eight markets), after twelve years building AI products and organizations at Amazon and AWS. He holds a master’s degree from Stanford Graduate School of Business and published research on AI’s global economic impact with the Stanford Institute for Human-Centered AI (2025). Views are my own. [All 22 sources](https://njenga.ai/credits/#africa-ai-bottleneck).
+**About the author:** [Njenga Kariuki](https://njenga.ai/about/) leads enterprise AI transformation across Vodacom FinTech Group, including M-PESA Africa (100M+ customers across eight markets), after twelve years building AI products and organizations at Amazon and AWS. He holds a master’s degree from Stanford Graduate School of Business and published research on AI’s global economic impact with the Stanford Institute for Human-Centered AI (2025). [All 22 sources](https://njenga.ai/credits/#africa-ai-bottleneck).
