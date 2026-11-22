@@ -104,14 +104,10 @@ Halo Body · Training labels moved from experts’ eyes to clinical X-ray scans.
 
 A model can beat its benchmarks while customers think the product does not work. I run one measure of the customer’s outcome for the whole system, and hold every model metric to it.
 Alexa Shopping · I listened to 1,000 requests a week and wrote how each was judged. Success rose from about 50% to 85%.
-Hands-on AI builds · Working prototypes with walkthroughs on GitHub and Loom
-Ask Heidi
-Published on Threshold Ventures’ site; 688 linked advice entries.
-Walkthrough · 3 min
-Math Reasoning Tool
-Marks the first wrong step in AI math solutions to guide revision.
-GitHub · 2025
-ChatPRFAQ
-Turns a product idea into a researched Amazon-style PRFAQ.
-Walkthrough · 5 min
-All thirteen principles · Hands-on builds
+All thirteen principles
+
+## Writing
+
+Africa’s Biggest AI Bottleneck · November 2026 · 13 min read · Audio edition
+Why a shared, testable definition of good AI comes ahead of power, data centres, and capital.
+https://njenga.ai/writing/africa-ai-bottleneck/

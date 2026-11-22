@@ -472,7 +472,7 @@ button.cite:hover, button.cite[aria-expanded="true"] { background: var(--c); col
 .es-obj-b p + p { margin-top: 10px !important; }
 @media (max-width: 599px) { .es-obj-b { padding: 0 4px 16px 36px; } }
 
-.es-colophon { margin-top: clamp(52px, 5vw, 76px); padding: 24px 0 64px; border-top: 1px solid var(--rule); max-width: 64ch; }
+.es-colophon { margin-top: clamp(52px, 5vw, 76px); padding: 24px 0 0; border-top: 1px solid var(--rule); max-width: 64ch; }
 .es-author { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; align-items: start; }
 .es-author img { width: 52px; height: 62px; border-radius: 10px; object-fit: cover; object-position: 50% 18%; background: var(--wash); }
 .es-author-d { font-size: 14.5px !important; line-height: 1.58 !important; color: var(--ink-2) !important; }
