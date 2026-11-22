@@ -1716,7 +1716,7 @@ Date: 22 November 2026 | Author: Njenga Kariuki (personal capacity)
 
 **Date:** 22 November 2026  
 **Reading time:** 13 min read · 19 min audio  
-**Context:** Adapted from my keynote platform following Africa Tech Festival 2026. Written in a personal capacity.
+**Author:** Njenga Kariuki (views are my own)
 
 ---
 
@@ -1837,3 +1837,7 @@ Most African households and small businesses are currently unserved because unit
 METR's November 2026 capability update actually proves why local evaluations are durable IP rather than temporary scaffolding. Frontier agents are extraordinarily strong on clean, easy-to-verify coding and optimization tasks where labs already train reinforcement-learning environments, with task horizons on METR's suites doubling roughly every three to four months. Yet those same models still trail human experts on judgment-heavy work without fast, clear feedback, lag roughly three times in time horizon on tasks that are costlier to turn into training environments, and failed to produce a single evaluation task useful enough for METR to include in its report. Real African enterprise, clinical, informal-market, and public-service workflows sit squarely on that messy, slow-feedback side: scaling alone does not bridge that gap.
 
 As for cost, separate two jobs. Proving a frontier model poses no catastrophic AI R&D risk takes frontier-scale science. Checking whether an AI clears a bank's debt-review workflow takes 200 real cases graded by your best operators and tracked on live customer outcomes. Where shared, rotating sector benchmarks do require real funding and specialist capacity, that reinforces the public-infrastructure case: Microsoft AI CEO Mustafa Suleyman responded to METR's update by noting that "you can't govern what you can't measure" and calling for frontier-scale funding for evaluation science. Directing even a fraction of global evaluation funding, alongside DFI and public DPI budgets, into open Global South economic and 4GB-device benchmarks solves governance and diffusion together, while adapting faster than static laws copied from Europe.
+
+---
+
+**About the author:** Njenga Kariuki (https://njenga.ai/about/) leads enterprise AI transformation across Vodacom FinTech Group, including M-PESA Africa (100M+ customers across eight markets), after twelve years building AI products and organizations at Amazon and AWS. He holds a master’s degree from Stanford Graduate School of Business and published research on AI’s global economic impact with the Stanford Institute for Human-Centered AI (2025). Views are my own. All 22 sources: https://njenga.ai/credits/#africa-ai-bottleneck.

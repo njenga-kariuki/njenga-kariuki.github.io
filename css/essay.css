@@ -473,11 +473,19 @@ button.cite:hover, button.cite[aria-expanded="true"] { background: var(--c); col
 @media (max-width: 599px) { .es-obj-b { padding: 0 4px 16px 36px; } }
 
 .es-colophon { margin-top: clamp(52px, 5vw, 76px); padding: 24px 0 64px; border-top: 1px solid var(--rule); max-width: 64ch; }
-.es-author { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 14px; align-items: start; }
+.es-author { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; align-items: start; }
 .es-author img { width: 52px; height: 62px; border-radius: 10px; object-fit: cover; object-position: 50% 18%; background: var(--wash); }
-.es-author-n { font-size: 16px; font-weight: 500; color: var(--ink); }
-.es-author-d { margin-top: 4px; font-size: 14px !important; line-height: 1.55 !important; color: var(--ink-2) !important; }
-.es-returns { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.es-author-d { font-size: 14.5px !important; line-height: 1.58 !important; color: var(--ink-2) !important; }
+.es-author-link { font-weight: 500; color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px;
+  transition: color var(--t1) linear, text-decoration-color var(--t1) linear; }
+.es-author-link:hover { color: var(--c-ink); text-decoration-color: currentColor; }
+.es-author-meta { margin-top: 10px; font-size: 13px !important; line-height: 1.5 !important; color: var(--gray) !important;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.es-author-src { display: inline-flex; align-items: center; gap: 5px; font-weight: 500; color: var(--ink);
+  transition: color var(--t1) linear; }
+.es-author-src .arr { width: 13px; height: 13px; transition: transform var(--t2) var(--out); }
+.es-author-src:hover { color: var(--c-ink); }
+.es-author-src:hover .arr { transform: translateX(3px); }
 
 /* ---------------------------------------------------------------- Audio Edition Strip (Slim Hairline) */
 .es-audio { margin-top: clamp(22px, 2.6vw, 32px); max-width: 1180px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule);
@@ -574,7 +582,7 @@ button.cite:hover, button.cite[aria-expanded="true"] { background: var(--c); col
   .bar-fill, .f2-blk, .fade-in, .wf-dot, .draw-line { transition: none !important; opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
 }
 @media print {
-  .es-toc-rail, .es-toc-mob, .sec-link, .es-copy-btn, .es-returns, .es-audio, .au-dock { display: none !important; }
+  .es-toc-rail, .es-toc-mob, .sec-link, .es-copy-btn, .es-author-src, .es-audio, .au-dock { display: none !important; }
   .es-layout { display: block; }
   .es-prose > *, .es-act > *, .ed-fig { max-width: none !important; }
   .ed-fig { break-inside: avoid; }
