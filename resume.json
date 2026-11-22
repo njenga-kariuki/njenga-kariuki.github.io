@@ -1,0 +1,290 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Njenga Kariuki",
+    "label": "Managing Executive: AI, M-PESA Africa (Vodacom FinTech Group) | Former Amazon & AWS AI Product Executive",
+    "image": "https://njenga.ai/img/portrait-2026-plate-800.webp",
+    "email": "njenga@alumni.stanford.edu",
+    "url": "https://njenga.ai/",
+    "summary": "AI executive leading enterprise AI transformation across Vodacom FinTech Group, including M-PESA Africa (100M+ customers across eight African markets and $2B+ revenue), reporting to the CEO and building the AI Center of Excellence. Previously spent 12 years in the United States building zero-to-one AI products and organizations of 100+ at Amazon and AWS, including Head of Product for Amazon Bio Discovery, first product lead for Amazon Health AI ($100M+/yr portfolio), Alexa Smart Home & Map View, Amazon Halo, Alexa Shopping, and Prime Now. Holds a Master of Science in Management from Stanford Graduate School of Business, published research on AI's global economic impact at the Stanford Institute for Human-Centered Artificial Intelligence (Stanford HAI, AI Index Report 2025), and is a named inventor on six granted U.S. patents.",
+    "location": {
+      "city": "Nairobi",
+      "countryCode": "KE",
+      "region": "Kenya"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "njengakariuki",
+        "url": "https://www.linkedin.com/in/njengakariuki/"
+      },
+      {
+        "network": "GitHub",
+        "username": "njenga-kariuki",
+        "url": "https://github.com/njenga-kariuki"
+      },
+      {
+        "network": "Medium",
+        "username": "njenga.kariuki",
+        "url": "https://medium.com/@njenga.kariuki"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "M-PESA Africa (Vodacom FinTech Group)",
+      "position": "Managing Executive: AI",
+      "url": "https://njenga.ai/m-pesa/",
+      "startDate": "2026-04",
+      "location": "Nairobi, Kenya (8 African markets: Kenya, Tanzania, Ethiopia, DRC, Mozambique, Lesotho, South Africa, Egypt)",
+      "summary": "Leads enterprise AI strategy, roadmap, and the AI Center of Excellence across Vodacom FinTech Group and M-PESA Africa, reporting to the CEO.",
+      "highlights": [
+        "Owns the AI roadmap across 100M+ customers, eight African markets, and $2B+ revenue covering customer experience, revenue growth, risk, fraud, and operational efficiency.",
+        "Moves enterprise AI from isolated single-function tasks (units of work) to cross-functional workflows redesigned end to end (systems of work), measured against comparison groups.",
+        "Establishes shared AI governance standards with legal, risk, and compliance sign-off while building first production systems hands-on with market teams."
+      ]
+    },
+    {
+      "name": "Amazon Web Services (AWS): Applied AI, Life Sciences",
+      "position": "Head of Product, Amazon Bio Discovery",
+      "url": "https://njenga.ai/bio-discovery/",
+      "startDate": "2025-06",
+      "endDate": "2026-04",
+      "location": "Seattle, WA, United States",
+      "summary": "Led product for Amazon Bio Discovery, an agentic AI application for antibody design, from inception to general launch on 14 April 2026.",
+      "highlights": [
+        "Directed a cross-functional organization of 100+ engineers, scientists, and product managers.",
+        "Launched with AI agents, 40+ biological AI models, and integrated partner wet-lab ordering; Memorial Sloan Kettering went from target to lab order in weeks rather than 6-12 months.",
+        "Early adopters included Memorial Sloan Kettering, Bayer, Broad Institute, Fred Hutch Cancer Center, Voyager Therapeutics, and Novo Nordisk."
+      ]
+    },
+    {
+      "name": "Stanford Institute for Human-Centered Artificial Intelligence (HAI)",
+      "position": "Graduate Researcher & Economy Chapter Author (AI Index Report 2025)",
+      "url": "https://njenga.ai/ai-index-2025/",
+      "startDate": "2024-09",
+      "endDate": "2025-04",
+      "location": "Stanford, CA, United States",
+      "summary": "Authored the text and economic analysis of Chapter 4 (Economy) of Stanford HAI's AI Index Report 2025.",
+      "highlights": [
+        "Published 7 April 2025 (77 pages, 89 figures across five data layers: investment, job postings, hiring, enterprise adoption, and industrial robots).",
+        "Cited by the U.S. Federal Reserve Board (October 2025) and the White House Council of Economic Advisers (January 2026)."
+      ]
+    },
+    {
+      "name": "Amazon: Alexa Smart Home & Map View",
+      "position": "Senior Manager, Technical Product Management",
+      "url": "https://njenga.ai/map-view/",
+      "startDate": "2023-04",
+      "endDate": "2024-06",
+      "location": "Seattle, WA, United States",
+      "summary": "Led smart home product experiences for the Alexa app (50M+ monthly users) and served as Technical Advisor and Chief of Staff to the VP of Amazon Smart Home and Health.",
+      "highlights": [
+        "Launched Alexa Map View in the United States (November 2023), turning LiDAR phone scans into interactive smart-home floor plans."
+      ]
+    },
+    {
+      "name": "Amazon: Health Computer Vision & AI",
+      "position": "Principal Technical Product Manager",
+      "url": "https://njenga.ai/health-ai-portfolio/",
+      "startDate": "2021-07",
+      "endDate": "2023-04",
+      "location": "Seattle, WA, United States",
+      "summary": "First product lead of Amazon's Health Computer Vision and AI organization (100+ scientists and engineers).",
+      "highlights": [
+        "Directed a $100M+/year AI R&D and product investment portfolio and managed 10 product managers.",
+        "Three computer vision health products validated in peer-reviewed studies in npj Digital Medicine (2022, 2022, 2023)."
+      ]
+    },
+    {
+      "name": "Amazon: Amazon Halo (Founding Team)",
+      "position": "Senior Technical Product Manager",
+      "url": "https://njenga.ai/halo/",
+      "startDate": "2018-04",
+      "endDate": "2021-07",
+      "location": "Seattle, WA, United States",
+      "summary": "Founding product lead for Amazon Halo Body, Halo Tone, and Halo Movement from concept through launch.",
+      "highlights": [
+        "Shipped Halo Body and Halo Tone (August 2020) and Halo Movement (June 2021).",
+        "Named inventor on six granted U.S. patents from Halo Tone voice AI work."
+      ]
+    },
+    {
+      "name": "Amazon: Alexa Shopping",
+      "position": "Technical Product Manager (First Product Lead)",
+      "url": "https://njenga.ai/alexa-shopping/",
+      "startDate": "2017-04",
+      "endDate": "2018-04",
+      "location": "Seattle, WA, United States",
+      "summary": "First product lead for Alexa voice shopping NLU; built and led a 10-person evaluation team.",
+      "highlights": [
+        "Increased voice shopping request accuracy from ~50% to 85%."
+      ]
+    },
+    {
+      "name": "Amazon: Prime Now",
+      "position": "Founding Product Manager, Local Stores & Seller Platform",
+      "url": "https://njenga.ai/prime-now/",
+      "startDate": "2015-05",
+      "endDate": "2017-04",
+      "location": "Seattle, WA, United States",
+      "summary": "Founding product manager for Prime Now's local-store catalog, forecasting, and seller onboarding platform across 7 countries.",
+      "highlights": [
+        "Reduced partner store out-of-stock rate from 25% to 5% and automated 40 hours/week of manual inventory operations."
+      ]
+    },
+    {
+      "name": "Amazon: Bedding & Bath",
+      "position": "Vendor Manager",
+      "url": "https://njenga.ai/bedding-and-bath/",
+      "startDate": "2014-04",
+      "endDate": "2015-05",
+      "location": "Seattle, WA, United States",
+      "summary": "Owned a $100M+/year retail P&L covering vendor negotiations, selection, and supply-chain terms."
+    },
+    {
+      "name": "Target Corporation",
+      "position": "Senior Supply Chain Analyst (Apple Category)",
+      "url": "https://njenga.ai/target-apple/",
+      "startDate": "2012-06",
+      "endDate": "2014-04",
+      "location": "Minneapolis, MN, United States",
+      "summary": "Owned store-level supply-chain strategy for Target's $700M+/year Apple category across ~1,800 U.S. stores.",
+      "highlights": [
+        "Improved in-stock rate by 24% and grew market share by 3%; led store allocation for the November 2012 iPad mini launch."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Stanford Graduate School of Business",
+      "url": "https://www.gsb.stanford.edu/",
+      "area": "Management",
+      "studyType": "Master of Science in Management",
+      "startDate": "2024-07",
+      "endDate": "2025-06"
+    },
+    {
+      "institution": "University of St. Thomas, Opus College of Business",
+      "url": "https://www.stthomas.edu/",
+      "area": "Business Administration, Operations Management",
+      "studyType": "Bachelor of Arts",
+      "startDate": "2008-09",
+      "endDate": "2012-05"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Artificial Intelligence Index Report 2025, Chapter 4: Economy",
+      "publisher": "Stanford Institute for Human-Centered Artificial Intelligence (HAI)",
+      "releaseDate": "2025-04-07",
+      "url": "https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf",
+      "summary": "Global economic analysis of AI investment, labor demand, enterprise adoption, and industrial robotics; cited by the Federal Reserve Board and the White House Council of Economic Advisers."
+    },
+    {
+      "name": "3 Lessons for PMs Building B2C AI Products",
+      "publisher": "Medium",
+      "releaseDate": "2024-06-14",
+      "url": "https://medium.com/@njenga.kariuki/top-3-lessons-for-pms-building-b2c-ai-products-2f0d587d01d6",
+      "summary": "Practical evaluation and product lessons drawn from building Alexa Shopping and Amazon Halo."
+    },
+    {
+      "name": "US 12,586,583 B1: Power state control of a device performing detection of voice in audio data",
+      "publisher": "United States Patent and Trademark Office",
+      "releaseDate": "2026-03-24",
+      "url": "https://patents.google.com/patent/US12586583B1/en"
+    },
+    {
+      "name": "US 11,783,834 B1: Conserving battery while detecting for human voice",
+      "publisher": "United States Patent and Trademark Office",
+      "releaseDate": "2023-10-10",
+      "url": "https://patents.google.com/patent/US11783834B1/en"
+    },
+    {
+      "name": "US 11,632,456 B1: Call based emotion detection",
+      "publisher": "United States Patent and Trademark Office",
+      "releaseDate": "2023-04-18",
+      "url": "https://patents.google.com/patent/US11632456B1/en"
+    },
+    {
+      "name": "US 11,462,218 B1: Conserving battery while detecting for human voice",
+      "publisher": "United States Patent and Trademark Office",
+      "releaseDate": "2022-10-04",
+      "url": "https://patents.google.com/patent/US11462218B1/en"
+    },
+    {
+      "name": "US 11,430,467 B1: Interaction emotion determination",
+      "publisher": "United States Patent and Trademark Office",
+      "releaseDate": "2022-08-30",
+      "url": "https://patents.google.com/patent/US11430467B1/en"
+    },
+    {
+      "name": "US 11,393,462 B1: System to characterize vocal presentation",
+      "publisher": "United States Patent and Trademark Office",
+      "releaseDate": "2022-07-19",
+      "url": "https://patents.google.com/patent/US11393462B1/en"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Enterprise AI & Executive Leadership",
+      "keywords": [
+        "Enterprise AI Strategy",
+        "AI Transformation",
+        "AI Center of Excellence",
+        "AI Governance & Compliance",
+        "Forward-Deployed Engineering",
+        "P&L & Portfolio Management"
+      ]
+    },
+    {
+      "name": "AI Systems & Domains",
+      "keywords": [
+        "Agentic AI",
+        "Generative AI & LLMs",
+        "AI Evaluation",
+        "Computer Vision",
+        "Voice AI & NLU",
+        "Fintech & Mobile Money",
+        "Health AI & Life Sciences",
+        "AI in Africa"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Ask Heidi AI",
+      "description": "Source-attributed startup advisory assistant grounded in 688 entries of Heidi Roizen's published advice, published on Threshold Ventures' website.",
+      "url": "https://github.com/njenga-kariuki/AskHeidiAI",
+      "startDate": "2025-02",
+      "endDate": "2025-06"
+    },
+    {
+      "name": "ChatPRFAQ",
+      "description": "AI product-development workflow turning product concepts into researched Amazon-style PRFAQs.",
+      "url": "https://github.com/njenga-kariuki/ChatPRFAQ",
+      "startDate": "2025-05"
+    },
+    {
+      "name": "Video-to-Workflow Capture",
+      "description": "Multimodal AI proof of concept turning narrated screen recordings into editable workflow diagrams.",
+      "url": "https://github.com/njenga-kariuki/Automate-Any-Workflow-POC",
+      "startDate": "2025-04",
+      "endDate": "2025-06"
+    },
+    {
+      "name": "Math Reasoning Annotation Tool",
+      "description": "Human-in-the-loop review tool pinpointing the first wrong step in AI math solutions to guide revision.",
+      "url": "https://github.com/njenga-kariuki/math-annotation-tool-demo",
+      "startDate": "2025-03",
+      "endDate": "2025-04"
+    },
+    {
+      "name": "AI Daily Digest",
+      "description": "Automated AI research aggregator across eight source categories with persistent memory and email briefing.",
+      "url": "https://github.com/njenga-kariuki/ai-daily-digest",
+      "startDate": "2026-02",
+      "endDate": "2026-05"
+    }
+  ]
+}

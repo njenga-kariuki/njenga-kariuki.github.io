@@ -4,7 +4,7 @@
 
 ---
 
-Page: Njenga Kariuki | AI transformation executive, M-PESA Africa
+Page: Njenga Kariuki | AI Executive: M-PESA Africa & Former AWS
 Address: https://njenga.ai/
 
 # Leading AI transformation at M-PESA, after 12 years building AI products at Amazon and AWS.
@@ -107,11 +107,21 @@ Halo Body · Training labels moved from experts’ eyes to clinical X-ray scans.
 
 A model can beat its benchmarks while customers think the product does not work. I run one measure of the customer’s outcome for the whole system, and hold every model metric to it.
 Alexa Shopping · I listened to 1,000 requests a week and wrote how each was judged. Success rose from about 50% to 85%.
+Hands-on AI builds · Working prototypes with walkthroughs on GitHub and Loom
+Ask Heidi
+Published on Threshold Ventures’ site; 688 linked advice entries.
+Walkthrough · 3 min
+Math Reasoning Tool
+Marks the first wrong step in AI math solutions to guide revision.
+GitHub · 2025
+ChatPRFAQ
+Turns a product idea into a researched Amazon-style PRFAQ.
+Walkthrough · 5 min
 All thirteen principles · Hands-on builds
 
 ---
 
-Page: About Njenga Kariuki
+Page: About Njenga Kariuki | Enterprise AI Executive (Africa & US)
 Address: https://njenga.ai/about/
 
 # Njenga Kariuki
@@ -221,7 +231,7 @@ I build AI applications myself, because a leader learns what the technology can 
 
 ---
 
-Page: M-PESA Africa: AI transformation | Njenga Kariuki
+Page: Enterprise AI Transformation in Africa: M-PESA | Njenga Kariuki
 Address: https://njenga.ai/m-pesa/
 
 2026–today · Vodacom FinTech Group
@@ -235,8 +245,8 @@ Scale
 100M+ customers in eight markets; $2B+ revenue
 Now
 End-to-end redesign of work under way across the group’s markets
-M-PESA in Safaricom’s app in Kenya, 2026: the home screen. · 1 / 3
 I lead AI transformation across Vodacom FinTech Group, including M-PESA, reporting to the CEO. I set the direction, from single AI tasks to whole chains of work redesigned across functions, and I am building the AI Center of Excellence that holds every change to one standard. I also work hands-on with the teams, building the first versions of each redesigned chain of work.
+M-PESA in Safaricom’s app in Kenya, 2026: the home screen. · 1 / 3
 
 ## What I decided
 
@@ -252,7 +262,7 @@ When AI changes work that moves people’s money, every check still runs, screen
 
 Time end to end, against a comparison group working the old way, and value that finance signs off. Each workflow then ends in a decision: scale it, continue, narrow it or stop.
 
-## How it worked
+## How it works
 
 Before
 
@@ -279,7 +289,7 @@ Steps with high compliance risk stay with a person. Legal, risk and compliance t
 ### The people who will use it
 
 The AI Center of Excellence sets shared standards for AI across eight markets and trains the people who use them: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
-A drawing of the idea.
+A drawing of the idea. Toggle the scope above or step through below.
 Sources
 Next
 Amazon Bio Discovery
@@ -287,7 +297,7 @@ Amazon Bio Discovery
 
 ---
 
-Page: Amazon Bio Discovery | Njenga Kariuki
+Page: Amazon Bio Discovery (AWS Agentic AI) | Njenga Kariuki
 Address: https://njenga.ai/bio-discovery/
 
 2025–2026 · AWS Applied AI, Life Sciences
@@ -325,7 +335,6 @@ Before
 ### Months from a target to a candidate
 
 A paper AWS published at launch put conventional antibody discovery at 6 to 12 months, from a target protein to the antibody chosen for development. Scientists had little control over where on the target an antibody would bind. Bench scientists knew the biology and waited for computational biologists to run the models.
-Conventional discovery took 6 to 12 months from a target to the antibody chosen for development; with Bio Discovery, the launch campaign reached a lab order in weeks.
 01 Ask
 
 ### The agent proposes where to bind
@@ -343,16 +352,52 @@ A workflow built from models in the catalog, ready to publish for others to run.
 ### What a design must pass to reach a lab
 
 A second agent ranked the designs on five scores at once and kept the best trade-offs, until 100,000 remained.
-An illustration with two of the five scores: the agent kept the best trade-offs first, then the next best, until 100,000 remained.
 04 Test
 
 ### Only a lab test confirms a binder
 
 Twist Bioscience, a launch lab partner, made the DNA for 100,000 designs, and a first lab screen sent 116 on to a binding test. Of the 116, 46 were confirmed to bind the target.
 Each lab result returns to the experiment that produced it and is checked before any model retrains on it. At launch, MSK said the campaign went from target to a lab order in weeks.
-Sending selected designs to a partner lab, with cost and time estimates.
+Before · Target to candidate antibody
+Conventional discovery took 6 to 12 months; the launch campaign reached a lab order in weeks.
+Conventional discovery · Bench → handoff → computational → screening
+6 to 12 months
+Amazon Bio Discovery · MSK launch campaign
+Weeks · target to lab order
+0 · 3 mo · 6 mo · 9 mo · 12 mo
+01 Ask · Hotspot reasoning agent (tap a ranked region)
+An AI agent runs bioinformatics tools and ranks five binding regions on the target protein.
+Target protein structure (Chain A / B) · ~80% top-5 overlap on known pairs
+Region 1 · Top ranked — Exposed loop pocket; bioinformatics tools + language model rationale.
+02 Design · 2,000 GPUs across two AWS regions
+Three distinct generative models produced 96,000 nanobody designs apiece: 288,000 in all.
+Design model 1 · 96,000
+Design model 2 · 96,000
+Design model 3 · 96,000
+2,000 GPUs →
+288,000
+Candidate nanobodies
+Generated in parallel from 40+ biological AI models in the catalog.
+03 Judge · Multi-objective ranking across five scores
+A second agent keeps the best trade-off fronts in sequence until 100,000 remain.
+Outer fronts kept in sequence until 100,000 candidates remained for DNA synthesis.
+04 Test · Closed wet-lab validation loop
+46 of 116 tested designs bound the target; every lab result returns to the experiment.
+100,000
+Made as DNA
+Twist Bioscience first lab screen
+116
+Binding assays
+Measured one by one for target affinity
+46 of 116
+Confirmed binders
+Target to lab order in weeks (MSK)
+↺ Lab results return to the experiment & are checked before retraining
+Interactive pipeline — click any step rail below or explore controls inside the stage.
 
 ## The launch campaign, design by design
+
+46 of the 116 tested candidates were confirmed to bind the target (~40% confirmation rate).
 
 ## Launch
 
@@ -371,7 +416,7 @@ Stanford AI Institute
 
 ---
 
-Page: Stanford AI Institute | Njenga Kariuki
+Page: Stanford AI Institute (HAI): AI Economy Research | Njenga Kariuki
 Address: https://njenga.ai/ai-index-2025/
 
 2024–2025 · Stanford Institute for Human-Centered Artificial Intelligence (HAI)
@@ -385,8 +430,8 @@ Research
 AI investment, jobs, enterprise adoption and robots
 Published
 7 April 2025, by Stanford HAI, in its [AI Index](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf)
-The AI Index Report 2025, published 7 April 2025.
 I wrote the text and analysis of published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots. HAI published it on 7 April 2025 as the economy chapter of its AI Index, Stanford’s annual report on the state of AI.
+The AI Index Report 2025, published 7 April 2025.
 
 ## What I decided
 
@@ -549,7 +594,7 @@ Amazon Health AI
 
 ---
 
-Page: Amazon Health AI | Njenga Kariuki
+Page: Amazon Health AI ($100M+ Computer Vision Org) | Njenga Kariuki
 Address: https://njenga.ai/health-ai-portfolio/
 
 2021–2023 · Amazon Health AI
@@ -563,8 +608,8 @@ Scale
 100+ scientists and engineers; a $100M+ a year investment portfolio I directed
 Validated
 Three studies in npj Digital Medicine: [Body](https://doi.org/10.1038/s41746-022-00628-3) and [Movement](https://doi.org/10.1038/s41746-022-00684-9) in 2022, [waist-to-hip](https://doi.org/10.1038/s41746-023-00909-5) in 2023
-Halo Movement’s detailed results, 2021: mobility and stability by body region. · 1 / 2
 I was the first product lead of Amazon’s Health Computer Vision and AI organization: 100+ scientists and engineers and a $100M+ a year portfolio. I tied further investment to two proofs: real customer value and a capability that worked. Three of its products were validated in npj Digital Medicine.
+Halo Movement’s detailed results, 2021: mobility and stability by body region. · 1 / 2
 
 ## What I decided
 
@@ -1098,8 +1143,8 @@ Reach
 Partner stores in 7 countries by 2017
 Result
 Out of stock from 25% to 5%; 40 hours a week of manual work automated
-Choosing a delivery window at launch, December 2014, redrawn. · 1 / 3
 I was the founding product manager of Prime Now’s platform for local stores and sellers. I sat in the first stores, took the spreadsheets they had, then learned to code and automated the rest. Out of stock at partner stores fell from 25% to 5%.
+Choosing a delivery window at launch, December 2014, redrawn. · 1 / 3
 
 ## What I decided
 

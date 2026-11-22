@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Njenga Kariuki: AI Executive Portfolio &amp; Research</title>
+  <subtitle>Enterprise AI transformation at M-PESA Africa (Vodacom FinTech Group), 12 years of AI product leadership at Amazon and AWS, Stanford HAI AI Index research, patents, and hands-on AI builds.</subtitle>
+  <link href="https://njenga.ai/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://njenga.ai/" rel="alternate" type="text/html"/>
+  <id>https://njenga.ai/</id>
+  <updated>2026-11-22T09:00:00Z</updated>
+  <author>
+    <name>Njenga Kariuki</name>
+    <email>njenga@alumni.stanford.edu</email>
+    <uri>https://njenga.ai/</uri>
+  </author>
+
+  <entry>
+    <title>M-PESA Africa: Enterprise AI Transformation Across Eight African Markets</title>
+    <link href="https://njenga.ai/m-pesa/" rel="alternate" type="text/html"/>
+    <id>https://njenga.ai/m-pesa/</id>
+    <updated>2026-11-22T09:00:00Z</updated>
+    <summary>Leading AI transformation across Vodacom FinTech Group and M-PESA Africa (100M+ customers, eight markets, $2B+ revenue), building the AI Center of Excellence and moving AI from single tasks to end-to-end systems of work.</summary>
+  </entry>
+
+  <entry>
+    <title>Amazon Bio Discovery: Agentic AI for Antibody Design at AWS</title>
+    <link href="https://njenga.ai/bio-discovery/" rel="alternate" type="text/html"/>
+    <id>https://njenga.ai/bio-discovery/</id>
+    <updated>2026-04-14T12:00:00Z</updated>
+    <summary>Head of Product for AWS Applied AI, Life Sciences: directing 100+ engineers, scientists, and PMs from start to April 2026 launch, bringing Memorial Sloan Kettering from target to lab order in weeks.</summary>
+  </entry>
+
+  <entry>
+    <title>US Patent 12,586,583 B1: Power State Control of a Device Performing Detection of Voice in Audio Data</title>
+    <link href="https://njenga.ai/halo-tone/" rel="alternate" type="text/html"/>
+    <id>https://patents.google.com/patent/US12586583B1/en</id>
+    <updated>2026-03-24T12:00:00Z</updated>
+    <summary>Sixth granted U.S. patent from Amazon Halo Tone voice AI work, assigned to Amazon Technologies, Inc.</summary>
+  </entry>
+
+  <entry>
+    <title>Stanford HAI AI Index Report 2025, Chapter 4: Economy</title>
+    <link href="https://njenga.ai/ai-index-2025/" rel="alternate" type="text/html"/>
+    <id>https://njenga.ai/ai-index-2025/</id>
+    <updated>2025-04-07T12:00:00Z</updated>
+    <summary>Text and economic analysis across five global AI data layers (investment, job postings, hiring, enterprise adoption, and robots), cited by the Federal Reserve Board and the White House Council of Economic Advisers.</summary>
+  </entry>
+
+  <entry>
+    <title>About Njenga Kariuki: Thirteen Principles for Building AI Products and Organizations</title>
+    <link href="https://njenga.ai/about/" rel="alternate" type="text/html"/>
+    <id>https://njenga.ai/about/</id>
+    <updated>2026-11-22T09:00:00Z</updated>
+    <summary>Thirteen operating principles for AI product development and enterprise AI transformation, six U.S. patents, three npj Digital Medicine clinical validation studies, Stanford HAI research, and hands-on GitHub AI builds.</summary>
+  </entry>
+
+  <entry>
+    <title>Alexa Map View: Smart Home Floor Plans from a Phone Scan</title>
+    <link href="https://njenga.ai/map-view/" rel="alternate" type="text/html"/>
+    <id>https://njenga.ai/map-view/</id>
+    <updated>2023-11-14T12:00:00Z</updated>
+    <summary>Led smart home features in the Alexa app (50M+ monthly users) and launched Map View in the United States.</summary>
+  </entry>
+
+  <entry>
+    <title>Amazon Health AI: $100M+/Year Computer Vision and Clinical Validation Portfolio</title>
+    <link href="https://njenga.ai/health-ai-portfolio/" rel="alternate" type="text/html"/>
+    <id>https://njenga.ai/health-ai-portfolio/</id>
+    <updated>2023-09-11T12:00:00Z</updated>
+    <summary>First product lead of Amazon's Health Computer Vision and AI organization (100+ scientists and engineers), delivering three products validated in npj Digital Medicine.</summary>
+  </entry>
+</feed>

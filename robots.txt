@@ -1,5 +1,5 @@
 # Njenga Kariuki: every page is open to search engines and to AI search, answer and assistant crawlers.
-# For AI agents: a summary at https://njenga.ai/llms.txt and the whole site as text at https://njenga.ai/llms-full.txt
+# For AI agents: a summary at https://njenga.ai/llms.txt the whole site as text at https://njenga.ai/llms-full.txt, JSON Resume at https://njenga.ai/resume.json, and Atom feed at https://njenga.ai/feed.xml
 User-agent: *
 Allow: /
 
