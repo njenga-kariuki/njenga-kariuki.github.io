@@ -108,6 +108,6 @@ All thirteen principles
 
 ## Writing
 
-Africa’s Biggest AI Bottleneck · November 2026 · 13 min read · Audio edition
-Why a shared, testable definition of good AI comes ahead of power, data centres, and capital.
+Africa’s Biggest AI Bottleneck · November 2026 · 13 min read
+Why a shared, testable definition of good AI comes ahead of power, data centers, and capital.
 https://njenga.ai/writing/africa-ai-bottleneck/

@@ -1,5 +1,5 @@
-/* Flagship Essay Shell (v3.3):
-   - Reading progress line (#prog) + Living TOC scroll-spy & completion states
+/* Flagship Essay Shell (v3.5):
+   - Reading progress line (#prog), scroll-revealed header title (--rh) + Living TOC scroll-spy
    - One-shot editorial figure scroll choreography ([data-reveal]) using njenga.ai's easing curve
    - Inline click-to-peek citation drawers ([data-cite])
    - Section permalink copy + contract clause / email copy utilities
@@ -36,8 +36,10 @@ async function copyText(text) {
   }
 }
 
-/* 1. Reading progress bar (#prog) + Living TOC scroll-spy */
+/* 1. Reading progress bar (#prog), header title reveal (--rh) + Living TOC scroll-spy */
 function initReadingProgressAndTOC() {
+  const hd = $('#hd');
+  const h1 = $('#es-h1');
   const prog = $('#prog');
   const article = $('article.es-article');
   const tocLinks = $$('.es-toc-list a[href^="#"]');
@@ -48,11 +50,16 @@ function initReadingProgressAndTOC() {
   let raf = 0;
   const tick = () => {
     raf = 0;
+    if (hd && h1) {
+      const headH = parseFloat(getComputedStyle(D.documentElement).getPropertyValue('--head')) || 56;
+      const p = Math.min(1, Math.max(0, (headH + 20 - h1.getBoundingClientRect().bottom) / 28));
+      hd.style.setProperty('--rh', p.toFixed(3));
+      hd.classList.toggle('rh', p >= 1);
+    }
     if (prog && article) {
-      const r = article.getBoundingClientRect();
-      const total = Math.max(1, r.height - innerHeight * 0.7);
-      const passed = Math.max(0, Math.min(total, -r.top + 80));
-      prog.style.transform = `scaleX(${(passed / total).toFixed(4)})`;
+      const end = Math.max(1, article.offsetTop + article.offsetHeight - innerHeight);
+      const ratio = Math.max(0, Math.min(1, scrollY / end));
+      prog.style.transform = `scaleX(${ratio.toFixed(4)})`;
     }
     if (sections.length) {
       const cut = innerHeight * 0.34;

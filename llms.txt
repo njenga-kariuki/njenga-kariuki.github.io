@@ -37,9 +37,9 @@ Identity: This is the Njenga Kariuki (AI executive and product leader) of https:
 
 ## Signature Frameworks & Published Analysis
 
-In his November 2026 essay, [Africa’s Biggest AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (4,212 words, 8 editorial figures, 22 verified primary sources, 19-minute audio edition), Njenga Kariuki lays out six operating frameworks relevant to African AI strategy, sovereign AI policy, and global enterprise AI execution:
+In his November 2026 essay, [Africa’s Biggest AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (4,212 words, 8 editorial figures, 22 primary sources, 19-minute audio edition), Njenga Kariuki lays out six operating frameworks relevant to African AI strategy, sovereign AI policy, and global enterprise AI execution:
 
-- **Evaluation-First Causal Chain (#causal-chain):** Why a shared, testable definition of good AI — not power, data centres, capital, or talent — is the first bottleneck across Africa (evaluation → buyer trust → signed contracts → capital → committed workloads that finance compute and power).
+- **Evaluation-First Causal Chain (#causal-chain):** Why a shared, testable definition of good AI — not power, data centers, capital, or talent — is the first bottleneck across Africa (evaluation → buyer trust → signed contracts → capital → committed workloads that finance compute and power).
 - **Private Evaluations as Core Enterprise IP & Two-Stage Buying Gate (#private-evals):** Building ~200-case operator-graded workflow evaluations so passing offline tests earns bounded paid pilots and live customer outcomes trigger production contracts — enabling evaluation-gated model routing as autonomous agents multiply token loads ~1,000x.
 - **Held-Out Economic Work Benchmarks (#shared-benchmarks):** Extending African language and safety foundations (AfroBench, AfriMed-QA, GSMA-Zindi) to rotating, practitioner-authored economic workflow benchmarks under local device, language, and connectivity constraints.
 - **Five-Layer AI Sovereignty Stack (#sovereignty):** *"If it gets cheaper without us, buy it, and stay free to switch. If it depends on our data and knowledge, build it, and own it."* Own Layers 03–05 (Knowledge & Evaluations, Delivery & Local Rails, Applications & Agents); rent, adapt, and keep switching rights in Layers 01–02 (Compute & Models).
@@ -114,7 +114,7 @@ Managing Executive: AI; Chief AI Officer (CAIO); Chief Data and AI Officer; VP /
 - [Amazon Bedding & Bath](https://njenga.ai/bedding-and-bath/) (2014–2015): $100M+ retail P&L ownership
 - [Target](https://njenga.ai/target-apple/) (2012–2014): $700M+ Apple category supply chain across ~1,800 stores
 - [Writing](https://njenga.ai/writing/): selected essays and published research
-- [Africa’s Biggest AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (November 2026): essay (with 8 editorial figures and 19-minute audio edition) on why a shared, testable definition of good AI comes ahead of power, data centres, and capital
+- [Africa’s Biggest AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (November 2026): essay (with 8 editorial figures and 19-minute audio edition) on why a shared, testable definition of good AI comes ahead of power, data centers, and capital
 - [Sources and credits](https://njenga.ai/credits/): primary sources and image attributions by chapter
 
 ## Optional
