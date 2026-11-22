@@ -1,5 +1,5 @@
 {
-  "title": "Africa\u2019s Biggest AI Bottleneck",
+  "title": "Africa\u2019s Hidden AI Bottleneck",
   "author": "Njenga Kariuki",
   "synthesized": true,
   "model": "eleven_multilingual_v2",
@@ -8,14 +8,14 @@
     {
       "id": "thesis",
       "num": "00",
-      "title": "The first bottleneck",
+      "title": "The hidden bottleneck",
       "start": 0.0,
       "end": 77.74
     },
     {
       "id": "causal-chain",
       "num": "01",
-      "title": "Demand comes first",
+      "title": "Supply & demand compound",
       "start": 79.01,
       "end": 160.55
     },
@@ -43,7 +43,7 @@
     {
       "id": "monday-morning",
       "num": "05",
-      "title": "Monday morning playbook",
+      "title": "Monday morning & stakes",
       "start": 865.3,
       "end": 1134.7
     }

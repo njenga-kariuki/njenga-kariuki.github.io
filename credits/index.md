@@ -8,7 +8,7 @@ updated: 2026-11-22
 
 The public sources behind each chapter, and the owner of every picture on the site.
 
-## Africa’s Biggest AI Bottleneck
+## Africa’s Hidden AI Bottleneck
 
 ### Sources
 

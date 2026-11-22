@@ -6,12 +6,12 @@ const D = document;
 const $ = (s, r = D) => r.querySelector(s);
 
 const DEFAULT_CHAPTERS = [
-  { id: 'thesis', num: '00', title: 'The first bottleneck', start: 0, end: 76 },
-  { id: 'causal-chain', num: '01', title: 'Demand comes first', start: 77, end: 159 },
+  { id: 'thesis', num: '00', title: 'The hidden bottleneck', start: 0, end: 76 },
+  { id: 'causal-chain', num: '01', title: 'Supply & demand compound', start: 77, end: 159 },
   { id: 'private-evals', num: '02', title: 'Private evals as core IP', start: 160, end: 400 },
   { id: 'shared-benchmarks', num: '03', title: 'Shared benchmarks', start: 401, end: 563 },
   { id: 'sovereignty', num: '04', title: 'Sovereignty & “our frontier”', start: 564, end: 862 },
-  { id: 'monday-morning', num: '05', title: 'Monday morning playbook', start: 863, end: 1132 },
+  { id: 'monday-morning', num: '05', title: 'Monday morning & stakes', start: 863, end: 1132 },
 ];
 
 const SPEEDS = [1, 1.25, 1.5, 2];
@@ -349,7 +349,7 @@ export async function initEssayAudio({ live }) {
     const ch = chapters[activeChapterIndex(currentTime)];
     try {
       navigator.mediaSession.metadata = new MediaMetadata({
-        title: `Africa’s Biggest AI Bottleneck (${ch.num} · ${ch.title})`,
+        title: `Africa’s Hidden AI Bottleneck (${ch.num} · ${ch.title})`,
         artist: 'Njenga Kariuki',
         album: 'njenga.ai',
         artwork: [{ src: '../../og/africa-ai-bottleneck.png', sizes: '1200x630', type: 'image/png' }],

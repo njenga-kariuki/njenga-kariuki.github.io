@@ -398,6 +398,7 @@
       if (byline) hd.classList.toggle('named', byline.getBoundingClientRect().bottom < head());
       let cur = null;
       ['work', 'career', 'lead', 'writing'].forEach(id => { const s = D.getElementById(id); if (s && s.getBoundingClientRect().top < innerHeight * 0.4) cur = id; });
+      if (scrollY + innerHeight >= H.scrollHeight - 24 && D.getElementById('writing')) cur = 'writing';
       // at the top of the page the reader is on the first screen, not yet in a section: the running line waits (v2.6)
       if (scrollY < 40) cur = null;
       navs.forEach(a => a.classList.toggle('on', a.dataset.nav === cur));

@@ -13,15 +13,14 @@
   </author>
 
   <entry>
-    <title>Africa’s Biggest AI Bottleneck</title>
+    <title>Africa’s Hidden AI Bottleneck</title>
     <link href="https://njenga.ai/writing/africa-ai-bottleneck/" rel="alternate" type="text/html"/>
     <id>https://njenga.ai/writing/africa-ai-bottleneck/</id>
     <updated>2026-11-22T11:00:00Z</updated>
-    <summary>Power, data centers, capital, and talent are real constraints. None is the first bottleneck. The first bottleneck is a shared, testable definition of good AI, and solving it under Africa’s conditions yields the operating playbook every enterprise needs.</summary>
-    <link rel="enclosure" href="https://njenga.ai/audio/africa-ai-bottleneck.mp3" type="audio/mpeg" length="13617260"/>
+    <summary>Power, compute, local data, capital, and talent are real, foundational constraints for AI in Africa. Alongside them sits a hidden bottleneck that determines whether investments in all five compound: a shared, testable definition of good AI across enterprise operations, consumer services, and public institutions.</summary>
     <category term="Africa AI"/>
     <category term="AI Opportunities in Africa"/>
-    <category term="Enterprise AI Evaluation"/>
+    <category term="AI Evaluation"/>
     <category term="AI Sovereignty"/>
     <category term="Agentic Commerce and Mobile Money"/>
     <category term="Public Sector AI Procurement"/>

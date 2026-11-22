@@ -108,6 +108,6 @@ All thirteen principles
 
 ## Writing
 
-Africa’s Biggest AI Bottleneck · November 2026 · 13 min read
-Why a shared, testable definition of good AI comes ahead of power, data centers, and capital.
+Africa’s Hidden AI Bottleneck · November 2026 · 11 min read
+Alongside power, compute, local data, capital, and talent sits a hidden bottleneck deciding whether Africa’s AI investments compound.
 https://njenga.ai/writing/africa-ai-bottleneck/

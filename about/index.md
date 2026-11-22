@@ -93,7 +93,7 @@ If AI halves a two-day step in a 10-day process, the customer waits nine days in
 - 2024 · Essay · [3 Lessons for PMs Building B2C AI Products](https://medium.com/@njenga.kariuki/top-3-lessons-for-pms-building-b2c-ai-products-2f0d587d01d6) · An essay for product managers who build business-to-consumer AI products, drawn from Alexa shopping and Halo.
 - 2025 · Published research · [Artificial Intelligence Index Report 2025, Chapter 4: Economy](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf) · Research from the Stanford Institute for Human-Centered AI on AI’s global economic impact: investment, jobs, company use and robot installations.
 - 2026 · US 12,586,583 · Patent · [Power state control of a device performing detection of voice in audio data](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12586583) · A wearable that learns when its wearer’s voice tends to start, and times its low-power sleep to match.
-- 2026 · Essay · [Africa’s Biggest AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) · Why a shared, testable definition of good AI comes ahead of power, data centers, and capital, with an operating playbook for enterprises and governments.
+- 2026 · Essay · [Africa’s Hidden AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) · Alongside power, compute, local data, capital, and talent sits a hidden bottleneck determining whether Africa’s AI investments compound across enterprises, consumer platforms, NGOs, and governments.
 
 ## Hands-on builds
 
