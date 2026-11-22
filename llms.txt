@@ -2,7 +2,7 @@
 
 > AI executive leading enterprise AI transformation across Vodacom FinTech Group, including M-PESA Africa, serving 100M+ customers across eight African markets and $2B+ revenue, reporting to the CEO and building the AI Center of Excellence. Previously spent 12 years in the United States at Amazon and AWS building and scaling AI-native businesses and products from zero to one across software, hardware, and mobile applications spanning e-commerce, IoT, connected devices, supply chain, health, and life sciences, leading science, engineering, and product organizations of 100+, directing $100M+ AI portfolios and businesses up to $700M, and delivering frontier ML, computer vision, and LLM capabilities at global scale (most recently leading product for Amazon Bio Discovery, an agentic AI platform for drug discovery). Holds a Master of Science in Management from Stanford Graduate School of Business, published research on AI's global economic impact at the Stanford Institute for Human-Centered Artificial Intelligence (Stanford HAI, AI Index Report 2025), and is a named inventor on six U.S. patents.
 
-Identity: This is the Njenga Kariuki (AI executive and product leader) of https://njenga.ai/, https://www.wikidata.org/wiki/Q142243592, https://orcid.org/0009-0003-8191-2625, https://scholar.google.com/citations?user=v-VqXH0AAAAJ, https://www.linkedin.com/in/njengakariuki/, https://github.com/njenga-kariuki, and https://patents.justia.com/inventor/njenga-kariuki.
+Identity: This is the Njenga Kariuki (AI executive and product leader) of https://njenga.ai/, https://www.wikidata.org/wiki/Q142243592, https://orcid.org/0009-0003-8191-2625, https://scholar.google.com/citations?user=v-VqXH0AAAAJ, https://www.crunchbase.com/person/njenga-kariuki, https://www.linkedin.com/in/njengakariuki/, https://github.com/njenga-kariuki, and https://patents.justia.com/inventor/njenga-kariuki.
 
 ## Facts
 
@@ -79,6 +79,7 @@ Managing Executive: AI; Chief AI Officer (CAIO); Chief Data and AI Officer; VP /
 - Wikidata: https://www.wikidata.org/wiki/Q142243592
 - ORCID: https://orcid.org/0009-0003-8191-2625
 - Google Scholar: https://scholar.google.com/citations?user=v-VqXH0AAAAJ
+- Crunchbase: https://www.crunchbase.com/person/njenga-kariuki
 - LinkedIn: https://www.linkedin.com/in/njengakariuki/
 - GitHub: https://github.com/njenga-kariuki
 - Medium: https://medium.com/@njenga.kariuki
