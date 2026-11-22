@@ -6,7 +6,7 @@
     "image": "https://njenga.ai/img/portrait-2026-plate-800.webp",
     "email": "njenga@alumni.stanford.edu",
     "url": "https://njenga.ai/",
-    "summary": "AI executive leading enterprise AI transformation across Vodacom FinTech Group, including M-PESA Africa (100M+ customers across eight African markets and $2B+ revenue), reporting to the CEO and building the AI Center of Excellence. Previously spent 12 years in the United States building zero-to-one AI products and organizations of 100+ at Amazon and AWS, including Head of Product for Amazon Bio Discovery, first product lead for Amazon Health AI ($100M+/yr portfolio), Alexa Smart Home & Map View, Amazon Halo, Alexa Shopping, and Prime Now. Holds a Master of Science in Management from Stanford Graduate School of Business, published research on AI's global economic impact at the Stanford Institute for Human-Centered Artificial Intelligence (Stanford HAI, AI Index Report 2025), and is a named inventor on six granted U.S. patents.",
+    "summary": "AI executive leading enterprise AI transformation across Vodacom FinTech Group, including M-PESA Africa (100M+ customers across eight African markets and $2B+ revenue), reporting to the CEO and building the AI Center of Excellence. Previously spent 12 years in the United States at Amazon and AWS building and scaling AI-native businesses and products from zero to one across software, hardware, and mobile applications spanning e-commerce, IoT, connected devices, supply chain, health, and life sciences. Led large-scale science, engineering, and product organizations of 100+, directed $100M+ AI portfolios and businesses up to $700M, and delivered frontier machine learning, computer vision, and LLM capabilities at global scale, most recently leading product for Amazon Bio Discovery, an agentic AI platform for drug discovery. Holds a Master of Science in Management from Stanford Graduate School of Business, published research on AI's global economic impact at the Stanford Institute for Human-Centered Artificial Intelligence (Stanford HAI, AI Index Report 2025), and is a named inventor on six granted U.S. patents.",
     "location": {
       "city": "Nairobi",
       "countryCode": "KE",
@@ -27,6 +27,21 @@
         "network": "Medium",
         "username": "njenga.kariuki",
         "url": "https://medium.com/@njenga.kariuki"
+      },
+      {
+        "network": "ORCID",
+        "username": "0009-0003-8191-2625",
+        "url": "https://orcid.org/0009-0003-8191-2625"
+      },
+      {
+        "network": "Google Scholar",
+        "username": "v-VqXH0AAAAJ",
+        "url": "https://scholar.google.com/citations?user=v-VqXH0AAAAJ"
+      },
+      {
+        "network": "Wikidata",
+        "username": "Q142243592",
+        "url": "https://www.wikidata.org/wiki/Q142243592"
       }
     ]
   },
