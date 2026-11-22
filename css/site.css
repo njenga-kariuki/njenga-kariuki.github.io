@@ -3192,6 +3192,25 @@ main { padding-bottom: clamp(44px, 4.4vw, 72px); }
 #patents-and-papers .rc-axis .ax-s.on .ax-m { background: var(--ink); transform: scale(1.35); }
 #patents-and-papers.yr-on .rc-axis .ax-s:not(.on) { opacity: .38; }
 
+/* ---------- 12. Quiet Homepage Flagship Essay Ingress Strip (v3.3) */
+.essay-strip { margin-top: clamp(22px, 2.4vw, 32px); padding-top: clamp(18px, 2vw, 24px); border-top: 1px solid var(--rule); }
+.es-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; align-items: center; padding: 14px 16px;
+  border-radius: 12px; background: var(--wash); border: 1px solid var(--rule);
+  transition: background var(--t1) linear, border-color var(--t1) linear; }
+.es-row:hover { background: var(--wash-2); border-color: var(--line); }
+.es-row-k { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 7px; font-family: var(--mono); font-size: 11.5px;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
+.es-row-k .dot { width: 6px; height: 6px; border-radius: 50%; background: #265363; flex: none; }
+.es-row-t { margin-top: 5px; font-size: var(--f19); font-weight: 500; letter-spacing: -0.012em; color: var(--ink); line-height: 1.28; }
+.es-row-d { margin-top: 4px; font-size: var(--f15); line-height: 1.5; color: var(--ink-2); max-width: 48em; }
+.es-row-go { display: inline-flex; align-items: center; gap: 6px; font-size: var(--f13); font-weight: 500; color: #1b3d4a; white-space: nowrap; }
+.es-row-go .arr { width: 13px; height: 13px; transition: transform var(--t2) var(--out); }
+.es-row:hover .es-row-go .arr { transform: translateX(3px); }
+@media (max-width: 699px) {
+  .es-row { grid-template-columns: 1fr; gap: 10px; padding: 13px 14px; }
+  .es-row-go { justify-self: start; }
+}
+
 /* Print protection for all v3.0 interactive chrome */
 @media print {
   .hero-pic, .brief-btn, .st-rail, .clk-mode, .bd-pf-ctrl, .m14-f-bar, .hw-list-bar, .crumb-ix { display: none !important; }

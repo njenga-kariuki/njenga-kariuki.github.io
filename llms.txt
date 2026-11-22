@@ -54,6 +54,7 @@ Managing Executive: AI; Chief AI Officer (CAIO); Chief Data and AI Officer; VP /
 
 ## Patents and Papers
 
+- [Africa’s Biggest AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/), essay & audio edition, November 2026
 - [AI Index Report 2025, Chapter 4: Economy](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf), Stanford HAI, April 2025
 - [US 12,586,583 B1: Power state control of a device performing detection of voice in audio data](https://patents.google.com/patent/US12586583B1/en), USPTO, March 2026
 - [US 11,783,834 B1: Conserving battery while detecting for human voice](https://patents.google.com/patent/US11783834B1/en), USPTO, October 2023
@@ -100,6 +101,8 @@ Managing Executive: AI; Chief AI Officer (CAIO); Chief Data and AI Officer; VP /
 - [Prime Now](https://njenga.ai/prime-now/) (2015–2017): founding PM of local-store platform across 7 countries
 - [Amazon Bedding & Bath](https://njenga.ai/bedding-and-bath/) (2014–2015): $100M+ retail P&L ownership
 - [Target](https://njenga.ai/target-apple/) (2012–2014): $700M+ Apple category supply chain across ~1,800 stores
+- [Writing](https://njenga.ai/writing/): selected essays and published research
+- [Africa’s Biggest AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (November 2026): essay (with 8 editorial figures and 19-minute audio edition) on why a shared, testable definition of good AI comes ahead of power, data centres, and capital
 - [Sources and credits](https://njenga.ai/credits/): primary sources and image attributions by chapter
 
 ## Optional

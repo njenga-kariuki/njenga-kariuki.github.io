@@ -5,12 +5,20 @@
   <link href="https://njenga.ai/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://njenga.ai/" rel="alternate" type="text/html"/>
   <id>https://njenga.ai/</id>
-  <updated>2026-11-22T09:00:00Z</updated>
+  <updated>2026-11-22T11:00:00Z</updated>
   <author>
     <name>Njenga Kariuki</name>
     <email>njenga@alumni.stanford.edu</email>
     <uri>https://njenga.ai/</uri>
   </author>
+
+  <entry>
+    <title>Africa’s Biggest AI Bottleneck</title>
+    <link href="https://njenga.ai/writing/africa-ai-bottleneck/" rel="alternate" type="text/html"/>
+    <id>https://njenga.ai/writing/africa-ai-bottleneck/</id>
+    <updated>2026-11-22T11:00:00Z</updated>
+    <summary>Power, data centres, capital, and talent are real constraints. None is the first bottleneck. The first bottleneck is a shared, testable definition of good AI, and solving it under Africa’s conditions yields the operating playbook every enterprise needs.</summary>
+  </entry>
 
   <entry>
     <title>M-PESA Africa: Enterprise AI Transformation Across Eight African Markets</title>

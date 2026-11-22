@@ -1,0 +1,51 @@
+{
+  "title": "Africa\u2019s Biggest AI Bottleneck",
+  "author": "Njenga Kariuki",
+  "synthesized": true,
+  "model": "eleven_multilingual_v2",
+  "duration": 1134.7,
+  "chapters": [
+    {
+      "id": "thesis",
+      "num": "00",
+      "title": "The first bottleneck",
+      "start": 0.0,
+      "end": 77.74
+    },
+    {
+      "id": "causal-chain",
+      "num": "01",
+      "title": "Demand comes first",
+      "start": 79.01,
+      "end": 160.55
+    },
+    {
+      "id": "private-evals",
+      "num": "02",
+      "title": "Private evals as core IP",
+      "start": 161.75,
+      "end": 401.43
+    },
+    {
+      "id": "shared-benchmarks",
+      "num": "03",
+      "title": "Shared benchmarks",
+      "start": 402.63,
+      "end": 564.75
+    },
+    {
+      "id": "sovereignty",
+      "num": "04",
+      "title": "Sovereignty & \u201cour frontier\u201d",
+      "start": 565.95,
+      "end": 864.1
+    },
+    {
+      "id": "monday-morning",
+      "num": "05",
+      "title": "Monday morning playbook",
+      "start": 865.3,
+      "end": 1134.7
+    }
+  ]
+}
