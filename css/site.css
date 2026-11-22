@@ -2903,12 +2903,29 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   font-size: clamp(12px, 2.8cqw, 12.5px); color: var(--ink-2); }
 .hai-ft b { font-weight: 500; color: var(--ink); }
 @container (max-width: 263px) {
-  .hai-in { padding: 11px 11px 10px; }
-  .hai-sub, .hai-rd, .hai-ft { display: none; }
-  .hai-hd { padding-bottom: 6px; }
-  .hai-rows { gap: 8px; }
-  .hai-rn { font-size: 12px; }
-  .hai-rv { font-size: 12px; }
+  .hai-in { padding: 10px 11px; justify-content: space-between; }
+  .hai-sub, .hai-rd { display: none; }
+  .hai-hd { padding-bottom: 5px; }
+  .hai-k { font-size: 12px; }
+  .hai-rows { gap: 7px; margin: auto 0; padding: 2px 0; }
+  .hai-r { grid-template-columns: 1fr; gap: 3px; }
+  .hai-rn { font-size: 12px; line-height: 1.15; }
+  .hai-rv { display: none; }
+  .hai-bar { height: 3.5px; margin-top: 0; }
+  .hai-ft { display: flex; padding-top: 5px; font-size: 12px; gap: 4px; }
+  .hai-ft span:first-child { display: none; }
+}
+@container (max-width: 155px) {
+  .hai-in { padding: 8px 9px; }
+  .hai-ft { display: none; }
+  .hai-rows { gap: 6px; }
+}
+@container (min-width: 264px) and (max-width: 365px) {
+  .hai-in { padding: 5.5% 6.5% 5%; }
+  .hai-hd { padding-bottom: 3.5%; }
+  .hai-rows { gap: 6px; padding: 2% 0; }
+  .hai-rd { display: none; }
+  .hai-ft { padding-top: 3.5%; }
 }
 @media (prefers-reduced-motion: reduce) { .hai-in, .pl-a:hover .hai-in { transform: none; transition: none; } }
 
@@ -3200,6 +3217,100 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
 @media (max-width: 699px) {
   .es-row { grid-template-columns: 1fr; gap: 12px; }
   .es-row-go { justify-self: start; }
+}
+
+/* ================================================================ v3.7: Mobile Precision & Parity Pass */
+
+/* Pillar A2: Unified chapter opening cadence on mobile/tablet (artifact above lead prose) + Bio Discovery dark mat */
+@media (max-width: 899px) {
+  .ch-top-split { display: flex; flex-direction: column; }
+  .ch-top-split .ch-split-l { display: contents; }
+  .ch-top-split .ch-head { order: 1; }
+  .ch-top-split .facts { order: 2; }
+  .ch-top-split .ch-hero { order: 3; margin-top: 20px; }
+  .ch-top-split .ch-open { order: 4; margin-top: 22px; }
+  .ch[data-ch="m14"] .ch-hero .ch-plate { background: #0c0d12; aspect-ratio: 16 / 10; }
+  .ch[data-ch="m14"] .ch-hero .ch-plate .v.fit img { padding: 0; object-fit: cover; object-position: 50% 50%; filter: none; }
+}
+
+/* Pillar A3: Tablet Work grid parity — uniform 3-up from 720px to 999px; 3-full-width + 2×3 from 600px to 719px */
+@media (min-width: 720px) and (max-width: 999px) {
+  #plates { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 16px; }
+  #plates > .pl .pl-t { grid-template-columns: 1fr; row-gap: 2px; margin-top: 11px; }
+  #plates > .pl .pl-y { order: -1; }
+  #plates > .pl .pl-n { font-size: 16px; }
+  #plates > .pl .pl-l { font-size: 14px; }
+  #plates > .pl .pl-p { font-size: 13px; }
+}
+@media (min-width: 600px) and (max-width: 719px) {
+  #plates > .pl { grid-column: 1 / -1; }
+  #plates > .pl .plate { aspect-ratio: 16 / 10; }
+  #plates > #w-m15 .plate { background: #f5f3ef; }
+  #plates > #w-m14 .plate .v.on img { object-position: 50% 50%; }
+  #plates > #w-m13 .plate .v.on img { object-position: 50% 15%; }
+  #plates > .plates-div ~ .pl { grid-column: auto; }
+  #plates > .plates-div ~ .pl .plate { aspect-ratio: 4 / 3; }
+}
+
+/* Pillar B: Spacious 3-link mobile header (Work · Writing · About) + persistent About home anchor */
+@media (max-width: 599px) {
+  .hd-nav a[data-nav="career"] { display: none; }
+  .hd-nav { gap: 20px; }
+  .hd-nav a::before { inset: -6px -10px; }
+  .p-about .hd-name { opacity: 1; transform: none; pointer-events: auto; }
+}
+@media (max-width: 359px) {
+  .hd-nav { gap: 14px; }
+  .hd-nav a::before { inset: -6px -7px; }
+}
+
+/* Pillar C: Restore 44px Apple HIG touch targets across v3.0–v3.5 controls without visual bloat + clean gallery swipe */
+@media (max-width: 899px) {
+  .ft-mail .mailto { display: inline-flex; align-items: center; min-height: 36px; }
+  .ft-mail .mailto, .ft-prof .xl, .ft-nav a, .ft-nav button.ft-print,
+  .sec-more, .sec-head .xl.meta, .brief-btn, .hw-toggle-btn, .builds .xl,
+  .st-rail button, .clk-mode button, .bd-pf-ctrl button, .m14-f-bar button {
+    position: relative;
+  }
+  .ft-mail .mailto::before, .ft-prof .xl::before, .ft-nav a::before, .ft-nav button.ft-print::before {
+    content: ""; position: absolute; inset: -4px -8px;
+  }
+  .sec-more::before, .sec-head .xl.meta::before { content: ""; position: absolute; inset: -12px -8px; }
+  .builds .xl::before { content: ""; position: absolute; inset: -4px -6px; }
+  .brief-btn { min-height: 40px; }
+  .brief-btn::before { content: ""; position: absolute; inset: -2px -4px; }
+  .hw-toggle-btn { min-height: 40px; }
+  .hw-toggle-btn::before { content: ""; position: absolute; inset: -2px -4px; }
+  .st-rail button { min-height: 40px; padding: 14px 0 6px; }
+  .clk-mode button { min-height: 40px; }
+  .bd-pf-ctrl button { min-height: 40px; }
+  .m14-f-bar button { min-height: 40px; padding: 6px 12px; }
+}
+.ch-plate.views { touch-action: pan-y; }
+
+/* Pillar D: Sticky viewport breathing room, Career staircase polish (zero CLS), and 320px SVG 12px floor */
+@media (max-width: 599px) {
+  .hw-mx .mx-read { top: calc(var(--head) + 6px); min-height: 0; padding: 12px 14px; }
+  .hw-mx .mx-read .mx-pt { font-size: 15px; margin-top: 2px; }
+  .hw-mx .mx-read .mx-pp { font-size: 13.5px; line-height: 1.42; margin-top: 4px; }
+  .hw-mx .mx-read .mx-go { margin-top: 6px; font-size: 13.5px; }
+  .cs { --csl: 134px; }
+  .cs-row.on::after { left: 0; }
+  .cs-n { padding-left: 12px; }
+  .cs-read { padding: 14px 16px 16px; }
+  .cs-read .r-k { margin-top: 9px; }
+  .cs-read .r-p { font-size: 15px; line-height: 1.45; }
+}
+@media (max-width: 899px) {
+  .story > .stage, .story > .stage.film-stage { border-bottom: 1px solid var(--rule); }
+  .story > .stage::after { height: 26px; }
+  .story:not(.solo) .step { padding-top: 28px; }
+}
+@media (max-width: 359px) {
+  .clk.clk-p .clk-n, .clk.clk-p .clk-lab, .clk.clk-p .clk-mn,
+  .clk.clk-p .af-lbl, .clk.clk-p .clk-af-read { font-size: 15px; }
+  .dw.nar .m14-nm { font-size: 15px; }
+  .dates-svg .fig-t, .dates-svg .fig-a text, .scale-svg text, .scale-svg .fig-v { font-size: 14.2px; }
 }
 
 /* Print protection for all v3.0 interactive chrome */

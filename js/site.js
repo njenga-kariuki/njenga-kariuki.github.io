@@ -397,7 +397,7 @@
     if (isHome) {
       if (byline) hd.classList.toggle('named', byline.getBoundingClientRect().bottom < head());
       let cur = null;
-      ['work', 'career', 'lead'].forEach(id => { const s = D.getElementById(id); if (s && s.getBoundingClientRect().top < innerHeight * 0.4) cur = id; });
+      ['work', 'career', 'lead', 'writing'].forEach(id => { const s = D.getElementById(id); if (s && s.getBoundingClientRect().top < innerHeight * 0.4) cur = id; });
       // at the top of the page the reader is on the first screen, not yet in a section: the running line waits (v2.6)
       if (scrollY < 40) cur = null;
       navs.forEach(a => a.classList.toggle('on', a.dataset.nav === cur));
@@ -464,10 +464,20 @@
     plate.setAttribute('role', 'group');
     plate.setAttribute('aria-label', 'Pictures. Use the arrow keys to change the picture.');
     plate.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { e.preventDefault(); go(k + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(k - 1); } });
-    // on touch, a swipe across the picture changes it
-    let x0 = null;
-    plate.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') x0 = e.clientX; });
-    plate.addEventListener('pointerup', e => { if (x0 == null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) go(k + (dx < 0 ? 1 : -1)); });
+    // on touch, a swipe across the picture changes it without opening the lightbox
+    let x0 = null, dragT = 0;
+    plate.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') { x0 = e.clientX; delete plate.dataset.dragged; } });
+    plate.addEventListener('pointerup', e => {
+      if (x0 == null) return;
+      const dx = e.clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) > 40) {
+        plate.dataset.dragged = '1';
+        clearTimeout(dragT);
+        dragT = setTimeout(() => { delete plate.dataset.dragged; }, 350);
+        go(k + (dx < 0 ? 1 : -1));
+      }
+    });
     plate.addEventListener('pointercancel', () => { x0 = null; });
   });
 
