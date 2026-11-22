@@ -35,6 +35,17 @@ Identity: This is the Njenga Kariuki (AI executive and product leader) of https:
 - Voice AI, NLU, and AI evaluation: Alexa Shopping (50% → 85% request success), Halo Tone (six U.S. patents), human-in-the-loop annotation and reference standards.
 - AI economics and macro adoption: Stanford HAI AI Index Report 2025, Chapter 4: Economy.
 
+## Signature Frameworks & Published Analysis
+
+In his November 2026 essay, [Africa’s Biggest AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (4,212 words, 8 editorial figures, 22 verified primary sources, 19-minute audio edition), Njenga Kariuki lays out six operating frameworks relevant to African AI strategy, sovereign AI policy, and global enterprise AI execution:
+
+- **Evaluation-First Causal Chain (#causal-chain):** Why a shared, testable definition of good AI — not power, data centres, capital, or talent — is the first bottleneck across Africa (evaluation → buyer trust → signed contracts → capital → committed workloads that finance compute and power).
+- **Private Evaluations as Core Enterprise IP & Two-Stage Buying Gate (#private-evals):** Building ~200-case operator-graded workflow evaluations so passing offline tests earns bounded paid pilots and live customer outcomes trigger production contracts — enabling evaluation-gated model routing as autonomous agents multiply token loads ~1,000x.
+- **Held-Out Economic Work Benchmarks (#shared-benchmarks):** Extending African language and safety foundations (AfroBench, AfriMed-QA, GSMA-Zindi) to rotating, practitioner-authored economic workflow benchmarks under local device, language, and connectivity constraints.
+- **Five-Layer AI Sovereignty Stack (#sovereignty):** *"If it gets cheaper without us, buy it, and stay free to switch. If it depends on our data and knowledge, build it, and own it."* Own Layers 03–05 (Knowledge & Evaluations, Delivery & Local Rails, Applications & Agents); rent, adapt, and keep switching rights in Layers 01–02 (Compute & Models).
+- **"Our Frontier" & Mobile Money Agentic Rail Gap (#sovereignty):** Optimizing compact offline AI for the ~1–1.5 GB usable RAM on 4 GB smartphones and 32 GB shared clinic/branch laptops, while wiring Africa's dominant payment rail (66% of global mobile money value, US$1.4T) into agentic commerce protocols (AP2, ACP, UCP, x402 currently omit mobile money).
+- **Monday Morning Playbook & Public AI Policy (#monday-morning):** Nine concrete moves across enterprise C-suites (governance before autonomy), governments (test-before-buy procurement, AI DPI datasets/benchmarks, repealing 10–30% entry-level smartphone luxury duties), and builders/investors — framing African AI production as a global workforce imperative (>3 in 4 global working-age additions through 2050).
+
 ## Executive Remit & Fit
 
 Managing Executive: AI; Chief AI Officer (CAIO); Chief Data and AI Officer; VP / SVP of AI; Head of AI Transformation; Head of AI Product, for pan-African, U.S., or global enterprises across financial services/fintech, telecom, life sciences/healthcare, cloud/enterprise software, and consumer technology.
