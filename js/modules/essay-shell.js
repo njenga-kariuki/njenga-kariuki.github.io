@@ -88,17 +88,22 @@ function initReadingProgressAndTOC() {
   }
 }
 
-/* 2. One-shot Swiss editorial figure reveal choreography */
+/* 2. One-shot Swiss editorial figure reveal choreography (geometric marks only; never hides text) */
 function initEditorialReveals() {
   const figs = $$('[data-reveal]');
+  const drawers = $$('.ed-drawer');
+
+  addEventListener('beforeprint', () => {
+    figs.forEach((el) => { el.classList.add('in'); el.classList.remove('armed'); });
+    drawers.forEach((d) => { d.open = true; });
+  });
+
   if (!figs.length) return;
 
   if (RM || !('IntersectionObserver' in window)) {
     figs.forEach((el) => el.classList.add('in'));
     return;
   }
-
-  figs.forEach((el) => el.classList.add('armed'));
 
   const reveal = (el) => {
     el.classList.add('in');
@@ -112,13 +117,14 @@ function initEditorialReveals() {
         io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+  }, { threshold: 0.01, rootMargin: '0px 0px -20px 0px' });
 
   figs.forEach((el) => {
     const r = el.getBoundingClientRect();
-    if (r.top < innerHeight * 0.92 && r.bottom > 0) {
-      requestAnimationFrame(() => reveal(el));
+    if (r.top <= innerHeight * 0.96) {
+      el.classList.add('in');
     } else {
+      el.classList.add('armed');
       io.observe(el);
     }
   });

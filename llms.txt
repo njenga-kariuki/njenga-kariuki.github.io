@@ -37,7 +37,7 @@ Identity: This is the Njenga Kariuki (AI executive and product leader) of https:
 
 ## Signature Frameworks & Published Analysis
 
-In his November 2026 essay, [Africa’s Hidden AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (3,659 prose words, 8 editorial figures, 22 primary sources, 11 min read), Njenga Kariuki lays out six operating frameworks relevant to African AI strategy, sovereign AI policy, and global AI execution:
+In his November 2026 essay, [Africa’s Hidden AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (3,659 prose words, 4 editorial figures, 22 primary sources, 11 min read), Njenga Kariuki lays out six operating frameworks relevant to African AI strategy, sovereign AI policy, and global AI execution:
 
 - **Parallel Compounding Loop (#causal-chain):** Alongside the five visible constraints (power, compute, local data, capital, and talent) sits a hidden bottleneck determining whether investments in all five compound: a shared, testable definition of good AI across enterprise operations, consumer services, and public institutions.
 - **Enterprise-to-Consumer Private Evaluations & Two-Stage Buying Gate (#private-evals):** Codifying ~200 anonymized real interactions across internal workflows and consumer experiences so passing offline tests earns bounded pilots (Alexa Shopping: ~50% → 85%) and live outcomes earn production scale (Penda Health RCT), enabling evaluation-gated model routing as autonomous agents multiply token loads ~1,000x.
@@ -114,7 +114,7 @@ Managing Executive: AI; Chief AI Officer (CAIO); Chief Data and AI Officer; VP /
 - [Amazon Bedding & Bath](https://njenga.ai/bedding-and-bath/) (2014–2015): $100M+ retail P&L ownership
 - [Target](https://njenga.ai/target-apple/) (2012–2014): $700M+ Apple category supply chain across ~1,800 stores
 - [Writing](https://njenga.ai/writing/): selected essays and published research
-- [Africa’s Hidden AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (November 2026): essay (with 8 editorial figures and 22 primary sources) on the hidden bottleneck alongside power, compute, local data, capital, and talent
+- [Africa’s Hidden AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/) (November 2026): essay (with 4 editorial figures and 22 primary sources) on the hidden bottleneck alongside power, compute, local data, capital, and talent
 - [Sources and credits](https://njenga.ai/credits/): primary sources and image attributions by chapter
 
 ## Optional

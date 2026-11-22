@@ -205,285 +205,153 @@ button.cite:hover, button.cite[aria-expanded="true"] { background: var(--c); col
 .cite-close { flex: none; width: 28px; height: 28px; border-radius: 6px; display: grid; place-items: center; color: var(--gray); }
 .cite-close:hover { background: var(--wash-2); color: var(--ink); }
 
-/* ---------------------------------------------------------------- Woven Swiss Editorial Figures (Unboxed Ledger) */
-.ed-fig { margin: clamp(36px, 4vw, 52px) 0; max-width: 880px; border-top: 1px solid var(--ink); padding-top: 16px; }
-.ed-fig-h { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
-.ed-fig-num { font-size: var(--f13); font-weight: 500; color: var(--c-ink); font-variant-numeric: lining-nums tabular-nums; }
-.ed-fig-tag { font-size: var(--f13); color: var(--gray); }
-.ed-fig-t { margin-top: 6px; font-size: clamp(18.5px, 0.55vw + 16.5px, 21.5px); font-weight: 500; letter-spacing: -0.014em; line-height: 1.28; color: var(--ink); max-width: 44em; }
-.ed-fig-sub { margin-top: 5px; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); max-width: 56em; }
-.ed-fig-plate { margin-top: 16px; padding: 18px 0 16px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.ed-fig-cap { margin-top: 10px; font-size: 12px; line-height: 1.5; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
+/* ---------------------------------------------------------------- Woven Swiss Editorial Micro-Figures (v4.0)
+   Every inline visual sits flush to the 660px prose measure, fits inside <= 0.42 of one iPhone screen,
+   and animates only geometric marks (never hiding text behind IntersectionObserver opacity). */
+.ed-fig { margin: clamp(26px, 3vw, 38px) 0; max-width: var(--es-measure); border-top: 1px solid var(--ink); padding-top: 11px; }
+.ed-fig-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: 12px; line-height: 1.3; font-variant-numeric: lining-nums tabular-nums; }
+.ed-fig-num { font-weight: 500; color: var(--c-ink); }
+.ed-fig-sep { color: var(--line); }
+.ed-fig-tag { color: var(--gray); }
+.ed-fig-t { margin-top: 4px; font-size: clamp(16px, 0.35vw + 15px, 18px); font-weight: 500; letter-spacing: -0.014em; line-height: 1.26; color: var(--ink); }
+.ed-fig-plate { margin-top: 10px; padding: 12px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.ed-fig-cap { margin-top: 7px; font-size: 11.5px; line-height: 1.4; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
 
-/* One-shot scroll choreography (never hides content without JS or under reduced-motion) */
+/* One-shot scroll choreography on geometric marks only */
 .js [data-reveal].armed .bar-fill { transform: scaleX(0); }
-.bar-fill { transform-origin: left center; transition: transform 560ms var(--out); transition-delay: var(--d, 0ms); }
-.js [data-reveal].armed .f2-blk { transform: scaleY(0); }
-.f2-blk { transform-origin: center bottom; transition: transform 320ms var(--out); transition-delay: var(--d, 0ms); }
-.js [data-reveal].armed .fade-in { opacity: 0; transform: translateY(6px); }
-.fade-in { transition: opacity 420ms linear, transform 460ms var(--out); transition-delay: var(--d, 0ms); }
-.js [data-reveal].armed .wf-dot { opacity: .15; transform: scale(.65); }
-.wf-dot { transition: opacity 280ms linear, transform 360ms var(--out); transition-delay: var(--d, 0ms); }
-.js [data-reveal].armed .draw-line { stroke-dashoffset: 620; }
-.draw-line { stroke-dasharray: 620; stroke-dashoffset: 0; transition: stroke-dashoffset 780ms var(--out); transition-delay: var(--d, 120ms); }
+.bar-fill { transform-origin: left center; transition: transform 520ms var(--out); transition-delay: var(--d, 0ms); }
+.js [data-reveal].armed .wf-dot { opacity: .2; transform: scale(.75); }
+.wf-dot { transition: opacity 260ms linear, transform 320ms var(--out); transition-delay: var(--d, 0ms); }
 
-/* ---------- Figure 01: GIZ & Briter Survey Bars (Two Separate Questions) + Causal Sequence */
-.f1-groups { display: grid; gap: 18px; }
-.f1-grp-k { font-size: var(--f13); font-weight: 500; color: var(--ink-2); margin-bottom: 10px; }
-.f1-grp-k span { font-weight: 400; color: var(--gray); }
-.f1-bars { display: grid; gap: 12px; }
-.f1-row { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr) 44px; gap: 12px; align-items: center; }
-.f1-lbl { font-size: 13.5px; line-height: 1.32; color: var(--ink-2); }
-.f1-lbl b { display: block; font-weight: 500; color: var(--ink); }
-.f1-lbl span { font-size: 12px; color: var(--gray); }
-.f1-tr { height: 10px; border-radius: 2px; background: var(--wash-2); overflow: hidden; }
+/* ---------- Figure 01: GIZ & Briter Builder Squeeze (4 Compact Bars) */
+.f1-groups { display: grid; gap: 14px; }
+.f1-grp-k { font-size: 11.5px; font-weight: 500; color: var(--gray); margin-bottom: 7px; }
+.f1-bars { display: grid; gap: 8px; }
+.f1-row { display: grid; grid-template-columns: 208px minmax(0, 1fr) 38px; gap: 10px; align-items: center; }
+.f1-lbl { font-size: 13px; line-height: 1.28; color: var(--ink-2); }
+.f1-row.hi .f1-lbl, .f1-row.mid .f1-lbl { font-weight: 500; color: var(--ink); }
+.f1-tr { height: 9px; border-radius: 2px; background: var(--wash-2); overflow: hidden; }
 .f1-tr i { display: block; height: 100%; border-radius: 2px; background: var(--line); }
 .f1-row.hi .f1-tr i { background: var(--c); }
 .f1-row.mid .f1-tr i { background: var(--ink); }
-.f1-v { font-size: 14px; font-weight: 500; text-align: right; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+.f1-v { font-size: 13px; font-weight: 500; text-align: right; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
 .f1-row.hi .f1-v { color: var(--c-ink); }
-
-.f1-tracks { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--rule); display: grid; gap: 18px; }
-.f1-trk { padding-top: 14px; border-top: 1px solid var(--rule); }
-.f1-trk:first-child { padding-top: 0; border-top: 0; }
-.f1-trk.good { padding-top: 14px; border-top: 2px solid var(--c); }
-.f1-trk-k { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; margin-bottom: 12px; }
-.f1-trk-k strong { font-size: var(--f13); font-weight: 500; color: var(--ink-2); }
-.f1-trk.good .f1-trk-k strong { color: var(--c-ink); }
-.f1-trk-k span { font-size: var(--f13); color: var(--gray); }
-.f1-trk.stall .f1-trk-k span { color: var(--warn); font-weight: 500; }
-.f1-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 16px; }
-.f1-st { min-width: 0; padding-left: 12px; border-left: 1px solid var(--rule); }
-.f1-st:first-child { padding-left: 0; border-left: 0; }
-.f1-st-n { font-size: 12px; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
-.f1-trk.good .f1-st:first-child .f1-st-n { color: var(--c-ink); font-weight: 500; }
-.f1-st-t { margin-top: 3px; font-size: 13.5px; font-weight: 500; color: var(--ink); line-height: 1.28; }
-.f1-trk.good .f1-st:first-child .f1-st-t { color: var(--c-ink); }
-.f1-st-s { margin-top: 4px; font-size: 12.5px; color: var(--ink-2); line-height: 1.4; }
-.f1-trk.stall .f1-st:last-child .f1-st-t { color: var(--warn); }
-@media (max-width: 720px) {
-  .f1-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; }
+@media (max-width: 599px) {
+  .f1-groups { gap: 12px; }
+  .f1-row { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; }
   .f1-lbl { grid-column: 1; grid-row: 1; }
-  .f1-v { grid-column: 2; grid-row: 1; align-self: start; }
-  .f1-tr { grid-column: 1 / -1; grid-row: 2; }
-  .f1-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
-  .f1-st:nth-child(odd) { padding-left: 0; border-left: 0; }
-}
-@media (max-width: 440px) {
-  .f1-steps { grid-template-columns: 1fr; gap: 10px; }
-  .f1-st { padding-left: 0; border-left: 0; padding-top: 10px; border-top: 1px solid var(--rule); }
-  .f1-st:first-child { padding-top: 0; border-top: 0; }
+  .f1-v { grid-column: 2; grid-row: 1; }
+  .f1-tr { grid-column: 1 / -1; grid-row: 2; height: 8px; }
 }
 
-/* ---------- Figure 02: Two-Stage Buying Gate (Alexa 20-Block Echo + Penda Health RCT) */
-.f2-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; align-items: start; }
-.f2-card { display: flex; flex-direction: column; min-width: 0; }
-.f2-card.s2 { padding-left: 32px; border-left: 1px solid var(--rule); }
-.f2-k { font-size: var(--f13); font-weight: 500; color: var(--c-ink); font-variant-numeric: lining-nums tabular-nums; }
-.f2-card.s2 .f2-k { color: var(--ink-2); }
-.f2-h { margin-top: 4px; font-size: 17px; font-weight: 500; line-height: 1.25; color: var(--ink); }
-.f2-gate { margin-top: 4px; font-size: var(--f13); color: var(--gray); }
-.f2-viz { margin-top: 18px; display: grid; gap: 16px; }
-.f2-blk-row { display: grid; gap: 6px; }
-.f2-blk-hd { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--f13); color: var(--ink-2); }
-.f2-blk-hd strong { font-size: 18px; font-weight: 500; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
-.f2-blk-hd strong.hi { color: var(--c-ink); }
-.f2-blks { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 3px; height: 14px; }
-.f2-blks i { display: block; height: 100%; border-radius: 1.5px; background: var(--wash-2); }
-.f2-blks i.on-old { background: var(--line); }
-.f2-blks i.on-new { background: var(--c); }
-.f2-rct { margin-top: 16px; border-top: 1px solid var(--rule); }
-.f2-rct-r { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: baseline; padding: 10px 0;
-  border-bottom: 1px solid var(--rule); font-size: 13.5px; }
-.f2-rct-r:last-child { border-bottom: 0; padding-bottom: 0; }
-.f2-rct-r b { font-weight: 500; color: var(--ink); display: block; }
-.f2-rct-r span { font-size: 12px; color: var(--gray); }
-.f2-rct-val { font-size: var(--f13); font-weight: 500; white-space: nowrap; color: var(--c-ink); font-variant-numeric: lining-nums tabular-nums; }
-.f2-rct-r.flat b,
-.f2-rct-r.flat .f2-rct-val { color: var(--warn); }
-.f2-foot { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: var(--f13); line-height: 1.5; color: var(--ink-2); }
-@media (max-width: 760px) {
-  .f2-grid { grid-template-columns: 1fr; gap: 22px; }
-  .f2-card.s2 { padding-left: 0; border-left: 0; padding-top: 22px; border-top: 1px solid var(--rule); }
-}
-
-/* ---------- Figure 03: Metered Agent Economics (1x vs 1,000x + Conceptual Routing + Field Benchmarks) */
-.f3-grid { display: grid; gap: 22px; }
-.f3-block { padding-top: 18px; border-top: 1px solid var(--rule); }
-.f3-block:first-child { padding-top: 0; border-top: 0; }
-.f3-bk { display: block; font-size: var(--f13); font-weight: 500; color: var(--ink-2); font-variant-numeric: lining-nums tabular-nums; }
-.f3-bnote { margin-top: 4px; font-size: var(--f13); line-height: 1.45; color: var(--gray); }
-.f3-scale { margin-top: 12px; display: grid; gap: 12px; }
-.f3-srow { display: grid; grid-template-columns: 155px minmax(0, 1fr) 84px; gap: 12px; align-items: center; }
-.f3-slbl { font-size: 13.5px; color: var(--ink-2); }
-.f3-slbl b { font-weight: 500; color: var(--ink); }
-.f3-str { height: 14px; border-radius: 2px; background: var(--wash-2); overflow: hidden; display: flex; align-items: center; }
-.f3-bar-1x { width: 3px; height: 100%; background: var(--gray); }
-.f3-bar-1000x { width: 100%; height: 100%; background: var(--c); }
-.f3-sval { font-size: 14px; font-weight: 500; text-align: right; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
-.f3-sval.hi { color: var(--c-ink); }
-.f3-route-bar { margin-top: 12px; height: 14px; border-radius: 2px; overflow: hidden; display: flex; gap: 2px; background: var(--wash-2); }
-.f3-seg-open { flex: 1 1 85%; height: 100%; background: var(--c); }
-.f3-seg-front { flex: 0 0 15%; height: 100%; background: var(--ink); }
-.f3-route-leg { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: var(--f13); color: var(--ink-2); }
-.f3-route-leg span { display: inline-flex; align-items: center; gap: 7px; }
-.f3-route-leg i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; flex: none; background: var(--ink); }
-.f3-route-leg i.open { background: var(--c); }
-.f3-kpis { margin-top: 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 24px; }
-.f3-kpi { min-width: 0; padding-left: 18px; border-left: 1px solid var(--rule); }
-.f3-kpi:first-child { padding-left: 0; border-left: 0; }
-.f3-kpi span { display: block; font-size: var(--f13); font-weight: 500; color: var(--ink-2); }
-.f3-kpi strong { display: block; margin-top: 4px; font-size: 22px; font-weight: 500; line-height: 1.1; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
-.f3-kpi strong.hi { color: var(--c-ink); }
-.f3-kpi small { display: block; margin-top: 4px; font-size: 12.5px; color: var(--gray); line-height: 1.4; }
-@media (max-width: 680px) {
-  .f3-srow { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
-  .f3-slbl { grid-column: 1; grid-row: 1; }
-  .f3-sval { grid-column: 2; grid-row: 1; }
-  .f3-str { grid-column: 1 / -1; grid-row: 2; }
-  .f3-kpis { grid-template-columns: 1fr; gap: 12px; }
-  .f3-kpi { padding-left: 0; border-left: 0; padding-top: 12px; border-top: 1px solid var(--rule); }
-  .f3-kpi:first-child { padding-top: 0; border-top: 0; }
-}
-
-/* ---------- Figure 04: The Missing Benchmark Quadrant (Crisp 2x2 Architectural Grid) */
-.f4-quad { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; align-items: stretch; }
-.f4-yaxis { display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 14px 0; }
-.f4-yaxis span { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 12px; font-weight: 500; color: var(--gray); white-space: nowrap; }
-.f4-cells { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
-.f4-cell { padding: 16px 18px; background: var(--paper); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-  display: flex; flex-direction: column; gap: 7px; min-height: 162px; }
-.f4-cell.target { background: var(--c-soft); box-shadow: inset 0 2px 0 var(--c); }
-.f4-ck { font-size: 12px; font-weight: 500; color: var(--gray); }
-.f4-cell.target .f4-ck { color: var(--c-ink); }
-.f4-cell.decay .f4-ck { color: var(--warn); }
-.f4-ch { font-size: 15.5px; font-weight: 500; color: var(--ink); line-height: 1.28; }
-.f4-ex { font-size: var(--f13); font-weight: 500; color: var(--ink); line-height: 1.42; }
-.f4-cell.target .f4-ex { color: var(--c-ink); }
-.f4-cell.decay .f4-ex { color: var(--warn); }
-.f4-note { margin-top: auto; padding-top: 4px; font-size: var(--f13); line-height: 1.48; color: var(--ink-2); }
-.f4-xaxis { margin-top: 10px; padding-left: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-  font-size: 12px; font-weight: 500; color: var(--gray); }
-.f4-xaxis span:last-child { text-align: right; color: var(--c-ink); }
-@media (max-width: 680px) {
-  .f4-quad { grid-template-columns: 1fr; }
-  .f4-yaxis, .f4-xaxis { display: none; }
-  .f4-cells { grid-template-columns: 1fr; border-left: 0; border-top: 0; }
-  .f4-cell { min-height: 0; padding: 14px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
-  .f4-cell:first-child { padding-top: 0; }
-  .f4-cell:last-child { border-bottom: 0; padding-bottom: 0; }
-  .f4-cell.target { padding: 14px 14px; }
-}
-
-/* ---------- Figure 05: Five-Layer AI Stack (Architectural Ledger) */
-.f5-zone-lbl { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px;
-  font-size: var(--f13); font-weight: 500; margin-bottom: 8px; }
-.f5-zone-lbl.own { color: var(--c-ink); }
-.f5-zone-lbl.buy { color: var(--gray); margin-top: 16px; }
-.f5-zone-lbl.infra { color: var(--ink-2); margin-top: 18px; }
-.f5-zone-lbl span:last-child { font-weight: 400; color: var(--gray); }
+/* ---------- Figure 02: Five-Layer AI Sovereignty Stack (Single-Glance 5-Row Ladder) */
+.f5-k { font-size: 11.5px; font-weight: 500; color: var(--c-ink); margin-bottom: 7px; }
 .f5-stack { border-top: 1px solid var(--rule); }
-.f5-row { display: grid; grid-template-columns: 32px minmax(0, 200px) minmax(0, 1fr) 104px; gap: 8px 16px; align-items: baseline;
-  padding: 13px 0; border-bottom: 1px solid var(--rule); }
-.f5-row.own { padding-left: 12px; border-left: 2px solid var(--c); }
-.f5-num { font-size: var(--f13); color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
+.f5-row { display: grid; grid-template-columns: 24px 206px minmax(0, 1fr) 86px; gap: 4px 12px; align-items: baseline;
+  padding: 8px 10px; border-bottom: 1px solid var(--rule); border-left: 3px solid var(--line); }
+.f5-row.own { border-left-color: var(--c); background: rgba(38, 83, 99, .035); }
+.f5-row.infra { border-left-color: var(--ink); }
+.f5-num { font-size: 12px; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
 .f5-row.own .f5-num { color: var(--c-ink); font-weight: 500; }
-.f5-name b { display: block; font-size: 14.5px; font-weight: 500; color: var(--ink); line-height: 1.25; }
-.f5-name span { display: block; font-size: 12px; color: var(--gray); margin-top: 2px; }
-.f5-proof { font-size: var(--f13); line-height: 1.46; color: var(--ink-2); }
-.f5-act { font-size: var(--f13); font-weight: 500; text-align: right; white-space: nowrap; color: var(--gray); }
+.f5-row.infra .f5-num { color: var(--ink); font-weight: 500; }
+.f5-name { font-size: 13.5px; font-weight: 500; color: var(--ink); line-height: 1.24; }
+.f5-sub { font-size: 12px; color: var(--gray); line-height: 1.3; }
+.f5-act { font-size: 11.5px; font-weight: 500; text-align: right; white-space: nowrap; color: var(--gray); }
 .f5-row.own .f5-act { color: var(--c-ink); }
-.f5-div { margin: 16px 0 4px; display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
+.f5-row.infra .f5-act { color: var(--ink); }
+.f5-div { margin: 9px 0; display: flex; align-items: center; gap: 10px; font-size: 11.5px; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
 .f5-div::before, .f5-div::after { content: ""; flex: 1; border-top: 1px dashed var(--line); }
-@media (max-width: 780px) {
-  .f5-row { grid-template-columns: 28px minmax(0, 1fr) auto; gap: 6px 12px; }
-  .f5-proof { grid-column: 2 / -1; }
-}
-@media (max-width: 480px) {
-  .f5-row { grid-template-columns: 26px minmax(0, 1fr); }
-  .f5-act { grid-column: 2 / -1; text-align: left; }
+@media (max-width: 639px) {
+  .f5-row { grid-template-columns: 20px minmax(0, 1fr) auto; gap: 1px 8px; align-items: center; padding: 7px 8px; }
+  .f5-num { grid-column: 1; grid-row: 1; }
+  .f5-name { grid-column: 2; grid-row: 1; font-size: 13px; }
+  .f5-act { grid-column: 3; grid-row: 1; }
+  .f5-sub { grid-column: 2 / -1; grid-row: 2; font-size: 11.5px; }
 }
 
-/* ---------- Figure 06: Hardware Reality (4 GB RAM + 3 Tiers) & Delivery Rails Matrix */
-.f6-grid { display: grid; gap: 24px; }
-.f6-panel { padding-top: 22px; border-top: 1px solid var(--rule); }
-.f6-panel:first-child { padding-top: 0; border-top: 0; }
-.f6-pk { display: block; font-size: var(--f13); font-weight: 500; color: var(--c-ink); }
-.f6-ph { margin-top: 4px; font-size: 16px; font-weight: 500; color: var(--ink); line-height: 1.3; }
-.f6-ram-wrap { margin-top: 14px; }
-.f6-ram-hd { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; margin-bottom: 7px; font-size: var(--f13); color: var(--ink-2); font-variant-numeric: lining-nums tabular-nums; }
-.f6-ram-hd strong { font-weight: 500; color: var(--c-ink); }
-.f6-ram-bar { height: 12px; border-radius: 2px; overflow: hidden; display: flex; background: var(--wash-2); }
-.f6-ram-os { width: 69%; height: 100%; background: #d6d3cb; }
-.f6-ram-ai { width: 31%; height: 100%; background: var(--c); }
-.f6-ram-stats { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 20px; }
-.f6-rs { min-width: 0; padding-left: 16px; border-left: 1px solid var(--rule); }
-.f6-rs:first-child { padding-left: 0; border-left: 0; }
-.f6-rs strong { display: block; font-size: 17px; font-weight: 500; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
-.f6-rs span { display: block; margin-top: 3px; font-size: 12.5px; color: var(--ink-2); line-height: 1.4; }
-.f6-tiers { margin-top: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 20px; }
-.f6-tier { min-width: 0; padding-top: 10px; border-top: 1px solid var(--line); }
-.f6-tier.t1 { border-top: 2px solid var(--c); padding-top: 9px; }
-.f6-tier-k { font-size: 12px; font-weight: 500; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
-.f6-tier.t1 .f6-tier-k { color: var(--c-ink); }
-.f6-tier b { display: block; margin-top: 3px; font-size: 14px; font-weight: 500; color: var(--ink); }
-.f6-tier p { margin-top: 4px !important; font-size: 12.5px !important; line-height: 1.42 !important; color: var(--ink-2) !important; }
-
-/* Rails blind-spot matrix */
-.f6-rails { margin-top: 16px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 20px 28px; align-items: start; }
-.f6-bigstat { padding-right: 20px; border-right: 1px solid var(--rule); }
-.f6-bigstat-n { font-size: 36px; font-weight: 500; line-height: 1; letter-spacing: -0.025em; color: var(--c-ink); font-variant-numeric: lining-nums tabular-nums; }
-.f6-bigstat p { margin-top: 8px !important; font-size: var(--f13) !important; line-height: 1.48 !important; color: var(--ink-2) !important; }
+/* ---------- Figure 03: Global Agent-Payment Blind Spot (Mobile Money Matrix) */
+.f6-rails { display: grid; grid-template-columns: 158px minmax(0, 1fr); gap: 16px 24px; align-items: start; }
+.f6-bigstat { padding-right: 18px; border-right: 1px solid var(--rule); }
+.f6-bigstat-n { font-size: 32px; font-weight: 500; line-height: 1; letter-spacing: -0.025em; color: var(--c-ink); font-variant-numeric: lining-nums tabular-nums; }
+.f6-bigstat-l { margin-top: 6px; font-size: 12.5px; line-height: 1.38; color: var(--ink-2); }
+.f6-bigstat-v { margin-top: 6px; font-size: 12px; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
+.f6-bigstat-v strong { font-weight: 500; color: var(--ink); }
 .f6-tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.f6-tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: lining-nums tabular-nums; }
-.f6-tbl th, .f6-tbl td { padding: 8px 8px; border-bottom: 1px solid var(--rule); text-align: center; }
-.f6-tbl thead th { font-size: 12px; font-weight: 500; color: var(--gray); }
+.f6-tbl { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: lining-nums tabular-nums; }
+.f6-tbl th, .f6-tbl td { padding: 6px 5px; border-bottom: 1px solid var(--rule); text-align: center; }
+.f6-tbl thead th { font-size: 11.5px; font-weight: 500; color: var(--gray); padding-top: 0; }
 .f6-tbl thead th:first-child { text-align: left; padding-left: 0; }
 .f6-tbl tbody th { text-align: left; font-weight: 400; color: var(--ink); padding-left: 0; }
 .f6-tbl .ok { color: var(--c-ink); font-weight: 600; }
 .f6-tbl tr.miss { background: var(--warn-soft); }
-.f6-tbl tr.miss th { font-weight: 500; color: var(--warn); padding-left: 8px; }
+.f6-tbl tr.miss th { font-weight: 500; color: var(--warn); padding-left: 6px; }
 .f6-tbl tr.miss td { color: var(--warn); font-weight: 600; }
-.f6-trust { margin-top: 10px; font-size: var(--f13); line-height: 1.45; color: var(--ink-2); }
-@media (max-width: 720px) {
-  .f6-ram-stats, .f6-tiers, .f6-rails { grid-template-columns: 1fr; }
-  .f6-rs { padding-left: 0; border-left: 0; padding-top: 10px; border-top: 1px solid var(--rule); }
-  .f6-rs:first-child { padding-top: 0; border-top: 0; }
-  .f6-bigstat { padding-right: 0; border-right: 0; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+.f6-proto-key { margin-top: 7px; font-size: 11.5px; line-height: 1.38; color: var(--gray); }
+@media (max-width: 599px) {
+  .f6-rails { grid-template-columns: 1fr; gap: 10px; }
+  .f6-bigstat { padding: 0 0 10px; border-right: 0; border-bottom: 1px solid var(--rule);
+    display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .f6-bigstat-head { display: flex; align-items: baseline; gap: 8px; }
+  .f6-bigstat-n { font-size: 26px; }
+  .f6-bigstat-l { margin-top: 0; font-size: 12px; }
+  .f6-bigstat-v { margin-top: 0; font-size: 12px; }
+  .f6-tbl { font-size: 12.5px; }
+  .f6-tbl th, .f6-tbl td { padding: 6px 4px; }
 }
 
-/* ---------- Figure 07: Monday Morning 4-Seat Execution Matrix (2x2 Architectural Grid) */
-.f7-seats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 32px; }
-.f7-seat { min-width: 0; padding-top: 12px; border-top: 1px solid var(--ink); display: flex; flex-direction: column; }
-.f7-seat:first-child { border-top: 2px solid var(--c); padding-top: 11px; }
-.f7-seat-k { font-size: 12px; font-weight: 500; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
+/* ---------- Collapsible Reference Playbook Drawer (Act 05: 4 Seats, 12 Moves) */
+.ed-drawer { margin: clamp(24px, 3vw, 34px) 0; max-width: var(--es-measure); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.ed-drawer summary { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px;
+  min-height: 54px; padding: 11px 6px; margin: 0 -6px; border-radius: 8px; cursor: pointer; transition: background var(--t1) linear; }
+.ed-drawer summary::-webkit-details-marker { display: none; }
+.ed-drawer summary:hover { background: var(--wash); }
+.ed-drawer-k { display: block; font-size: 12px; font-weight: 500; color: var(--c-ink); font-variant-numeric: lining-nums tabular-nums; }
+.ed-drawer-t { display: block; margin-top: 2px; font-size: 15.5px; font-weight: 500; line-height: 1.3; color: var(--ink); }
+.ed-drawer-r { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gray); }
+.ed-drawer-r .chev { width: 16px; height: 16px; color: var(--gray); transition: transform var(--t2) var(--out); }
+.ed-drawer[open] .ed-drawer-r .chev { transform: rotate(180deg); }
+.ed-drawer-r .lbl-c { display: none; }
+.ed-drawer[open] .ed-drawer-r .lbl-o { display: none; }
+.ed-drawer[open] .ed-drawer-r .lbl-c { display: inline; }
+.ed-drawer-body { padding: 14px 0 18px; border-top: 1px solid var(--rule); }
+.f7-seats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 26px; }
+.f7-seat { min-width: 0; padding-top: 10px; border-top: 1px solid var(--ink); }
+.f7-seat:first-child { border-top: 2px solid var(--c); padding-top: 9px; }
+.f7-seat-k { font-size: 11.5px; font-weight: 500; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
 .f7-seat:first-child .f7-seat-k { color: var(--c-ink); }
-.f7-seat-h { margin-top: 4px; font-size: 16.5px; font-weight: 500; color: var(--ink); line-height: 1.25; }
-.f7-moves { margin-top: 12px; display: grid; gap: 10px; }
-.f7-moves li { font-size: var(--f13); line-height: 1.48; color: var(--ink-2); padding-top: 10px; border-top: 1px solid var(--rule); }
-.f7-moves li b { display: block; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
-.f7-proof { margin-top: auto; padding-top: 12px; font-size: 12px; line-height: 1.48; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
-@media (max-width: 760px) {
-  .f7-seats { grid-template-columns: 1fr; gap: 24px; }
+.f7-seat-h { margin-top: 3px; font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.25; }
+.f7-moves { margin-top: 9px; display: grid; gap: 8px; }
+.f7-moves li { font-size: 12.5px; line-height: 1.44; color: var(--ink-2); padding-top: 8px; border-top: 1px solid var(--rule); }
+.f7-moves li b { display: block; font-weight: 500; color: var(--ink); margin-bottom: 1px; }
+@media (max-width: 599px) {
+  .f7-seats { grid-template-columns: 1fr; gap: 18px; }
 }
 
-/* ---------- Figure 08: 2050 Global Workforce 100-Dot Waffle */
-.f7-waffle-box { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px 32px; align-items: center; }
-.f7-wf-grid { display: grid; grid-template-columns: repeat(10, 13px); gap: 6px; padding: 4px 0; }
-.wf-dot { width: 13px; height: 13px; border-radius: 50%; background: #dad7cf; }
+/* ---------- Figure 04: 2050 Global Workforce 100-Dot Waffle (Side-by-Side on All Viewports) */
+.f8-waffle-box { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 24px; align-items: center; }
+.f8-wf-grid { display: grid; grid-template-columns: repeat(10, 11px); gap: 5px; }
+.wf-dot { width: 11px; height: 11px; border-radius: 50%; background: #dad7cf; }
 .wf-dot.af { background: var(--c); }
-.f7-wf-copy { min-width: 0; }
-.f7-wf-big { font-size: clamp(28px, 2.4vw + 16px, 38px); font-weight: 500; line-height: 1.05; color: var(--c-ink); letter-spacing: -0.025em; font-variant-numeric: lining-nums tabular-nums; }
-.f7-wf-lead { margin-top: 8px; font-size: 15.5px; line-height: 1.5; color: var(--ink); max-width: 36em; }
-.f7-wf-stats { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 12px 28px; padding-top: 12px; border-top: 1px solid var(--rule); }
-.f7-wf-st strong { display: block; font-size: 18px; font-weight: 500; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
-.f7-wf-st span { display: block; font-size: 12px; color: var(--gray); }
-.f7-wf-leg { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 12px; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
-.f7-wf-leg span { display: inline-flex; align-items: center; gap: 6px; }
-.f7-wf-leg i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; background: #dad7cf; }
-.f7-wf-leg i.af { background: var(--c); }
-@media (max-width: 640px) {
-  .f7-waffle-box { grid-template-columns: 1fr; gap: 16px; justify-items: start; }
+.f8-wf-copy { min-width: 0; }
+.f8-wf-big { font-size: clamp(26px, 2vw + 16px, 34px); font-weight: 500; line-height: 1; color: var(--c-ink); letter-spacing: -0.025em; font-variant-numeric: lining-nums tabular-nums; }
+.f8-wf-sub { margin-top: 5px; font-size: 12.5px; line-height: 1.38; color: var(--ink-2); }
+.f8-wf-stats { margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; }
+.f8-wf-st strong { display: block; font-size: 16px; font-weight: 500; color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+.f8-wf-st span { display: block; font-size: 11.5px; color: var(--gray); line-height: 1.3; }
+.f8-wf-leg { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 11.5px; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
+.f8-wf-leg span { display: inline-flex; align-items: center; gap: 6px; }
+.f8-wf-leg i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; background: #dad7cf; }
+.f8-wf-leg i.af { background: var(--c); }
+@media (max-width: 599px) {
+  .f8-waffle-box { gap: 14px; }
+  .f8-wf-grid { grid-template-columns: repeat(10, 9px); gap: 4px; }
+  .wf-dot { width: 9px; height: 9px; }
+}
+@media (max-width: 355px) {
+  .f8-waffle-box { gap: 10px; }
+  .f8-wf-grid { grid-template-columns: repeat(10, 8px); gap: 3px; }
+  .wf-dot { width: 8px; height: 8px; }
+  .f8-wf-stats { gap: 6px 8px; }
 }
 
 /* ---------------------------------------------------------------- Closing Questions, Personal Coda, Appendix & Colophon */
@@ -645,12 +513,12 @@ button.cite:hover, button.cite[aria-expanded="true"] { background: var(--c); col
 /* ---------------------------------------------------------------- Print & Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .cite-drawer { animation: none; }
-  .bar-fill, .f2-blk, .fade-in, .wf-dot, .draw-line { transition: none !important; opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+  .bar-fill, .wf-dot { transition: none !important; opacity: 1 !important; transform: none !important; }
 }
 @media print {
-  .es-toc-rail, .es-toc-mob, .sec-link, .es-copy-btn, .es-author-src, .es-audio, .au-dock { display: none !important; }
+  .es-toc-rail, .es-toc-mob, .sec-link, .es-copy-btn, .es-author-src, .es-audio, .au-dock, .ed-drawer-r { display: none !important; }
   .es-layout { display: block; }
-  .es-prose > *, .es-act > *, .ed-fig { max-width: none !important; }
-  .ed-fig { break-inside: avoid; }
-  .bar-fill, .f2-blk, .fade-in, .wf-dot, .draw-line { opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+  .es-prose > *, .es-act > *, .ed-fig, .ed-drawer { max-width: none !important; }
+  .ed-fig, .ed-drawer { break-inside: avoid; }
+  .bar-fill, .wf-dot { opacity: 1 !important; transform: none !important; }
 }

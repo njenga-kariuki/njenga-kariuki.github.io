@@ -38,7 +38,7 @@ The public sources behind each chapter, and the owner of every picture on the si
 ### Diagrams & pictures
 
 - Njenga Kariuki speaking at Africa Tech Festival, Cape Town, November 2026. · Njenga Kariuki. All rights reserved.
-- Eight editorial figures built for this site; author portrait, 2026. · Njenga Kariuki. All rights reserved.
+- Four editorial figures built for this site; author portrait, 2026. · Njenga Kariuki. All rights reserved.
 
 ## M-PESA Africa
 

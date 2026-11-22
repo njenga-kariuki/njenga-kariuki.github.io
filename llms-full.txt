@@ -1381,7 +1381,7 @@ The public sources behind each chapter, and the owner of every picture on the si
 ### Diagrams & pictures
 
 - Njenga Kariuki speaking at Africa Tech Festival, Cape Town, November 2026. · Njenga Kariuki. All rights reserved.
-- Eight editorial figures built for this site; author portrait, 2026. · Njenga Kariuki. All rights reserved.
+- Four editorial figures built for this site; author portrait, 2026. · Njenga Kariuki. All rights reserved.
 
 ## M-PESA Africa
 
@@ -1762,12 +1762,12 @@ This gap is global. Across both enterprise back offices and consumer products, A
 
 - **Core thesis:** Power, compute, local data, capital, and talent are real, foundational constraints for AI in Africa. Alongside them sits a hidden bottleneck determining whether investments in all five compound: a shared, testable definition of good AI across enterprise operations, consumer services, and public institutions.
 - **Compounding loop (Figure 01: GIZ & Briter, Oct 2026, n=85 African AI firms):** Builders report a dual squeeze, with USD cloud/compute costs and customer trust/AI literacy tied at #1 (65% each); growing customers ranks #1 as top scaling priority (31%) while raising capital ranks last (11%). Physical supply and evaluation-backed demand must mature in parallel so proven workloads make capital and local compute bankable.
-- **Enterprise-to-consumer private evaluations (Figures 02–03):** Codify core journeys across both internal enterprise workflows and consumer products (~200 anonymized real cases graded by frontline operators) to enforce a **Two-Stage Evaluation & Buying Gate** (Stage 1: pass private offline eval to earn a bounded paid pilot, proven by Alexa Shopping lifting right-offer accuracy from ~50% to 85%; Stage 2: hit live customer/patient outcomes to earn production scale, proven by Penda Health's Kenyan RCT where diagnoses improved while 14-day treatment failure stayed flat). With autonomous coding agents consuming ~1,000x the tokens of code chat (Stanford/Michigan/MIT, Apr 2026), workflow evals enable evaluation-gated routing to small/open models (Revolut cut coding AI spend ~90%).
-- **Shared held-out economic benchmarks & cross-domain coalitions (Figure 04):** Existing African foundations (AfroBench across 64 languages, AfriMed-QA across 16 countries, GSMA-Zindi 4,216 safety tests) need practitioner-authored economic work benchmarks covering mobile money, micro-merchant credit, primary care triage, smallholder agriculture, classroom tutoring, logistics, and SME compliance, built by cross-domain partnerships linking commercial platforms, frontline NGOs, African research consortia/universities (holding rotating private test sets), and DFIs/philanthropies.
-- **Five-layer sovereignty & "our frontier" (Figures 05–06):** *If it gets cheaper without us, buy it, and stay free to switch. If it depends on our data and knowledge, build it, and own it.* General frontier model capability falls 5x–10x in price annually (MIT FutureTech, Mar 2026), whereas local power, connectivity, and compute require sustained phased investment alongside demand. Meanwhile, entry-level 4 GB smartphones leave ~1–1.5 GB usable RAM after Android (Africa Q3 2026 shipments down 39% YoY, memory costs up 350%), and Africa drives **66% of global mobile money transaction value** (US$1.4T of US$2.1T, GSMA 2026), yet global agentic commerce launch specs (**Google AP2, OpenAI/Stripe ACP, UCP, x402**) all omit mobile money.
-- **Global stakes (Figure 08):** Sub-Saharan Africa accounts for **more than 3 in 4** net additions to the global working-age population between 2025 and 2050 (620M+ people; ~15M/yr entering the labor force, World Bank Jul 2026).
+- **Enterprise-to-consumer private evaluations:** Codify core journeys across both internal enterprise workflows and consumer products (~200 anonymized real cases graded by frontline operators) to enforce a **Two-Stage Evaluation & Buying Gate** (Stage 1: pass private offline eval to earn a bounded paid pilot, proven by Alexa Shopping lifting right-offer accuracy from ~50% to 85%; Stage 2: hit live customer/patient outcomes to earn production scale, proven by Penda Health's Kenyan RCT where diagnoses improved while 14-day treatment failure stayed flat). With autonomous coding agents consuming ~1,000x the tokens of code chat (Stanford/Michigan/MIT, Apr 2026), workflow evals enable evaluation-gated routing to small/open models (Revolut cut coding AI spend ~90%).
+- **Shared held-out economic benchmarks & cross-domain coalitions:** Existing African foundations (AfroBench across 64 languages, AfriMed-QA across 16 countries, GSMA-Zindi 4,216 safety tests) need practitioner-authored economic work benchmarks covering mobile money, micro-merchant credit, primary care triage, smallholder agriculture, classroom tutoring, logistics, and SME compliance, built by cross-domain partnerships linking commercial platforms, frontline NGOs, African research consortia/universities (holding rotating private test sets), and DFIs/philanthropies.
+- **Five-layer sovereignty & "our frontier" (Figures 02–03):** *If it gets cheaper without us, buy it, and stay free to switch. If it depends on our data and knowledge, build it, and own it.* General frontier model capability falls 5x–10x in price annually (MIT FutureTech, Mar 2026), whereas local power, connectivity, and compute require sustained phased investment alongside demand. Meanwhile, entry-level 4 GB smartphones leave ~1–1.5 GB usable RAM after Android (Africa Q3 2026 shipments down 39% YoY, memory costs up 350%), and Africa drives **66% of global mobile money transaction value** (US$1.4T of US$2.1T, GSMA 2026), yet global agentic commerce launch specs (**Google AP2, OpenAI/Stripe ACP, UCP, x402**) all omit mobile money.
+- **Global stakes (Figure 04):** Sub-Saharan Africa accounts for **more than 3 in 4** net additions to the global working-age population between 2025 and 2050 (620M+ people; ~15M/yr entering the labor force, World Bank Jul 2026).
 
-### Five-Layer AI Sovereignty Architecture (Figure 05)
+### Five-Layer AI Sovereignty Architecture (Figure 02)
 
 | Layer | Domain | Strategy | Rationale & 2026 Evidence |
 | :--- | :--- | :--- | :--- |
@@ -1777,7 +1777,7 @@ This gap is global. Across both enterprise back offices and consumer products, A
 | **02** | Models · "Our frontier" (commoditizing frontier; adapt compact) | **Rent & adapt** | Fixed general capability drops 5x–10x/yr; open weights trail frontier by ~4 months (Epoch AI); specialize in African tokenizers and compact offline models (Vambo MORENA 1.5B, Sunbird Sunflower). |
 | **01** | Compute, connectivity & power (local capex required) | **Co-invest** | Sustained phased local investment across 4 GB handsets (~1–1.5 GB free), 32 GB clinic/branch laptops (Inkling 2 Mini ~20 GB), and national data centers paired with anchor demand. |
 
-### Global Agent-Payment Specs vs. Mobile Money (Figure 06B)
+### Global Agent-Payment Specs vs. Mobile Money (Figure 03)
 
 | Payment Rail | Google AP2 | OpenAI/Stripe ACP | UCP | x402 |
 | :--- | :---: | :---: | :---: | :---: |
@@ -1786,7 +1786,7 @@ This gap is global. Across both enterprise back offices and consumer products, A
 | Stablecoins | Supported | — | — | Supported |
 | **Mobile money (66% of global value in Africa)** | **Omitted** | **Omitted** | **Omitted** | **Omitted** |
 
-### Monday Morning Execution Matrix: Four Seats, Twelve Practical Moves (Figure 07)
+### Monday Morning Execution Playbook: Four Seats, Twelve Practical Moves (Reference Checklist)
 
 | Seat | Move 1 | Move 2 | Move 3 |
 | :--- | :--- | :--- | :--- |
