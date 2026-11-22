@@ -2830,3 +2830,392 @@ main { padding-bottom: clamp(44px, 4.4vw, 72px); }
   .ch[data-ch="m11"] .dec li:has(> .d-fig) > .d-fig { grid-column: 2; grid-row: 2 / span 2; margin-top: 0; }
   .ch[data-ch="m11"] .dec li > p { max-width: 40em; }
 }
+
+/* ================================================================ v3.0: Executive Elevation Pass
+   Preserves the exact Swiss-editorial grammar (paper, ink, warm wash, Chivo tabular, one easing curve, work-owned color)
+   while elevating homepage executive presence, flagship chapters (M-PESA & Bio Discovery), career instrument precision,
+   asset-matched chapter heroes, motion responsiveness, mobile ergonomics, and WCAG AA accent text contrast. */
+
+/* ---------- 1. WCAG AA darkened accent text token across interactive colored labels */
+@media (hover: hover) and (pointer: fine) {
+  .bt:hover b { color: color-mix(in srgb, var(--c2, var(--ink)) 70%, #000); }
+}
+.lead .bt-a:focus-visible b { color: color-mix(in srgb, var(--c2, var(--ink)) 70%, #000); }
+.mx.hl-on thead th.hl a, .mx thead th.on a { color: color-mix(in srgb, var(--c2, var(--ink)) 70%, #000); }
+.sc .sc-cd.sc-auto { fill: color-mix(in srgb, var(--c, var(--ink)) 72%, #000); }
+.clk .clk-nm.ai .clk-n, .clk .clk-nm.ai .clk-sub-ai { fill: color-mix(in srgb, var(--c, var(--ink)) 70%, #000); }
+
+/* ---------- 2. Homepage Hero Executive Masthead Lockup (Rec 1) */
+.hero-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px clamp(20px, 2.6vw, 44px); }
+@media (min-width: 1160px) {
+  .hero .headline { font-size: clamp(29px, min(calc((min(100vw, 1600px) - var(--gut) - var(--gut-r) - 292px) / 26.2), 5.6vh), 38px);
+    line-height: 1.09; letter-spacing: -0.022em; }
+}
+.hero-id { display: inline-flex; align-items: center; gap: 13px; padding: 7px 13px 7px 7px; border-radius: 13px; background: var(--wash);
+  box-shadow: inset 0 0 0 1px var(--rule); transition: background var(--t1) linear, box-shadow var(--t1) linear; flex: none; max-width: 100%; }
+@media (hover: hover) and (pointer: fine) {
+  .hero-id:hover { background: var(--wash-2); box-shadow: inset 0 0 0 1px var(--line); }
+  .hero-id:hover .hero-id-go .arr { transform: translateX(3px); color: var(--ink); }
+}
+.hero-id:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.hero-id-pic { width: 54px; height: 64px; border-radius: 8px; overflow: hidden; flex: none; background: var(--wash); }
+.hero-id-pic img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; }
+.hero-id-tx { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.hero-id-r { font-size: 13.5px; font-weight: 500; line-height: 1.25; color: var(--ink); white-space: nowrap; }
+.hero-id-s { font-size: 12.5px; line-height: 1.3; color: var(--gray); white-space: nowrap; }
+.hero-id-go { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; font-size: 12px; font-weight: 500; color: var(--ink-2); }
+.hero-id-go .arr { width: 11px; height: 11px; color: var(--gray); transition: transform var(--t2) var(--out), color var(--t1) linear; }
+@media (max-width: 1159px) {
+  .hero-top { grid-template-columns: 1fr; align-items: start; gap: 14px; }
+  .hero-id { order: -1; width: fit-content; padding: 6px 12px 6px 6px; gap: 11px; }
+  .hero-id-pic { width: 44px; height: 48px; border-radius: 8px; }
+  .hero-id-go { display: none; }
+}
+@media (max-width: 599px) {
+  .hero-top { gap: 10px; }
+  .hero-id { width: 100%; padding: 6px 10px 6px 6px; border-radius: 12px; gap: 10px; }
+  .hero-id-pic { width: 42px; height: 42px; border-radius: 8px; }
+  .hero-id-r { font-size: 13.5px; white-space: normal; }
+  .hero-id-s { font-size: 12.5px; white-space: normal; }
+}
+
+/* ---------- 3. Work Grid Flagship Tiering + Bespoke Plates (Rec 1) */
+.plates-div { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding-top: 14px; margin-top: 4px; border-top: 1px solid var(--rule); }
+.plates-div-t { font-size: var(--f13); font-weight: 500; color: var(--ink-2); }
+.plates-div-y { font-size: var(--f13); color: var(--gray); font-variant-numeric: tabular-nums; }
+@media (max-width: 599px) {
+  .plates-div { grid-column: 1 / -1; padding-top: 12px; margin-top: 2px; }
+  /* keep first flagship plate (M-PESA) full-bleed 4:3 cleanly on mobile */
+  #plates > .pl:first-child .plate .v img { object-fit: cover; }
+}
+
+/* Plate 5: Amazon Health AI bespoke Three-Pillar Clinical Portfolio artwork (replaces duplicate Halo Movement phone) */
+.plate .v.hai-plate { container-type: inline-size; background: var(--wash); }
+.hai-in { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 7% 7.5% 6.5%;
+  transform: scale(1.0001); transition: transform var(--t4) var(--out); }
+.pl-a:hover .hai-in, .pl-a.lit .hai-in { transform: scale(1.018); }
+.hai-hd { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding-bottom: 4.5%; border-bottom: 1px solid var(--rule); }
+.hai-k { font-size: clamp(12px, 3.1cqw, 13px); font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
+.hai-sub { font-size: clamp(12px, 2.8cqw, 12.5px); color: var(--gray); white-space: nowrap; }
+.hai-rows { display: grid; gap: clamp(6px, 2.8cqw, 12px); margin: auto 0; padding: 3% 0; }
+.hai-r { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; }
+.hai-rn { font-size: clamp(12.5px, 3.5cqw, 15px); font-weight: 500; color: var(--ink); line-height: 1.2; }
+.hai-rv { font-size: clamp(12.5px, 3.6cqw, 15.5px); font-weight: 500; color: color-mix(in srgb, #12907e 74%, #000); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hai-rd { grid-column: 1 / -1; font-size: clamp(12px, 2.8cqw, 12.5px); color: var(--gray); line-height: 1.25; }
+.hai-bar { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: var(--wash-2); overflow: hidden; margin-top: 3px; }
+.hai-bar i { display: block; height: 100%; border-radius: 2px; background: #12907e; width: var(--bw, 50%); }
+.hai-ft { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 4%; border-top: 1px solid var(--rule);
+  font-size: clamp(12px, 2.8cqw, 12.5px); color: var(--ink-2); }
+.hai-ft b { font-weight: 500; color: var(--ink); }
+@container (max-width: 263px) {
+  .hai-in { padding: 11px 11px 10px; }
+  .hai-sub, .hai-rd, .hai-ft { display: none; }
+  .hai-hd { padding-bottom: 6px; }
+  .hai-rows { gap: 8px; }
+  .hai-rn { font-size: 12px; }
+  .hai-rv { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .hai-in, .pl-a:hover .hai-in { transform: none; transition: none; } }
+
+/* Plate 9: Alexa Shopping mobile fix — below 264px keep compact Echo Dot + legible 12px quote instead of lone black circle */
+@container (max-width: 263px) {
+  .xc-in { flex-direction: column; justify-content: center; gap: 9px; padding: 12px 10px; text-align: center; }
+  .xc-dot { width: 40cqw; }
+  .xc-t { display: block; }
+  .xc-k, .xc-2 { display: none; }
+  .xc-q { margin-top: 0; font-size: 12px; line-height: 1.25; font-weight: 500; color: var(--ink); white-space: normal; }
+}
+
+/* ---------- 4. Career Instrument Polish (Rec 3) */
+.sec-head-r { display: inline-flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.brief-btn { display: inline-flex; align-items: center; gap: 6px; font-size: var(--f13); font-weight: 500; color: var(--ink-2);
+  padding: 5px 10px; border-radius: 7px; background: var(--wash); box-shadow: inset 0 0 0 1px var(--rule);
+  min-height: 30px; transition: background var(--t1) linear, color var(--t1) linear, box-shadow var(--t1) linear; }
+.brief-btn svg { width: 13px; height: 13px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) and (pointer: fine) {
+  .brief-btn:hover { background: var(--wash-2); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+}
+.brief-btn:active { background: var(--ink); color: var(--paper); box-shadow: none; }
+@media (max-width: 599px) { .brief-btn { min-height: 36px; padding: 6px 10px; } }
+
+/* Career era strip: quiet trajectory arc context along the top of the chart */
+.tl-eras { display: grid; grid-template-columns: var(--lab) 1fr; margin-bottom: 4px; }
+.tl-eras-tr { position: relative; height: 22px; }
+.tl-era { position: absolute; top: 0; height: 20px; border-left: 1px solid var(--rule); padding-left: 7px; font-size: 12px; line-height: 20px;
+  color: var(--gray); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 1120px) { .tl-eras { display: none; } }
+
+/* Pinned Career axis smooth veil + anchored scrub pill */
+@media (min-width: 900px) and (min-height: 600px) {
+  #tl .tl-axis::after { height: 18px; bottom: -18px; background: linear-gradient(to bottom, var(--rule) 0 1px, rgba(255, 255, 255, .94) 1px, rgba(255, 255, 255, 0) 100%); pointer-events: none; }
+}
+.tl-axis > #scrubT { top: -16px; padding: 2px 7px; }
+.tl-axis { cursor: ew-resize; }
+#tl .tl-stk { gap: 4px; }
+#tl .tl-tick { cursor: pointer; position: relative; transition: transform var(--t1) var(--out), background var(--t1) linear, opacity var(--t2) linear; }
+#tl .tl-tick::before { content: ""; position: absolute; inset: -1px -8px; }
+#tl .tl-tick:hover, #tl .tl-tick:focus-visible, #tl .tl-tick.on { transform: scale(1.45); background: var(--ink); }
+#tl .tl-tick.paper:hover, #tl .tl-tick.paper:focus-visible, #tl .tl-tick.paper.on { background: #2b3f9e; }
+
+/* ---------- 5. Homepage Hands-on Builds Proof Strip in #lead (Rec 6) */
+.builds-strip { margin-top: clamp(32px, 3.2vw, 44px); padding-top: clamp(22px, 2.2vw, 28px); border-top: 1px solid var(--rule); }
+.bs-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.bs-k { font-size: var(--f15); font-weight: 500; color: var(--ink); }
+.bs-sub { font-size: var(--f13); color: var(--gray); margin-left: 10px; font-weight: 400; }
+.bs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 1.8vw, 24px); }
+.bs-card { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px; border-radius: 12px;
+  background: var(--wash); box-shadow: inset 0 0 0 1px var(--rule); transition: background var(--t1) linear, box-shadow var(--t1) linear; }
+@media (hover: hover) and (pointer: fine) {
+  .bs-card:hover { background: var(--wash-2); box-shadow: inset 0 0 0 1px var(--line); }
+  .bs-card:hover .bs-nm .arr { transform: translateX(3px); color: var(--ink); }
+}
+.bs-thumb { position: relative; aspect-ratio: 16 / 10; border-radius: 7px; overflow: hidden; background: var(--paper); box-shadow: 0 0 0 1px var(--rule); }
+.bs-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; }
+.bs-play { position: absolute; right: 5px; bottom: 5px; width: 22px; height: 22px; border-radius: 50%; background: rgba(11, 11, 10, .72);
+  color: #fff; display: grid; place-items: center; }
+.bs-play svg { width: 9px; height: 9px; margin-left: 1px; }
+.bs-info { min-width: 0; }
+.bs-nm { display: inline-flex; align-items: center; gap: 5px; font-size: 14.5px; font-weight: 500; line-height: 1.25; color: var(--ink); }
+.bs-nm .arr { width: 11px; height: 11px; color: var(--gray); transition: transform var(--t2) var(--out), color var(--t1) linear; }
+.bs-d { margin-top: 3px; font-size: 12.5px; line-height: 1.38; color: var(--ink-2); }
+.bs-len { margin-top: 4px; font-size: 12px; color: var(--gray); font-variant-numeric: tabular-nums; }
+@media (max-width: 1020px) {
+  .bs-grid { grid-template-columns: 1fr; gap: 10px; }
+  .bs-card { grid-template-columns: 96px minmax(0, 1fr); }
+}
+@media (max-width: 599px) {
+  .bs-sub { display: block; margin-left: 0; margin-top: 2px; }
+  .bs-card { grid-template-columns: 88px minmax(0, 1fr); gap: 10px; padding: 9px; }
+}
+
+/* Footer print brief link */
+.ft-nav button.ft-print { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--f13); color: var(--gray);
+  transition: color var(--t1) linear; }
+@media (hover: hover) and (pointer: fine) { .ft-nav button.ft-print:hover { color: var(--ink); } }
+
+/* ---------- 6. Dual-Grammar Split Editorial Hero for Portrait-Artifact Chapters (Rec 4) */
+@media (min-width: 900px) {
+  .ch-top-split { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 4vw, 72px);
+    align-items: start; padding-top: clamp(24px, 2.8vw, 44px); }
+  .ch-top-split .ch-head { display: block; padding-top: 0; }
+  .ch-top-split .ch-head .ch-h1 { margin-top: 10px; }
+  .ch-top-split .ch-head .ch-what { margin-top: 14px; padding-top: 0; padding-bottom: 0; max-width: 34em; }
+  .ch-top-split .facts { margin-top: clamp(22px, 2.2vw, 30px); grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 24px; }
+  .ch-top-split .ch-open { margin-top: clamp(22px, 2.4vw, 32px); max-width: 34em; }
+  .ch-top-split .ch-hero { margin-top: 0; width: 100%; }
+  .ch-top-split .ch-hero .ch-plate { width: 100%; aspect-ratio: 4 / 5 !important; height: auto !important; max-height: min(600px, 74vh); background: var(--wash); }
+  .ch-top-split .ch-hero .ch-plate .v.fit img { padding: 5%; }
+  .ch-top-split .ch-hero .ch-plate .v.bleed img { padding: 0; object-fit: cover; object-position: 50% 100%; }
+}
+@media (max-width: 899px) {
+  .ch-top-split { display: block; }
+  .ch-top-split .ch-hero { margin-top: 20px; width: 100%; }
+  .ch-top-split .ch-hero .ch-plate { width: 100%; aspect-ratio: 4 / 5 !important; height: auto !important; max-height: 70svh; background: var(--wash); }
+  .ch-top-split .ch-hero .ch-plate .v.bleed img { padding: 0; object-fit: cover !important; object-position: 50% 100% !important; transform: none !important; }
+  .ch-top-split .ch-open { margin-top: 22px; }
+}
+/* Bio Discovery desktop hero tight cap so image + caption stay cleanly visible above the fold */
+@media (min-width: 900px) {
+  .ch[data-ch="m14"] .ch-hero .ch-plate { aspect-ratio: auto; height: clamp(320px, 50vh, 460px); background: #0c0d12; }
+  .ch[data-ch="m14"] .ch-hero .ch-plate .v.fit img { padding: 2.5%; }
+}
+/* Remove old awkward blank "$ / days" callout rectangle on Bio Discovery */
+.ch[data-ch="m14"] .st-ev figure.ev picture:has(img[src*="abd-blog-fig5"])::after { content: none !important; }
+
+/* ---------- 7. Top-of-Chapter Thematic Switcher Trigger + Sheet Themes (Rec 6) */
+.crumb-ix { display: inline-flex; align-items: center; gap: 5px; font-size: var(--f13); color: var(--gray); min-height: 36px; padding: 0 8px;
+  border-radius: 7px; transition: opacity var(--t1) linear, background var(--t1) linear, color var(--t1) linear; margin-left: 2px; }
+.crumb-ix .chev { width: 11px; height: 11px; }
+@media (hover: hover) and (pointer: fine) { .crumb-ix:hover { background: var(--wash); color: var(--ink); } }
+.p-chapter .hd.rh .crumb-ix { opacity: 0; pointer-events: none; position: absolute; visibility: hidden; }
+.p-chapter .hd:not(.rh) .crumb-b { pointer-events: none; }
+@media (max-width: 899px) {
+  .p-chapter .hd-in { position: relative; }
+  .p-chapter .crumb-ix { position: absolute; right: var(--gut); top: 50%; transform: translateY(-50%); margin-left: 0; min-height: 44px; padding: 0 6px; }
+}
+.sh-themes { display: grid; gap: 16px; margin-top: 10px; }
+.sh-th-k { font-size: 12px; font-weight: 500; color: var(--gray); margin-bottom: 4px; }
+.sh-themes .sh-works { margin-top: 0; }
+.sh-works a[aria-current] .nw::after { content: none !important; }
+
+/* ---------- 8. Motion Choreography, Map View State-Skip Fix, Pacing & Clickable Stage Step Rails (Rec 5) */
+/* Map View state-skip fix: room walls snap immediately once at Step 03 Place or 04 Control */
+.stage:is([data-s="3"], [data-s="4"]) .plan .pl-room,
+.stage:is([data-s="3"], [data-s="4"]) .plan .pl-room .pl-door { transition-delay: 0ms !important; }
+
+/* Tighter sticky-stage vertical rhythm (eliminates 600px+ blank voids while keeping generous reading cadence) */
+@media (min-width: 900px) {
+  .story:not(.solo) .step { min-height: clamp(460px, 64vh, 660px); padding-top: 56px; }
+  .story:not(.solo) .step:first-child { min-height: clamp(440px, 60vh, 600px); padding-top: 20px; }
+  .story:not(.solo) .step:has(.ev, .module) { min-height: clamp(560px, 74vh, 760px); }
+  .steps { padding-bottom: 8vh; }
+}
+
+/* Clickable step-progress rail on all drawn sticky stages (clock, plan, scene, bio-discovery) */
+.st-rail { flex: none; display: flex; gap: 6px; padding: 10px 6px 6px; }
+.st-rail button { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 5px; padding: 4px 2px; text-align: left;
+  transition: opacity var(--t1) linear; }
+.st-rail button i { display: block; width: 100%; height: 3px; border-radius: 2px; background: var(--wash-2); transition: background var(--t2) linear; }
+.st-rail button.done i { background: var(--line); }
+.st-rail button.on i { background: var(--c, var(--ink)); }
+.st-rail button span { font-size: 12px; line-height: 1.2; color: var(--gray); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color var(--t1) linear; }
+.st-rail button.on span { color: var(--ink); font-weight: 500; }
+@media (hover: hover) and (pointer: fine) {
+  .st-rail button:hover span { color: var(--ink); }
+  .st-rail button:hover i { background: var(--ink-2); }
+  .st-rail button.on:hover i { background: var(--c, var(--ink)); }
+}
+@media (max-width: 899px) {
+  .st-rail { padding: 6px 2px 6px; gap: 5px; }
+  .st-rail button { min-height: 28px; justify-content: flex-end; padding: 6px 0 4px; }
+  .st-rail button span { display: none; }
+}
+
+/* ---------- 9. M-PESA Africa Interactive Clock Mode Bar & Pan-African 8-Market CoE Map (Rec 2) */
+.clk-mode { display: inline-flex; gap: 2px; padding: 2px; margin: 4px 6px 2px; border: 1px solid var(--rule); border-radius: 10px;
+  background: var(--paper); align-self: flex-start; transition: opacity var(--t2) linear; }
+.clk-mode button { min-height: 32px; padding: 0 12px; border-radius: 7px; font-size: 13px; color: var(--ink-2); white-space: nowrap;
+  transition: background var(--t1) linear, color var(--t1) linear; }
+.clk-mode button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
+@media (hover: hover) and (pointer: fine) { .clk-mode button:not([aria-checked="true"]):hover { background: var(--wash); color: var(--ink); } }
+.stage[data-s="4"] .clk-mode { display: none; }
+@media (max-width: 899px) {
+  .clk-mode { display: flex; width: calc(100% - 4px); margin: 4px 2px 2px; }
+  .clk-mode button { flex: 1 1 0; padding: 0 6px; font-size: 12px; min-height: 34px; }
+}
+
+/* Pan-African 8-market CoE visual inside M-PESA Clock Step 04 */
+.clk .clk-af { opacity: 0; pointer-events: none; transition: opacity var(--t3) linear; }
+.stage[data-s="4"] .clk .clk-af { opacity: 1; pointer-events: auto; }
+.clk .clk-af-land { fill: var(--paper); stroke: var(--line); stroke-width: 1.25; stroke-linejoin: round; }
+.clk .clk-af-link { fill: none; stroke: var(--c); stroke-width: 1.3; stroke-dasharray: 3 3; opacity: .75; }
+.clk .clk-af-node { cursor: pointer; }
+.clk .clk-af-node .af-dot { fill: var(--c); stroke: var(--paper); stroke-width: 2; transition: r var(--t1) var(--out), fill var(--t1) linear; }
+.clk .clk-af-node.hub .af-dot { fill: var(--ink); stroke: var(--c); stroke-width: 2.5; }
+.clk .clk-af-node.on .af-dot { fill: var(--ink); }
+.clk .clk-af-node .af-lbl { font-size: 12.5px; fill: var(--ink); font-weight: 500; }
+.clk .clk-af-node .af-sub { font-size: 12px; fill: var(--gray); }
+.clk .clk-af-read { font-size: 13px; fill: color-mix(in srgb, var(--c) 72%, #000); font-weight: 500; }
+.clk .clk-af-badge { fill: var(--paper); stroke: var(--rule); stroke-width: 1; }
+/* On phone Step 04, hide the single bar cleanly so the Africa 8-market map fills the pinned stage legibly */
+.stage[data-s="4"] .clk.clk-p .clk-nms,
+.stage[data-s="4"] .clk.clk-p .clk-bar { opacity: 0; pointer-events: none; }
+
+/* ---------- 10. Amazon Bio Discovery Interactive Agentic Discovery Loop Stage (Rec 2) */
+.stage[data-stage="bio-discovery"] { --c: #6d5bd0; height: auto; }
+.stage[data-stage="bio-discovery"] .bd-panel { display: none; flex-direction: column; gap: 10px; padding: 10px 10px 4px; animation: fade var(--t2) linear both; }
+.stage[data-stage="bio-discovery"][data-s="0"] .bd-panel[data-p="0"],
+.stage[data-stage="bio-discovery"][data-s="1"] .bd-panel[data-p="1"],
+.stage[data-stage="bio-discovery"][data-s="2"] .bd-panel[data-p="2"],
+.stage[data-stage="bio-discovery"][data-s="3"] .bd-panel[data-p="3"],
+.stage[data-stage="bio-discovery"][data-s="4"] .bd-panel[data-p="4"] { display: flex; }
+.bd-k { font-size: 12.5px; font-weight: 500; color: var(--gray); }
+.bd-h { font-size: 18px; font-weight: 500; line-height: 1.25; letter-spacing: -0.012em; color: var(--ink); }
+.bd-svg { width: 100%; height: auto; display: block; }
+.bd-svg-n { display: none; }
+.bd-svg text { font-family: var(--font); font-variant-numeric: tabular-nums; }
+.bd-meta-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12.5px; color: var(--gray); }
+.bd-meta-row b { font-weight: 500; color: #4f3fb2; }
+.bd-hs { cursor: pointer; }
+.bd-hs circle.hs-ring { fill: var(--paper); stroke: var(--ink-2); stroke-width: 1.6; transition: fill var(--t1) linear, stroke var(--t1) linear, transform var(--t1) var(--out); transform-box: fill-box; transform-origin: center; }
+.bd-hs text { font-size: 13px; font-weight: 500; fill: var(--ink); pointer-events: none; }
+.bd-svg-n .bd-hs text { font-size: 14.5px; }
+.bd-hs:hover circle.hs-ring { stroke: var(--c); stroke-width: 2.2; }
+.bd-hs.on circle.hs-ring { fill: var(--c); stroke: var(--c); transform: scale(1.12); }
+.bd-hs.on text { fill: #fff; }
+.bd-note { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); min-height: 2.9em; }
+.bd-pf-ctrl { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--rule); border-radius: 9px; background: var(--paper); align-self: flex-start; }
+.bd-pf-ctrl button { min-height: 30px; padding: 0 11px; border-radius: 7px; font-size: 12.5px; color: var(--ink-2); transition: background var(--t1) linear, color var(--t1) linear; }
+.bd-pf-ctrl button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
+.stage[data-pf="1"] .pf-f2, .stage[data-pf="1"] .pf-l2 { opacity: .18; }
+.stage[data-pf="2"] .pf-f1, .stage[data-pf="2"] .pf-l1 { opacity: .28; }
+.pf-f1, .pf-f2, .pf-l1, .pf-l2 { transition: opacity var(--t2) linear; }
+/* Responsive HTML+CSS architecture inside Bio Discovery panels 0, 2, 4 — crisp >=12px text at every width from 320px to 1600px */
+.bd-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 11px; padding: 14px 16px; }
+.bd-bars { display: grid; gap: 14px; }
+.bd-bar-hd { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 13px; margin-bottom: 5px; }
+.bd-bar-hd b { font-weight: 500; color: var(--ink); }
+.bd-bar-hd span { color: var(--gray); font-size: 12px; }
+.bd-track { height: 22px; border-radius: 5px; background: var(--wash); overflow: hidden; display: flex; }
+.bd-fill-old { width: 50%; background: var(--wash-2); }
+.bd-fill-old2 { width: 50%; background: #c7c4bc; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.bd-fill-new { width: 10%; min-width: 34px; background: #6d5bd0; border-radius: 5px; }
+.bd-new-lbl { font-size: 13px; font-weight: 500; color: #4f3fb2; align-self: center; margin-left: 10px; white-space: nowrap; }
+.bd-scale { display: flex; justify-content: space-between; font-size: 12px; color: var(--gray); border-top: 1px solid var(--rule); padding-top: 6px; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.bd-models { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.1fr); gap: 10px; align-items: center; }
+.bd-mlist { display: grid; gap: 6px; }
+.bd-mitem { padding: 8px 10px; border-radius: 8px; background: var(--paper); border: 1px solid var(--ink-2); display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; }
+.bd-mitem b { font-weight: 500; color: var(--ink); }
+.bd-mitem span { color: var(--gray); font-variant-numeric: tabular-nums; }
+.bd-gpu { padding: 5px 10px; border-radius: 99px; background: var(--paper); border: 1.4px solid #6d5bd0; font-size: 12px; font-weight: 500; color: #4f3fb2; white-space: nowrap; text-align: center; }
+.bd-pool { padding: 14px 16px; border-radius: 11px; background: var(--paper); border: 1.8px solid #6d5bd0; }
+.bd-pool-n { font-size: clamp(24px, 3vw, 32px); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.bd-pool-t { margin-top: 4px; font-size: 13.5px; font-weight: 500; color: var(--ink); }
+.bd-pool-s { margin-top: 4px; font-size: 12.5px; color: var(--gray); line-height: 1.35; }
+.bd-loop-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.bd-lbox { padding: 12px 13px; border-radius: 10px; background: var(--paper); border: 1px solid var(--ink-2); }
+.bd-lbox.hit { border: 1.8px solid #6d5bd0; }
+.bd-lbox-n { font-size: 21px; font-weight: 500; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.bd-lbox-n .bd-of { font-size: 12px; font-weight: 400; color: var(--gray); }
+.bd-lbox.hit .bd-lbox-n { color: #4f3fb2; }
+.bd-lbox-t { margin-top: 4px; font-size: 12.5px; font-weight: 500; color: var(--ink); }
+.bd-lbox-s { margin-top: 3px; font-size: 12px; color: var(--gray); line-height: 1.3; }
+.bd-ret { margin-top: 10px; padding: 7px 12px; border-radius: 9px; background: var(--paper); border: 1.2px dashed #6d5bd0;
+  font-size: 12.5px; font-weight: 500; color: #4f3fb2; text-align: center; }
+@media (max-width: 899px) {
+  .bd-svg-w { display: none; }
+  .bd-svg-n { display: block; }
+  .stage[data-stage="bio-discovery"] { height: auto !important; min-height: 0; max-height: none; }
+  .stage[data-stage="bio-discovery"] .bd-panel { padding: 4px 2px 2px; gap: 6px; }
+  .stage[data-stage="bio-discovery"] .bd-h { font-size: 14.5px; }
+  .stage[data-stage="bio-discovery"] .bd-note { font-size: 12px; min-height: 2.2em; }
+  .bd-meta-row { font-size: 12px; }
+  .bd-meta-row span { display: none; }
+  .bd-card { padding: 10px 11px; }
+  .bd-bar-hd span, .bd-pool-s, .bd-lbox-s { display: none; }
+  .bd-models { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+  .bd-gpu { display: none; }
+  .bd-mitem { padding: 5px 8px; font-size: 12px; }
+  .bd-pool { padding: 10px 11px; }
+  .bd-pool-n { font-size: 22px; }
+  .bd-lbox { padding: 8px 9px; }
+  .bd-lbox-n { font-size: 17px; }
+  .bd-lbox-t { font-size: 12px; }
+  .bd-ret { margin-top: 6px; padding: 5px 8px; font-size: 12px; }
+  .bd-pf-ctrl { display: flex; width: 100%; }
+  .bd-pf-ctrl button { flex: 1 1 0; padding: 0 6px; font-size: 12px; }
+}
+/* Bio Discovery bottom interactive funnel stage buttons */
+.m14-f-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.m14-f-bar button { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--paper); font-size: 13px; color: var(--ink-2);
+  font-variant-numeric: tabular-nums; transition: background var(--t1) linear, color var(--t1) linear, border-color var(--t1) linear; }
+.m14-f-bar button.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.m14-f-read { margin-top: 10px; font-size: var(--f15); line-height: 1.5; color: var(--ink); min-height: 1.6em; }
+
+/* ---------- 11. About Page Sticky Top Matrix Readout, Expand All & Patents Sync (Rec 7) */
+.hw-list-bar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+.hw-toggle-btn { font-size: var(--f13); font-weight: 500; color: var(--ink-2); padding: 6px 12px; border-radius: 8px; background: var(--wash);
+  box-shadow: inset 0 0 0 1px var(--rule); min-height: 34px; transition: background var(--t1) linear, color var(--t1) linear; }
+@media (hover: hover) and (pointer: fine) { .hw-toggle-btn:hover { background: var(--wash-2); color: var(--ink); } }
+.hw-mx .mx-read { position: sticky; top: calc(var(--head) + 8px); z-index: 4; margin: 0 0 18px; min-height: 104px;
+  box-shadow: 0 0 0 1px var(--rule), 0 10px 24px -18px rgba(20, 18, 12, .28); }
+.rc-key-m { display: none; }
+@media (max-width: 599px) {
+  .rc-key-m { display: flex; align-items: center; gap: 14px; font-size: 12.5px; color: var(--gray); margin-bottom: 10px; }
+  .rc-key-m span { display: inline-flex; align-items: center; gap: 6px; }
+  .rc-key-m i { display: inline-block; background: var(--ink); }
+  .rc-key-m i.kp { width: 7px; height: 7px; border-radius: 1.5px; }
+  .rc-key-m i.kd { width: 8px; height: 8px; border-radius: 50%; }
+}
+#patents-and-papers.yr-on .rcl .rc { opacity: .45; transition: opacity var(--t1) linear; }
+#patents-and-papers.yr-on .rcl .rc.on { opacity: 1; }
+#patents-and-papers .rc-axis .ax-s.on .ax-m { background: var(--ink); transform: scale(1.35); }
+#patents-and-papers.yr-on .rc-axis .ax-s:not(.on) { opacity: .38; }
+
+/* Print protection for all v3.0 interactive chrome */
+@media print {
+  .brief-btn, .st-rail, .clk-mode, .bd-pf-ctrl, .m14-f-bar, .hw-list-bar, .crumb-ix { display: none !important; }
+}
+

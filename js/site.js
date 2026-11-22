@@ -33,7 +33,7 @@
       el.classList.remove('armed');
       if (el.id === 'tl') el.classList.add('drawn');
       io.unobserve(el);
-    }), { threshold: 0.2 });
+    }), { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
     armed.forEach(s => { if (!RM && s.getBoundingClientRect().top > innerHeight) s.classList.add('armed'); io.observe(s); });
   }
   // printed, every drawing is finished, whether or not it has reached the screen
@@ -194,27 +194,81 @@
       const tlp = $('#tlp'); if (tlp) tlp.classList.remove('active');
       $$('#tlpl li').forEach(li => li.classList.remove('lit'));
     }
+    // v3.0: individual patent/paper mark inspection inside #rdRow
+    function readTick(tk) {
+      const ttl = tk.getAttribute('title') || '';
+      const isPaper = tk.classList.contains('paper');
+      const yr = tk.dataset.yr || '';
+      const parts = ttl.split(': ');
+      const headT = parts[0] || ttl;
+      const descT = parts.slice(1).join(': ');
+      rdRow.style.setProperty('--c2', isPaper ? '#2b3f9e' : '#0b0b0a');
+      rdRow.innerHTML = `<div class="rd-l"><span class="y">${escH(yr || '2022–2026')}</span><a class="nm" href="about/#patents-and-papers"><span>${escH(headT)}</span>${ARR}</a><span class="ti">${isPaper ? 'Published study / research' : 'US Patent · Halo Tone'}</span></div>
+        <div class="rd-r"><div><span class="lbl">${isPaper ? 'Publication' : 'Subject'}</span><p>${escH(descT || headT)}</p></div><div class="res"><span class="lbl">Full record</span><p>Open Patents and papers on About for direct USPTO and journal links.</p></div></div>`;
+    }
+    const ticksAll = $$('.tl-tick', tlb);
+    ticksAll.forEach(tk => {
+      const stk = tk.closest('.tl-stk');
+      if (stk) {
+        const pct = parseFloat(stk.style.left) || 70;
+        tk.dataset.yr = String(Math.round(T0 + (pct / 100) * (T1 - T0) - 0.5));
+      }
+      tk.setAttribute('tabindex', '0');
+      tk.setAttribute('role', 'link');
+      tk.setAttribute('aria-label', tk.getAttribute('title') || 'Patent or paper');
+      tk.addEventListener('click', e => { e.stopPropagation(); location.href = 'about/#patents-and-papers'; });
+      tk.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); location.href = 'about/#patents-and-papers'; } });
+    });
     if (FINE) {
+      // v3.0: zero dead zones — hovering anywhere across a role's full row activates that role immediately;
+      // clicking anywhere on the row's track opens that role's chapter.
       tlb.addEventListener('pointermove', e => {
+        const any = $('.tl-track', rows[0]).getBoundingClientRect();
+        const x = e.clientX;
+        if (x >= any.left && x <= any.right) {
+          const t = T0 + (x - any.left) / any.width * (T1 - T0);
+          tl.classList.add('scrubbing');
+          scrub.style.left = (x - tlb.getBoundingClientRect().left) + 'px';
+          scrubT.style.left = (x - tlAxis.getBoundingClientRect().left + 0.5) + 'px';
+          scrubT.textContent = t > NOW ? 'Today' : Math.floor(t);
+        } else {
+          tl.classList.remove('scrubbing');
+        }
+        if (Date.now() < lockT) return;
+        const hitTick = e.target.closest('.tl-tick');
+        if (hitTick) {
+          clearTimeout(backT); active = null; tl.classList.add('active', 'recon');
+          rows.forEach(r => r.classList.toggle('on', r.dataset.id === (hitTick.classList.contains('paper') ? 'm10' : 'm06') || r.dataset.id === 'm13'));
+          ticksAll.forEach(t => t.classList.toggle('on', t === hitTick));
+          readTick(hitTick);
+          return;
+        }
+        const y = e.clientY;
+        const over = rows.find(rw => { const b = rw.getBoundingClientRect(); return y >= b.top && y < b.bottom; });
+        if (over) { activate(over.dataset.id); return; }
+      });
+      // Scrubbing along the year axis slices vertically by year
+      tlAxis.addEventListener('pointermove', e => {
         const any = $('.tl-track', rows[0]).getBoundingClientRect();
         const x = e.clientX;
         if (x < any.left || x > any.right) { tl.classList.remove('scrubbing'); return; }
         const t = T0 + (x - any.left) / any.width * (T1 - T0);
         tl.classList.add('scrubbing');
         scrub.style.left = (x - tlb.getBoundingClientRect().left) + 'px';
-        scrubT.style.left = (x - tlAxis.getBoundingClientRect().left + 0.5) + 'px';  // on the middle of the 1px line
+        scrubT.style.left = (x - tlAxis.getBoundingClientRect().left + 0.5) + 'px';
         scrubT.textContent = t > NOW ? 'Today' : Math.floor(t);
         if (Date.now() < lockT) return;
-        // the row under the pointer comes first: over a role, its own years read it out, and elsewhere on that row the
-        // reading stays put; on the axis or between rows, the role the year falls in
-        const y = e.clientY, over = rows.find(rw => { const b = rw.getBoundingClientRect(); return y >= b.top && y < b.bottom; });
-        if (over) {
-          const ro = R.find(rr => rr.id === over.dataset.id);
-          if (ro && t >= ro.s && (t < ro.e || ro.now)) activate(ro.id);
-          return;
-        }
         const r = R.find(rr => t >= rr.s && t < rr.e) || (t >= NOW ? R[0] : null);
         activate(r ? r.id : null);
+      });
+      tlAxis.addEventListener('pointerleave', () => { tl.classList.remove('scrubbing'); if (Date.now() >= lockT) activate(null); });
+      rows.forEach(row => {
+        const track = $('.tl-track', row);
+        const r = R.find(x => x.id === row.dataset.id);
+        if (track && r && r.href) {
+          track.style.cursor = 'pointer';
+          track.addEventListener('click', () => { location.href = r.href; });
+        }
       });
       $$('.tl-lab[data-row]', tlb).forEach(l => l.addEventListener('pointerenter', () => { if (Date.now() >= lockT) activate(l.dataset.row); }));
       tlb.addEventListener('pointerleave', () => { tl.classList.remove('scrubbing'); if (Date.now() >= lockT) activate(null); });
@@ -224,16 +278,24 @@
           if (Date.now() < lockT) return;
           clearTimeout(backT); active = null; tl.classList.add('active', 'recon');
           rows.forEach(r => r.classList.toggle('on', r.dataset.id === 'm06' || r.dataset.id === 'm10' || r.dataset.id === 'm13'));
-          $$('.tl-tick', tlb).forEach(t => t.classList.add('on'));
+          ticksAll.forEach(t => t.classList.add('on'));
           readRow(R.find(r => r.id === 'm06') || R[0]);
         });
-        recLab.addEventListener('pointerleave', () => { if (Date.now() >= lockT) { tl.classList.remove('active', 'recon'); rows.forEach(r => r.classList.remove('on')); $$('.tl-tick', tlb).forEach(t => t.classList.remove('on')); readSum(); } });
+        recLab.addEventListener('pointerleave', () => { if (Date.now() >= lockT) { tl.classList.remove('active', 'recon'); rows.forEach(r => r.classList.remove('on')); ticksAll.forEach(t => t.classList.remove('on')); readSum(); } });
       }
     }
+    ticksAll.forEach(tk => {
+      tk.addEventListener('focus', () => {
+        clearTimeout(backT); active = null; tl.classList.add('active', 'recon');
+        ticksAll.forEach(t => t.classList.toggle('on', t === tk));
+        readTick(tk);
+      });
+      tk.addEventListener('blur', () => setTimeout(() => { if (!tl.contains(D.activeElement)) activate(null); }, 0));
+    });
     if (!FINE) {
       // touch on a laptop-width chart (a tablet): the first tap on a role reads it out, a second tap opens its chapter
       $$('.tl-lab[data-row]', tlb).forEach(l => {
-        let was = false;  // read before the tap's own focus can activate the row
+        let was = false;
         l.addEventListener('pointerdown', () => { was = active === l.dataset.row; });
         l.addEventListener('click', e => { if (!was) { e.preventDefault(); lockT = 0; activate(l.dataset.row); } was = true; });
       });
@@ -416,24 +478,53 @@
   function driveSteps(stageEl, to) {
     const steps = $$('.story .step');
     if (!steps.length) return;
+    // v3.0: build a clickable step-progress rail on every drawn stage (film stages already have .fs-rail)
+    let railBtns = [];
+    if (!stageEl.classList.contains('film-stage') && !$('.st-rail', stageEl)) {
+      const nav = D.createElement('div');
+      nav.className = 'st-rail';
+      nav.setAttribute('role', 'tablist');
+      nav.setAttribute('aria-label', 'Story steps');
+      railBtns = steps.map((st, i) => {
+        const kEl = $('.k', st);
+        const label = kEl ? kEl.textContent.trim() : `Step ${i + 1}`;
+        const b = D.createElement('button');
+        b.type = 'button';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        b.innerHTML = `<i aria-hidden="true"></i><span>${label}</span>`;
+        b.addEventListener('click', () => {
+          const off = PHONE() ? stageEl.getBoundingClientRect().height + head() + 14 : innerHeight * 0.28;
+          glide(st.getBoundingClientRect().top + scrollY - off, 380);
+        });
+        nav.appendChild(b);
+        return b;
+      });
+      const cap = $('.cap', stageEl);
+      if (cap) stageEl.insertBefore(nav, cap); else stageEl.appendChild(nav);
+    }
     let cur = null, raf = 0;
     const pick = () => {
       raf = 0;
-      // the reading line: the middle of the screen on a laptop; on a phone, a little below the pinned stage
       const sb = stageEl.getBoundingClientRect();
-      const line = PHONE() ? Math.min(innerHeight * 0.82, Math.max(sb.bottom, head() + 40) + (innerHeight - Math.max(sb.bottom, head())) * 0.28) : innerHeight * 0.5;
+      const line = PHONE() ? Math.min(innerHeight * 0.82, Math.max(sb.bottom, head() + 40) + (innerHeight - Math.max(sb.bottom, head())) * 0.28) : innerHeight * 0.48;
       let k = 0;
       steps.forEach((x, i) => { if (x.getBoundingClientRect().top < line) k = i; });
       if (k === cur) return;
       cur = k;
       steps.forEach((x, i) => x.classList.toggle('on', i === k));
+      railBtns.forEach((b, i) => {
+        b.classList.toggle('on', i === k);
+        b.classList.toggle('done', i < k);
+        b.setAttribute('aria-selected', i === k ? 'true' : 'false');
+      });
       to(steps[k].dataset.s);
     };
     const q = () => { if (!raf) raf = requestAnimationFrame(pick); };
     addEventListener('scroll', q, { passive: true });
     addEventListener('resize', q);
     pick();
-    // the stage's rail is a door to each step
+    // the film stage's rail is a door to each step
     const rail = $('.fs-rail', stageEl);
     if (rail) {
       rail.classList.add('go');
@@ -616,6 +707,49 @@
       if (pr) $('.mx-pp', mxR).innerHTML = pr.innerHTML;
     };
     dots.forEach(d => d.addEventListener('click', () => read(d)));
+    // v3.0: pre-populate the top-docked readout with the first principle proof so the matrix is alive immediately
+    if (dots.length) read(dots[0]);
+  }
+  // v3.0: About list view Expand all / Collapse all toggle + Patents & Papers axis-to-list hover sync
+  const hwToggleAll = $('#hw-toggle-all');
+  if (hwToggleAll) {
+    const dets = $$('#how-i-work .hw-list details');
+    const syncBtn = () => {
+      const anyClosed = dets.some(d => !d.open);
+      hwToggleAll.textContent = anyClosed ? 'Expand all 13' : 'Collapse all';
+      hwToggleAll.setAttribute('aria-expanded', anyClosed ? 'false' : 'true');
+    };
+    hwToggleAll.addEventListener('click', () => {
+      const openAll = dets.some(d => !d.open);
+      dets.forEach(d => { d.open = openAll; });
+      syncBtn();
+    });
+    dets.forEach(d => d.addEventListener('toggle', syncBtn));
+    syncBtn();
+  }
+  const rcSec = $('#patents-and-papers');
+  if (rcSec) {
+    const stacks = $$('.rc-axis .ax-s', rcSec);
+    const items = $$('.rcl .rc', rcSec);
+    const yrOfStack = s => (s.getAttribute('title') || '').slice(0, 4);
+    const yrOfItem = li => ($('.rc-y', li) ? $('.rc-y', li).textContent.trim() : '');
+    const hiYr = yr => {
+      rcSec.classList.toggle('yr-on', !!yr);
+      stacks.forEach(s => s.classList.toggle('on', !!yr && yrOfStack(s) === yr));
+      items.forEach(li => li.classList.toggle('on', !!yr && yrOfItem(li) === yr));
+    };
+    stacks.forEach(s => {
+      const y = yrOfStack(s);
+      s.addEventListener('mouseenter', () => hiYr(y));
+      s.addEventListener('mouseleave', () => hiYr(null));
+      s.addEventListener('focus', () => hiYr(y));
+      s.addEventListener('blur', () => hiYr(null));
+    });
+    items.forEach(li => {
+      const y = yrOfItem(li);
+      li.addEventListener('mouseenter', () => hiYr(y));
+      li.addEventListener('mouseleave', () => hiYr(null));
+    });
   }
   // a build's walkthrough plays in place (v2.7): the player loads only on a tap, and starts with the tap
   $$('.bd-play[data-loom]').forEach(b => b.addEventListener('click', () => {
@@ -688,9 +822,16 @@
     return { el, close };
   }
   const art2 = $('article.ch');
-  // the chapter's name opens an index of its parts, and the other works
-  const crumbB = $('.crumb-b');
-  if (crumbB && art2) crumbB.addEventListener('click', () => {
+  // v3.0: Chapter Index Switcher accessible at scrollY=0 (.crumb-ix) and once scrolled (.crumb-b), grouped by executive theme
+  const THEMES = [
+    { label: 'Enterprise AI Transformation', slugs: ['m-pesa'] },
+    { label: 'Frontier AI & Research', slugs: ['bio-discovery', 'ai-index-2025'] },
+    { label: 'Health & Computer Vision AI', slugs: ['health-ai-portfolio', 'halo-movement', 'halo-tone', 'halo-body', 'halo'] },
+    { label: 'Voice & Smart Home', slugs: ['map-view', 'alexa-shopping'] },
+    { label: 'Commerce & Supply Chain', slugs: ['prime-now', 'bedding-and-bath', 'target-apple'] },
+  ];
+  function openChapterIndex(opener) {
+    if (!art2) return;
     const wrap = D.createElement('div');
     const parts = [];
     $$('.blk-h h2[id]', art2).forEach(h => {
@@ -702,13 +843,43 @@
     });
     const src = $('.src a', art2);
     wrap.innerHTML = `<p class="lbl">In this chapter</p><ol class="sh-parts">${parts.join('')}</ol>` +
-      (src ? `<p class="sh-src"><a class="xl" href="${src.getAttribute('href')}" data-sources>Sources</a></p>` : '') + '<p class="lbl">The work</p>';
+      (src ? `<p class="sh-src"><a class="xl" href="${src.getAttribute('href')}" data-sources>Sources</a></p>` : '') + '<p class="lbl">All 13 chapters by theme</p>';
     const tpl = $('#ix-works');
-    if (tpl) wrap.appendChild(tpl.content.cloneNode(true));
-    const sh = sheet($('#ch-h') ? $('#ch-h').textContent : 'This chapter', wrap, crumbB);
+    if (tpl) {
+      const srcItems = Array.from(tpl.content.querySelectorAll('li'));
+      const slugOf = li => { const a = li.querySelector('a'); const m = a && a.getAttribute('href').match(/([^/]+)\/?$/); return m ? m[1] : ''; };
+      const bySlug = new Map(srcItems.map(li => [slugOf(li), li]));
+      const grouped = D.createElement('div');
+      grouped.className = 'sh-themes';
+      THEMES.forEach(th => {
+        const lis = th.slugs.map(s => bySlug.get(s)).filter(Boolean);
+        if (!lis.length) return;
+        const sec = D.createElement('div');
+        sec.className = 'sh-th';
+        sec.innerHTML = `<p class="sh-th-k">${th.label}</p><ol class="sh-works"></ol>`;
+        const ol = $('ol', sec);
+        lis.forEach(li => ol.appendChild(li.cloneNode(true)));
+        grouped.appendChild(sec);
+      });
+      wrap.appendChild(grouped);
+    }
+    const sh = sheet($('#ch-h') ? $('#ch-h').textContent : 'This chapter', wrap, opener);
     const sl = $('[data-sources]', sh.el);
     if (sl) sl.addEventListener('click', e => { e.preventDefault(); sh.close(() => openSources(src)); });
-  });
+  }
+  const crumbB = $('.crumb-b');
+  if (crumbB && art2) crumbB.addEventListener('click', () => openChapterIndex(crumbB));
+  $$('.crumb-ix').forEach(b => b.addEventListener('click', () => openChapterIndex(b)));
+  // v3.0: One-page Executive Brief print trigger
+  $$('[data-print-cv]').forEach(b => b.addEventListener('click', () => {
+    if (isHome) { window.print(); return; }
+    const homeHref = b.dataset.home || '../';
+    location.href = `${homeHref}?print=1`;
+  }));
+  if (isHome && new URLSearchParams(location.search).get('print') === '1') {
+    const goPrint = () => setTimeout(() => window.print(), 250);
+    if (D.fonts && D.fonts.ready) D.fonts.ready.then(goPrint); else goPrint();
+  }
   // Sources opens as a sheet on a phone: the chapter's own sources and picture credits, from the Sources page
   function openSources(a) {
     const href = a.getAttribute('href'), id = href.split('#')[1];

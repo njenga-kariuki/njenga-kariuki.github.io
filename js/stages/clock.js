@@ -79,17 +79,28 @@ function setup(sv, $$) {
 }
 
 export function wire(st, ctx) {
-  const { $$, RM } = ctx;
+  const { $$, RM, live } = ctx;
   const views = $$('svg.clk', st).map(sv => setup(sv, $$)).filter(Boolean);
+  const modeBtns = $$('.clk-mode button[data-m]', st);
+  const marketBtns = $$('.clk-af-node[data-mk]', st);
+  const marketOuts = $$('.clk-af-read', st);
   let cur = 0, shown = frameOf(0), raf = 0;
   const paint = F => views.forEach(v => v.apply(F));
   const lerp = (a, b, t) => a + (b - a) * t;
+  const syncMode = (k) => {
+    const m = k <= 2 ? k : 2;
+    modeBtns.forEach(b => {
+      const on = parseInt(b.dataset.m, 10) === m && k <= 2;
+      b.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+  };
   function go(k) {
     const from = shown, to = frameOf(k);
     views.forEach(v => v.mark(to.ai));
+    syncMode(k);
     cancelAnimationFrame(raf);
     if (RM) { shown = to; paint(to); return; }
-    const ms = Math.abs(from.end - to.end) > 0.3 ? 640 : 420, t0 = performance.now();
+    const ms = Math.abs(from.end - to.end) > 0.3 ? 520 : 360, t0 = performance.now();
     const step = now => {
       const p = Math.min(1, (now - t0) / ms), e = EASE(p);
       shown = { xs: from.xs.map(([x, w], i) => [lerp(x, to.xs[i][0], e), lerp(w, to.xs[i][1], e)]), end: lerp(from.end, to.end, e), ai: to.ai };
@@ -98,12 +109,36 @@ export function wire(st, ctx) {
     };
     raf = requestAnimationFrame(step);
   }
+  const SAY = [
+    'Before: most of the customer’s wait sits in handoffs between functions.',
+    '1 unit with AI: Operations runs faster, yet total time barely shifts because handoffs stay.',
+    'Whole system redesigned: handoff queues close end to end.',
+  ];
+  modeBtns.forEach(b => {
+    b.addEventListener('click', () => {
+      const k = parseInt(b.dataset.m, 10);
+      st.dataset.s = String(k);
+      cur = k;
+      go(k);
+      if (live && SAY[k]) live(SAY[k]);
+    });
+  });
+  marketBtns.forEach(n => {
+    const showMk = () => {
+      marketBtns.forEach(x => x.classList.toggle('on', x.dataset.mk === n.dataset.mk));
+      marketOuts.forEach(out => { out.textContent = `${n.dataset.name} · ${n.dataset.reg}`; });
+    };
+    n.addEventListener('mouseenter', showMk);
+    n.addEventListener('click', showMk);
+    n.addEventListener('focus', showMk);
+  });
   paint(shown);
+  syncMode(0);
   return {
     to(s) {
       const k = Math.max(0, Math.min(4, parseInt(s, 10) || 0));
       st.dataset.s = String(k);
-      if (k === cur) return;
+      if (k === cur) { syncMode(k); return; }
       cur = k;
       go(k);
     },

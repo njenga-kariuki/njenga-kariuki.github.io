@@ -150,25 +150,36 @@ function build(section, data) {
     redrawTrail();
   }
 
-  // the word block beside the voice: below it if it fits, else above, beside or at a corner, always inside the plane and
-  // clear of the axes' words; the first place with no overlap wins, else the place with the least
-  function placeWords(x, y) {
+  // the word block beside the voice: stays inside the voice's own quarter so a word never crosses an axis into an
+  // opposing tone, while staying clear of the voice dot and axis labels
+  function placeWords(x, y, q) {
     const bw = Math.max(w0.getComputedTextLength(), w1.getComputedTextLength(), w2.getComputedTextLength()) + 6;
     const bh = 60;
-    const cands = [[x - bw / 2, y + 15], [x - bw / 2, y - 15 - bh], [x + 16, y - bh / 2], [x - 16 - bw, y - bh / 2],
-      [x + 16, y - 14], [x - 16 - bw, y - 14], [x + 16, y - bh + 14], [x - 16 - bw, y - bh + 14],
-      [x + 10, y + 12], [x - 10 - bw, y + 12], [x + 10, y - 12 - bh], [x - 10 - bw, y - 12 - bh]];
+    const qMinX = q.right ? G.cx + 8 : 6;
+    const qMaxX = q.right ? G.W - 6 : G.cx - 8;
+    const qMinY = q.top ? 6 : G.cy + 8;
+    const qMaxY = q.top ? G.cy - 8 : G.H - 6;
+    const fitX = qMaxX - qMinX >= bw;
+    const fitY = qMaxY - qMinY >= bh;
+    const minX = fitX ? qMinX : 4, maxX = fitX ? qMaxX - bw : G.W - 4 - bw;
+    const minY = fitY ? qMinY : 4, maxY = fitY ? qMaxY - bh : G.H - 4 - bh;
+    const cands = [
+      [q.right ? x + 16 : x - 16 - bw, y - bh / 2],
+      [x - bw / 2, q.top ? y - 15 - bh : y + 15],
+      [x - bw / 2, q.top ? y + 15 : y - 15 - bh],
+      [q.right ? x + 16 : x - 16 - bw, y - 14],
+      [q.right ? x + 16 : x - 16 - bw, y - bh + 14],
+      [q.right ? qMinX + 6 : qMaxX - bw - 6, q.top ? qMinY + 24 : qMaxY - bh - 24],
+      [q.right ? qMaxX - bw - 8 : qMinX + 8, q.top ? qMinY + 24 : qMaxY - bh - 24],
+    ];
     const over = (r) => keep.reduce((a, k) => a + Math.max(0, Math.min(r.x + r.w, k.x + k.w) - Math.max(r.x, k.x)) * Math.max(0, Math.min(r.y + r.h, k.y + k.h) - Math.max(r.y, k.y)), 0);
     let best = null;
     for (const [bx0, by0] of cands) {
-      const r = { x: clamp(bx0, 4, G.W - 4 - bw), y: clamp(by0, 4, G.H - 4 - bh), w: bw, h: bh };
-      // a clamped block may not cover the voice itself
+      const r = { x: clamp(bx0, minX, maxX), y: clamp(by0, minY, maxY), w: bw, h: bh };
       const hitsVoice = x > r.x - 12 && x < r.x + r.w + 12 && y > r.y - 12 && y < r.y + r.h + 12;
-      // the axes are lines the words should not sit on: a crossing costs, though less than covering a label
-      const axes = (r.y < G.cy + 3 && r.y + r.h > G.cy - 3 ? r.w * 4 : 0) + (r.x < G.cx + 3 && r.x + r.w > G.cx - 3 ? r.h * 4 : 0);
-      const cost = over(r) * 10 + axes + (hitsVoice ? 1e6 : 0);
+      const dist = Math.hypot((r.x + bw / 2) - x, (r.y + bh / 2) - y) * 0.05;
+      const cost = over(r) * 20 + (hitsVoice ? 1e6 : 0) + dist;
       if (!best || cost < best.cost) best = { r, cost };
-      if (cost === 0) break;
     }
     const cx = best.r.x + bw / 2;
     [[w0, 20], [w1, 39], [w2, 56]].forEach(([t, dy]) => { t.setAttribute('x', cx.toFixed(1)); t.setAttribute('y', (best.r.y + dy).toFixed(1)); });
@@ -182,7 +193,7 @@ function build(section, data) {
     Q.forEach((qq, i) => { quads[i].classList.toggle('on', qq === q); ghosts[i].classList.toggle('here', qq === q); });
     const ws = words(q);
     w0.textContent = ws[0]; w1.textContent = ws[1] || ''; w2.textContent = ws[2] || '';
-    placeWords(x, y);
+    placeWords(x, y, q);
     voice.setAttribute('aria-valuenow', String(Math.round(pos.e * 100)));
     voice.setAttribute('aria-valuetext', sentence(q));
     if (q !== lastQ) {
