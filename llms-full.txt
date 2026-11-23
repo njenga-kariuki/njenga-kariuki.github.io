@@ -1727,7 +1727,7 @@ The public sources behind each chapter, and the owner of every picture on the si
 
 ## Essay: Africa’s Hidden AI Bottleneck
 URL: https://njenga.ai/writing/africa-ai-bottleneck/
-DOI: https://doi.org/10.5281/zenodo.24441643
+DOI: https://doi.org/10.5281/zenodo.24463675
 Executive brief (Medium): https://medium.com/@njenga.kariuki/africas-biggest-ai-bottleneck-isn-t-power-data-centres-or-capital-bea8e878f64d
 
 # Africa's Hidden AI Bottleneck

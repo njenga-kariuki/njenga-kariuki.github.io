@@ -65,7 +65,7 @@ Managing Executive: AI; Chief AI Officer (CAIO); Chief Data and AI Officer; VP /
 
 ## Patents and Papers
 
-- [Africa’s Hidden AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/), essay & working paper ([DOI 10.5281/zenodo.24441643](https://doi.org/10.5281/zenodo.24441643)), November 2026
+- [Africa’s Hidden AI Bottleneck](https://njenga.ai/writing/africa-ai-bottleneck/), essay & working paper ([DOI 10.5281/zenodo.24463675](https://doi.org/10.5281/zenodo.24463675)), November 2026
 - [AI Index Report 2025, Chapter 4: Economy](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf), Stanford HAI, April 2025
 - [US 12,586,583 B1: Power state control of a device performing detection of voice in audio data](https://patents.google.com/patent/US12586583B1/en), USPTO, March 2026
 - [US 11,783,834 B1: Conserving battery while detecting for human voice](https://patents.google.com/patent/US11783834B1/en), USPTO, October 2023

@@ -6,8 +6,8 @@ author_role: "Managing Executive: AI, M-PESA Africa (Vodacom FinTech Group); for
 date: "2026-11-22"
 updated: "2026-11-23"
 url: "https://njenga.ai/writing/africa-ai-bottleneck/"
-doi: "10.5281/zenodo.24441643"
-zenodo_url: "https://doi.org/10.5281/zenodo.24441643"
+doi: "10.5281/zenodo.24463675"
+zenodo_url: "https://doi.org/10.5281/zenodo.24463675"
 medium_brief_url: "https://medium.com/@njenga.kariuki/africas-biggest-ai-bottleneck-isn-t-power-data-centres-or-capital-bea8e878f64d"
 reading_time: "7 min"
 word_count: 1761
