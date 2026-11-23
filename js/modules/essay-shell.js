@@ -4,7 +4,7 @@
    - Inline click-to-peek citation drawers ([data-cite])
    - Section permalink copy + contract clause / email copy utilities
    - Optional voice audio edition player (essay-audio.js) */
-import { initEssayAudio } from './essay-audio.js?v=3.4';
+import { initEssayAudio } from './essay-audio.js?v=4.2';
 
 const D = document;
 const $ = (s, r = D) => r.querySelector(s);

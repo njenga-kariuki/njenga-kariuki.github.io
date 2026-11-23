@@ -3,49 +3,63 @@
   "author": "Njenga Kariuki",
   "synthesized": true,
   "model": "eleven_multilingual_v2",
-  "duration": 1134.7,
+  "duration": 576.45,
   "chapters": [
     {
       "id": "thesis",
       "num": "00",
       "title": "The hidden bottleneck",
       "start": 0.0,
-      "end": 77.74
+      "end": 51.97
     },
     {
-      "id": "causal-chain",
+      "id": "builders",
       "num": "01",
-      "title": "Supply & demand compound",
-      "start": 79.01,
-      "end": 160.55
+      "title": "What builders say",
+      "start": 53.17,
+      "end": 96.26
     },
     {
-      "id": "private-evals",
+      "id": "workflow-tests",
       "num": "02",
-      "title": "Private evals as core IP",
-      "start": 161.75,
-      "end": 401.43
+      "title": "A test for each workflow",
+      "start": 97.46,
+      "end": 197.68
     },
     {
       "id": "shared-benchmarks",
       "num": "03",
-      "title": "Shared benchmarks",
-      "start": 402.63,
-      "end": 564.75
+      "title": "Define good together",
+      "start": 198.88,
+      "end": 270.03
     },
     {
-      "id": "sovereignty",
+      "id": "buy-build-own",
       "num": "04",
-      "title": "Sovereignty & \u201cour frontier\u201d",
-      "start": 565.95,
-      "end": 864.1
+      "title": "Buy, build, and own",
+      "start": 271.23,
+      "end": 429.54
     },
     {
-      "id": "monday-morning",
+      "id": "two-questions",
       "num": "05",
-      "title": "Monday morning & stakes",
-      "start": 865.3,
-      "end": 1134.7
+      "title": "Two questions",
+      "start": 430.74,
+      "end": 491.67
+    },
+    {
+      "id": "people",
+      "num": "06",
+      "title": "Who builds the tests",
+      "start": 492.87,
+      "end": 531.69
+    },
+    {
+      "id": "stakes",
+      "num": "07",
+      "title": "Beyond Africa",
+      "start": 532.89,
+      "end": 576.45
     }
   ]
 }

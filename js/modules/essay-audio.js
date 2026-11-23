@@ -1,17 +1,19 @@
-/* Flagship Essay Audio Edition Player (v3.4):
-   Ultra-slim Swiss hairline inline bar + synced 6-chapter markers + quiet sticky bottom dock while listening.
+/* Flagship Essay Audio Edition Player (v4.2):
+   Ultra-slim Swiss hairline inline bar + synced 8-chapter markers + quiet sticky bottom dock while listening.
    Clean, restrained, zero self-conscious voice boilerplate. */
 
 const D = document;
 const $ = (s, r = D) => r.querySelector(s);
 
 const DEFAULT_CHAPTERS = [
-  { id: 'thesis', num: '00', title: 'The hidden bottleneck', start: 0, end: 76 },
-  { id: 'causal-chain', num: '01', title: 'Supply & demand compound', start: 77, end: 159 },
-  { id: 'private-evals', num: '02', title: 'Private evals as core IP', start: 160, end: 400 },
-  { id: 'shared-benchmarks', num: '03', title: 'Shared benchmarks', start: 401, end: 563 },
-  { id: 'sovereignty', num: '04', title: 'Sovereignty & “our frontier”', start: 564, end: 862 },
-  { id: 'monday-morning', num: '05', title: 'Monday morning & stakes', start: 863, end: 1132 },
+  { id: 'thesis', num: '00', title: 'The hidden bottleneck', start: 0, end: 52 },
+  { id: 'builders', num: '01', title: 'What builders say', start: 53, end: 96 },
+  { id: 'workflow-tests', num: '02', title: 'A test for each workflow', start: 97, end: 198 },
+  { id: 'shared-benchmarks', num: '03', title: 'Define good together', start: 199, end: 270 },
+  { id: 'buy-build-own', num: '04', title: 'Buy, build, and own', start: 271, end: 430 },
+  { id: 'two-questions', num: '05', title: 'Two questions', start: 431, end: 492 },
+  { id: 'people', num: '06', title: 'Who builds the tests', start: 493, end: 532 },
+  { id: 'stakes', num: '07', title: 'Beyond Africa', start: 533, end: 576 },
 ];
 
 const SPEEDS = [1, 1.25, 1.5, 2];
@@ -92,7 +94,7 @@ export async function initEssayAudio({ live }) {
     ? probe.manifest.chapters
     : DEFAULT_CHAPTERS;
 
-  let duration = (probe.manifest && Number(probe.manifest.duration)) || chapters[chapters.length - 1].end || 1132;
+  let duration = (probe.manifest && Number(probe.manifest.duration)) || chapters[chapters.length - 1].end || 576;
   let currentTime = 0;
   let pendingSeek = null;
   let speedIdx = 0;
@@ -352,7 +354,7 @@ export async function initEssayAudio({ live }) {
         title: `Africa’s Hidden AI Bottleneck (${ch.num} · ${ch.title})`,
         artist: 'Njenga Kariuki',
         album: 'njenga.ai',
-        artwork: [{ src: '../../og/africa-ai-bottleneck.png', sizes: '1200x630', type: 'image/png' }],
+        artwork: [{ src: '../../og/africa-ai-bottleneck.png?v=3', sizes: '1200x630', type: 'image/png' }],
       });
       navigator.mediaSession.playbackState = playing ? 'playing' : 'paused';
       navigator.mediaSession.setActionHandler('play', () => play());
