@@ -1,7 +1,7 @@
 ---
 title: Njenga Kariuki | AI Executive: M-PESA Africa & Former AWS
 url: https://njenga.ai/
-updated: 2026-11-22
+updated: 2026-11-23
 ---
 
 # Leading AI transformation at M-PESA, after 12 years building AI products at Amazon and AWS.
@@ -108,6 +108,6 @@ All thirteen principles
 
 ## Writing
 
-Africa’s Hidden AI Bottleneck · November 2026 · 11 min read
-Alongside power, compute, local data, capital, and talent sits a hidden bottleneck deciding whether Africa’s AI investments compound.
+Africa’s Hidden AI Bottleneck · November 2026 · 7 min read
+Africa lacks a shared, testable definition of what good AI looks like under local conditions.
 https://njenga.ai/writing/africa-ai-bottleneck/

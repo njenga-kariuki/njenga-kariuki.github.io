@@ -5,7 +5,7 @@
   <link href="https://njenga.ai/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://njenga.ai/" rel="alternate" type="text/html"/>
   <id>https://njenga.ai/</id>
-  <updated>2026-11-22T11:00:00Z</updated>
+  <updated>2026-11-23T12:00:00Z</updated>
   <author>
     <name>Njenga Kariuki</name>
     <email>njenga@alumni.stanford.edu</email>
@@ -16,13 +16,13 @@
     <title>Africa’s Hidden AI Bottleneck</title>
     <link href="https://njenga.ai/writing/africa-ai-bottleneck/" rel="alternate" type="text/html"/>
     <id>https://njenga.ai/writing/africa-ai-bottleneck/</id>
-    <updated>2026-11-22T11:00:00Z</updated>
-    <summary>Power, compute, local data, capital, and talent are real, foundational constraints for AI in Africa. Alongside them sits a hidden bottleneck that determines whether investments in all five compound: a shared, testable definition of good AI across enterprise operations, consumer services, and public institutions.</summary>
+    <updated>2026-11-23T12:00:00Z</updated>
+    <summary>Africa lacks a shared, testable definition of what good AI looks like under local conditions. That definition is what turns interest into demand, and demand is what makes every other AI investment pay back.</summary>
     <category term="Africa AI"/>
     <category term="AI Opportunities in Africa"/>
     <category term="AI Evaluation"/>
     <category term="AI Sovereignty"/>
-    <category term="Agentic Commerce and Mobile Money"/>
+    <category term="AI Skills and Jobs"/>
     <category term="Public Sector AI Procurement"/>
   </entry>
 
