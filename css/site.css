@@ -1060,11 +1060,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .mores { display: flex; flex-wrap: wrap; gap: 0 32px; margin-top: clamp(28px, 3vw, 44px); }
 .mores .more { margin-top: 0; }
 /* About's builds: the walkthrough */
-.rc-a { display: block; margin-top: 4px; }
-.rc-a .xl { font-size: var(--f15); font-weight: 500; color: var(--ink); min-height: 36px; gap: 8px; }
-.rc-a .rc-len { font-weight: 400; font-size: var(--f13); color: var(--gray); }
-.rc-a .xl .g { width: 11px; height: 11px; }
-@media (hover: hover) and (pointer: fine) { .rc-a .xl:hover { color: var(--ink); } }
 /* ---------------------------------------------------------------- the Prime Now stage: the store platform, shelf to app (v2.2) */
 .stage[data-stage="pipeline"] { height: auto; }
 .stage[data-stage="pipeline"] svg { flex: none; height: auto; }
@@ -1463,66 +1458,61 @@ svg.dw.dw-narrow { display: none; }
 .pr-fig svg.fm { width: 100%; height: auto; }
 .dec .pr-svg.fm { max-width: 360px; }
 
-/* ---------- the work on a phone (change 01): all nine in a screen and a half. The current role full width; the other eight
-   in a two-column grid of square plates, years above the name so every row lines up. A tap still carries the plate into
-   its chapter. The sideways row and its count are gone. */
+/* ---------- the work on a phone: all nine at one weight, in date order, in a two-column grid of square plates, years above
+   the name so every row lines up. No plate is given more room than another (Jay, 23 November 2026). A tap still carries
+   the plate into its chapter. */
 @media (max-width: 599px) {
   #plates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; overflow: visible; scroll-snap-type: none;
     margin: 0; padding: 0; -webkit-mask-image: none; mask-image: none; }
-  #plates > .pl { flex: none; width: auto; min-width: 0; }
-  #plates > .pl:first-child { grid-column: 1 / -1; margin-bottom: 26px; }
-  #plates > .pl:not(:first-child) { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
-  #plates > .pl:not(:first-child) > .pl-a { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
-  #plates > .pl:not(:first-child) .plate { aspect-ratio: 1 / 1; border-radius: 12px; }
-  #plates > .pl:not(:first-child) .plate .v.fit img { padding: 8%; }
-  #plates > .pl:not(:first-child) .pl-t { margin-top: 9px; padding-bottom: 22px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; }
-  #plates > .pl:not(:first-child) .pl-n { font-size: 16px; line-height: 1.25; }
-  #plates > .pl:not(:first-child) .pl-y { font-size: 13px; }
-  #plates > .pl:not(:first-child) .pl-l, #plates > .pl:not(:first-child) .pl-p, #plates > .pl:first-child .pl-p { display: none; }
-  #plates > .pl:first-child .pl-l { font-size: 16px; }
+  #plates > .pl { flex: none; width: auto; min-width: 0; display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+  #plates > .pl > .pl-a { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+  #plates > .pl .plate { aspect-ratio: 1 / 1; border-radius: 12px; }
+  #plates > .pl .plate .v.fit img { padding: 8%; }
+  #plates > .pl .pl-t { margin-top: 9px; padding-bottom: 22px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; }
+  #plates > .pl .pl-n { font-size: 16px; line-height: 1.25; }
+  #plates > .pl .pl-y { font-size: 13px; }
+  #plates > .pl .pl-l, #plates > .pl .pl-p { display: none; }
   .work-count { display: none !important; }
 }
 
-/* ---------- the career on a phone (change 02): a staircase on one 2012 to 2026 axis, readable in one screen; a tap on a role
-   reads it out under the thumb. The readout keeps the height of its longest entry. */
+/* ---------- the career on a phone (v4.3): ten rows on one 2012 to 2026 axis, newest first. Every row carries its title, as the
+   laptop chart does. A tap opens that role under its own row: years and place, what he ran, the result, the chapter.
+   One open at a time; all closed at rest, so the section leads with no single role. */
 .cs { display: none; }
 @media (max-width: 899px) {
   .tl { display: none; }
-  .cs { display: block; --csl: 122px; }
-  .cs-axis { position: relative; height: 24px; margin-left: var(--csl); border-bottom: 1px solid var(--rule); }
+  .cs { display: block; --csl: 134px; --chv: 22px; }
+  .cs-axis { position: relative; height: 24px; margin-left: var(--csl); margin-right: var(--chv); border-bottom: 1px solid var(--rule); }
   .cs-axis span { position: absolute; top: 3px; transform: translateX(-50%); font-family: var(--mono); font-size: 12px; color: var(--gray); font-variant-numeric: lining-nums tabular-nums; }
-  .cs-axis span:first-child { transform: none; }
-  .cs-rows { position: relative; }
-  .cs-grid { position: absolute; top: 0; bottom: 0; left: var(--csl); right: 0; pointer-events: none; }
-  .cs-grid i { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--rule); opacity: .7; }
-  .cs-row { display: grid; grid-template-columns: var(--csl) 1fr; align-items: center; width: 100%; min-height: 44px; position: relative; text-align: left; }
-  .cs-row:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; border-radius: 6px; }
-  .cs-n { font-size: 15px; line-height: 1.2; color: var(--ink-2); padding-right: 10px; transition: color var(--t1) linear; }
-  .cs-t { position: relative; height: 44px; }
-  .cs-t::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--rule); }
-  .cs-bar { position: absolute; top: calc(50% - 3.5px); height: 7px; border-radius: 4px; background: var(--ink); transition: background var(--t1) linear; }
-  .cs-ev { position: absolute; top: calc(50% - 6px); width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--paper);
-    box-shadow: inset 0 0 0 2px var(--ink); transition: box-shadow var(--t1) linear; }
-  .cs-row.on .cs-n { color: var(--ink); font-weight: 500; }
-  .cs-row.on .cs-bar { background: var(--c2); }
-  .cs-row.on .cs-ev { box-shadow: inset 0 0 0 2px var(--c2); }
-  .cs-row:active .cs-n { color: var(--ink); }
-  .cs-row.on::after { content: ""; position: absolute; left: -11px; top: calc(50% - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--c2); }
-  .cs-read { display: grid; margin-top: 14px; padding: 16px 16px 18px; border-radius: 14px; background: var(--wash); }
-  .cs-read .r-in { grid-area: 1 / 1; visibility: hidden; opacity: 0; transition: opacity var(--t1) linear, visibility 0s linear var(--t1); }
-  .cs-read .r-in.on { visibility: visible; opacity: 1; transition: opacity var(--t1) linear; }
-  .cs-read .r-n { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font-size: 19px; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
-  .cs-read .r-n .arr { width: 13px; height: 13px; color: var(--c2); }
-  .cs-read .r-t { margin-top: 2px; font-size: 13.5px; line-height: 1.4; color: var(--gray); }
-  .cs-read .r-k { display: block; margin-top: 12px; }
-  .cs-read .r-p { margin-top: 3px; font-size: 16px; line-height: 1.5; color: var(--ink); }
-  .cs-read .r-p.ran { color: var(--ink-2); }
+  .cs-item { border-bottom: 1px solid var(--rule); }
+  .cs-row { display: grid; grid-template-columns: var(--csl) minmax(0, 1fr) var(--chv); grid-template-rows: auto auto; align-items: center;
+    padding: 10px 0 12px; cursor: pointer; list-style: none; -webkit-tap-highlight-color: transparent; }
+  .cs-row::-webkit-details-marker { display: none; }
+  .cs-row:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 6px; }
+  .cs-n { display: contents; }
+  .cs-n b { grid-column: 1; grid-row: 1; padding-right: 10px; font-size: 16px; line-height: 1.25; font-weight: 500; color: var(--ink); }
+  .cs-ti { grid-column: 1 / 3; grid-row: 2; margin-top: 3px; font-size: 13px; line-height: 1.35; color: var(--gray); }
+  .cs-t { grid-column: 2; grid-row: 1; position: relative; height: 22px;
+    background: repeating-linear-gradient(to right, var(--rule) 0 1px, transparent 1px calc(100% / 7.5)); }
+  .cs-bar { position: absolute; top: calc(50% - 3.5px); height: 7px; border-radius: 4px; background: var(--ink); }
+  .cs-ev { display: none; }
+  .cs-chev { grid-column: 3; grid-row: 1; justify-self: end; width: 12px; height: 12px; color: var(--gray); transition: transform var(--t2) var(--out); }
+  .cs-item[open] { margin: 0 -10px; padding: 0 10px; border-bottom-color: transparent; border-radius: 12px; background: var(--wash); }
+  .cs-item[open] .cs-chev { transform: rotate(180deg); color: var(--ink); }
+  .cs-det { padding: 0 0 14px; }
+  .cs-meta { font-size: 13px; line-height: 1.4; color: var(--gray); }
+  .cs-det .r-k { display: block; margin-top: 10px; }
+  .cs-det .r-p { margin-top: 2px; font-size: 15px; line-height: 1.45; color: var(--ink); }
+  .cs-det .r-p.ran { color: var(--ink-2); }
+  .cs-go { position: relative; display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; min-height: 32px; font-size: 15px; font-weight: 500; color: var(--ink); }
+  .cs-go::before { content: ""; position: absolute; inset: -6px -10px; }
+  .cs-go .arr { width: 12px; height: 12px; color: var(--c2); }
   .cs .rec { margin-top: 18px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
   .cs .rec a { font-weight: 500; color: var(--ink); text-decoration: none; }
   .tlp { display: none !important; }
 }
-@media (min-width: 600px) and (max-width: 899px) { .cs { --csl: 168px; } .cs-n { font-size: 16px; } }
-@media (prefers-reduced-motion: reduce) { .cs-read .r-in, .cs-bar, .cs-ev, .cs-n { transition: none !important; } }
+@media (min-width: 600px) and (max-width: 899px) { .cs { --csl: 168px; } }
+@media (prefers-reduced-motion: reduce) { .cs-chev { transition: none !important; } }
 
 /* ---------- type on a phone (change 04): body text at 16 px (decisions, facts, plate lines, the career, principles);
    captions stay 13 and labels 12 */
@@ -1661,14 +1651,13 @@ img.zoomable { cursor: zoom-in; }
 .rcl.builds .bd-m.playing picture { position: absolute; inset: 0; visibility: hidden; }
 .rcl.builds .bd-m.typo { display: grid; place-items: center; padding: 20px; }
 .rcl.builds .bd-t { font-size: var(--f19); font-weight: 500; letter-spacing: -0.01em; color: var(--ink-2); text-align: center; }
-.bd-play { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-start; gap: 8px; padding: 12px; color: #fff;
-  background: linear-gradient(180deg, rgba(11, 11, 10, 0) 55%, rgba(11, 11, 10, .42)); }
+.bd-play { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-start; gap: 8px; padding: 12px; color: #fff; }
 .bd-m.typo .bd-play { background: none; color: var(--ink); }
 .bd-pp { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(11, 11, 10, .62); color: #fff;
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform var(--t1) var(--out), background var(--t1) linear; }
 .bd-pp svg { width: 14px; height: 14px; margin-left: 2px; }
-.bd-len { align-self: flex-end; margin-bottom: 14px; font-size: 12px; text-shadow: 0 1px 2px rgba(0, 0, 0, .4); }
-.bd-m.typo .bd-len { text-shadow: none; color: var(--gray); }
+.bd-len { align-self: flex-end; margin-bottom: 11px; padding: 3px 9px; border-radius: 99px; background: rgba(11, 11, 10, .62); font-size: 12px; line-height: 16px; color: #fff; }
+.bd-m.typo .bd-len { background: none; padding: 0; color: var(--gray); }
 .bd-play:active .bd-pp { transform: scale(.94); }
 @media (hover: hover) and (pointer: fine) { .bd-play:hover .bd-pp { background: var(--ink); } }
 .bd-m iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -1693,7 +1682,6 @@ img.zoomable { cursor: zoom-in; }
 
 /* v2.7: 44 px targets where a reader taps (change 05), with nothing moving visually */
 .rc-axis a.ax-s { padding: 6px 18px 0; min-width: 44px; min-height: 44px; justify-content: flex-start; }
-.cs-read .r-n { min-height: 44px; }
 .pr .proof .pk, .cs .rec a, .hw-u a.pk { position: relative; }
 .pr .proof .pk::after, .cs .rec a::after, .hw-u a.pk::after { content: ""; position: absolute; inset: -9px -4px; }
 .about-nav a { min-height: 44px; display: inline-flex; align-items: center; }
@@ -1738,7 +1726,7 @@ img.zoomable { cursor: zoom-in; }
 .plate .v[style*="--op"] img { object-position: var(--op); }
 /* on a phone the tiles after the first are square: a picture set to bleed fills its square from the top, its canvas's
    empty sides cropped, instead of the inset padding of a contained picture */
-@media (max-width: 599px) { #plates > .pl:not(:first-child) .plate .v.fit.bleed img { padding: 0; object-fit: cover; object-position: 50% 0%; } }
+@media (max-width: 599px) { #plates > .pl .plate .v.fit.bleed img { padding: 0; object-fit: cover; object-position: 50% 0%; } }
 /* the header at 320 wide (v2.8): the phone's 16 px links and the 44 px targets made the nav 26 px too wide for a 320 px phone;
    below 360 the links set at 15 px with a closer gap, their targets still 44 px tall and touching, never overlapping */
 @media (max-width: 359px) { .hd-nav { gap: 14px; } .hd-nav a { font-size: 15px; } .hd-nav a::before { inset: -6px -7px; } }
@@ -2576,7 +2564,6 @@ svg.ci.ci-big .ci-n, svg.ci.ci-big .ci-v { font-size: 14.5px; }
 .tl-body { padding-top: 10px; }
 /* the phone career: a milestone ring no taller than its bar's line allows; close milestones are one ring (lib/v2.py) */
 .cs-ev { top: calc(50% - 4.5px); width: 9px; height: 9px; margin-left: -4.5px; box-shadow: inset 0 0 0 1.75px var(--ink); }
-.cs-row.on .cs-ev { box-shadow: inset 0 0 0 1.75px var(--c2); }
 /* About, My approach: the two views as quiet text tabs standing on the section's rule, at every width */
 #how-i-work .seg { display: flex; gap: 22px; padding: 0; border: 0; border-radius: 0; background: none; align-self: flex-end; margin-bottom: -12px; }
 #how-i-work .seg > button { position: relative; flex: none; min-height: 34px; padding: 0; border-radius: 0; font-size: var(--f15); line-height: 1.2;
@@ -2875,52 +2862,44 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   padding-top: 14px; margin-top: 4px; border-top: 1px solid var(--rule); }
 .plates-div-t { font-size: var(--f13); font-weight: 500; color: var(--ink-2); }
 .plates-div-y { font-size: var(--f13); color: var(--gray); font-variant-numeric: tabular-nums; }
-@media (max-width: 599px) {
-  .plates-div { grid-column: 1 / -1; padding-top: 14px; margin-top: 0; margin-bottom: 14px; }
-}
+@media (max-width: 719px) { .plates-div { display: none; } }
 
-/* Plate 5: Amazon Health AI bespoke Three-Pillar Clinical Portfolio artwork (replaces duplicate Halo Movement phone) */
+/* Plate 5: Amazon Health AI, the clinical portfolio as a card. The frame Jay kept (23 November 2026): "Clinical portfolio" and
+   the three npj Digital Medicine studies, then the three measures, each with its finding in a comparison a lay executive can
+   read (writing rule 16: no method names or bare numbers on a home card). No bars: a mark's length is its number (D-063), and
+   these had none. The proof line under the plate carries the organization's size and the portfolio, once. */
 .plate .v.hai-plate { container-type: inline-size; background: var(--wash); }
-.hai-in { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 7% 7.5% 6.5%;
+.hai-in { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 6% 7.5% 3.5%;
   transform: scale(1.0001); transition: transform var(--t4) var(--out); }
 .pl-a:hover .hai-in, .pl-a.lit .hai-in { transform: scale(1.018); }
-.hai-hd { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding-bottom: 4.5%; border-bottom: 1px solid var(--rule); }
-.hai-k { font-size: clamp(12px, 3.1cqw, 13px); font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
-.hai-sub { font-size: clamp(12px, 2.8cqw, 12.5px); color: var(--gray); white-space: nowrap; }
-.hai-rows { display: grid; gap: clamp(6px, 2.8cqw, 12px); margin: auto 0; padding: 3% 0; }
-.hai-r { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; }
-.hai-rn { font-size: clamp(12.5px, 3.5cqw, 15px); font-weight: 500; color: var(--ink); line-height: 1.2; }
-.hai-rv { font-size: clamp(12.5px, 3.6cqw, 15.5px); font-weight: 500; color: color-mix(in srgb, #12907e 74%, #000); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.hai-rd { grid-column: 1 / -1; font-size: clamp(12px, 2.8cqw, 12.5px); color: var(--gray); line-height: 1.25; }
-.hai-bar { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: var(--wash-2); overflow: hidden; margin-top: 3px; }
-.hai-bar i { display: block; height: 100%; border-radius: 2px; background: #12907e; width: var(--bw, 50%); }
-.hai-ft { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 4%; border-top: 1px solid var(--rule);
-  font-size: clamp(12px, 2.8cqw, 12.5px); color: var(--ink-2); }
-.hai-ft b { font-weight: 500; color: var(--ink); }
-@container (max-width: 263px) {
-  .hai-in { padding: 10px 11px; justify-content: space-between; }
-  .hai-sub, .hai-rd { display: none; }
-  .hai-hd { padding-bottom: 5px; }
-  .hai-k { font-size: 12px; }
-  .hai-rows { gap: 7px; margin: auto 0; padding: 2px 0; }
-  .hai-r { grid-template-columns: 1fr; gap: 3px; }
-  .hai-rn { font-size: 12px; line-height: 1.15; }
-  .hai-rv { display: none; }
-  .hai-bar { height: 3.5px; margin-top: 0; }
-  .hai-ft { display: flex; padding-top: 5px; font-size: 12px; gap: 4px; }
-  .hai-ft span:first-child { display: none; }
-}
-@container (max-width: 155px) {
-  .hai-in { padding: 8px 9px; }
-  .hai-ft { display: none; }
-  .hai-rows { gap: 6px; }
-}
-@container (min-width: 264px) and (max-width: 365px) {
-  .hai-in { padding: 5.5% 6.5% 5%; }
+.hai-hd { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; padding-bottom: 4%; border-bottom: 1px solid var(--rule); }
+.hai-k { font-size: clamp(12.5px, 3.4cqw, 14.5px); font-weight: 500; color: var(--ink); letter-spacing: -0.005em; white-space: nowrap; }
+.hai-k::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--c2, #12907e); vertical-align: 0.07em; }
+.hai-sub { padding-left: 14px; font-size: clamp(12px, 3.1cqw, 13px); line-height: 1.3; color: var(--ink-2); }
+.hai-sub .nw { white-space: nowrap; }
+.hai-rows { flex: 1; min-height: 0; display: grid; grid-auto-rows: 1fr; }
+.hai-r { display: flex; flex-direction: column; justify-content: center; gap: 3px; min-height: 0; }
+.hai-r + .hai-r { border-top: 1px solid var(--rule); }
+.hai-rn { font-size: clamp(13px, 4cqw, 16.5px); font-weight: 500; color: var(--ink); line-height: 1.2; letter-spacing: -0.008em; }
+.hai-rd { font-size: clamp(12px, 3.2cqw, 13.5px); color: var(--ink-2); line-height: 1.3; text-wrap: balance; }
+@container (max-width: 365px) {
+  .hai-in { padding: 6% 7% 3%; }
   .hai-hd { padding-bottom: 3.5%; }
-  .hai-rows { gap: 6px; padding: 2% 0; }
   .hai-rd { display: none; }
-  .hai-ft { padding-top: 3.5%; }
+  .hai-rn { font-size: clamp(12.5px, 5cqw, 16px); }
+}
+/* a phone tile or a small tablet tile: the frame, one rule, then the three measures as a short list (no row rules: at this
+   size they read as a menu) */
+@container (max-width: 263px) {
+  .hai-in { padding: 11px 11px 9px; line-height: 1.25; }
+  .hai-hd { gap: 2px; padding-bottom: 8px; }
+  .hai-k { font-size: 12.5px; line-height: 1.25; }
+  .hai-sub { font-size: 12px; line-height: 1.25; }
+  .hai-sub .nw + .nw { display: block; white-space: normal; text-wrap: balance; }
+  .hai-rows { flex: 0 1 auto; display: block; padding-top: 8px; }
+  .hai-r { display: block; }
+  .hai-r + .hai-r { border-top: 0; margin-top: 7px; }
+  .hai-rn { display: block; font-size: 12.5px; line-height: 1.2; font-weight: 400; color: var(--ink); padding-left: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { .hai-in, .pl-a:hover .hai-in { transform: none; transition: none; } }
 
@@ -3009,9 +2988,6 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .p-chapter .hd-in { position: relative; }
   .p-chapter .crumb-ix { position: absolute; right: var(--gut); top: 50%; transform: translateY(-50%); margin-left: 0; min-height: 44px; padding: 0 6px; }
 }
-.sh-themes { display: grid; gap: 16px; margin-top: 10px; }
-.sh-th-k { font-size: 12px; font-weight: 500; color: var(--gray); margin-bottom: 4px; }
-.sh-themes .sh-works { margin-top: 0; }
 .sh-works a[aria-current] .nw::after { content: none !important; }
 
 /* ---------- 8. Motion Choreography, Map View State-Skip Fix, Pacing & Clickable Stage Step Rails (Rec 5) */
@@ -3042,132 +3018,90 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .st-rail button:hover i { background: var(--ink-2); }
   .st-rail button.on:hover i { background: var(--c, var(--ink)); }
 }
+/* on a phone the rail is a 3 px progress line: no labels, no tap height. Scrolling moves the steps; the drawing keeps the room. */
 @media (max-width: 899px) {
-  .st-rail { padding: 6px 2px 6px; gap: 5px; }
-  .st-rail button { min-height: 28px; justify-content: flex-end; padding: 6px 0 4px; }
+  .st-rail { padding: 5px 2px 3px; gap: 5px; pointer-events: none; }
+  .st-rail button { min-height: 0; padding: 0; }
   .st-rail button span { display: none; }
 }
 
-/* ---------- 9. M-PESA Africa Interactive Clock Mode Bar & Pan-African 8-Market CoE Map (Rec 2) */
-.clk-mode { display: inline-flex; gap: 2px; padding: 2px; margin: 4px 6px 2px; border: 1px solid var(--rule); border-radius: 10px;
-  background: var(--paper); align-self: flex-start; transition: opacity var(--t2) linear; }
-.clk-mode button { min-height: 32px; padding: 0 12px; border-radius: 7px; font-size: 13px; color: var(--ink-2); white-space: nowrap;
-  transition: background var(--t1) linear, color var(--t1) linear; }
-.clk-mode button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
-@media (hover: hover) and (pointer: fine) { .clk-mode button:not([aria-checked="true"]):hover { background: var(--wash); color: var(--ink); } }
-.stage[data-s="4"] .clk-mode { display: none; }
-@media (max-width: 899px) {
-  .clk-mode { display: flex; width: calc(100% - 4px); margin: 4px 2px 2px; }
-  .clk-mode button { flex: 1 1 0; padding: 0 6px; font-size: 12px; min-height: 34px; }
-}
-
-/* Pan-African 8-market CoE visual inside M-PESA Clock Step 04 */
-.clk .clk-af { opacity: 0; pointer-events: none; transition: opacity var(--t3) linear; }
-.stage[data-s="4"] .clk .clk-af { opacity: 1; pointer-events: auto; }
-.clk .clk-af-land { fill: var(--paper); stroke: var(--line); stroke-width: 1.25; stroke-linejoin: round; }
-.clk .clk-af-link { fill: none; stroke: var(--c); stroke-width: 1.3; stroke-dasharray: 3 3; opacity: .75; }
-.clk .clk-af-node { cursor: pointer; }
-.clk .clk-af-node .af-dot { fill: var(--c); stroke: var(--paper); stroke-width: 2; transition: r var(--t1) var(--out), fill var(--t1) linear; }
-.clk .clk-af-node.hub .af-dot { fill: var(--ink); stroke: var(--c); stroke-width: 2.5; }
-.clk .clk-af-node.on .af-dot { fill: var(--ink); }
-.clk .clk-af-node .af-lbl { font-size: 12.5px; fill: var(--ink); font-weight: 500; }
-.clk .clk-af-node .af-sub { font-size: 12px; fill: var(--gray); }
-.clk .clk-af-read { font-size: 13px; fill: color-mix(in srgb, var(--c) 72%, #000); font-weight: 500; }
-.clk .clk-af-badge { fill: var(--paper); stroke: var(--rule); stroke-width: 1; }
-/* On phone Step 04, hide the single bar cleanly so the Africa 8-market map fills the pinned stage legibly */
-.stage[data-s="4"] .clk.clk-p .clk-nms,
-.stage[data-s="4"] .clk.clk-p .clk-bar { opacity: 0; pointer-events: none; }
-
-/* ---------- 10. Amazon Bio Discovery Interactive Agentic Discovery Loop Stage (Rec 2) */
-.stage[data-stage="bio-discovery"] { --c: #6d5bd0; height: auto; }
-.stage[data-stage="bio-discovery"] .bd-panel { display: none; flex-direction: column; gap: 10px; padding: 10px 10px 4px; animation: fade var(--t2) linear both; }
+/* ---------- 10. Amazon Bio Discovery's stage (v3.0), carrying the product (v4.3). Before keeps the ruler; 01 Ask, 02 Design and
+   04 Test show the real screen for that step, with its caption; 03 Judge keeps the drawn chart and its three-way control.
+   The five panels share one grid cell, so the stage holds the height of the tallest and nothing moves when the step changes. */
+.stage[data-stage="bio-discovery"] { --c: #6d5bd0; }
+@media (min-width: 900px) { .stage[data-stage="bio-discovery"] { height: auto; } }
+.bd-stack { flex: 1 1 auto; min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr); }
+.stage[data-stage="bio-discovery"] .bd-panel { grid-area: 1 / 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 10px;
+  padding: 10px 6px 0; visibility: hidden; opacity: 0; transition: opacity var(--t2) linear, visibility 0s linear var(--t2); }
 .stage[data-stage="bio-discovery"][data-s="0"] .bd-panel[data-p="0"],
 .stage[data-stage="bio-discovery"][data-s="1"] .bd-panel[data-p="1"],
 .stage[data-stage="bio-discovery"][data-s="2"] .bd-panel[data-p="2"],
 .stage[data-stage="bio-discovery"][data-s="3"] .bd-panel[data-p="3"],
-.stage[data-stage="bio-discovery"][data-s="4"] .bd-panel[data-p="4"] { display: flex; }
-.bd-k { font-size: 12.5px; font-weight: 500; color: var(--gray); }
-.bd-h { font-size: 18px; font-weight: 500; line-height: 1.25; letter-spacing: -0.012em; color: var(--ink); }
+.stage[data-stage="bio-discovery"][data-s="4"] .bd-panel[data-p="4"] { visibility: visible; opacity: 1; transition: opacity var(--t2) linear; }
+.stage .ev.bd-shot { position: relative; margin: 0; max-width: none; min-height: 0; display: flex; flex-direction: column; }
+.stage .ev.bd-shot::after { content: ""; position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; pointer-events: none;
+  background: rgba(11, 11, 10, .62) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M8.5 2.5h3v3M11.5 2.5 8 6M5.5 11.5h-3v-3M2.5 11.5 6 8' fill='none' stroke='%23fff' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.bd-shot picture { display: contents; }
+.stage .ev.bd-shot img { flex: 0 1 auto; min-height: 0; width: 100%; height: auto; object-fit: contain; border-radius: 10px; background: #0c0d12; }
+.stage .ev.bd-shot figcaption, .bd-cap { flex: none; margin-top: 8px; font-size: var(--f13); line-height: 1.45; color: var(--gray); }
+.bd-cap { margin-top: 0; }
+.bd-card + .bd-cap { margin-top: 2px; }
 .bd-svg { width: 100%; height: auto; display: block; }
+.stage[data-stage="bio-discovery"] .bd-svg { flex: 0 1 auto; min-height: 0; }
 .bd-svg-n { display: none; }
 .bd-svg text { font-family: var(--font); font-variant-numeric: tabular-nums; }
-.bd-meta-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12.5px; color: var(--gray); }
-.bd-meta-row b { font-weight: 500; color: #4f3fb2; }
-.bd-hs { cursor: pointer; }
-.bd-hs circle.hs-ring { fill: var(--paper); stroke: var(--ink-2); stroke-width: 1.6; transition: fill var(--t1) linear, stroke var(--t1) linear, transform var(--t1) var(--out); transform-box: fill-box; transform-origin: center; }
-.bd-hs text { font-size: 13px; font-weight: 500; fill: var(--ink); pointer-events: none; }
-.bd-svg-n .bd-hs text { font-size: 14.5px; }
-.bd-hs:hover circle.hs-ring { stroke: var(--c); stroke-width: 2.2; }
-.bd-hs.on circle.hs-ring { fill: var(--c); stroke: var(--c); transform: scale(1.12); }
-.bd-hs.on text { fill: #fff; }
-.bd-note { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); min-height: 2.9em; }
 .bd-pf-ctrl { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--rule); border-radius: 9px; background: var(--paper); align-self: flex-start; }
 .bd-pf-ctrl button { min-height: 30px; padding: 0 11px; border-radius: 7px; font-size: 12.5px; color: var(--ink-2); transition: background var(--t1) linear, color var(--t1) linear; }
 .bd-pf-ctrl button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
 .stage[data-pf="1"] .pf-f2, .stage[data-pf="1"] .pf-l2 { opacity: .18; }
 .stage[data-pf="2"] .pf-f1, .stage[data-pf="2"] .pf-l1 { opacity: .28; }
 .pf-f1, .pf-f2, .pf-l1, .pf-l2 { transition: opacity var(--t2) linear; }
-/* Responsive HTML+CSS architecture inside Bio Discovery panels 0, 2, 4 — crisp >=12px text at every width from 320px to 1600px */
-.bd-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 11px; padding: 14px 16px; }
+/* the ruler: HTML and CSS, so its text holds 12 px or more at every width */
+.bd-card { padding: 4px 0; }
+.bd-svg > rect:first-child { fill: none; stroke: none; }
 .bd-bars { display: grid; gap: 14px; }
 .bd-bar-hd { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 13px; margin-bottom: 5px; }
 .bd-bar-hd b { font-weight: 500; color: var(--ink); }
 .bd-bar-hd span { color: var(--gray); font-size: 12px; }
-.bd-track { height: 22px; border-radius: 5px; background: var(--wash); overflow: hidden; display: flex; }
-.bd-fill-old { width: 50%; background: var(--wash-2); }
-.bd-fill-old2 { width: 50%; background: #c7c4bc; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.bd-track { height: 22px; border-radius: 5px; background: color-mix(in srgb, var(--wash-2) 55%, var(--wash)); overflow: hidden; display: flex; }
+/* one bar from zero: solid to six months, the least it took, then the range line of the home figures to twelve */
+.bd-fill-old { width: 50%; background: #c7c4bc; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.bd-fill-old2 { width: 50%; position: relative; }
+.bd-fill-old2::before { content: ""; position: absolute; left: 0; right: 1px; top: 50%; height: 1.5px; transform: translateY(-50%); background: #6f6c65; }
+.bd-fill-old2::after { content: ""; position: absolute; right: 0; top: 50%; width: 1.5px; height: 10px; transform: translateY(-50%); background: #6f6c65; }
 .bd-fill-new { width: 10%; min-width: 34px; background: #6d5bd0; border-radius: 5px; }
 .bd-new-lbl { font-size: 13px; font-weight: 500; color: #4f3fb2; align-self: center; margin-left: 10px; white-space: nowrap; }
-.bd-scale { display: flex; justify-content: space-between; font-size: 12px; color: var(--gray); border-top: 1px solid var(--rule); padding-top: 6px; margin-top: 8px; font-variant-numeric: tabular-nums; }
-.bd-models { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.1fr); gap: 10px; align-items: center; }
-.bd-mlist { display: grid; gap: 6px; }
-.bd-mitem { padding: 8px 10px; border-radius: 8px; background: var(--paper); border: 1px solid var(--ink-2); display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; }
-.bd-mitem b { font-weight: 500; color: var(--ink); }
-.bd-mitem span { color: var(--gray); font-variant-numeric: tabular-nums; }
-.bd-gpu { padding: 5px 10px; border-radius: 99px; background: var(--paper); border: 1.4px solid #6d5bd0; font-size: 12px; font-weight: 500; color: #4f3fb2; white-space: nowrap; text-align: center; }
-.bd-pool { padding: 14px 16px; border-radius: 11px; background: var(--paper); border: 1.8px solid #6d5bd0; }
-.bd-pool-n { font-size: clamp(24px, 3vw, 32px); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
-.bd-pool-t { margin-top: 4px; font-size: 13.5px; font-weight: 500; color: var(--ink); }
-.bd-pool-s { margin-top: 4px; font-size: 12.5px; color: var(--gray); line-height: 1.35; }
-.bd-loop-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-.bd-lbox { padding: 12px 13px; border-radius: 10px; background: var(--paper); border: 1px solid var(--ink-2); }
-.bd-lbox.hit { border: 1.8px solid #6d5bd0; }
-.bd-lbox-n { font-size: 21px; font-weight: 500; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
-.bd-lbox-n .bd-of { font-size: 12px; font-weight: 400; color: var(--gray); }
-.bd-lbox.hit .bd-lbox-n { color: #4f3fb2; }
-.bd-lbox-t { margin-top: 4px; font-size: 12.5px; font-weight: 500; color: var(--ink); }
-.bd-lbox-s { margin-top: 3px; font-size: 12px; color: var(--gray); line-height: 1.3; }
-.bd-ret { margin-top: 10px; padding: 7px 12px; border-radius: 9px; background: var(--paper); border: 1.2px dashed #6d5bd0;
-  font-size: 12.5px; font-weight: 500; color: #4f3fb2; text-align: center; }
+.bd-scale { position: relative; height: 26px; font-size: 12px; color: var(--gray); border-top: 1px solid var(--line); margin-top: 8px; font-variant-numeric: tabular-nums; }
+.bd-scale span { position: absolute; top: 6px; transform: translateX(-50%); white-space: nowrap; }
+.bd-scale span:nth-child(1) { left: 0; transform: none; } .bd-scale span:nth-child(2) { left: 25%; } .bd-scale span:nth-child(3) { left: 50%; } .bd-scale span:nth-child(4) { left: 75%; }
+.bd-scale span:nth-child(5) { right: 0; transform: none; }
+/* beside the steps on a laptop the ruler has the whole stage to itself, so it is drawn larger */
+@media (min-width: 900px) {
+  .bd-card { padding: 6px 0; }
+  .bd-bars { gap: 24px; }
+  .bd-bar-hd { font-size: 15px; margin-bottom: 8px; }
+  .bd-bar-hd span { font-size: 13px; }
+  .bd-track { height: 36px; border-radius: 7px; }
+  .bd-fill-old { font-size: 14px; border-radius: 7px; }
+  .bd-fill-old2::after { height: 14px; }
+  .bd-fill-new { border-radius: 7px; }
+  .bd-new-lbl { font-size: 15px; margin-left: 12px; }
+  .bd-scale { font-size: 13px; height: 30px; margin-top: 16px; }
+  .bd-scale span { top: 9px; }
+}
 @media (max-width: 899px) {
   .bd-svg-w { display: none; }
   .bd-svg-n { display: block; }
-  .stage[data-stage="bio-discovery"] { height: auto !important; min-height: 0; max-height: none; }
-  .stage[data-stage="bio-discovery"] .bd-panel { padding: 4px 2px 2px; gap: 6px; }
-  .stage[data-stage="bio-discovery"] .bd-h { font-size: 14.5px; }
-  .stage[data-stage="bio-discovery"] .bd-note { font-size: 12px; min-height: 2.2em; }
-  .bd-meta-row { font-size: 12px; }
-  .bd-meta-row span { display: none; }
-  .bd-card { padding: 10px 11px; }
-  .bd-bar-hd span, .bd-pool-s, .bd-lbox-s { display: none; }
-  .bd-models { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
-  .bd-gpu { display: none; }
-  .bd-mitem { padding: 5px 8px; font-size: 12px; }
-  .bd-pool { padding: 10px 11px; }
-  .bd-pool-n { font-size: 22px; }
-  .bd-lbox { padding: 8px 9px; }
-  .bd-lbox-n { font-size: 17px; }
-  .bd-lbox-t { font-size: 12px; }
-  .bd-ret { margin-top: 6px; padding: 5px 8px; font-size: 12px; }
-  .bd-pf-ctrl { display: flex; width: 100%; }
-  .bd-pf-ctrl button { flex: 1 1 0; padding: 0 6px; font-size: 12px; }
+  /* a phone pins this stage at the house height, like every other; each panel fits inside it, and the screen scales to the room it has */
+  .stage[data-stage="bio-discovery"] { min-height: 274px; }
+  .stage[data-stage="bio-discovery"] .bd-panel { padding: 0 2px; gap: 6px; }
+  .stage .ev.bd-shot { flex: 0 1 auto; }
+  .stage .ev.bd-shot figcaption, .bd-cap { margin-top: 6px; font-size: 12px; line-height: 1.35; }
+  .bd-card { padding: 2px 2px 0; }
+  .bd-bar-hd span { display: none; }
+  .bd-pf-ctrl { display: flex; width: 100%; flex: none; }
+  .bd-pf-ctrl button { flex: 1 1 0; padding: 0 6px; font-size: 12px; text-align: center; justify-content: center; }
 }
-/* Bio Discovery bottom interactive funnel stage buttons */
-.m14-f-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-.m14-f-bar button { padding: 6px 12px; border-radius: 8px; border: 1px solid var(--rule); background: var(--paper); font-size: 13px; color: var(--ink-2);
-  font-variant-numeric: tabular-nums; transition: background var(--t1) linear, color var(--t1) linear, border-color var(--t1) linear; }
-.m14-f-bar button.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.m14-f-read { margin-top: 10px; font-size: var(--f15); line-height: 1.5; color: var(--ink); min-height: 1.6em; }
 
 /* ---------- 11. About Page Sticky Top Matrix Readout, Expand All & Patents Sync (Rec 7) */
 .hw-list-bar { display: flex; justify-content: flex-end; margin-bottom: 8px; }
@@ -3255,7 +3189,7 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .ft-mail .mailto { display: inline-flex; align-items: center; min-height: 36px; }
   .ft-mail .mailto, .ft-prof .xl, .ft-nav a, .ft-nav button.ft-print,
   .sec-more, .sec-head .xl.meta, .brief-btn, .hw-toggle-btn, .builds .xl,
-  .st-rail button, .clk-mode button, .bd-pf-ctrl button, .m14-f-bar button {
+  .bd-pf-ctrl button {
     position: relative;
   }
   .ft-mail .mailto::before, .ft-prof .xl::before, .ft-nav a::before, .ft-nav button.ft-print::before {
@@ -3267,10 +3201,7 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .brief-btn::before { content: ""; position: absolute; inset: -2px -4px; }
   .hw-toggle-btn { min-height: 40px; }
   .hw-toggle-btn::before { content: ""; position: absolute; inset: -2px -4px; }
-  .st-rail button { min-height: 40px; padding: 14px 0 6px; }
-  .clk-mode button { min-height: 40px; }
   .bd-pf-ctrl button { min-height: 40px; }
-  .m14-f-bar button { min-height: 40px; padding: 6px 12px; }
 }
 .ch-plate.views { touch-action: pan-y; }
 
@@ -3280,12 +3211,6 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .hw-mx .mx-read .mx-pt { font-size: 15px; margin-top: 2px; }
   .hw-mx .mx-read .mx-pp { font-size: 13.5px; line-height: 1.42; margin-top: 4px; }
   .hw-mx .mx-read .mx-go { margin-top: 6px; font-size: 13.5px; }
-  .cs { --csl: 134px; }
-  .cs-row.on::after { left: 0; }
-  .cs-n { padding-left: 12px; }
-  .cs-read { padding: 14px 16px 16px; }
-  .cs-read .r-k { margin-top: 9px; }
-  .cs-read .r-p { font-size: 15px; line-height: 1.45; }
 }
 @media (max-width: 899px) {
   .story > .stage, .story > .stage.film-stage { border-bottom: 1px solid var(--rule); }
@@ -3293,14 +3218,26 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .story:not(.solo) .step { padding-top: 28px; }
 }
 @media (max-width: 359px) {
-  .clk.clk-p .clk-n, .clk.clk-p .clk-lab, .clk.clk-p .clk-mn,
-  .clk.clk-p .af-lbl, .clk.clk-p .clk-af-read { font-size: 15px; }
+  .clk.clk-p .clk-n, .clk.clk-p .clk-lab, .clk.clk-p .clk-mn { font-size: 15px; }
   .dw.nar .m14-nm { font-size: 15px; }
   .dates-svg .fig-t, .dates-svg .fig-a text, .scale-svg text, .scale-svg .fig-v { font-size: 14.2px; }
 }
 
 /* Print protection for all v3.0 interactive chrome */
 @media print {
-  .hero-pic, .brief-btn, .st-rail, .clk-mode, .bd-pf-ctrl, .m14-f-bar, .hw-list-bar, .crumb-ix { display: none !important; }
+  .hero-pic, .brief-btn, .st-rail, .bd-pf-ctrl, .hw-list-bar, .crumb-ix { display: none !important; }
 }
 
+/* ---------- v4.3. A tablet held upright (600 to 899 px): a principle's figure stops at 420 px, as chapter drawings do (D-059).
+   Stretched to the full column its labels reached 21 to 33 px beside 13 px text. */
+@media (min-width: 600px) and (max-width: 899px) { .pr-fig svg.fm { max-width: 420px; } }
+
+/* ---------- v4.3. Prime Now's pinned scene on a phone. Its own station chips say where the reader is, so the stage draws no second
+   progress line. A neighbouring station's words wait until its step: the pan shows its outline at the edge, never half a label. */
+@media (max-width: 899px) {
+  .stage[data-stage="scene"] .st-rail { display: none; }
+  .sc-p .sc-part text { transition: opacity var(--t2) linear; }
+  .stage[data-s="0"] .sc-p .sc-part:not([data-k="0"]) text, .stage[data-s="1"] .sc-p .sc-part:not([data-k="1"]) text,
+  .stage[data-s="2"] .sc-p .sc-part:not([data-k="2"]) text, .stage[data-s="3"] .sc-p .sc-part:not([data-k="3"]) text,
+  .stage[data-s="4"] .sc-p .sc-part:not([data-k="4"]) text { opacity: 0; }
+}

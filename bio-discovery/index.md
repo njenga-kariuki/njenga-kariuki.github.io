@@ -1,7 +1,7 @@
 ---
 title: Amazon Bio Discovery (AWS Agentic AI) | Njenga Kariuki
 url: https://njenga.ai/bio-discovery/
-updated: 2026-11-22
+updated: 2026-11-23
 ---
 
 2025–2026 · AWS Applied AI, Life Sciences
@@ -44,13 +44,11 @@ A paper AWS published at launch put conventional antibody discovery at 6 to 12 m
 ### The agent proposes where to bind
 
 A scientist uploads a target protein and presses “Recommend hotspots,” and an AI agent proposes where on the protein to bind. The agent runs bioinformatics tools, and a language model turns their results into ranked regions, each with written evidence. On known antibody-target pairs, one of its top five regions overlapped the true binding site about 80% of the time.
-The agent’s ranked binding regions on a target, each with its evidence and rationale.
 02 Design
 
 ### Three models, 288,000 designs
 
 In the campaign with MSK, three design models, each working a different way, produced 96,000 nanobody designs apiece: 288,000 in all. A nanobody is a small antibody. The run used 2,000 GPUs in two AWS regions.
-A workflow built from models in the catalog, ready to publish for others to run.
 03 Judge
 
 ### What a design must pass to reach a lab
@@ -62,46 +60,20 @@ A second agent ranked the designs on five scores at once and kept the best trade
 
 Twist Bioscience, a launch lab partner, made the DNA for 100,000 designs, and a first lab screen sent 116 on to a binding test. Of the 116, 46 were confirmed to bind the target.
 Each lab result returns to the experiment that produced it and is checked before any model retrains on it. At launch, MSK said the campaign went from target to a lab order in weeks.
-Before · Target to candidate antibody
-Conventional discovery took 6 to 12 months; the launch campaign reached a lab order in weeks.
-Conventional discovery · Bench → handoff → computational → screening
+Conventional discovery
 6 to 12 months
-Amazon Bio Discovery · MSK launch campaign
-Weeks · target to lab order
+The launch campaign
+Weeks
 0 · 3 mo · 6 mo · 9 mo · 12 mo
-01 Ask · Hotspot reasoning agent (tap a ranked region)
-An AI agent runs bioinformatics tools and ranks five binding regions on the target protein.
-Target protein structure (Chain A / B) · ~80% top-5 overlap on known pairs
-Region 1 · Top ranked — Exposed loop pocket; bioinformatics tools + language model rationale.
-02 Design · 2,000 GPUs across two AWS regions
-Three distinct generative models produced 96,000 nanobody designs apiece: 288,000 in all.
-Design model 1 · 96,000
-Design model 2 · 96,000
-Design model 3 · 96,000
-2,000 GPUs →
-288,000
-Candidate nanobodies
-Generated in parallel from 40+ biological AI models in the catalog.
-03 Judge · Multi-objective ranking across five scores
-A second agent keeps the best trade-off fronts in sequence until 100,000 remain.
-Outer fronts kept in sequence until 100,000 candidates remained for DNA synthesis.
-04 Test · Closed wet-lab validation loop
-46 of 116 tested designs bound the target; every lab result returns to the experiment.
-100,000
-Made as DNA
-Twist Bioscience first lab screen
-116
-Binding assays
-Measured one by one for target affinity
-46 of 116
-Confirmed binders
-Target to lab order in weeks (MSK)
-↺ Lab results return to the experiment & are checked before retraining
-Interactive pipeline — click any step rail below or explore controls inside the stage.
+Conventional discovery took 6 to 12 months from a target to the antibody chosen for development; with Bio Discovery, the launch campaign reached a lab order in weeks.
+The agent’s ranked binding regions on a target, each with its evidence and rationale.
+A workflow built from models in the catalog, ready to publish for others to run.
+Front 1 · Front 2 · All 100,000 kept
+An illustration with two of the five scores: the agent kept the best trade-offs first, then the next best, until 100,000 remained.
+Sending selected designs to a partner lab, with cost and time estimates.
 
 ## The launch campaign, design by design
 
-46 of the 116 tested candidates were confirmed to bind the target (~40% confirmation rate).
 
 ## Launch
 

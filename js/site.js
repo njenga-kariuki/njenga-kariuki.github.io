@@ -326,35 +326,26 @@
       lis.forEach(li => li.classList.toggle('on', li === cur));
     };
   }
-  /* ------------------------------------------------------------ the career on a phone (v2.7, D-058, change 02): a staircase
-     whose rows are tabs; the readout under it shows one role at a time, the current role at rest */
+  /* ------------------------------------------------------------ the career on a phone (v4.3): ten rows on one axis, each a
+     details element that carries its title. A tap opens that role under its own row, one at a time; when a row above the
+     tapped one closes, the tapped row holds its place on the screen. Without this script the rows still open. */
   const cs = $('#cs');
   let csShow = () => {};
   if (cs) {
-    const rowsC = $$('.cs-row', cs), panes = $$('.cs-read .r-in', cs);
-    csShow = (k, focus) => {
-      rowsC.forEach((b, i) => { const on = i === k; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1; });
-      panes.forEach((p, i) => p.classList.toggle('on', i === k));
-      if (focus) rowsC[k].focus();
-    };
-    // a tap reads the role out; when its readout sits below the screen, it rises into view under the thumb
-    rowsC.forEach((b, i) => b.addEventListener('click', () => {
-      csShow(i);
-      const rd = $('.cs-read', cs).getBoundingClientRect();
-      const want = Math.min(rd.height, 230);
-      if (rd.top + want > innerHeight - 12) glide(scrollY + rd.top + want - innerHeight + 24, 320);
-    }));
-    $('.cs-rows', cs).addEventListener('keydown', e => {
-      const i = rowsC.findIndex(b => b.classList.contains('on'));
-      let j = null;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') j = Math.min(rowsC.length - 1, i + 1);
-      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') j = Math.max(0, i - 1);
-      else if (e.key === 'Home') j = 0;
-      else if (e.key === 'End') j = rowsC.length - 1;
-      if (j == null) return;
-      e.preventDefault(); csShow(j, true);
+    const items = $$('.cs-item', cs);
+    const setOpen = (k, on) => items.forEach((d, i) => { const o = i === k ? on : false; if (d.open !== o) d.open = o; });
+    items.forEach((d, i) => {
+      const sum = $('.cs-row', d);
+      sum.addEventListener('click', e => {
+        e.preventDefault();
+        const y0 = sum.getBoundingClientRect().top;
+        setOpen(i, !d.open);
+        const dy = sum.getBoundingClientRect().top - y0;
+        if (Math.abs(dy) > 1) scrollTo({ top: scrollY + dy, behavior: 'instant' });
+      });
     });
-    csShow.id = id => { const k = rowsC.findIndex(b => b.dataset.id === id); if (k >= 0) csShow(k); };
+    csShow = k => setOpen(k, true);
+    csShow.id = id => { const k = items.findIndex(d => d.dataset.id === id); if (k >= 0) setOpen(k, true); };
   }
   // a figure in the opening lines is a door: it scrolls to the career and lights the roles it comes from
   D.addEventListener('click', e => {
@@ -380,7 +371,7 @@
   function placeLine(jump) {
     if (!hdNav || !hdLine) return;
     const t = navs.find(a => (a.classList.contains('on') || a.getAttribute('aria-current') === 'page') && a.offsetParent);
-    if (!t) { if (lineOn) { hdLine.classList.remove('on'); lineOn = false; } lineAt = null; return; }
+    if (!t) { if (lineOn) { hdLine.classList.remove('on'); lineOn = false; } if (jump) { hdLine.style.setProperty('--x', '0px'); hdLine.style.setProperty('--w', '0px'); } lineAt = null; return; }
     if (t === lineAt && !jump) return;
     const first = !lineOn, nr = hdNav.getBoundingClientRect(), r = t.getBoundingClientRect();
     const set = () => { hdLine.style.setProperty('--x', `${r.left - nr.left}px`); hdLine.style.setProperty('--w', `${r.width}px`); };
@@ -511,8 +502,15 @@
         nav.appendChild(b);
         return b;
       });
-      const cap = $('.cap', stageEl);
-      if (cap) stageEl.insertBefore(nav, cap); else stageEl.appendChild(nav);
+      stageEl.appendChild(nav);   // last in the stage: a caption stays directly under its drawing
+      // on a phone the rail is a progress line, not a control: scrolling moves the steps
+      const railMode = () => {
+        const p = PHONE();
+        if (p) nav.setAttribute('aria-hidden', 'true'); else nav.removeAttribute('aria-hidden');
+        railBtns.forEach(b => { b.tabIndex = p ? -1 : 0; });
+      };
+      railMode();
+      addEventListener('resize', railMode);
     }
     let cur = null, raf = 0;
     const pick = () => {
@@ -763,10 +761,11 @@
     });
   }
   // a build's walkthrough plays in place (v2.7): the player loads only on a tap, and starts with the tap
-  $$('.bd-play[data-loom]').forEach(b => b.addEventListener('click', () => {
+  $$('.bd-play[data-loom]').forEach(b => b.addEventListener('click', e => {
+    e.preventDefault();   // the control is a link to the walkthrough, so it still opens where scripts are off
     const f = D.createElement('iframe');
     f.src = `https://www.loom.com/embed/${b.dataset.loom}?autoplay=1&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true`;
-    f.title = b.getAttribute('aria-label').replace(/^Play /, '').replace(/, here$/, '');
+    f.title = b.getAttribute('aria-label').replace(/^Play /, '');
     f.allow = 'autoplay; fullscreen'; f.allowFullscreen = true;
     const m = b.closest('.bd-m');
     m.classList.add('playing');
@@ -833,14 +832,8 @@
     return { el, close };
   }
   const art2 = $('article.ch');
-  // v3.0: Chapter Index Switcher accessible at scrollY=0 (.crumb-ix) and once scrolled (.crumb-b), grouped by executive theme
-  const THEMES = [
-    { label: 'Enterprise AI Transformation', slugs: ['m-pesa'] },
-    { label: 'Frontier AI & Research', slugs: ['bio-discovery', 'ai-index-2025'] },
-    { label: 'Health & Computer Vision AI', slugs: ['health-ai-portfolio', 'halo-movement', 'halo-tone', 'halo-body', 'halo'] },
-    { label: 'Voice & Smart Home', slugs: ['map-view', 'alexa-shopping'] },
-    { label: 'Commerce & Supply Chain', slugs: ['prime-now', 'bedding-and-bath', 'target-apple'] },
-  ];
+  // the chapter index: this chapter's parts, then every chapter newest first, the order the home grid, the career chart and the
+  // Next links all use. It opens from the Chapters button at the top (.crumb-ix) and from the chapter's name once scrolled (.crumb-b).
   function openChapterIndex(opener) {
     if (!art2) return;
     const wrap = D.createElement('div');
@@ -854,26 +847,9 @@
     });
     const src = $('.src a', art2);
     wrap.innerHTML = `<p class="lbl">In this chapter</p><ol class="sh-parts">${parts.join('')}</ol>` +
-      (src ? `<p class="sh-src"><a class="xl" href="${src.getAttribute('href')}" data-sources>Sources</a></p>` : '') + '<p class="lbl">All 13 chapters by theme</p>';
+      (src ? `<p class="sh-src"><a class="xl" href="${src.getAttribute('href')}" data-sources>Sources</a></p>` : '') + '<p class="lbl">The work</p>';
     const tpl = $('#ix-works');
-    if (tpl) {
-      const srcItems = Array.from(tpl.content.querySelectorAll('li'));
-      const slugOf = li => { const a = li.querySelector('a'); const m = a && a.getAttribute('href').match(/([^/]+)\/?$/); return m ? m[1] : ''; };
-      const bySlug = new Map(srcItems.map(li => [slugOf(li), li]));
-      const grouped = D.createElement('div');
-      grouped.className = 'sh-themes';
-      THEMES.forEach(th => {
-        const lis = th.slugs.map(s => bySlug.get(s)).filter(Boolean);
-        if (!lis.length) return;
-        const sec = D.createElement('div');
-        sec.className = 'sh-th';
-        sec.innerHTML = `<p class="sh-th-k">${th.label}</p><ol class="sh-works"></ol>`;
-        const ol = $('ol', sec);
-        lis.forEach(li => ol.appendChild(li.cloneNode(true)));
-        grouped.appendChild(sec);
-      });
-      wrap.appendChild(grouped);
-    }
+    if (tpl) wrap.appendChild(tpl.content.cloneNode(true));
     const sh = sheet($('#ch-h') ? $('#ch-h').textContent : 'This chapter', wrap, opener);
     const sl = $('[data-sources]', sh.el);
     if (sl) sl.addEventListener('click', e => { e.preventDefault(); sh.close(() => openSources(src)); });

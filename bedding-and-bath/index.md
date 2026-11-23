@@ -1,7 +1,7 @@
 ---
 title: Amazon Bedding & Bath | Njenga Kariuki
 url: https://njenga.ai/bedding-and-bath/
-updated: 2026-11-22
+updated: 2026-11-23
 ---
 
 2014–2015 · Amazon Retail
@@ -16,7 +16,7 @@ $100M+ a year
 Review
 Every weekly margin change, explained to a hundredth of a percentage point
 A sale’s price, from the cost of goods to the margin, with the margin’s edge under a loupe: a drawing of the idea.
-I owned the profit and loss of Amazon’s Bedding & Bath business, more than $100 million a year. I led the negotiations with its brands, set the supply-chain terms, and explained every weekly margin change to a hundredth of a percentage point.
+I owned the profit and loss of Amazon’s Bedding & Bath business, more than $100 million a year. I led the negotiations with its brands, set the supply-chain terms, and explained every weekly margin change.
 
 ## What I decided
 

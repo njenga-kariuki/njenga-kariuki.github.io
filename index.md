@@ -13,7 +13,7 @@ A master’s degree from Stanford GSB, and published research on AI’s global e
 ## Work
 
 2017–2026
-M-PESA Africa · 2026–today · AI strategy and the AI Center of Excellence for eight markets · 100M+ customers · reporting to the CEO
+M-PESA Africa · 2026–today · AI strategy and the AI Center of Excellence for eight markets · End-to-end redesign of work under way
 Amazon Bio Discovery · 2025–2026 · Agentic AI that designs antibodies, tested in partner labs · Launched April 2026 · cross-functional organization of 100+
 Stanford AI Institute · 2024–2025 · Published research on AI’s global economic impact · Cited by the Federal Reserve Board and the White House
 Alexa Map View · 2023–2024 · A phone scan becomes a floor plan with every device on it · Launched November 2023, in an app with 50M+ monthly users
@@ -29,7 +29,7 @@ Alexa Shopping · 2017–2018 · How Alexa understood spoken shopping requests �
 M-PESA Africa
 Managing Executive: AI · 2026–today · Nairobi
 Runs
-AI strategy and the AI Center of Excellence for eight markets, 100M+ customers and $2B+ revenue.
+The AI roadmap across customer experience, revenue growth, risk, fraud and operational efficiency, and the AI Center of Excellence.
 Now
 Under way across the group’s markets: AI moving from single tasks to whole chains of work, redesigned end to end.
 Amazon Bio Discovery, AWS
@@ -105,6 +105,7 @@ Halo Body · Training labels moved from experts’ eyes to clinical X-ray scans.
 A model can beat its benchmarks while customers think the product does not work. I run one measure of the customer’s outcome for the whole system, and hold every model metric to it.
 Alexa Shopping · I listened to 1,000 requests a week and wrote how each was judged. Success rose from about 50% to 85%.
 All thirteen principles
+Hands-on builds
 
 ## Writing
 

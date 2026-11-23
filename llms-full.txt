@@ -16,7 +16,7 @@ A master’s degree from Stanford GSB, and published research on AI’s global e
 ## Work
 
 2017–2026
-M-PESA Africa · 2026–today · AI strategy and the AI Center of Excellence for eight markets · 100M+ customers · reporting to the CEO
+M-PESA Africa · 2026–today · AI strategy and the AI Center of Excellence for eight markets · End-to-end redesign of work under way
 Amazon Bio Discovery · 2025–2026 · Agentic AI that designs antibodies, tested in partner labs · Launched April 2026 · cross-functional organization of 100+
 Stanford AI Institute · 2024–2025 · Published research on AI’s global economic impact · Cited by the Federal Reserve Board and the White House
 Alexa Map View · 2023–2024 · A phone scan becomes a floor plan with every device on it · Launched November 2023, in an app with 50M+ monthly users
@@ -32,7 +32,7 @@ Alexa Shopping · 2017–2018 · How Alexa understood spoken shopping requests �
 M-PESA Africa
 Managing Executive: AI · 2026–today · Nairobi
 Runs
-AI strategy and the AI Center of Excellence for eight markets, 100M+ customers and $2B+ revenue.
+The AI roadmap across customer experience, revenue growth, risk, fraud and operational efficiency, and the AI Center of Excellence.
 Now
 Under way across the group’s markets: AI moving from single tasks to whole chains of work, redesigned end to end.
 Amazon Bio Discovery, AWS
@@ -108,6 +108,7 @@ Halo Body · Training labels moved from experts’ eyes to clinical X-ray scans.
 A model can beat its benchmarks while customers think the product does not work. I run one measure of the customer’s outcome for the whole system, and hold every model metric to it.
 Alexa Shopping · I listened to 1,000 requests a week and wrote how each was judged. Success rose from about 50% to 85%.
 All thirteen principles
+Hands-on builds
 
 ## Writing
 
@@ -286,7 +287,7 @@ Steps with high compliance risk stay with a person. Legal, risk and compliance t
 ### The people who will use it
 
 The AI Center of Excellence sets shared standards for AI across eight markets and trains the people who use them: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
-A drawing of the idea. Toggle the scope above or step through below.
+A drawing of the idea.
 Sources
 Next
 Amazon Bio Discovery
@@ -337,13 +338,11 @@ A paper AWS published at launch put conventional antibody discovery at 6 to 12 m
 ### The agent proposes where to bind
 
 A scientist uploads a target protein and presses “Recommend hotspots,” and an AI agent proposes where on the protein to bind. The agent runs bioinformatics tools, and a language model turns their results into ranked regions, each with written evidence. On known antibody-target pairs, one of its top five regions overlapped the true binding site about 80% of the time.
-The agent’s ranked binding regions on a target, each with its evidence and rationale.
 02 Design
 
 ### Three models, 288,000 designs
 
 In the campaign with MSK, three design models, each working a different way, produced 96,000 nanobody designs apiece: 288,000 in all. A nanobody is a small antibody. The run used 2,000 GPUs in two AWS regions.
-A workflow built from models in the catalog, ready to publish for others to run.
 03 Judge
 
 ### What a design must pass to reach a lab
@@ -355,46 +354,20 @@ A second agent ranked the designs on five scores at once and kept the best trade
 
 Twist Bioscience, a launch lab partner, made the DNA for 100,000 designs, and a first lab screen sent 116 on to a binding test. Of the 116, 46 were confirmed to bind the target.
 Each lab result returns to the experiment that produced it and is checked before any model retrains on it. At launch, MSK said the campaign went from target to a lab order in weeks.
-Before · Target to candidate antibody
-Conventional discovery took 6 to 12 months; the launch campaign reached a lab order in weeks.
-Conventional discovery · Bench → handoff → computational → screening
+Conventional discovery
 6 to 12 months
-Amazon Bio Discovery · MSK launch campaign
-Weeks · target to lab order
+The launch campaign
+Weeks
 0 · 3 mo · 6 mo · 9 mo · 12 mo
-01 Ask · Hotspot reasoning agent (tap a ranked region)
-An AI agent runs bioinformatics tools and ranks five binding regions on the target protein.
-Target protein structure (Chain A / B) · ~80% top-5 overlap on known pairs
-Region 1 · Top ranked — Exposed loop pocket; bioinformatics tools + language model rationale.
-02 Design · 2,000 GPUs across two AWS regions
-Three distinct generative models produced 96,000 nanobody designs apiece: 288,000 in all.
-Design model 1 · 96,000
-Design model 2 · 96,000
-Design model 3 · 96,000
-2,000 GPUs →
-288,000
-Candidate nanobodies
-Generated in parallel from 40+ biological AI models in the catalog.
-03 Judge · Multi-objective ranking across five scores
-A second agent keeps the best trade-off fronts in sequence until 100,000 remain.
-Outer fronts kept in sequence until 100,000 candidates remained for DNA synthesis.
-04 Test · Closed wet-lab validation loop
-46 of 116 tested designs bound the target; every lab result returns to the experiment.
-100,000
-Made as DNA
-Twist Bioscience first lab screen
-116
-Binding assays
-Measured one by one for target affinity
-46 of 116
-Confirmed binders
-Target to lab order in weeks (MSK)
-↺ Lab results return to the experiment & are checked before retraining
-Interactive pipeline — click any step rail below or explore controls inside the stage.
+Conventional discovery took 6 to 12 months from a target to the antibody chosen for development; with Bio Discovery, the launch campaign reached a lab order in weeks.
+The agent’s ranked binding regions on a target, each with its evidence and rationale.
+A workflow built from models in the catalog, ready to publish for others to run.
+Front 1 · Front 2 · All 100,000 kept
+An illustration with two of the five scores: the agent kept the best trade-offs first, then the next best, until 100,000 remained.
+Sending selected designs to a partner lab, with cost and time estimates.
 
 ## The launch campaign, design by design
 
-46 of the 116 tested candidates were confirmed to bind the target (~40% confirmation rate).
 
 ## Launch
 
@@ -420,14 +393,14 @@ Address: https://njenga.ai/ai-index-2025/
 
 # Stanford AI Institute
 
-Published research on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots, measured from five sources.
+Published research on AI’s global economic impact, measured from five sources.
 Role
 Author of the text and analysis
 Research
 AI investment, jobs, enterprise adoption and robots
 Published
 7 April 2025, by Stanford HAI, in its [AI Index](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf)
-I wrote the text and analysis of published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots. HAI published it on 7 April 2025 as the economy chapter of its AI Index, Stanford’s annual report on the state of AI.
+I wrote the text and analysis of published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI’s global economic impact. HAI published it on 7 April 2025 as the economy chapter of its AI Index, Stanford’s annual report on the state of AI.
 The AI Index Report 2025, published 7 April 2025.
 
 ## What I decided
@@ -1215,7 +1188,7 @@ $100M+ a year
 Review
 Every weekly margin change, explained to a hundredth of a percentage point
 A sale’s price, from the cost of goods to the margin, with the margin’s edge under a loupe: a drawing of the idea.
-I owned the profit and loss of Amazon’s Bedding & Bath business, more than $100 million a year. I led the negotiations with its brands, set the supply-chain terms, and explained every weekly margin change to a hundredth of a percentage point.
+I owned the profit and loss of Amazon’s Bedding & Bath business, more than $100 million a year. I led the negotiations with its brands, set the supply-chain terms, and explained every weekly margin change.
 
 ## What I decided
 

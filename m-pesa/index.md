@@ -1,7 +1,7 @@
 ---
 title: Enterprise AI Transformation in Africa: M-PESA | Njenga Kariuki
 url: https://njenga.ai/m-pesa/
-updated: 2026-11-22
+updated: 2026-11-23
 ---
 
 2026–today · Vodacom FinTech Group
@@ -59,7 +59,7 @@ Steps with high compliance risk stay with a person. Legal, risk and compliance t
 ### The people who will use it
 
 The AI Center of Excellence sets shared standards for AI across eight markets and trains the people who use them: Kenya, Tanzania, the DRC, Mozambique, Lesotho, Ethiopia, Egypt and South Africa.
-A drawing of the idea. Toggle the scope above or step through below.
+A drawing of the idea.
 Sources
 Next
 Amazon Bio Discovery

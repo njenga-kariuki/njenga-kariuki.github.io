@@ -1,21 +1,21 @@
 ---
 title: Stanford AI Institute (HAI): AI Economy Research | Njenga Kariuki
 url: https://njenga.ai/ai-index-2025/
-updated: 2026-11-22
+updated: 2026-11-23
 ---
 
 2024–2025 · Stanford Institute for Human-Centered Artificial Intelligence (HAI)
 
 # Stanford AI Institute
 
-Published research on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots, measured from five sources.
+Published research on AI’s global economic impact, measured from five sources.
 Role
 Author of the text and analysis
 Research
 AI investment, jobs, enterprise adoption and robots
 Published
 7 April 2025, by Stanford HAI, in its [AI Index](https://hai.stanford.edu/assets/files/hai_ai-index-report-2025_chapter4_final.pdf)
-I wrote the text and analysis of published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI’s global economic impact: AI investment, jobs, enterprise adoption and robots. HAI published it on 7 April 2025 as the economy chapter of its AI Index, Stanford’s annual report on the state of AI.
+I wrote the text and analysis of published research from the Stanford Institute for Human-Centered Artificial Intelligence (HAI) on AI’s global economic impact. HAI published it on 7 April 2025 as the economy chapter of its AI Index, Stanford’s annual report on the state of AI.
 The AI Index Report 2025, published 7 April 2025.
 
 ## What I decided
