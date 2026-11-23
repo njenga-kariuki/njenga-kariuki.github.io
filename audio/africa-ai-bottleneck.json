@@ -3,63 +3,64 @@
   "author": "Njenga Kariuki",
   "synthesized": true,
   "model": "eleven_multilingual_v2",
-  "duration": 576.45,
+  "voice_isolated": true,
+  "duration": 580.57,
   "chapters": [
     {
       "id": "thesis",
       "num": "00",
       "title": "The hidden bottleneck",
       "start": 0.0,
-      "end": 51.97
+      "end": 49.83
     },
     {
       "id": "builders",
       "num": "01",
       "title": "What builders say",
-      "start": 53.17,
-      "end": 96.26
+      "start": 51.03,
+      "end": 93.29
     },
     {
       "id": "workflow-tests",
       "num": "02",
       "title": "A test for each workflow",
-      "start": 97.46,
-      "end": 197.68
+      "start": 94.49,
+      "end": 192.99
     },
     {
       "id": "shared-benchmarks",
       "num": "03",
       "title": "Define good together",
-      "start": 198.88,
-      "end": 270.03
+      "start": 194.19,
+      "end": 263.06
     },
     {
       "id": "buy-build-own",
       "num": "04",
       "title": "Buy, build, and own",
-      "start": 271.23,
-      "end": 429.54
+      "start": 264.26,
+      "end": 429.12
     },
     {
       "id": "two-questions",
       "num": "05",
       "title": "Two questions",
-      "start": 430.74,
-      "end": 491.67
+      "start": 430.32,
+      "end": 496.92
     },
     {
       "id": "people",
       "num": "06",
       "title": "Who builds the tests",
-      "start": 492.87,
-      "end": 531.69
+      "start": 498.12,
+      "end": 534.34
     },
     {
       "id": "stakes",
       "num": "07",
       "title": "Beyond Africa",
-      "start": 532.89,
-      "end": 576.45
+      "start": 535.54,
+      "end": 580.57
     }
   ]
 }

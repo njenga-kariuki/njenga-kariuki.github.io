@@ -6,14 +6,14 @@ const D = document;
 const $ = (s, r = D) => r.querySelector(s);
 
 const DEFAULT_CHAPTERS = [
-  { id: 'thesis', num: '00', title: 'The hidden bottleneck', start: 0, end: 52 },
-  { id: 'builders', num: '01', title: 'What builders say', start: 53, end: 96 },
-  { id: 'workflow-tests', num: '02', title: 'A test for each workflow', start: 97, end: 198 },
-  { id: 'shared-benchmarks', num: '03', title: 'Define good together', start: 199, end: 270 },
-  { id: 'buy-build-own', num: '04', title: 'Buy, build, and own', start: 271, end: 430 },
-  { id: 'two-questions', num: '05', title: 'Two questions', start: 431, end: 492 },
-  { id: 'people', num: '06', title: 'Who builds the tests', start: 493, end: 532 },
-  { id: 'stakes', num: '07', title: 'Beyond Africa', start: 533, end: 576 },
+  { id: 'thesis', num: '00', title: 'The hidden bottleneck', start: 0, end: 50 },
+  { id: 'builders', num: '01', title: 'What builders say', start: 51, end: 93 },
+  { id: 'workflow-tests', num: '02', title: 'A test for each workflow', start: 94, end: 193 },
+  { id: 'shared-benchmarks', num: '03', title: 'Define good together', start: 194, end: 263 },
+  { id: 'buy-build-own', num: '04', title: 'Buy, build, and own', start: 264, end: 429 },
+  { id: 'two-questions', num: '05', title: 'Two questions', start: 430, end: 497 },
+  { id: 'people', num: '06', title: 'Who builds the tests', start: 498, end: 534 },
+  { id: 'stakes', num: '07', title: 'Beyond Africa', start: 536, end: 581 },
 ];
 
 const SPEEDS = [1, 1.25, 1.5, 2];
@@ -94,7 +94,7 @@ export async function initEssayAudio({ live }) {
     ? probe.manifest.chapters
     : DEFAULT_CHAPTERS;
 
-  let duration = (probe.manifest && Number(probe.manifest.duration)) || chapters[chapters.length - 1].end || 576;
+  let duration = (probe.manifest && Number(probe.manifest.duration)) || chapters[chapters.length - 1].end || 581;
   let currentTime = 0;
   let pendingSeek = null;
   let speedIdx = 0;
