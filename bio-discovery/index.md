@@ -70,7 +70,7 @@ The agent’s ranked binding regions on a target, each with its evidence and rat
 A workflow built from models in the catalog, ready to publish for others to run.
 Front 1 · Front 2 · All 100,000 kept
 An illustration with two of the five scores: the agent kept the best trade-offs first, then the next best, until 100,000 remained.
-Sending selected designs to a partner lab, with cost and time estimates.
+Sending selected designs to a partner lab.
 
 ## The launch campaign, design by design
 

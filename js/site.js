@@ -515,6 +515,8 @@
     let cur = null, raf = 0;
     const pick = () => {
       raf = 0;
+      // while a full-size picture or a sheet is open the page does not scroll and the pinned stage is out of place: keep the step
+      if (H.classList.contains('sheet-open')) return;
       const sb = stageEl.getBoundingClientRect();
       const line = PHONE() ? Math.min(innerHeight * 0.82, Math.max(sb.bottom, head() + 40) + (innerHeight - Math.max(sb.bottom, head())) * 0.28) : innerHeight * 0.48;
       let k = 0;
@@ -900,20 +902,35 @@
     sets.join(',').split(',').forEach(c => { const m = c.trim().match(/^(\S+)\s+(\d+)w$/); if (m && +m[2] > bw) { bw = +m[2]; best = m[1]; } });
     return best;
   }
-  function lightbox(im) {
+  // the part of its whole original that a cropped picture shows, as fractions [x0, y0, x1, y1]: from the <source> in use, else the <img>.
+  // data-box-at="center" marks a crop whose content sits in its middle with margin on both sides: the full-size view keeps that middle
+  // in view where the part is wider than the screen, where any other crop is shown from its start, as text is read
+  function cropBox(im) {
+    const cur = (im.currentSrc || im.src || '').split('/').pop();
+    let v = im.dataset.box || '', at = im.dataset.boxAt || '';
+    const pic = im.closest('picture');
+    if (pic && cur) for (const sc of pic.querySelectorAll('source[data-box]')) if ((sc.getAttribute('srcset') || '').includes(cur)) { v = sc.dataset.box; at = sc.dataset.boxAt || ''; break; }
+    const b = v.trim().split(/\s+/).map(Number);
+    if (!(b.length === 4 && b.every(n => n >= 0 && n <= 1) && b[2] > b[0] && b[3] > b[1])) return null;
+    b.mid = at === 'center';
+    return b;
+  }
+  function lightbox(im, opener, kb) {
     const fig = im.closest('figure');
     // v2.15 (D-075): an opening figure's caption element also holds the picture counter; [data-cap] holds the caption text alone
     const capEl = fig && ($('[data-cap]', fig) || $('figcaption', fig));
     const cap = capEl ? capEl.textContent.trim() : '';
     const el = D.createElement('div');
-    el.className = 'lbx';
+    el.className = kb ? 'lbx kb' : 'lbx';
     // a picture with no description of its own (the later pictures of an opening set) is named by its caption
-    el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', im.alt || cap || 'Picture');
-    el.innerHTML = `<div class="lbx-stage"><img class="lbx-img" alt=""></div>${cap ? '<p class="lbx-cap"></p>' : ''}<button class="lbx-x" type="button" aria-label="Close">${X_ICON}</button>`;
+    el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', im.alt || cap || 'Picture'); el.setAttribute('aria-describedby', 'lbx-keys');
+    el.innerHTML = `<div class="lbx-stage"><img class="lbx-img" alt=""></div>${cap ? '<p class="lbx-cap"></p>' : ''}<p class="vh" id="lbx-keys">Plus and minus zoom. Zero shows the whole picture. Arrow keys move it.</p><button class="lbx-x" type="button" aria-label="Close">${X_ICON}</button>`;
     const img = $('.lbx-img', el), stage = $('.lbx-stage', el);
     img.alt = im.alt || '';
-    img.src = im.currentSrc || im.src;
-    const big = biggest(im);
+    // a picture shown as a crop (data-full) opens as its whole original; any other opens at its largest file
+    const full = im.dataset.full ? new URL(im.dataset.full, location.href).href : '';
+    img.src = full || im.currentSrc || im.src;
+    const big = full ? '' : biggest(im);
     if (big && big !== img.src) { const pre = new Image(); pre.onload = () => { img.src = big; }; pre.src = big; }
     if (cap) $('.lbx-cap', el).textContent = cap;
     D.body.appendChild(el);
@@ -933,9 +950,46 @@
       const r = stage.getBoundingClientRect(), ox = cx - (r.left + r.width / 2), oy = cy - (r.top + r.height / 2);
       const k = ns / s; tx = ox - (ox - tx) * k; ty = oy - (oy - ty) * k; s = ns; clamp();
     };
+    // a crop opens as its whole original; wherever the whole would come out smaller than the crop was on the page, the view then
+    // eases into the part the page showed (at once where motion is reduced), and a touch before that leaves it whole
+    const box = full ? cropBox(im) : null;
+    let touched = false;
+    if (box && !kb) {
+      const place = () => {
+        const fitW = img.offsetWidth;
+        if (!img.naturalWidth || !fitW || s !== 1) return;
+        const fit = fitW / img.naturalWidth, br = im.getBoundingClientRect();
+        const shown = Math.min(br.width, br.height * im.naturalWidth / im.naturalHeight) / ((box[2] - box[0]) * img.naturalWidth);
+        if (fit >= 0.6 || fit >= shown * 1.15) return;
+        const z = Math.min(5, 1.3 / fit, Math.max(shown * 1.15, 0.8) / fit);
+        if (z <= 1.01) return;
+        setTimeout(() => {
+          if (touched || s !== 1 || !el.isConnected) return;
+          const i0 = img.getBoundingClientRect(), sr = stage.getBoundingClientRect(), cs = getComputedStyle(stage);
+          const cl = sr.left + parseFloat(cs.paddingLeft), ct = sr.top + parseFloat(cs.paddingTop), cw = sr.width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight), ch = sr.height - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+          // a centred crop is kept within the screen's width, give or take 3% a side (its own margin), so nothing in it is cut
+          const zz = box.mid ? Math.min(z, 1.06 * sr.width / ((box[2] - box[0]) * i0.width)) : z;
+          if (zz <= 1.01) return;
+          // the picture's box once it is zoomed about its centre
+          const zw = i0.width * zz, zh = i0.height * zz, zl = i0.left + i0.width / 2 - zw / 2, zt = i0.top + i0.height / 2 - zh / 2;
+          const f = (im.dataset.focus || '').trim().split(/\s+/).map(Number), at = f.length === 2 && f.every(n => n >= 0 && n <= 1) ? f : [box[0], box[1]];
+          const rw = (box[2] - box[0]) * zw, rh = (box[3] - box[1]) * zh;
+          // the part it showed sits in the middle; where that part is wider or taller than the room, its start (or data-focus) comes to the corner, as text is read
+          s = zz;
+          tx = rw > cw && !box.mid ? cl + 4 - (zl + at[0] * zw) : cl + cw / 2 - (zl + (box[0] + box[2]) / 2 * zw);
+          ty = rh > ch ? ct + 4 - (zt + at[1] * zh) : ct + ch / 2 - (zt + (box[1] + box[3]) / 2 * zh);
+          clamp();
+          img.style.transition = RM ? 'none' : 'transform 520ms cubic-bezier(.16,1,.3,1)';
+          img.style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
+          el.classList.add('zoomed');
+        }, RM ? 0 : 560);
+      };
+      if (img.complete && img.naturalWidth) place(); else img.addEventListener('load', place, { once: true });
+    }
     const pts = new Map();
     let pinch = null, drag = null, lastTap = 0, dragDown = 0;
     stage.addEventListener('pointerdown', e => {
+      touched = true;
       stage.setPointerCapture(e.pointerId);
       pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
       if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), s, cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 }; drag = null; }
@@ -977,19 +1031,39 @@
       if (closed) return; closed = true;
       el.classList.remove('on'); H.classList.remove('sheet-open');
       D.removeEventListener('keydown', key, true);
-      setTimeout(() => { el.remove(); im.focus && im.closest('[tabindex]') ? im.closest('[tabindex]').focus({ preventScroll: true }) : null; }, RM ? 0 : 240);
+      setTimeout(() => { el.remove(); const back = opener || (im.focus && im.closest('[tabindex]')); if (back) back.focus({ preventScroll: true }); }, RM ? 0 : 240);
     }
-    const key = e => { if (e.key === 'Escape') { e.preventDefault(); close(); } if (e.key === 'Tab') { e.preventDefault(); x.focus(); } };
+    const key = e => {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key === 'Tab') { e.preventDefault(); el.classList.add('kb'); x.focus(); return; }
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      // the picture answers the keyboard too: plus and minus zoom about the middle, zero shows it whole, the arrows move it while it is zoomed
+      const r = stage.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2, k = e.key;
+      if (k === '+' || k === '=') { zoomAt(cx, cy, Math.min(5, s * 1.4)); }
+      else if (k === '-' || k === '_') { zoomAt(cx, cy, Math.max(1, s / 1.4)); }
+      else if (k === '0') { s = 1; clamp(); }
+      else if (s > 1.01 && k.startsWith('Arrow')) { const d = 96; tx += k === 'ArrowLeft' ? d : k === 'ArrowRight' ? -d : 0; ty += k === 'ArrowUp' ? d : k === 'ArrowDown' ? -d : 0; clamp(); }
+      else return;
+      e.preventDefault(); touched = true; apply(true);
+    };
     D.addEventListener('keydown', key, true);
     x.addEventListener('click', close);
   }
   D.addEventListener('click', e => {
+    const ob = e.target.closest('.bd-open');
+    if (ob) { const oi = ob.closest('figure') && ob.closest('figure').querySelector('img'); if (oi) lightbox(oi, ob, e.detail === 0); return; }
     const im = e.target.closest(PICS);
     if (!im || e.defaultPrevented || im.closest('a')) return;
     if (im.closest('.ch-plate') && im.closest('.ch-plate').dataset.dragged) return;
     lightbox(im);
   });
   $$(PICS).forEach(im => { if (!im.closest('a')) im.classList.add('zoomable'); });
+  // a cropped picture's whole original is fetched once its figure comes near the view, so the full-size view opens at once
+  const fullPics = $$('img[data-full]');
+  if (fullPics.length && 'IntersectionObserver' in window && !(navigator.connection && navigator.connection.saveData)) {
+    const fullIO = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; new Image().src = new URL(e.target.dataset.full, location.href).href; fullIO.unobserve(e.target); }), { rootMargin: '300px' });
+    fullPics.forEach(im => fullIO.observe(im));
+  }
 
   /* ------------------------------------------------------------ a drawing is never read under 12 px (v2.8): where a laptop's
      or a tablet's column draws a wide drawing smaller than that, its phone twin, drawn for 358 px with every label at 12 px

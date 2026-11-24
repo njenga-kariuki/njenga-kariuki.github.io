@@ -74,7 +74,7 @@ The public sources behind each chapter, and the owner of every picture on the si
 - Building a workflow from models in the catalog. · Amazon. All rights reserved.
 - How a predicted property is spread across the candidates, with outliers marked. · Amazon. All rights reserved.
 - The agent’s ranked binding regions on a target, each with its evidence and rationale. · Amazon Web Services. All rights reserved.
-- Sending selected designs to a partner lab, with cost and time estimates. · Amazon Web Services. All rights reserved.
+- Sending selected designs to a partner lab. · Amazon Web Services. All rights reserved.
 
 ## Stanford AI Institute
 

@@ -1373,8 +1373,11 @@ svg.dw.dw-narrow { display: none; }
   .story > .stage, .story > .stage.film-stage { display: flex; flex-direction: column; order: -1; align-self: stretch; position: sticky; z-index: 5;
     top: calc(env(safe-area-inset-top, 0px) + var(--head)); height: 40svh; min-height: 210px; max-height: 460px; overflow: visible;
     margin: 0 calc(-1 * var(--gut-r)) 0 calc(-1 * var(--gut)); width: auto; border-radius: 0; padding: 8px max(12px, var(--gut-r)) 0 max(12px, var(--gut)); }
-  .story > .stage::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 32px; pointer-events: none;
-    background: linear-gradient(var(--paper), rgba(255, 255, 255, 0)); }
+  /* v4.4: an eased fade over 52 px, almost solid for its first 16, so a line passing under the drawing dissolves whole: no letters
+     cut at the edge, and no half line left standing where a solid band would end */
+  .story > .stage::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 36px; pointer-events: none;
+    background: linear-gradient(rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, .97) 5.5px, rgba(255, 255, 255, .88) 11px, rgba(255, 255, 255, .70) 17.5px,
+      rgba(255, 255, 255, .44) 23.5px, rgba(255, 255, 255, .18) 30px, rgba(255, 255, 255, 0) 36px); }
   .story > .stage > svg { flex: 1; min-height: 0; width: 100%; height: 100%; }
   .story > .stage .cap { display: none; }
   .story > .stage.two > svg[data-v="w"] { display: none; }
@@ -1471,7 +1474,9 @@ svg.dw.dw-narrow { display: none; }
   #plates > .pl .pl-t { margin-top: 9px; padding-bottom: 22px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; }
   #plates > .pl .pl-n { font-size: 16px; line-height: 1.25; }
   #plates > .pl .pl-y { font-size: 13px; }
-  #plates > .pl .pl-l, #plates > .pl .pl-p { display: none; }
+  /* v4.4: the line laptops show under each name is shown on phones too, under the name; the proof line stays off */
+  #plates > .pl .pl-p { display: none; }
+  #plates > .pl .pl-l { display: block; order: -1; margin-top: 2px; min-height: 0; max-width: none; font-size: 13px; line-height: 1.38; color: var(--gray); text-wrap: pretty; }
   .work-count { display: none !important; }
 }
 
@@ -1538,7 +1543,8 @@ svg.dw.dw-narrow { display: none; }
 .crumb-b:active .chev { transform: translateY(2px); }
 .p-chapter .crumb b { pointer-events: none; }
 .hd.rh .crumb b { pointer-events: auto; }
-html.sheet-open, html.sheet-open body { overflow: hidden; }
+/* the lock goes on the root alone: overflow on body as well makes body the scrolling box, and every pinned stage then lets go of its place behind the sheet */
+html.sheet-open { overflow: hidden; }
 .sheet { position: fixed; inset: 0; z-index: 100; }
 .sh-back { position: absolute; inset: 0; background: rgba(11, 11, 10, .32); opacity: 0; transition: opacity var(--t2) linear; }
 .sheet.on .sh-back { opacity: 1; }
@@ -1587,11 +1593,12 @@ img.zoomable { cursor: zoom-in; }
 .lbx.zoomed .lbx-stage { cursor: grab; }
 .lbx-img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; background: var(--paper); transform-origin: center; user-select: none; -webkit-user-drag: none; }
 .lbx-cap { flex: none; max-width: 46em; margin: 0 auto; padding: 8px 20px 18px; font-size: 13px; line-height: 1.45; color: #d9d7d0; text-align: center; }
-.lbx-x { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 6px); right: max(6px, env(safe-area-inset-right, 0px)); display: grid; place-items: center;
+.lbx-x { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 10px); right: max(10px, env(safe-area-inset-right, 0px)); display: grid; place-items: center;
   width: 44px; height: 44px; border-radius: 50%; color: #fff; background: rgba(255, 255, 255, .12); }
 .lbx-x svg { width: 16px; height: 16px; }
 .lbx-x:active { background: rgba(255, 255, 255, .24); }
-.lbx-x:focus-visible { outline-color: #fff; }
+.lbx-x:focus-visible { outline: none; }
+.lbx.kb .lbx-x:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
 /* ---------- the career on a laptop, finished (v2.7): bars at 8 px, each result on its bar, no key; the record as year
    stacks, its marks named in the row's own words */
@@ -1849,7 +1856,8 @@ img.zoomable { cursor: zoom-in; }
 .stage[data-s="4"] .sc .sc-cd[data-c="4"] { opacity: 1; }
 .stage[data-s="4"] .sc .sc-note[data-n="4"] { opacity: 1; transition: opacity var(--t2) linear 140ms; }
 /* the phone: the scene travels; the strip above it says where the reader is */
-.sc.sc-p { overflow: hidden; }
+/* v4.4: the strip is cut at the band's edges, where a phone shows it running on, not 16 px inside them */
+.sc.sc-p { overflow: visible; clip-path: inset(0 calc(-1 * max(12px, var(--gut-r))) 0 calc(-1 * max(12px, var(--gut)))); }
 .sc-p .sc-pan { transition: transform var(--t3) var(--out); }
 .sc-p .sc-name { opacity: 0; transition: opacity var(--t2) linear; }
 .sc-p .sc-name { font-size: 13.4px; }
@@ -2876,8 +2884,9 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
 .hai-k { font-size: clamp(12.5px, 3.4cqw, 14.5px); font-weight: 500; color: var(--ink); letter-spacing: -0.005em; white-space: nowrap; }
 .hai-k::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--c2, #12907e); vertical-align: 0.07em; }
 .hai-sub { padding-left: 14px; font-size: clamp(12px, 3.1cqw, 13px); line-height: 1.3; color: var(--ink-2); }
-.hai-sub .nw { white-space: nowrap; }
-.hai-rows { flex: 1; min-height: 0; display: grid; grid-auto-rows: 1fr; }
+.hai-sub .nw, .hai-sub .hai-j { white-space: nowrap; }
+/* v4.4: the rows share the spare height equally, so each measure sits the same distance from its rule whatever its line count */
+.hai-rows { flex: 1; min-height: 0; display: grid; grid-auto-rows: auto; }
 .hai-r { display: flex; flex-direction: column; justify-content: center; gap: 3px; min-height: 0; }
 .hai-r + .hai-r { border-top: 1px solid var(--rule); }
 .hai-rn { font-size: clamp(13px, 4cqw, 16.5px); font-weight: 500; color: var(--ink); line-height: 1.2; letter-spacing: -0.008em; }
@@ -2888,18 +2897,41 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .hai-rd { display: none; }
   .hai-rn { font-size: clamp(12.5px, 5cqw, 16px); }
 }
-/* a phone tile or a small tablet tile: the frame, one rule, then the three measures as a short list (no row rules: at this
-   size they read as a menu) */
+/* a phone tile or a small tablet tile: the frame, one rule, then the three measures as a short list set down to the tile's
+   foot (no row rules: at this size they read as a menu). The lines start at the tile's edge, under the dot, so the journal's
+   name has the width; each phrase takes a line; a phrase that does not fit wraps, it is never cut */
 @container (max-width: 263px) {
-  .hai-in { padding: 11px 11px 9px; line-height: 1.25; }
+  .hai-in { padding: 11px 11px 10px; line-height: 1.25; }
   .hai-hd { gap: 2px; padding-bottom: 8px; }
   .hai-k { font-size: 12.5px; line-height: 1.25; }
-  .hai-sub { font-size: 12px; line-height: 1.25; }
-  .hai-sub .nw + .nw { display: block; white-space: normal; text-wrap: balance; }
-  .hai-rows { flex: 0 1 auto; display: block; padding-top: 8px; }
-  .hai-r { display: block; }
-  .hai-r + .hai-r { border-top: 0; margin-top: 7px; }
-  .hai-rn { display: block; font-size: 12.5px; line-height: 1.2; font-weight: 400; color: var(--ink); padding-left: 14px; }
+  .hai-sub { padding-left: 0; font-size: 12px; line-height: 1.25; }
+  .hai-sub .nw { white-space: normal; }
+  .hai-sub .nw + .nw::before, .hai-sub .hai-fam .nw::before { content: "\A"; white-space: pre; }
+  .hai-rows { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; padding-top: 8px; }
+  .hai-r { display: block; flex: none; }
+  .hai-r + .hai-r { border-top: 0; margin-top: 2px; }
+  .hai-rn { display: block; font-size: 12.5px; line-height: 1.2; font-weight: 400; color: var(--ink); padding-left: 0; }
+}
+/* tiles under 172 px (phones narrower than about 388 px): no room for "a Nature Portfolio journal" on a line of its own */
+@container (max-width: 171px) { .hai-sub .hai-fam { display: none; } }
+/* 156 to 163 px (the 360 px phones): two lines still fit, with 1 px less padding a side and the line set a hair tighter */
+@container (max-width: 163px) {
+  .hai-in { padding: 11px 10px 10px; }
+  .hai-sub { letter-spacing: -0.015em; }
+}
+/* under 156 px (344 and 320 px phones): the frame runs as text over three lines, the journal's name whole on the last */
+@container (max-width: 155px) {
+  .hai-in { padding: 10px 10px 8px; }
+  .hai-hd { padding-bottom: 6px; }
+  .hai-sub { letter-spacing: 0; }
+  .hai-sub .nw + .nw::before { content: none; }
+  .hai-rows { padding-top: 6px; }
+}
+@container (max-width: 146px) {
+  .hai-in { padding: 9px 10px 8px; }
+  .hai-hd { gap: 1px; padding-bottom: 5px; }
+  .hai-sub { line-height: 1.2; }
+  .hai-rows { padding-top: 5px; }
 }
 @media (prefers-reduced-motion: reduce) { .hai-in, .pl-a:hover .hai-in { transform: none; transition: none; } }
 
@@ -3038,9 +3070,17 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
 .stage[data-stage="bio-discovery"][data-s="2"] .bd-panel[data-p="2"],
 .stage[data-stage="bio-discovery"][data-s="3"] .bd-panel[data-p="3"],
 .stage[data-stage="bio-discovery"][data-s="4"] .bd-panel[data-p="4"] { visibility: visible; opacity: 1; transition: opacity var(--t2) linear; }
+/* v4.4: the three screens start at one top whatever their captions' length, so the picture does not move between steps */
+.stage[data-stage="bio-discovery"] .bd-panel[data-p="1"], .stage[data-stage="bio-discovery"] .bd-panel[data-p="2"], .stage[data-stage="bio-discovery"] .bd-panel[data-p="4"] { justify-content: flex-start; }
 .stage .ev.bd-shot { position: relative; margin: 0; max-width: none; min-height: 0; display: flex; flex-direction: column; }
-.stage .ev.bd-shot::after { content: ""; position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; pointer-events: none;
-  background: rgba(11, 11, 10, .62) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M8.5 2.5h3v3M11.5 2.5 8 6M5.5 11.5h-3v-3M2.5 11.5 6 8' fill='none' stroke='%23fff' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+/* v4.4: nothing of the site's sits on the product screen; the control that opens the whole screen is in the caption row */
+.stage .ev.bd-shot figcaption { display: flex; align-items: flex-start; gap: 12px; }
+.bd-shot figcaption > span { flex: 1 1 auto; min-width: 0; }
+.bd-open { position: relative; flex: none; display: grid; place-items: center; width: 28px; height: 28px; margin-left: auto; border-radius: 50%; border: 1px solid var(--rule);
+  background: var(--paper); color: var(--ink-2); cursor: zoom-in; transition: color var(--t1) linear, border-color var(--t1) linear; }
+.bd-open::before { content: ""; position: absolute; inset: -7px; }
+.bd-open svg { width: 12px; height: 12px; }
+@media (hover: hover) { .bd-open:hover { color: var(--ink); border-color: var(--gray); } }
 .bd-shot picture { display: contents; }
 .stage .ev.bd-shot img { flex: 0 1 auto; min-height: 0; width: 100%; height: auto; object-fit: contain; border-radius: 10px; background: #0c0d12; }
 .stage .ev.bd-shot figcaption, .bd-cap { flex: none; margin-top: 8px; font-size: var(--f13); line-height: 1.45; color: var(--gray); }
@@ -3050,6 +3090,10 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
 .stage[data-stage="bio-discovery"] .bd-svg { flex: 0 1 auto; min-height: 0; }
 .bd-svg-n { display: none; }
 .bd-svg text { font-family: var(--font); font-variant-numeric: tabular-nums; }
+/* v4.4: the stage script sets --k, the drawing's scale, and the labels divide by it: 13 px on the narrow chart at every width;
+   on the wide one never above 14 px and never larger against the marks than drawn */
+.bd-svg-n[style*="--k"] text { font-size: calc(13px / var(--k)); }
+.bd-svg-w[style*="--k"] text { font-size: calc(min(14px, 12.5px * var(--k)) / var(--k)); }
 .bd-pf-ctrl { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--rule); border-radius: 9px; background: var(--paper); align-self: flex-start; }
 .bd-pf-ctrl button { min-height: 30px; padding: 0 11px; border-radius: 7px; font-size: 12.5px; color: var(--ink-2); transition: background var(--t1) linear, color var(--t1) linear; }
 .bd-pf-ctrl button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
@@ -3094,13 +3138,21 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .bd-svg-n { display: block; }
   /* a phone pins this stage at the house height, like every other; each panel fits inside it, and the screen scales to the room it has */
   .stage[data-stage="bio-discovery"] { min-height: 274px; }
-  .stage[data-stage="bio-discovery"] .bd-panel { padding: 0 2px; gap: 6px; }
+  .stage[data-stage="bio-discovery"] .bd-panel { padding: 0; gap: 6px; }
   .stage .ev.bd-shot { flex: 0 1 auto; }
   .stage .ev.bd-shot figcaption, .bd-cap { margin-top: 6px; font-size: 12px; line-height: 1.35; }
-  .bd-card { padding: 2px 2px 0; }
+  .bd-open { width: 24px; height: 24px; }
+  .bd-open::before { inset: -9px; }
+  .bd-open svg { width: 11px; height: 11px; }
+  .bd-card { padding: 2px 0 0; }
   .bd-bar-hd span { display: none; }
   .bd-pf-ctrl { display: flex; width: 100%; flex: none; }
   .bd-pf-ctrl button { flex: 1 1 0; padding: 0 6px; font-size: 12px; text-align: center; justify-content: center; }
+}
+/* v4.4: from 900 to 1139 px the stage is too narrow for the wide Judge chart to keep 12 px labels, so the narrow chart shows */
+@media (min-width: 900px) and (max-width: 1139px) {
+  .bd-svg-w { display: none; }
+  .bd-svg-n { display: block; max-width: 380px; }
 }
 
 /* ---------- 11. About Page Sticky Top Matrix Readout, Expand All & Patents Sync (Rec 7) */
@@ -3214,7 +3266,7 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
 }
 @media (max-width: 899px) {
   .story > .stage, .story > .stage.film-stage { border-bottom: 1px solid var(--rule); }
-  .story > .stage::after { height: 26px; }
+  .story > .stage::after { height: 36px; }
   .story:not(.solo) .step { padding-top: 28px; }
 }
 @media (max-width: 359px) {

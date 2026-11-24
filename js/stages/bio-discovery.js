@@ -14,6 +14,11 @@ export function wire(st, ctx) {
   }
   pfBtns.forEach(b => b.addEventListener('click', () => pickFront(b.dataset.pf, true)));
   pickFront('all', false);
+  // the chart's labels keep one size on every screen: the drawing scales, its words do not (the stylesheet divides by --k)
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(es => es.forEach(e => { const vb = e.target.viewBox.baseVal.width, w = e.contentRect.width; if (vb && w) e.target.style.setProperty('--k', (w / vb).toFixed(4)); }));
+    $$('.bd-svg', st).forEach(g => ro.observe(g));
+  }
   return {
     to(s) {
       const k = Math.max(0, Math.min(4, parseInt(s, 10) || 0));
