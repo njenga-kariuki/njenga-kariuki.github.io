@@ -2,7 +2,7 @@
 title: "Africa's Hidden AI Bottleneck"
 subtitle: "Africa lacks a shared, testable definition of what good AI looks like under local conditions. That definition is what turns interest into demand, and demand is what makes every other AI investment pay back."
 author: "Njenga Kariuki"
-author_role: "Managing Executive: AI, M-PESA Africa (Vodacom FinTech Group); former 12-year Amazon & AWS AI product executive; Stanford GSB MS & Stanford HAI published researcher"
+author_role: "Managing Executive: AI, M-PESA Africa (Vodacom FinTech Group); former 12-year Amazon/AWS AI product executive; Stanford GSB MS & Stanford HAI published researcher"
 date: "2026-11-22"
 updated: "2026-11-23"
 url: "https://njenga.ai/writing/africa-ai-bottleneck/"
@@ -152,7 +152,7 @@ Every week I learn from people who have been working in these markets far longer
 
 ---
 
-**About the author:** [Njenga Kariuki](https://njenga.ai/about/) leads AI transformation across Vodacom FinTech Group, including M-PESA Africa (serving 100M+ consumers and merchants across eight markets), after twelve years building consumer, health, and enterprise AI products at Amazon and AWS, from Alexa and Halo to Amazon Bio Discovery. He holds a master’s degree from Stanford Graduate School of Business and published research on AI’s global economic impact with the Stanford Institute for Human-Centered AI (2025). [All 22 sources](https://njenga.ai/credits/#africa-ai-bottleneck).
+**About the author:** [Njenga Kariuki](https://njenga.ai/about/) leads AI transformation across Vodacom FinTech Group, including M-PESA Africa (serving 100M+ consumers and merchants across eight markets), after twelve years building consumer, health, and enterprise AI products at Amazon/AWS, from Alexa and Halo to Amazon Bio Discovery. He holds a master’s degree from Stanford Graduate School of Business and published research on AI’s global economic impact with the Stanford Institute for Human-Centered AI (2025). [All 22 sources](https://njenga.ai/credits/#africa-ai-bottleneck).
 
 ## Sources (12)
 

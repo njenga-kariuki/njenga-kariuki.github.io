@@ -1,10 +1,10 @@
 ---
 title: Njenga Kariuki | AI Executive: M-PESA Africa & Former AWS
 url: https://njenga.ai/
-updated: 2026-11-23
+updated: 2026-11-25
 ---
 
-# Leading AI transformation at M-PESA, after 12 years building AI products at Amazon and AWS.
+# Leading AI transformation at M-PESA, after 12 years building AI products at Amazon/AWS.
 
 Eight markets, 100M+ customers and $2B+ revenue across Vodacom FinTech Group, reporting to the CEO.
 From Alexa to Amazon Bio Discovery, agentic AI for drug discovery, leading organizations of 100+.

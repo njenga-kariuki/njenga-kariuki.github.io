@@ -3293,3 +3293,13 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
   .stage[data-s="2"] .sc-p .sc-part:not([data-k="2"]) text, .stage[data-s="3"] .sc-p .sc-part:not([data-k="3"]) text,
   .stage[data-s="4"] .sc-p .sc-part:not([data-k="4"]) text { opacity: 0; }
 }
+
+/* ---------------------------------------------------------------- v4.5 (D-080)
+   "Amazon/AWS" at headline size: the slash pulled toward the n, where the open space above the lowercase made its left
+   side read loose, and AWS kept close.
+   The first screen's proof lines keep their phrases whole in Safari, Chrome and Firefox: "and $2B+ revenue" everywhere
+   (.nw); "agentic AI for drug discovery" on phones, so the line breaks after "Bio Discovery,"; "and published" from
+   400 px up, so no line ends on "and" (at 390 px it would cost a line). */
+.headline .sl, .cv-line .sl { margin: 0 .01em 0 -.05em; }
+@media (max-width: 599px) { .lead.beats .nwp { white-space: nowrap; } }
+@media (min-width: 400px) { .lead.beats .nwb { white-space: nowrap; } }

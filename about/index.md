@@ -1,13 +1,13 @@
 ---
 title: About Njenga Kariuki | Enterprise AI Executive (Africa & US)
 url: https://njenga.ai/about/
-updated: 2026-11-23
+updated: 2026-11-25
 ---
 
 # Njenga Kariuki
 
 I lead AI transformation across Vodacom FinTech Group, including M-PESA: 100M+ customers in eight markets and $2B+ revenue. I report to the CEO and am building the AI Center of Excellence.
-Before that, I spent twelve years at Amazon and AWS building AI products and businesses from zero to one, in software, hardware and mobile apps, across e-commerce, connected devices, supply chain, health and life sciences. I led cross-functional organizations of 100+ engineers, scientists and product managers, directed a $100M+ a year AI investment portfolio, and delivered machine learning, computer vision and large language model capabilities at global scale. Most recently I led product for Amazon Bio Discovery, an agentic AI application for antibody design.
+Before that, I spent twelve years at Amazon/AWS building AI products and businesses from zero to one, in software, hardware and mobile apps, across e-commerce, connected devices, supply chain, health and life sciences. I led cross-functional organizations of 100+ engineers, scientists and product managers, directed a $100M+ a year AI investment portfolio, and delivered machine learning, computer vision and large language model capabilities at global scale. Most recently I led product for Amazon Bio Discovery, an agentic AI application for antibody design.
 I hold a master’s degree from Stanford Graduate School of Business, and my research on AI’s global economic impact was published by the Stanford Institute for Human-Centered AI in 2025.
 My approach · Patents and papers · Hands-on builds · Education
 
