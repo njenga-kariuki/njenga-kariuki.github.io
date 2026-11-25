@@ -3303,3 +3303,28 @@ main { padding-bottom: clamp(40px, 4.5vw, 64px); }
 .headline .sl, .cv-line .sl { margin: 0 .01em 0 -.05em; }
 @media (max-width: 599px) { .lead.beats .nwp { white-space: nowrap; } }
 @media (min-width: 400px) { .lead.beats .nwb { white-space: nowrap; } }
+
+/* ---------------------------------------------------------------- v4.6 (D-082)
+   On phones the portrait leaves its own row above the headline and sits in the header beside the full name, cropped to
+   the head and as large as the face was in the row: 30 px from 400 px, 28 from 380, 26 from 360. Under 360 px there is
+   no room for it and the full name stays. The links' gap narrows with the width so the space before "Work" is always at
+   least 2.5 times the space between the links (checked at every width from 320 to 440 px); a link's tap area reaches half
+   the gap, so neighbours never overlap. The Work tiles' hover arrow is not drawn on touch screens, where it only showed as
+   a tap left behind, and its 19 px go back to the name, so "Amazon Bio Discovery" sits on one line from 371 px. */
+.hd-av { display: none; }
+@media (max-width: 599px) {
+  .hero-pic { display: none; }
+  .hd-av { display: inline-block; flex: none; width: 30px; height: 30px; margin-right: 10px; border-radius: 50%; overflow: hidden; }
+  .hd-av img { display: block; width: 100%; height: 100%; }
+  .hd-nav { --hg: clamp(12px, calc((100vw - 326px) / 4.6), 22px); gap: var(--hg); }
+  .hd-nav a::before { inset: -6px calc(var(--hg) / -2); }
+}
+@media (max-width: 399px) { .hd-av { width: 28px; height: 28px; margin-right: 9px; } }
+@media (max-width: 379px) {
+  .hd-av { width: 26px; height: 26px; margin-right: 7px; }
+  .hd-nav { --hg: 11px; }
+  .hd-nav a { font-size: 15px; }
+}
+@media (max-width: 359px) { .hd-av { display: none; } }
+@media (max-width: 339px) { .hd-nav { --hg: 10px; } .hd-name { font-size: 15px; } }
+@media (hover: none) { .pl-n .arr { display: none; } }
